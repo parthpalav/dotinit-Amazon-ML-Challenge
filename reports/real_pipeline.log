@@ -1,0 +1,340 @@
+2026-09-25 16:09:41,291 INFO Reusing verified train disk store
+2026-09-25 16:09:41,291 INFO Reusing verified test disk store
+2026-09-25 16:09:41,292 INFO Reusing verified train disk store
+2026-09-25 16:09:48,162 INFO validation feature batches=10/100 pairs=31986 elapsed=6.8s
+2026-09-25 16:09:51,741 INFO validation feature batches=20/100 pairs=63986 elapsed=10.4s
+2026-09-25 16:09:56,598 INFO validation feature batches=30/100 pairs=95964 elapsed=15.3s
+2026-09-25 16:10:00,374 INFO validation feature batches=40/100 pairs=127964 elapsed=19.1s
+2026-09-25 16:10:05,555 INFO validation feature batches=50/100 pairs=159964 elapsed=24.2s
+2026-09-25 16:10:08,934 INFO validation feature batches=60/100 pairs=191958 elapsed=27.6s
+2026-09-25 16:10:13,606 INFO validation feature batches=70/100 pairs=223956 elapsed=32.3s
+2026-09-25 16:10:17,050 INFO validation feature batches=80/100 pairs=255956 elapsed=35.7s
+2026-09-25 16:10:21,725 INFO validation feature batches=90/100 pairs=287956 elapsed=40.4s
+2026-09-25 16:10:25,206 INFO validation feature batches=100/100 pairs=319956 elapsed=43.9s
+2026-09-25 16:10:32,410 INFO calibration feature batches=10/50 pairs=31998 elapsed=6.8s
+2026-09-25 16:10:35,885 INFO calibration feature batches=20/50 pairs=63982 elapsed=10.3s
+2026-09-25 16:10:41,858 INFO calibration feature batches=30/50 pairs=95982 elapsed=16.3s
+2026-09-25 16:10:45,331 INFO calibration feature batches=40/50 pairs=127982 elapsed=19.7s
+2026-09-25 16:10:50,307 INFO calibration feature batches=50/50 pairs=159974 elapsed=24.7s
+2026-09-25 16:10:57,761 INFO fit feature batches=10/300 pairs=32000 elapsed=7.2s
+2026-09-25 16:11:01,277 INFO fit feature batches=20/300 pairs=63998 elapsed=10.7s
+2026-09-25 16:11:06,401 INFO fit feature batches=30/300 pairs=95998 elapsed=15.8s
+2026-09-25 16:11:10,307 INFO fit feature batches=40/300 pairs=127987 elapsed=19.7s
+2026-09-25 16:11:15,042 INFO fit feature batches=50/300 pairs=159976 elapsed=24.4s
+2026-09-25 16:11:19,288 INFO fit feature batches=60/300 pairs=191968 elapsed=28.7s
+2026-09-25 16:11:24,106 INFO fit feature batches=70/300 pairs=223968 elapsed=33.5s
+2026-09-25 16:11:28,149 INFO fit feature batches=80/300 pairs=255960 elapsed=37.5s
+2026-09-25 16:11:33,201 INFO fit feature batches=90/300 pairs=287960 elapsed=42.6s
+2026-09-25 16:11:36,887 INFO fit feature batches=100/300 pairs=319960 elapsed=46.3s
+2026-09-25 16:11:41,916 INFO fit feature batches=110/300 pairs=351939 elapsed=51.3s
+2026-09-25 16:11:45,859 INFO fit feature batches=120/300 pairs=383935 elapsed=55.3s
+2026-09-25 16:11:50,688 INFO fit feature batches=130/300 pairs=415935 elapsed=60.1s
+2026-09-25 16:11:54,250 INFO fit feature batches=140/300 pairs=447935 elapsed=63.6s
+2026-09-25 16:11:59,296 INFO fit feature batches=150/300 pairs=479933 elapsed=68.7s
+2026-09-25 16:12:02,994 INFO fit feature batches=160/300 pairs=511933 elapsed=72.4s
+2026-09-25 16:12:07,718 INFO fit feature batches=170/300 pairs=543933 elapsed=77.1s
+2026-09-25 16:12:11,327 INFO fit feature batches=180/300 pairs=575933 elapsed=80.7s
+2026-09-25 16:12:16,023 INFO fit feature batches=190/300 pairs=607932 elapsed=85.4s
+2026-09-25 16:12:19,560 INFO fit feature batches=200/300 pairs=639932 elapsed=89.0s
+2026-09-25 16:12:24,341 INFO fit feature batches=210/300 pairs=671930 elapsed=93.7s
+2026-09-25 16:12:27,818 INFO fit feature batches=220/300 pairs=703930 elapsed=97.2s
+2026-09-25 16:12:32,977 INFO fit feature batches=230/300 pairs=735924 elapsed=102.4s
+2026-09-25 16:12:36,381 INFO fit feature batches=240/300 pairs=767924 elapsed=105.8s
+2026-09-25 16:12:41,374 INFO fit feature batches=250/300 pairs=799912 elapsed=110.8s
+2026-09-25 16:12:45,199 INFO fit feature batches=260/300 pairs=831912 elapsed=114.6s
+2026-09-25 16:12:50,081 INFO fit feature batches=270/300 pairs=863912 elapsed=119.5s
+2026-09-25 16:12:53,777 INFO fit feature batches=280/300 pairs=895896 elapsed=123.2s
+2026-09-25 16:12:58,599 INFO fit feature batches=290/300 pairs=927872 elapsed=128.0s
+2026-09-25 16:13:02,297 INFO fit feature batches=300/300 pairs=959871 elapsed=131.7s
+2026-09-25 16:13:03,103 INFO Fitting exact_rule on 959871 real pairs (101605 positive, 858266 negative)
+2026-09-25 16:13:03,262 INFO exact_rule macro F0.5=0.119708 threshold=1.000000 precision=0.153900 recall=0.084190
+2026-09-25 16:13:03,262 INFO Fitting logistic_regression on 959871 real pairs (101605 positive, 858266 negative)
+2026-09-25 16:13:05,543 INFO logistic_regression macro F0.5=0.803431 threshold=0.650000 precision=0.858712 recall=0.718621
+2026-09-25 16:13:05,544 INFO Fitting random_forest on 959871 real pairs (101605 positive, 858266 negative)
+2026-09-25 16:14:06,253 INFO random_forest macro F0.5=0.875670 threshold=0.550000 precision=0.908929 recall=0.824108
+2026-09-25 16:14:06,253 INFO Fitting xgboost on 959871 real pairs (101605 positive, 858266 negative)
+2026-09-25 16:15:47,183 INFO xgboost macro F0.5=0.867307 threshold=0.600000 precision=0.901853 recall=0.814129
+2026-09-25 16:15:47,887 INFO Selected random_forest using validation F0.5; artifact=artifacts/real_model.joblib
+2026-09-25 16:15:47,933 INFO Reusing verified train disk store
+2026-09-25 16:16:30,148 INFO Full training blocking audit anchors=5000/2206821 recall=0.9787 elapsed=42.2s
+2026-09-25 16:17:18,720 INFO Full training blocking audit anchors=10000/2206821 recall=0.9774 elapsed=90.8s
+2026-09-25 16:18:56,783 INFO Full training blocking audit anchors=15000/2206821 recall=0.9777 elapsed=188.8s
+2026-09-25 16:19:23,519 INFO Full training blocking audit anchors=20000/2206821 recall=0.9776 elapsed=215.6s
+2026-09-25 16:20:23,003 INFO Full training blocking audit anchors=25000/2206821 recall=0.9778 elapsed=275.1s
+2026-09-25 16:20:55,265 INFO Full training blocking audit anchors=30000/2206821 recall=0.9774 elapsed=307.3s
+2026-09-25 16:21:32,339 INFO Full training blocking audit anchors=35000/2206821 recall=0.9769 elapsed=344.4s
+2026-09-25 16:22:03,768 INFO Full training blocking audit anchors=40000/2206821 recall=0.9764 elapsed=375.8s
+2026-09-25 16:22:37,491 INFO Full training blocking audit anchors=45000/2206821 recall=0.9765 elapsed=409.6s
+2026-09-25 16:23:10,576 INFO Full training blocking audit anchors=50000/2206821 recall=0.9764 elapsed=442.6s
+2026-09-25 16:23:36,708 INFO Full training blocking audit anchors=55000/2206821 recall=0.9762 elapsed=468.8s
+2026-09-25 16:24:08,436 INFO Full training blocking audit anchors=60000/2206821 recall=0.9761 elapsed=500.5s
+2026-09-25 16:24:39,953 INFO Full training blocking audit anchors=65000/2206821 recall=0.9761 elapsed=532.0s
+2026-09-25 16:26:50,071 INFO Full training blocking audit anchors=70000/2206821 recall=0.9761 elapsed=662.1s
+2026-09-25 16:27:21,132 INFO Full training blocking audit anchors=75000/2206821 recall=0.9761 elapsed=693.2s
+2026-09-25 16:50:43,916 INFO Full training blocking audit anchors=80000/2206821 recall=0.9761 elapsed=2096.0s
+2026-09-25 16:51:14,597 INFO Full training blocking audit anchors=85000/2206821 recall=0.9761 elapsed=2126.7s
+2026-09-25 17:24:31,861 INFO Full training blocking audit anchors=90000/2206821 recall=0.9760 elapsed=4123.9s
+2026-09-25 18:11:55,637 INFO Full training blocking audit anchors=95000/2206821 recall=0.9759 elapsed=6967.7s
+2026-09-25 18:15:16,085 INFO Full training blocking audit anchors=100000/2206821 recall=0.9760 elapsed=7168.1s
+2026-09-25 18:15:47,326 INFO Full training blocking audit anchors=105000/2206821 recall=0.9760 elapsed=7199.4s
+2026-09-25 18:16:10,481 INFO Full training blocking audit anchors=110000/2206821 recall=0.9761 elapsed=7222.5s
+2026-09-25 18:16:37,442 INFO Full training blocking audit anchors=115000/2206821 recall=0.9761 elapsed=7249.5s
+2026-09-25 18:17:04,519 INFO Full training blocking audit anchors=120000/2206821 recall=0.9760 elapsed=7276.6s
+2026-09-25 18:17:33,431 INFO Full training blocking audit anchors=125000/2206821 recall=0.9760 elapsed=7305.5s
+2026-09-25 18:18:05,161 INFO Full training blocking audit anchors=130000/2206821 recall=0.9759 elapsed=7337.2s
+2026-09-25 18:25:14,785 INFO Full training blocking audit anchors=135000/2206821 recall=0.9759 elapsed=7766.8s
+2026-09-25 18:25:45,394 INFO Full training blocking audit anchors=140000/2206821 recall=0.9760 elapsed=7797.5s
+2026-09-25 18:30:10,961 INFO Full training blocking audit anchors=145000/2206821 recall=0.9760 elapsed=8063.0s
+2026-09-25 18:30:23,629 INFO Full training blocking audit anchors=150000/2206821 recall=0.9760 elapsed=8075.7s
+2026-09-25 18:30:36,321 INFO Full training blocking audit anchors=155000/2206821 recall=0.9760 elapsed=8088.4s
+2026-09-25 18:30:49,819 INFO Full training blocking audit anchors=160000/2206821 recall=0.9761 elapsed=8101.9s
+2026-09-25 18:31:03,956 INFO Full training blocking audit anchors=165000/2206821 recall=0.9761 elapsed=8116.0s
+2026-09-25 18:31:23,561 INFO Full training blocking audit anchors=170000/2206821 recall=0.9760 elapsed=8135.6s
+2026-09-25 18:31:37,681 INFO Full training blocking audit anchors=175000/2206821 recall=0.9761 elapsed=8149.7s
+2026-09-25 18:31:52,271 INFO Full training blocking audit anchors=180000/2206821 recall=0.9760 elapsed=8164.3s
+2026-09-25 18:32:05,246 INFO Full training blocking audit anchors=185000/2206821 recall=0.9760 elapsed=8177.3s
+2026-09-25 18:32:22,002 INFO Full training blocking audit anchors=190000/2206821 recall=0.9760 elapsed=8194.1s
+2026-09-25 18:32:37,682 INFO Full training blocking audit anchors=195000/2206821 recall=0.9760 elapsed=8209.7s
+2026-09-25 18:32:51,963 INFO Full training blocking audit anchors=200000/2206821 recall=0.9760 elapsed=8224.0s
+2026-09-25 18:33:06,941 INFO Full training blocking audit anchors=205000/2206821 recall=0.9760 elapsed=8239.0s
+2026-09-25 18:33:21,564 INFO Full training blocking audit anchors=210000/2206821 recall=0.9759 elapsed=8253.6s
+2026-09-25 18:33:36,273 INFO Full training blocking audit anchors=215000/2206821 recall=0.9759 elapsed=8268.3s
+2026-09-25 18:33:52,077 INFO Full training blocking audit anchors=220000/2206821 recall=0.9759 elapsed=8284.1s
+2026-09-25 18:34:05,745 INFO Full training blocking audit anchors=225000/2206821 recall=0.9759 elapsed=8297.8s
+2026-09-25 18:34:19,819 INFO Full training blocking audit anchors=230000/2206821 recall=0.9760 elapsed=8311.9s
+2026-09-25 18:34:33,663 INFO Full training blocking audit anchors=235000/2206821 recall=0.9760 elapsed=8325.7s
+2026-09-25 18:34:46,752 INFO Full training blocking audit anchors=240000/2206821 recall=0.9760 elapsed=8338.8s
+2026-09-25 18:35:00,939 INFO Full training blocking audit anchors=245000/2206821 recall=0.9760 elapsed=8353.0s
+2026-09-25 18:35:15,375 INFO Full training blocking audit anchors=250000/2206821 recall=0.9760 elapsed=8367.4s
+2026-09-25 18:35:30,413 INFO Full training blocking audit anchors=255000/2206821 recall=0.9761 elapsed=8382.5s
+2026-09-25 18:35:43,996 INFO Full training blocking audit anchors=260000/2206821 recall=0.9760 elapsed=8396.1s
+2026-09-25 18:35:59,175 INFO Full training blocking audit anchors=265000/2206821 recall=0.9760 elapsed=8411.2s
+2026-09-25 18:36:13,190 INFO Full training blocking audit anchors=270000/2206821 recall=0.9760 elapsed=8425.3s
+2026-09-25 18:36:26,769 INFO Full training blocking audit anchors=275000/2206821 recall=0.9760 elapsed=8438.8s
+2026-09-25 18:36:41,178 INFO Full training blocking audit anchors=280000/2206821 recall=0.9760 elapsed=8453.2s
+2026-09-25 18:36:54,901 INFO Full training blocking audit anchors=285000/2206821 recall=0.9760 elapsed=8467.0s
+2026-09-25 18:37:08,794 INFO Full training blocking audit anchors=290000/2206821 recall=0.9760 elapsed=8480.9s
+2026-09-25 18:37:23,533 INFO Full training blocking audit anchors=295000/2206821 recall=0.9760 elapsed=8495.6s
+2026-09-25 18:37:38,510 INFO Full training blocking audit anchors=300000/2206821 recall=0.9760 elapsed=8510.6s
+2026-09-25 18:37:51,763 INFO Full training blocking audit anchors=305000/2206821 recall=0.9759 elapsed=8523.8s
+2026-09-25 18:38:06,044 INFO Full training blocking audit anchors=310000/2206821 recall=0.9759 elapsed=8538.1s
+2026-09-25 18:38:19,803 INFO Full training blocking audit anchors=315000/2206821 recall=0.9759 elapsed=8551.9s
+2026-09-25 18:38:34,019 INFO Full training blocking audit anchors=320000/2206821 recall=0.9759 elapsed=8566.1s
+2026-09-25 18:38:47,289 INFO Full training blocking audit anchors=325000/2206821 recall=0.9759 elapsed=8579.4s
+2026-09-25 18:39:01,789 INFO Full training blocking audit anchors=330000/2206821 recall=0.9759 elapsed=8593.8s
+2026-09-25 18:39:15,217 INFO Full training blocking audit anchors=335000/2206821 recall=0.9759 elapsed=8607.3s
+2026-09-25 18:39:29,486 INFO Full training blocking audit anchors=340000/2206821 recall=0.9759 elapsed=8621.5s
+2026-09-25 18:39:43,015 INFO Full training blocking audit anchors=345000/2206821 recall=0.9759 elapsed=8635.1s
+2026-09-25 18:39:56,766 INFO Full training blocking audit anchors=350000/2206821 recall=0.9759 elapsed=8648.8s
+2026-09-25 18:40:10,901 INFO Full training blocking audit anchors=355000/2206821 recall=0.9759 elapsed=8663.0s
+2026-09-25 18:40:24,894 INFO Full training blocking audit anchors=360000/2206821 recall=0.9758 elapsed=8677.0s
+2026-09-25 18:40:38,934 INFO Full training blocking audit anchors=365000/2206821 recall=0.9759 elapsed=8691.0s
+2026-09-25 18:40:52,308 INFO Full training blocking audit anchors=370000/2206821 recall=0.9759 elapsed=8704.4s
+2026-09-25 18:41:06,089 INFO Full training blocking audit anchors=375000/2206821 recall=0.9759 elapsed=8718.2s
+2026-09-25 18:41:20,090 INFO Full training blocking audit anchors=380000/2206821 recall=0.9759 elapsed=8732.2s
+2026-09-25 18:41:34,436 INFO Full training blocking audit anchors=385000/2206821 recall=0.9759 elapsed=8746.5s
+2026-09-25 18:41:48,508 INFO Full training blocking audit anchors=390000/2206821 recall=0.9759 elapsed=8760.6s
+2026-09-25 18:42:02,568 INFO Full training blocking audit anchors=395000/2206821 recall=0.9759 elapsed=8774.6s
+2026-09-25 18:42:16,524 INFO Full training blocking audit anchors=400000/2206821 recall=0.9759 elapsed=8788.6s
+2026-09-25 18:42:30,127 INFO Full training blocking audit anchors=405000/2206821 recall=0.9759 elapsed=8802.2s
+2026-09-25 18:42:44,225 INFO Full training blocking audit anchors=410000/2206821 recall=0.9759 elapsed=8816.3s
+2026-09-25 18:42:56,807 INFO Full training blocking audit anchors=415000/2206821 recall=0.9759 elapsed=8828.9s
+2026-09-25 18:43:08,857 INFO Full training blocking audit anchors=420000/2206821 recall=0.9759 elapsed=8840.9s
+2026-09-25 18:43:21,098 INFO Full training blocking audit anchors=425000/2206821 recall=0.9759 elapsed=8853.2s
+2026-09-25 18:43:32,797 INFO Full training blocking audit anchors=430000/2206821 recall=0.9759 elapsed=8864.9s
+2026-09-25 18:43:44,561 INFO Full training blocking audit anchors=435000/2206821 recall=0.9759 elapsed=8876.6s
+2026-09-25 18:43:56,705 INFO Full training blocking audit anchors=440000/2206821 recall=0.9759 elapsed=8888.8s
+2026-09-25 18:44:08,370 INFO Full training blocking audit anchors=445000/2206821 recall=0.9759 elapsed=8900.4s
+2026-09-25 18:44:20,388 INFO Full training blocking audit anchors=450000/2206821 recall=0.9759 elapsed=8912.4s
+2026-09-25 18:44:32,352 INFO Full training blocking audit anchors=455000/2206821 recall=0.9759 elapsed=8924.4s
+2026-09-25 18:44:44,295 INFO Full training blocking audit anchors=460000/2206821 recall=0.9758 elapsed=8936.4s
+2026-09-25 18:44:56,077 INFO Full training blocking audit anchors=465000/2206821 recall=0.9759 elapsed=8948.1s
+2026-09-25 18:45:07,600 INFO Full training blocking audit anchors=470000/2206821 recall=0.9758 elapsed=8959.7s
+2026-09-25 18:45:19,672 INFO Full training blocking audit anchors=475000/2206821 recall=0.9758 elapsed=8971.7s
+2026-09-25 18:45:31,430 INFO Full training blocking audit anchors=480000/2206821 recall=0.9758 elapsed=8983.5s
+2026-09-25 18:45:43,145 INFO Full training blocking audit anchors=485000/2206821 recall=0.9758 elapsed=8995.2s
+2026-09-25 18:45:55,136 INFO Full training blocking audit anchors=490000/2206821 recall=0.9758 elapsed=9007.2s
+2026-09-25 18:46:07,091 INFO Full training blocking audit anchors=495000/2206821 recall=0.9758 elapsed=9019.2s
+2026-09-25 18:46:19,140 INFO Full training blocking audit anchors=500000/2206821 recall=0.9758 elapsed=9031.2s
+2026-09-25 18:46:30,934 INFO Full training blocking audit anchors=505000/2206821 recall=0.9758 elapsed=9043.0s
+2026-09-25 18:46:42,623 INFO Full training blocking audit anchors=510000/2206821 recall=0.9758 elapsed=9054.7s
+2026-09-25 18:46:57,255 INFO Full training blocking audit anchors=515000/2206821 recall=0.9758 elapsed=9069.3s
+2026-09-25 18:47:11,847 INFO Full training blocking audit anchors=520000/2206821 recall=0.9758 elapsed=9083.9s
+2026-09-25 18:47:24,989 INFO Full training blocking audit anchors=525000/2206821 recall=0.9758 elapsed=9097.1s
+2026-09-25 18:47:38,212 INFO Full training blocking audit anchors=530000/2206821 recall=0.9758 elapsed=9110.3s
+2026-09-25 18:47:51,391 INFO Full training blocking audit anchors=535000/2206821 recall=0.9758 elapsed=9123.5s
+2026-09-25 18:48:04,623 INFO Full training blocking audit anchors=540000/2206821 recall=0.9758 elapsed=9136.7s
+2026-09-25 18:48:18,828 INFO Full training blocking audit anchors=545000/2206821 recall=0.9758 elapsed=9150.9s
+2026-09-25 18:48:31,448 INFO Full training blocking audit anchors=550000/2206821 recall=0.9758 elapsed=9163.5s
+2026-09-25 18:48:44,854 INFO Full training blocking audit anchors=555000/2206821 recall=0.9759 elapsed=9176.9s
+2026-09-25 18:48:58,467 INFO Full training blocking audit anchors=560000/2206821 recall=0.9759 elapsed=9190.5s
+2026-09-25 18:49:11,787 INFO Full training blocking audit anchors=565000/2206821 recall=0.9759 elapsed=9203.8s
+2026-09-25 18:49:25,110 INFO Full training blocking audit anchors=570000/2206821 recall=0.9759 elapsed=9217.2s
+2026-09-25 18:49:38,034 INFO Full training blocking audit anchors=575000/2206821 recall=0.9759 elapsed=9230.1s
+2026-09-25 18:49:51,148 INFO Full training blocking audit anchors=580000/2206821 recall=0.9759 elapsed=9243.2s
+2026-09-25 18:50:04,181 INFO Full training blocking audit anchors=585000/2206821 recall=0.9759 elapsed=9256.2s
+2026-09-25 18:50:17,065 INFO Full training blocking audit anchors=590000/2206821 recall=0.9759 elapsed=9269.1s
+2026-09-25 18:50:30,386 INFO Full training blocking audit anchors=595000/2206821 recall=0.9759 elapsed=9282.4s
+2026-09-25 18:50:43,324 INFO Full training blocking audit anchors=600000/2206821 recall=0.9759 elapsed=9295.4s
+2026-09-25 18:50:56,773 INFO Full training blocking audit anchors=605000/2206821 recall=0.9759 elapsed=9308.8s
+2026-09-25 18:51:10,207 INFO Full training blocking audit anchors=610000/2206821 recall=0.9759 elapsed=9322.3s
+2026-09-25 18:51:23,911 INFO Full training blocking audit anchors=615000/2206821 recall=0.9759 elapsed=9336.0s
+2026-09-25 18:51:37,615 INFO Full training blocking audit anchors=620000/2206821 recall=0.9759 elapsed=9349.7s
+2026-09-25 18:51:51,100 INFO Full training blocking audit anchors=625000/2206821 recall=0.9759 elapsed=9363.2s
+2026-09-25 18:52:04,192 INFO Full training blocking audit anchors=630000/2206821 recall=0.9759 elapsed=9376.3s
+2026-09-25 18:52:17,193 INFO Full training blocking audit anchors=635000/2206821 recall=0.9759 elapsed=9389.3s
+2026-09-25 18:52:30,827 INFO Full training blocking audit anchors=640000/2206821 recall=0.9759 elapsed=9402.9s
+2026-09-25 18:52:43,881 INFO Full training blocking audit anchors=645000/2206821 recall=0.9759 elapsed=9415.9s
+2026-09-25 18:52:56,978 INFO Full training blocking audit anchors=650000/2206821 recall=0.9759 elapsed=9429.0s
+2026-09-25 18:53:10,461 INFO Full training blocking audit anchors=655000/2206821 recall=0.9759 elapsed=9442.5s
+2026-09-25 18:53:24,221 INFO Full training blocking audit anchors=660000/2206821 recall=0.9759 elapsed=9456.3s
+2026-09-25 18:53:37,876 INFO Full training blocking audit anchors=665000/2206821 recall=0.9759 elapsed=9469.9s
+2026-09-25 18:53:51,502 INFO Full training blocking audit anchors=670000/2206821 recall=0.9759 elapsed=9483.6s
+2026-09-25 18:54:05,323 INFO Full training blocking audit anchors=675000/2206821 recall=0.9759 elapsed=9497.4s
+2026-09-25 18:54:18,561 INFO Full training blocking audit anchors=680000/2206821 recall=0.9759 elapsed=9510.6s
+2026-09-25 18:54:31,871 INFO Full training blocking audit anchors=685000/2206821 recall=0.9759 elapsed=9523.9s
+2026-09-25 18:54:45,151 INFO Full training blocking audit anchors=690000/2206821 recall=0.9758 elapsed=9537.2s
+2026-09-25 18:54:58,359 INFO Full training blocking audit anchors=695000/2206821 recall=0.9758 elapsed=9550.4s
+2026-09-25 18:55:11,826 INFO Full training blocking audit anchors=700000/2206821 recall=0.9758 elapsed=9563.9s
+2026-09-25 18:55:24,917 INFO Full training blocking audit anchors=705000/2206821 recall=0.9759 elapsed=9577.0s
+2026-09-25 18:55:37,670 INFO Full training blocking audit anchors=710000/2206821 recall=0.9759 elapsed=9589.7s
+2026-09-25 18:55:50,886 INFO Full training blocking audit anchors=715000/2206821 recall=0.9759 elapsed=9602.9s
+2026-09-25 18:56:04,160 INFO Full training blocking audit anchors=720000/2206821 recall=0.9759 elapsed=9616.2s
+2026-09-25 18:56:17,703 INFO Full training blocking audit anchors=725000/2206821 recall=0.9758 elapsed=9629.8s
+2026-09-25 18:56:30,904 INFO Full training blocking audit anchors=730000/2206821 recall=0.9758 elapsed=9643.0s
+2026-09-25 18:56:44,300 INFO Full training blocking audit anchors=735000/2206821 recall=0.9758 elapsed=9656.4s
+2026-09-25 18:56:57,242 INFO Full training blocking audit anchors=740000/2206821 recall=0.9758 elapsed=9669.3s
+2026-09-25 18:57:10,750 INFO Full training blocking audit anchors=745000/2206821 recall=0.9758 elapsed=9682.8s
+2026-09-25 18:57:24,052 INFO Full training blocking audit anchors=750000/2206821 recall=0.9758 elapsed=9696.1s
+2026-09-25 18:57:37,230 INFO Full training blocking audit anchors=755000/2206821 recall=0.9758 elapsed=9709.3s
+2026-09-25 18:57:51,025 INFO Full training blocking audit anchors=760000/2206821 recall=0.9758 elapsed=9723.1s
+2026-09-25 18:58:04,104 INFO Full training blocking audit anchors=765000/2206821 recall=0.9758 elapsed=9736.2s
+2026-09-25 18:58:17,278 INFO Full training blocking audit anchors=770000/2206821 recall=0.9758 elapsed=9749.3s
+2026-09-25 18:58:31,796 INFO Full training blocking audit anchors=775000/2206821 recall=0.9758 elapsed=9763.9s
+2026-09-25 18:58:44,435 INFO Full training blocking audit anchors=780000/2206821 recall=0.9758 elapsed=9776.5s
+2026-09-25 18:58:57,374 INFO Full training blocking audit anchors=785000/2206821 recall=0.9758 elapsed=9789.4s
+2026-09-25 18:59:10,429 INFO Full training blocking audit anchors=790000/2206821 recall=0.9758 elapsed=9802.5s
+2026-09-25 18:59:23,151 INFO Full training blocking audit anchors=795000/2206821 recall=0.9758 elapsed=9815.2s
+2026-09-25 18:59:35,908 INFO Full training blocking audit anchors=800000/2206821 recall=0.9758 elapsed=9828.0s
+2026-09-25 18:59:48,865 INFO Full training blocking audit anchors=805000/2206821 recall=0.9758 elapsed=9840.9s
+2026-09-25 19:00:01,245 INFO Full training blocking audit anchors=810000/2206821 recall=0.9758 elapsed=9853.3s
+2026-09-25 19:00:13,803 INFO Full training blocking audit anchors=815000/2206821 recall=0.9758 elapsed=9865.9s
+2026-09-25 19:00:26,535 INFO Full training blocking audit anchors=820000/2206821 recall=0.9759 elapsed=9878.6s
+2026-09-25 19:00:39,386 INFO Full training blocking audit anchors=825000/2206821 recall=0.9758 elapsed=9891.4s
+2026-09-25 19:00:51,881 INFO Full training blocking audit anchors=830000/2206821 recall=0.9758 elapsed=9903.9s
+2026-09-25 19:01:08,190 INFO Full training blocking audit anchors=835000/2206821 recall=0.9758 elapsed=9920.3s
+2026-09-25 19:01:22,270 INFO Full training blocking audit anchors=840000/2206821 recall=0.9758 elapsed=9934.3s
+2026-09-25 19:01:36,085 INFO Full training blocking audit anchors=845000/2206821 recall=0.9759 elapsed=9948.1s
+2026-09-25 19:01:49,062 INFO Full training blocking audit anchors=850000/2206821 recall=0.9759 elapsed=9961.1s
+2026-09-25 19:02:02,180 INFO Full training blocking audit anchors=855000/2206821 recall=0.9759 elapsed=9974.2s
+2026-09-25 19:02:15,734 INFO Full training blocking audit anchors=860000/2206821 recall=0.9759 elapsed=9987.8s
+2026-09-25 19:02:28,573 INFO Full training blocking audit anchors=865000/2206821 recall=0.9758 elapsed=10000.6s
+2026-09-25 19:02:42,174 INFO Full training blocking audit anchors=870000/2206821 recall=0.9759 elapsed=10014.2s
+2026-09-25 19:02:55,235 INFO Full training blocking audit anchors=875000/2206821 recall=0.9759 elapsed=10027.3s
+2026-09-25 19:03:08,267 INFO Full training blocking audit anchors=880000/2206821 recall=0.9759 elapsed=10040.3s
+2026-09-25 19:03:21,774 INFO Full training blocking audit anchors=885000/2206821 recall=0.9759 elapsed=10053.8s
+2026-09-25 19:03:35,196 INFO Full training blocking audit anchors=890000/2206821 recall=0.9759 elapsed=10067.3s
+2026-09-25 19:03:48,493 INFO Full training blocking audit anchors=895000/2206821 recall=0.9759 elapsed=10080.6s
+2026-09-25 19:04:01,406 INFO Full training blocking audit anchors=900000/2206821 recall=0.9759 elapsed=10093.5s
+2026-09-25 19:04:15,183 INFO Full training blocking audit anchors=905000/2206821 recall=0.9759 elapsed=10107.2s
+2026-09-25 19:04:28,046 INFO Full training blocking audit anchors=910000/2206821 recall=0.9759 elapsed=10120.1s
+2026-09-25 19:04:41,654 INFO Full training blocking audit anchors=915000/2206821 recall=0.9759 elapsed=10133.7s
+2026-09-25 19:04:54,603 INFO Full training blocking audit anchors=920000/2206821 recall=0.9759 elapsed=10146.7s
+2026-09-25 19:05:08,575 INFO Full training blocking audit anchors=925000/2206821 recall=0.9759 elapsed=10160.6s
+2026-09-25 19:05:22,013 INFO Full training blocking audit anchors=930000/2206821 recall=0.9759 elapsed=10174.1s
+2026-09-25 19:05:35,789 INFO Full training blocking audit anchors=935000/2206821 recall=0.9759 elapsed=10187.8s
+2026-09-25 19:05:48,698 INFO Full training blocking audit anchors=940000/2206821 recall=0.9759 elapsed=10200.8s
+2026-09-25 19:06:04,202 INFO Full training blocking audit anchors=945000/2206821 recall=0.9759 elapsed=10216.3s
+2026-09-25 19:14:00,931 INFO Full training blocking audit anchors=950000/2206821 recall=0.9759 elapsed=10693.0s
+2026-09-25 19:14:33,915 INFO Full training blocking audit anchors=955000/2206821 recall=0.9759 elapsed=10726.0s
+2026-09-25 19:15:04,347 INFO Full training blocking audit anchors=960000/2206821 recall=0.9759 elapsed=10756.4s
+2026-09-25 19:34:26,304 INFO Full training blocking audit anchors=965000/2206821 recall=0.9759 elapsed=11918.4s
+2026-09-25 19:34:56,970 INFO Full training blocking audit anchors=970000/2206821 recall=0.9759 elapsed=11949.0s
+2026-09-25 19:40:25,279 INFO Full training blocking audit anchors=975000/2206821 recall=0.9758 elapsed=12277.3s
+2026-09-25 19:40:40,830 INFO Full training blocking audit anchors=980000/2206821 recall=0.9759 elapsed=12292.9s
+2026-09-25 19:40:54,889 INFO Full training blocking audit anchors=985000/2206821 recall=0.9758 elapsed=12307.0s
+2026-09-25 19:41:15,877 INFO Full training blocking audit anchors=990000/2206821 recall=0.9758 elapsed=12327.9s
+2026-09-25 19:41:34,206 INFO Full training blocking audit anchors=995000/2206821 recall=0.9758 elapsed=12346.3s
+2026-09-25 19:41:54,849 INFO Full training blocking audit anchors=1000000/2206821 recall=0.9758 elapsed=12366.9s
+2026-09-25 19:42:10,662 INFO Full training blocking audit anchors=1005000/2206821 recall=0.9758 elapsed=12382.7s
+2026-09-25 19:42:25,126 INFO Full training blocking audit anchors=1010000/2206821 recall=0.9758 elapsed=12397.2s
+2026-09-25 19:42:39,929 INFO Full training blocking audit anchors=1015000/2206821 recall=0.9759 elapsed=12412.0s
+2026-09-25 19:42:53,671 INFO Full training blocking audit anchors=1020000/2206821 recall=0.9759 elapsed=12425.7s
+2026-09-25 19:43:16,233 INFO Full training blocking audit anchors=1025000/2206821 recall=0.9758 elapsed=12448.3s
+2026-09-25 19:43:44,810 INFO Full training blocking audit anchors=1030000/2206821 recall=0.9758 elapsed=12476.9s
+2026-09-25 19:44:12,747 INFO Full training blocking audit anchors=1035000/2206821 recall=0.9758 elapsed=12504.8s
+2026-09-25 19:44:33,410 INFO Full training blocking audit anchors=1040000/2206821 recall=0.9758 elapsed=12525.5s
+2026-09-25 19:44:50,723 INFO Full training blocking audit anchors=1045000/2206821 recall=0.9758 elapsed=12542.8s
+2026-09-25 19:45:09,405 INFO Full training blocking audit anchors=1050000/2206821 recall=0.9759 elapsed=12561.5s
+2026-09-25 19:45:25,411 INFO Full training blocking audit anchors=1055000/2206821 recall=0.9759 elapsed=12577.5s
+2026-09-25 19:45:41,058 INFO Full training blocking audit anchors=1060000/2206821 recall=0.9759 elapsed=12593.1s
+2026-09-25 19:46:00,324 INFO Full training blocking audit anchors=1065000/2206821 recall=0.9759 elapsed=12612.4s
+2026-09-25 19:46:17,758 INFO Full training blocking audit anchors=1070000/2206821 recall=0.9759 elapsed=12629.8s
+2026-09-25 19:46:37,205 INFO Full training blocking audit anchors=1075000/2206821 recall=0.9759 elapsed=12649.3s
+2026-09-25 19:46:53,284 INFO Full training blocking audit anchors=1080000/2206821 recall=0.9758 elapsed=12665.3s
+2026-09-25 19:47:07,434 INFO Full training blocking audit anchors=1085000/2206821 recall=0.9758 elapsed=12679.5s
+2026-09-25 19:47:21,264 INFO Full training blocking audit anchors=1090000/2206821 recall=0.9758 elapsed=12693.3s
+2026-09-25 19:47:35,604 INFO Full training blocking audit anchors=1095000/2206821 recall=0.9758 elapsed=12707.7s
+2026-09-25 19:47:49,367 INFO Full training blocking audit anchors=1100000/2206821 recall=0.9758 elapsed=12721.4s
+2026-09-25 19:48:02,374 INFO Full training blocking audit anchors=1105000/2206821 recall=0.9758 elapsed=12734.4s
+2026-09-25 19:48:16,330 INFO Full training blocking audit anchors=1110000/2206821 recall=0.9758 elapsed=12748.4s
+2026-09-25 19:48:30,152 INFO Full training blocking audit anchors=1115000/2206821 recall=0.9758 elapsed=12762.2s
+2026-09-25 19:48:44,336 INFO Full training blocking audit anchors=1120000/2206821 recall=0.9758 elapsed=12776.4s
+2026-09-25 19:48:57,922 INFO Full training blocking audit anchors=1125000/2206821 recall=0.9758 elapsed=12790.0s
+2026-09-25 19:49:11,450 INFO Full training blocking audit anchors=1130000/2206821 recall=0.9758 elapsed=12803.5s
+2026-09-25 19:49:24,872 INFO Full training blocking audit anchors=1135000/2206821 recall=0.9758 elapsed=12816.9s
+2026-09-25 19:49:38,332 INFO Full training blocking audit anchors=1140000/2206821 recall=0.9758 elapsed=12830.4s
+2026-09-25 19:49:53,298 INFO Full training blocking audit anchors=1145000/2206821 recall=0.9758 elapsed=12845.4s
+2026-09-25 19:50:06,719 INFO Full training blocking audit anchors=1150000/2206821 recall=0.9758 elapsed=12858.8s
+2026-09-25 19:50:20,116 INFO Full training blocking audit anchors=1155000/2206821 recall=0.9758 elapsed=12872.2s
+2026-09-25 19:50:34,257 INFO Full training blocking audit anchors=1160000/2206821 recall=0.9758 elapsed=12886.3s
+2026-09-25 19:50:48,703 INFO Full training blocking audit anchors=1165000/2206821 recall=0.9758 elapsed=12900.8s
+2026-09-25 19:51:02,315 INFO Full training blocking audit anchors=1170000/2206821 recall=0.9758 elapsed=12914.4s
+2026-09-25 19:51:16,028 INFO Full training blocking audit anchors=1175000/2206821 recall=0.9758 elapsed=12928.1s
+2026-09-25 19:51:30,849 INFO Full training blocking audit anchors=1180000/2206821 recall=0.9759 elapsed=12942.9s
+2026-09-25 19:51:45,486 INFO Full training blocking audit anchors=1185000/2206821 recall=0.9759 elapsed=12957.5s
+2026-09-25 19:52:00,024 INFO Full training blocking audit anchors=1190000/2206821 recall=0.9758 elapsed=12972.1s
+2026-09-25 19:52:14,462 INFO Full training blocking audit anchors=1195000/2206821 recall=0.9758 elapsed=12986.5s
+2026-09-25 19:52:32,945 INFO Full training blocking audit anchors=1200000/2206821 recall=0.9758 elapsed=13005.0s
+2026-09-25 19:52:47,424 INFO Full training blocking audit anchors=1205000/2206821 recall=0.9758 elapsed=13019.5s
+2026-09-25 19:53:01,880 INFO Full training blocking audit anchors=1210000/2206821 recall=0.9758 elapsed=13033.9s
+2026-09-25 19:53:15,536 INFO Full training blocking audit anchors=1215000/2206821 recall=0.9758 elapsed=13047.6s
+2026-09-25 19:53:32,155 INFO Full training blocking audit anchors=1220000/2206821 recall=0.9758 elapsed=13064.2s
+2026-09-25 19:53:48,634 INFO Full training blocking audit anchors=1225000/2206821 recall=0.9758 elapsed=13080.7s
+2026-09-25 19:54:06,396 INFO Full training blocking audit anchors=1230000/2206821 recall=0.9758 elapsed=13098.5s
+2026-09-25 19:54:24,748 INFO Full training blocking audit anchors=1235000/2206821 recall=0.9758 elapsed=13116.8s
+2026-09-25 19:54:39,544 INFO Full training blocking audit anchors=1240000/2206821 recall=0.9758 elapsed=13131.6s
+2026-09-25 19:54:52,892 INFO Full training blocking audit anchors=1245000/2206821 recall=0.9759 elapsed=13145.0s
+2026-09-25 19:55:07,422 INFO Full training blocking audit anchors=1250000/2206821 recall=0.9759 elapsed=13159.5s
+2026-09-25 19:55:22,510 INFO Full training blocking audit anchors=1255000/2206821 recall=0.9758 elapsed=13174.6s
+2026-09-25 19:55:36,042 INFO Full training blocking audit anchors=1260000/2206821 recall=0.9758 elapsed=13188.1s
+2026-09-25 19:55:49,745 INFO Full training blocking audit anchors=1265000/2206821 recall=0.9758 elapsed=13201.8s
+2026-09-25 19:56:04,014 INFO Full training blocking audit anchors=1270000/2206821 recall=0.9758 elapsed=13216.1s
+2026-09-25 19:56:22,421 INFO Full training blocking audit anchors=1275000/2206821 recall=0.9758 elapsed=13234.5s
+2026-09-25 19:56:37,886 INFO Full training blocking audit anchors=1280000/2206821 recall=0.9758 elapsed=13249.9s
+2026-09-25 19:56:51,512 INFO Full training blocking audit anchors=1285000/2206821 recall=0.9758 elapsed=13263.6s
+2026-09-25 19:57:04,981 INFO Full training blocking audit anchors=1290000/2206821 recall=0.9758 elapsed=13277.0s
+2026-09-25 19:57:18,348 INFO Full training blocking audit anchors=1295000/2206821 recall=0.9759 elapsed=13290.4s
+2026-09-25 19:57:31,994 INFO Full training blocking audit anchors=1300000/2206821 recall=0.9759 elapsed=13304.1s
+2026-09-25 19:57:45,252 INFO Full training blocking audit anchors=1305000/2206821 recall=0.9758 elapsed=13317.3s
+2026-09-25 19:58:00,774 INFO Full training blocking audit anchors=1310000/2206821 recall=0.9758 elapsed=13332.8s
+2026-09-25 19:58:15,397 INFO Full training blocking audit anchors=1315000/2206821 recall=0.9759 elapsed=13347.5s
+2026-09-25 19:58:29,072 INFO Full training blocking audit anchors=1320000/2206821 recall=0.9759 elapsed=13361.1s
+2026-09-25 19:58:42,558 INFO Full training blocking audit anchors=1325000/2206821 recall=0.9758 elapsed=13374.6s
+2026-09-25 19:58:56,029 INFO Full training blocking audit anchors=1330000/2206821 recall=0.9758 elapsed=13388.1s
+2026-09-25 19:59:08,961 INFO Full training blocking audit anchors=1335000/2206821 recall=0.9758 elapsed=13401.0s
+2026-09-25 19:59:21,862 INFO Full training blocking audit anchors=1340000/2206821 recall=0.9758 elapsed=13413.9s
+2026-09-25 19:59:34,059 INFO Full training blocking audit anchors=1345000/2206821 recall=0.9759 elapsed=13426.1s
+2026-09-25 19:59:49,313 INFO Full training blocking audit anchors=1350000/2206821 recall=0.9759 elapsed=13441.4s
+2026-09-25 20:00:04,676 INFO Full training blocking audit anchors=1355000/2206821 recall=0.9759 elapsed=13456.7s
+2026-09-25 20:00:17,953 INFO Full training blocking audit anchors=1360000/2206821 recall=0.9759 elapsed=13470.0s
+2026-09-25 20:00:31,638 INFO Full training blocking audit anchors=1365000/2206821 recall=0.9758 elapsed=13483.7s
+2026-09-25 20:00:44,811 INFO Full training blocking audit anchors=1370000/2206821 recall=0.9758 elapsed=13496.9s
+2026-09-25 20:01:00,271 INFO Full training blocking audit anchors=1375000/2206821 recall=0.9758 elapsed=13512.3s
+2026-09-25 20:01:13,310 INFO Full training blocking audit anchors=1380000/2206821 recall=0.9758 elapsed=13525.4s
+2026-09-25 20:01:27,435 INFO Full training blocking audit anchors=1385000/2206821 recall=0.9758 elapsed=13539.5s
+2026-09-25 20:01:41,252 INFO Full training blocking audit anchors=1390000/2206821 recall=0.9758 elapsed=13553.3s
+2026-09-25 20:01:55,296 INFO Full training blocking audit anchors=1395000/2206821 recall=0.9758 elapsed=13567.4s
+2026-09-25 20:02:08,929 INFO Full training blocking audit anchors=1400000/2206821 recall=0.9759 elapsed=13581.0s
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:400: UserWarning: resource_tracker: There appear to be 5 leaked semaphore objects to clean up at shutdown: {'/loky-3891-0xxdscwa', '/loky-3891-twlgzhcj', '/loky-3891-lyj6ariu', '/loky-3891-w25b92lt', '/loky-3891-xcm41e3e'}
+  warnings.warn(

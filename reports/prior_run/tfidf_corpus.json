@@ -1,0 +1,9 @@
+{
+  "fit_s1_rows": 30000,
+  "random_training_reference_rows": 70000,
+  "test_rows": 0,
+  "vocabularies": {
+    "name_norm": 30000,
+    "address_norm": 30000
+  }
+}

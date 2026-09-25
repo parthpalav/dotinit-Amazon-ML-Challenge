@@ -1,0 +1,11 @@
+{
+  "meaning": "Count of distinct identical raw (name,address,country) 64-bit fingerprints shared between sources; fingerprint equality is not proof of business identity.",
+  "distinct_shared_fingerprints": {
+    "train_source1_source2": 1,
+    "train_source1_source3": 17,
+    "train_source2_source3": 471,
+    "test_source1_source2": 0,
+    "test_source1_source3": 1642,
+    "test_source2_source3": 429
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "true_pairs": 3566,
+  "retained": {
+    "raw": 3434,
+    "old_16": 3129,
+    "old_32": 3185,
+    "old_64": 3269,
+    "old_128": 3347,
+    "balanced_16": 2968,
+    "balanced_32": 3062,
+    "balanced_64": 3111,
+    "balanced_128": 3154,
+    "ratio_16": 2978,
+    "ratio_32": 3047,
+    "ratio_64": 3117,
+    "ratio_128": 3185,
+    "hybrid_16": 3073,
+    "hybrid_32": 3104,
+    "hybrid_64": 3137,
+    "hybrid_128": 3164
+  },
+  "missing_examples": [
+    {
+      "anchor": [
+        "Future Engineering Private Limited",
+        "Plot No 34 And 35, Udayanandan Residency, Saroornagar, K.V.Rangareddy, Telangana"
+      ],
+      "missing": [
+        "ఫ్యూచర్ ఇంజనీరింగ్ ప్రైవేట్ లిమిటెడ్",
+        "Telangana, K.V.RANGAREDDY, NO G-34 AND 35, SAROORNAGAR"
+      ]
+    },
+    {
+      "anchor": [
+        "Al Prime International Private Limited",
+        "No. D-351, 2Nd Stage, Sfs 407 Yelahanka New Town, Bangalore, Karnataka"
+      ],
+      "missing": [
+        "Limited Al Prime Internati0nal Center",
+        "No. D-351, Bangalore, KA"
+      ]
+    },
+    {
+      "anchor": [
+        "Swastik Global",
+        "B/306, Jigneshwar Vihar Buldg. No#1 Gokul Township, Virar (West), Thane, Maharashtra"
+      ],
+      "missing": [
+        "Swastik Global Corporation",
+        "Plot 742 B/306, Thane, महाराष्ट्र"
+      ]
+    },
+    {
+      "anchor": [
+        "Swastik Global",
+        "B/306, Jigneshwar Vihar Buldg. No#1 Gokul Township, Virar (West), Thane, Maharashtra"
+      ],
+      "missing": [
+        "Swastik Giolbal",
+        "Plot 742 B/306, Thane, MH"
+      ]
+    },
+    {
+      "anchor": [
+        "New Energy Pvt Ltd",
+        "Arazino-283 Rasoolpur Mariyadeeh Vishnapuri Laneno-22, Prayagraj, Allahabad, Uttar Pradesh"
+      ],
+      "missing": [
+        "न्यू एनर्जी प्रा. लि.",
+        "ALLAHABAD, PRAYAGRAJ, उत्तर प्रदेश, ARAZINO-283 RASOOLPUR MARIYADEEH VISHNAPURI LANENO-22"
+      ]
+    },
+    {
+      "anchor": [
+        "Gangan Sales Corp",
+        "30, 2Nd Floor, Gopal Bhuvan, 199 Princess Street, Mumbai, Mumbai City, Maharashtra"
+      ],
+      "missing": [
+        "#gangansales",
+        "8-30, Mumbai City, MH"
+      ]
+    },
+    {
+      "anchor": [
+        "International Media Limited",
+        "No 38/3, 207A Mj Life Style A Mj Nagar Road, Choodasandra, Bengaluru, Bangalore, Karnataka"
+      ],
+      "missing": [
+        "International Limited Partners",
+        "No 38/3, Bengaluru, Bangalore, KA"
+      ]
+    },
+    {
+      "anchor": [
+        "Indore India Private Limited",
+        "Indore, Shop No. 707, Indore, Madhya Pradesh"
+      ],
+      "missing": [
+        "indore india private limited Enterprises",
+        ""
+      ]
+    },
+    {
+      "anchor": [
+        "Krishna Ace Agro Private Limited",
+        "Property No. 324, Ground Floor Sant Nagar, East Of Kailash, New Delhi, Delhi, New Delhi, Delhi"
+      ],
+      "missing": [
+        "कृष्णा एस एग्रो प्राइवेट लिमिटेड",
+        "Property No. C-324, Ground Floor Sant Nagar, East Of Kailash, New Delhi, Delhi, South, DL"
+      ]
+    },
+    {
+      "anchor": [
+        "Black Agro Private Limited",
+        "9-B, Friends Paradise, Shirole Road, Deccan, Shivajinagar, Pune, Maharashtra"
+      ],
+      "missing": [
+        "ब्लैक एग्रो प्राइवेट लिमिटेड",
+        "9-B, POONA, PUNE, Maharashtra"
+      ]
+    },
+    {
+      "anchor": [
+        "New Logistics Pvt Ltd",
+        "Wz - 135, Nimri Village, Shastri Nagar, Delhi, North West, Delhi"
+      ],
+      "missing": [
+        "न्यू लॉजिस्टिक्स प्रा. लि.",
+        "WZ - 135, DELHI, NORTH WEST, दिल्ली"
+      ]
+    },
+    {
+      "anchor": [
+        "New Logistics Pvt Ltd",
+        "Wz - 135, Nimri Village, Shastri Nagar, Delhi, North West, Delhi"
+      ],
+      "missing": [
+        "न्यू लॉजिस्टिक्स प्रा. लि.",
+        "#717 Wz - 135, Delhi, North West, DL"
+      ]
+    },
+    {
+      "anchor": [
+        "Fanechka Warner Oneim Inc",
+        "2032 108th Lane, Coon Rapids, MN"
+      ],
+      "missing": [
+        "@fanechkawamer",
+        "2032 108TH LN, MINNEAPOLIS, MN"
+      ]
+    },
+    {
+      "anchor": [
+        "Sree Foods Private Limited",
+        "12-13, Jaarno Ki Saray, Debari, Udaipur, Rajasthan"
+      ],
+      "missing": [
+        "श्री फूड्स प्राइवेट लिमिटेड",
+        "12-13, UDAIPUR, N/A, राजस्थान"
+      ]
+    },
+    {
+      "anchor": [
+        "Behavioral Health Clinic Inc",
+        "IL, 1203 Illinois Street, Oregon"
+      ],
+      "missing": [
+        "Behavioral Health",
+        "IL, OREGON, ILLINOIS STREET"
+      ]
+    },
+    {
+      "anchor": [
+        "National Health Center LLC",
+        "Garnett, 425 7th Avenue, KS"
+      ],
+      "missing": [
+        "National Hdh Center LLC",
+        ""
+      ]
+    },
+    {
+      "anchor": [
+        "Guerra Launchpad LLC",
+        "1736 Naughton Way, Swansea, IL"
+      ],
+      "missing": [
+        "Guerra Lsanshpad LLC",
+        "173 NAUGHTON WAY, PMB 7735, SWANSEA, IL"
+      ]
+    },
+    {
+      "anchor": [
+        "Royal Trading Limited",
+        "Jodhpuria, Vic: Jodhpuria, 210, Sirsa, Sirsa, Haryana"
+      ],
+      "missing": [
+        "रॉयल ट्रेडिंग लिमिटेड",
+        "Jodhpuria, Sirsa, हरियाणा"
+      ]
+    },
+    {
+      "anchor": [
+        "Golden It Pvt Ltd",
+        "Plot No-641(G.A), Kalinga Nagar, Bhubaneswar, Khordha, Orissa"
+      ],
+      "missing": [
+        "ଗୋଲଡେନ୍ ଆଇଟି ପ୍ରାଇଭେଟ୍ ଲିମିଟେଡ୍",
+        "PLOT NO-00641(G.A), KHANDAGIRI, Odisha"
+      ]
+    },
+    {
+      "anchor": [
+        "Eastern Consultancy Private Limited",
+        "No 539, Sumo Pinnacle, 2Nd Floor S Kariyappa Road, Jayanagar 7Th Block, Bangalore, Karnataka"
+      ],
+      "missing": [
+        "ಈಸ್ಟರ್ನ್ ಕನ್ಸಲ್ಟೆನ್ಸಿ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್",
+        "BANGALORE, NO 539, BANGALORE, Karnataka"
+      ]
+    }
+  ]
+}

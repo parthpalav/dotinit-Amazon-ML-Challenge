@@ -1,0 +1,18 @@
+{
+  "seed": 42,
+  "groups": {
+    "validation": {
+      "assigned_entities": 441364,
+      "sampled_entities": 10000
+    },
+    "calibration": {
+      "assigned_entities": 441364,
+      "sampled_entities": 5000
+    },
+    "fit": {
+      "assigned_entities": 1324093,
+      "sampled_entities": 30000
+    }
+  },
+  "method": "Seeded permutation of every training S1; disjoint group assignment then bounded S1 sampling. Every retrieved candidate of each sampled S1 retained."
+}

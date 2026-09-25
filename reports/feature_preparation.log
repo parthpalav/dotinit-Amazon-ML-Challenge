@@ -1,0 +1,2 @@
+INFO:src.real_pipeline:Entity sampling: {'validation': {'assigned_entities': 441364, 'sampled_entities': 10000}, 'calibration': {'assigned_entities': 441364, 'sampled_entities': 5000}, 'fit': {'assigned_entities': 1324093, 'sampled_entities': 30000}}
+work/real_v1/feature_engineer.joblib

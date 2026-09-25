@@ -1,0 +1,22 @@
+{
+  "true_pairs": 3453,
+  "raw_retained": 3399,
+  "anchors": 1000,
+  "raw_candidates": 588421,
+  "retained_top_8": 3319,
+  "retained_top_16": 3387,
+  "retained_top_32": 3394,
+  "retained_top_64": 3397,
+  "retained_top_128": 3399,
+  "recall": {
+    "8": 0.9611931653634521,
+    "16": 0.9808861859252823,
+    "32": 0.9829134086301766,
+    "64": 0.9837822183608457,
+    "128": 0.9843614248479583
+  },
+  "raw_recall": 0.9843614248479583,
+  "split_scope": "Held-out fitting entities; no calibration/validation/test labels used",
+  "fit_pairs": 1172542,
+  "fit_positives": 6856
+}

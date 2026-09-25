@@ -1,0 +1,23 @@
+         1086447 function calls (1086443 primitive calls) in 1.257 seconds
+
+   Ordered by: internal time
+   List reduced from 142 to 15 due to restriction <15>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        9    0.711    0.079    0.711    0.079 /Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/.venv/lib/python3.13/site-packages/rapidfuzz/process_cpp.py:94(cpdist)
+        1    0.210    0.210    1.257    1.257 /Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/coarse_ranker.py:18(coarse_features)
+   120564    0.117    0.000    0.131    0.000 /Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/coarse_ranker.py:43(<genexpr>)
+    60217    0.040    0.000    0.040    0.000 {method 'findall' of 're.Pattern' objects}
+    60282    0.039    0.000    0.042    0.000 /Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/coarse_ranker.py:39(<genexpr>)
+    60282    0.033    0.000    0.035    0.000 /Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/coarse_ranker.py:38(<genexpr>)
+        8    0.029    0.004    0.237    0.030 {built-in method numpy.fromiter}
+   120434    0.025    0.000    0.025    0.000 {method 'split' of 'str' objects}
+361717/361715    0.014    0.000    0.014    0.000 {built-in method builtins.len}
+    60217    0.012    0.000    0.068    0.000 /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/re/__init__.py:270(findall)
+    60217    0.010    0.000    0.015    0.000 /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/re/__init__.py:330(_compile)
+    60372    0.005    0.000    0.005    0.000 {built-in method builtins.isinstance}
+   120562    0.005    0.000    0.005    0.000 {built-in method builtins.max}
+        1    0.004    0.004    0.004    0.004 /Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/.venv/lib/python3.13/site-packages/numpy/lib/_shape_base_impl.py:607(column_stack)
+       13    0.001    0.000    0.001    0.000 {method 'astype' of 'numpy.ndarray' objects}
+
+

@@ -1,0 +1,5 @@
+{
+  "real_validation_candidates": 10000,
+  "max_probability_difference": 4.440892098500626e-16,
+  "same_threshold_decisions": true
+}

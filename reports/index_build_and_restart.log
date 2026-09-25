@@ -1,0 +1,211 @@
+test_source1 {'rows': 1732544, 'business_name_near_empty': 0, 'business_name_non_ascii': 40789, 'business_name_uppercase': 1732527, 'business_name_punctuation': 317477, 'business_address_near_empty': 0, 'business_address_non_ascii': 73800, 'business_address_uppercase': 1732544, 'business_address_punctuation': 1732544, 'embedded_url_hints': 0, 'embedded_email_hints': 268, 'labelled_phone_hints': 2, 'no_identifiers': 0, 'unique_ids': 1732544, 'duplicate_ids': 0, 'duplicate_business_fingerprints': 0, 'countries': {'India': 809986, 'US': 663106, 'France': 259452}, 'missing': {'entity_id': 0, 'business_name': 0, 'business_address': 0, 'country': 0}}
+test_source2 {'rows': 4887273, 'business_name_near_empty': 10166, 'business_name_non_ascii': 928158, 'business_name_uppercase': 4115139, 'business_name_punctuation': 2000796, 'business_address_near_empty': 129408, 'business_address_non_ascii': 720665, 'business_address_uppercase': 4757865, 'business_address_punctuation': 4757687, 'embedded_url_hints': 11856, 'embedded_email_hints': 12640, 'labelled_phone_hints': 5, 'no_identifiers': 0, 'unique_ids': 4887273, 'duplicate_ids': 0, 'duplicate_business_fingerprints': 22641, 'countries': {'India': 2312565, 'US': 1871330, 'France': 703378}, 'missing': {'entity_id': 0, 'business_name': 0, 'business_address': 129408, 'country': 0}}
+test_source3 {'rows': 5082316, 'business_name_near_empty': 19910, 'business_name_non_ascii': 737515, 'business_name_uppercase': 4519469, 'business_name_punctuation': 1900369, 'business_address_near_empty': 136098, 'business_address_non_ascii': 729222, 'business_address_uppercase': 4946109, 'business_address_punctuation': 4946076, 'embedded_url_hints': 12260, 'embedded_email_hints': 13368, 'labelled_phone_hints': 3, 'no_identifiers': 0, 'unique_ids': 5082316, 'duplicate_ids': 0, 'duplicate_business_fingerprints': 16293, 'countries': {'India': 2405000, 'US': 1945701, 'France': 731615}, 'missing': {'entity_id': 0, 'business_name': 0, 'business_address': 136098, 'country': 0}}
+train_ground_truth {'rows': 2206821, 'positive_pairs': 7638365, 'singletons': 123247, 'unique_ids': 2206821, 'duplicate_ids': 0, 'countries': {}, 'missing': {'source1_entity_id': 0, 'matched_entity_ids': 123247}}
+train_source1 {'rows': 2206821, 'business_name_near_empty': 0, 'business_name_non_ascii': 0, 'business_name_uppercase': 2206821, 'business_name_punctuation': 461669, 'business_address_near_empty': 0, 'business_address_non_ascii': 554, 'business_address_uppercase': 2206821, 'business_address_punctuation': 2206821, 'embedded_url_hints': 0, 'embedded_email_hints': 541, 'labelled_phone_hints': 0, 'no_identifiers': 0, 'unique_ids': 2206821, 'duplicate_ids': 0, 'duplicate_business_fingerprints': 0, 'countries': {'US': 1323633, 'India': 883188}, 'missing': {'entity_id': 0, 'business_name': 0, 'business_address': 0, 'country': 0}}
+train_source2 {'rows': 5034616, 'business_name_near_empty': 704, 'business_name_non_ascii': 764608, 'business_name_uppercase': 4288541, 'business_name_punctuation': 2158861, 'business_address_near_empty': 168967, 'business_address_non_ascii': 478453, 'business_address_uppercase': 4865649, 'business_address_punctuation': 4865649, 'embedded_url_hints': 15592, 'embedded_email_hints': 16996, 'labelled_phone_hints': 0, 'no_identifiers': 0, 'unique_ids': 5034616, 'duplicate_ids': 0, 'duplicate_business_fingerprints': 25873, 'countries': {'US': 3016817, 'India': 2017799}, 'missing': {'entity_id': 0, 'business_name': 0, 'business_address': 168967, 'country': 0}}
+train_source3 {'rows': 5285603, 'business_name_near_empty': 9275, 'business_name_non_ascii': 606737, 'business_name_uppercase': 4710739, 'business_name_punctuation': 2119387, 'business_address_near_empty': 175917, 'business_address_non_ascii': 476588, 'business_address_uppercase': 5109592, 'business_address_punctuation': 5109686, 'embedded_url_hints': 16526, 'embedded_email_hints': 17597, 'labelled_phone_hints': 0, 'no_identifiers': 0, 'unique_ids': 5285603, 'duplicate_ids': 0, 'duplicate_business_fingerprints': 18860, 'countries': {'US': 3170056, 'India': 2115547}, 'missing': {'entity_id': 0, 'business_name': 0, 'business_address': 175916, 'country': 0}}
+2026-09-25 15:43:40,119 INFO train S1 stored=500000 peak_RSS=1491 MiB
+2026-09-25 15:43:46,510 INFO train S1 stored=1000000 peak_RSS=1491 MiB
+2026-09-25 15:43:53,434 INFO train S1 stored=1500000 peak_RSS=1491 MiB
+2026-09-25 15:44:00,787 INFO train S1 stored=2000000 peak_RSS=1491 MiB
+2026-09-25 15:44:04,054 INFO train S1 complete rows=2206821
+2026-09-25 15:44:12,054 INFO train S2 stored=500000 peak_RSS=1491 MiB
+2026-09-25 15:44:20,611 INFO train S2 stored=1000000 peak_RSS=1491 MiB
+2026-09-25 15:44:29,926 INFO train S2 stored=1500000 peak_RSS=1491 MiB
+2026-09-25 15:44:39,488 INFO train S2 stored=2000000 peak_RSS=1491 MiB
+2026-09-25 15:44:49,788 INFO train S2 stored=2500000 peak_RSS=1491 MiB
+2026-09-25 15:45:00,743 INFO train S2 stored=3000000 peak_RSS=1491 MiB
+2026-09-25 15:45:12,338 INFO train S2 stored=3500000 peak_RSS=1491 MiB
+2026-09-25 15:45:24,595 INFO train S2 stored=4000000 peak_RSS=1491 MiB
+2026-09-25 15:45:37,304 INFO train S2 stored=4500000 peak_RSS=1491 MiB
+2026-09-25 15:45:50,507 INFO train S2 stored=5000000 peak_RSS=1491 MiB
+2026-09-25 15:45:51,531 INFO train S2 complete rows=5034616
+2026-09-25 15:45:59,441 INFO train S3 stored=500000 peak_RSS=1491 MiB
+2026-09-25 15:46:07,900 INFO train S3 stored=1000000 peak_RSS=1491 MiB
+2026-09-25 15:46:17,001 INFO train S3 stored=1500000 peak_RSS=1491 MiB
+2026-09-25 15:46:26,681 INFO train S3 stored=2000000 peak_RSS=1491 MiB
+2026-09-25 15:46:37,149 INFO train S3 stored=2500000 peak_RSS=1491 MiB
+2026-09-25 15:46:48,319 INFO train S3 stored=3000000 peak_RSS=1491 MiB
+2026-09-25 15:47:00,141 INFO train S3 stored=3500000 peak_RSS=1491 MiB
+2026-09-25 15:47:12,475 INFO train S3 stored=4000000 peak_RSS=1491 MiB
+2026-09-25 15:47:25,311 INFO train S3 stored=4500000 peak_RSS=1491 MiB
+2026-09-25 15:47:38,560 INFO train S3 stored=5000000 peak_RSS=1491 MiB
+2026-09-25 15:47:46,434 INFO train S3 complete rows=5285603
+2026-09-25 15:47:58,815 INFO train sorted key shard 1/16 postings=14141217 peak_RSS=1721 MiB
+2026-09-25 15:48:11,278 INFO train sorted key shard 2/16 postings=14040613 peak_RSS=1721 MiB
+2026-09-25 15:48:24,116 INFO train sorted key shard 3/16 postings=14675944 peak_RSS=1721 MiB
+2026-09-25 15:48:36,995 INFO train sorted key shard 4/16 postings=14365233 peak_RSS=1721 MiB
+2026-09-25 15:48:49,214 INFO train sorted key shard 5/16 postings=14033620 peak_RSS=1721 MiB
+2026-09-25 15:52:35,959 INFO train sorted key shard 6/16 postings=14591795 peak_RSS=1721 MiB
+2026-09-25 15:52:48,544 INFO train sorted key shard 7/16 postings=14699796 peak_RSS=1721 MiB
+2026-09-25 15:53:00,618 INFO train sorted key shard 8/16 postings=14027652 peak_RSS=1721 MiB
+2026-09-25 15:53:13,067 INFO train sorted key shard 9/16 postings=14460196 peak_RSS=1721 MiB
+2026-09-25 15:53:25,568 INFO train sorted key shard 10/16 postings=14185178 peak_RSS=1721 MiB
+2026-09-25 15:53:38,032 INFO train sorted key shard 11/16 postings=14168204 peak_RSS=1721 MiB
+2026-09-25 15:53:50,886 INFO train sorted key shard 12/16 postings=14537189 peak_RSS=1721 MiB
+2026-09-25 15:54:04,040 INFO train sorted key shard 13/16 postings=14709120 peak_RSS=1721 MiB
+2026-09-25 15:54:16,686 INFO train sorted key shard 14/16 postings=14548741 peak_RSS=1721 MiB
+2026-09-25 15:54:28,742 INFO train sorted key shard 15/16 postings=13893042 peak_RSS=1721 MiB
+2026-09-25 15:54:40,603 INFO train sorted key shard 16/16 postings=13862438 peak_RSS=1721 MiB
+2026-09-25 15:55:25,878 INFO test S1 stored=500000 peak_RSS=1721 MiB
+2026-09-25 15:55:32,426 INFO test S1 stored=1000000 peak_RSS=1721 MiB
+2026-09-25 15:55:39,473 INFO test S1 stored=1500000 peak_RSS=1721 MiB
+2026-09-25 15:55:42,965 INFO test S1 complete rows=1732544
+2026-09-25 15:55:51,248 INFO test S2 stored=500000 peak_RSS=1721 MiB
+2026-09-25 15:56:00,116 INFO test S2 stored=1000000 peak_RSS=1721 MiB
+2026-09-25 15:56:09,486 INFO test S2 stored=1500000 peak_RSS=1721 MiB
+2026-09-25 15:56:19,445 INFO test S2 stored=2000000 peak_RSS=1721 MiB
+2026-09-25 15:56:30,147 INFO test S2 stored=2500000 peak_RSS=1721 MiB
+2026-09-25 15:56:41,493 INFO test S2 stored=3000000 peak_RSS=1721 MiB
+2026-09-25 15:56:53,516 INFO test S2 stored=3500000 peak_RSS=1721 MiB
+2026-09-25 15:57:06,118 INFO test S2 stored=4000000 peak_RSS=1721 MiB
+2026-09-25 15:57:19,307 INFO test S2 stored=4500000 peak_RSS=1721 MiB
+2026-09-25 15:57:29,916 INFO test S2 complete rows=4887273
+2026-09-25 15:57:38,064 INFO test S3 stored=500000 peak_RSS=1721 MiB
+2026-09-25 15:57:46,834 INFO test S3 stored=1000000 peak_RSS=1721 MiB
+2026-09-25 15:57:56,393 INFO test S3 stored=1500000 peak_RSS=1721 MiB
+2026-09-25 15:58:06,496 INFO test S3 stored=2000000 peak_RSS=1721 MiB
+2026-09-25 15:58:17,230 INFO test S3 stored=2500000 peak_RSS=1721 MiB
+2026-09-25 15:58:28,690 INFO test S3 stored=3000000 peak_RSS=1721 MiB
+2026-09-25 15:58:40,808 INFO test S3 stored=3500000 peak_RSS=1721 MiB
+2026-09-25 15:58:53,485 INFO test S3 stored=4000000 peak_RSS=1721 MiB
+2026-09-25 15:59:06,713 INFO test S3 stored=4500000 peak_RSS=1721 MiB
+2026-09-25 15:59:20,542 INFO test S3 stored=5000000 peak_RSS=1721 MiB
+2026-09-25 15:59:22,989 INFO test S3 complete rows=5082316
+2026-09-25 15:59:35,342 INFO test sorted key shard 1/16 postings=13683071 peak_RSS=1721 MiB
+2026-09-25 15:59:47,929 INFO test sorted key shard 2/16 postings=13853739 peak_RSS=1721 MiB
+2026-09-25 16:00:00,496 INFO test sorted key shard 3/16 postings=14256494 peak_RSS=1721 MiB
+2026-09-25 16:00:12,757 INFO test sorted key shard 4/16 postings=13929388 peak_RSS=1721 MiB
+2026-09-25 16:00:24,751 INFO test sorted key shard 5/16 postings=13587693 peak_RSS=1721 MiB
+2026-09-25 16:00:37,153 INFO test sorted key shard 6/16 postings=14150875 peak_RSS=1721 MiB
+2026-09-25 16:00:49,774 INFO test sorted key shard 7/16 postings=14167632 peak_RSS=1721 MiB
+2026-09-25 16:01:01,976 INFO test sorted key shard 8/16 postings=13538941 peak_RSS=1721 MiB
+2026-09-25 16:01:13,997 INFO test sorted key shard 9/16 postings=13857553 peak_RSS=1721 MiB
+2026-09-25 16:01:26,091 INFO test sorted key shard 10/16 postings=13733840 peak_RSS=1721 MiB
+2026-09-25 16:01:38,110 INFO test sorted key shard 11/16 postings=13636835 peak_RSS=1721 MiB
+2026-09-25 16:01:50,566 INFO test sorted key shard 12/16 postings=14124096 peak_RSS=1721 MiB
+2026-09-25 16:02:03,147 INFO test sorted key shard 13/16 postings=14207238 peak_RSS=1721 MiB
+2026-09-25 16:02:15,566 INFO test sorted key shard 14/16 postings=13990025 peak_RSS=1721 MiB
+2026-09-25 16:02:27,514 INFO test sorted key shard 15/16 postings=13708505 peak_RSS=1721 MiB
+2026-09-25 16:02:39,408 INFO test sorted key shard 16/16 postings=13586549 peak_RSS=1721 MiB
+2026-09-25 16:02:47,676 INFO train supplementary records=500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:02:50,666 INFO train supplementary records=1000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:02:53,695 INFO train supplementary records=1500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:02:56,699 INFO train supplementary records=2000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:02:59,723 INFO train supplementary records=2500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:02,757 INFO train supplementary records=3000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:05,802 INFO train supplementary records=3500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:08,834 INFO train supplementary records=4000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:11,938 INFO train supplementary records=4500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:14,955 INFO train supplementary records=5000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:18,022 INFO train supplementary records=5500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:20,992 INFO train supplementary records=6000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:24,032 INFO train supplementary records=6500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:27,023 INFO train supplementary records=7000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:30,063 INFO train supplementary records=7500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:33,054 INFO train supplementary records=8000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:36,044 INFO train supplementary records=8500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:39,027 INFO train supplementary records=9000000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:42,040 INFO train supplementary records=9500000/10320219 peak_RSS=1721 MiB
+2026-09-25 16:03:45,016 INFO train supplementary records=10000000/10320219 peak_RSS=1724 MiB
+2026-09-25 16:03:52,423 INFO train supplementary sorted shard=1/16 entries=6347992
+2026-09-25 16:03:58,144 INFO train supplementary sorted shard=2/16 entries=6680918
+2026-09-25 16:04:03,763 INFO train supplementary sorted shard=3/16 entries=6615184
+2026-09-25 16:04:09,806 INFO train supplementary sorted shard=4/16 entries=7005440
+2026-09-25 16:04:15,805 INFO train supplementary sorted shard=5/16 entries=6902482
+2026-09-25 16:04:21,981 INFO train supplementary sorted shard=6/16 entries=7108677
+2026-09-25 16:04:27,477 INFO train supplementary sorted shard=7/16 entries=6611851
+2026-09-25 16:04:33,236 INFO train supplementary sorted shard=8/16 entries=6814354
+2026-09-25 16:04:38,909 INFO train supplementary sorted shard=9/16 entries=6691183
+2026-09-25 16:04:44,654 INFO train supplementary sorted shard=10/16 entries=6777542
+2026-09-25 16:04:50,052 INFO train supplementary sorted shard=11/16 entries=6533129
+2026-09-25 16:04:55,937 INFO train supplementary sorted shard=12/16 entries=6912985
+2026-09-25 16:05:01,366 INFO train supplementary sorted shard=13/16 entries=6550573
+2026-09-25 16:05:06,730 INFO train supplementary sorted shard=14/16 entries=6275342
+2026-09-25 16:05:12,009 INFO train supplementary sorted shard=15/16 entries=6216066
+2026-09-25 16:05:17,306 INFO train supplementary sorted shard=16/16 entries=6157639
+2026-09-25 16:05:26,396 INFO test supplementary records=500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:29,501 INFO test supplementary records=1000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:32,591 INFO test supplementary records=1500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:35,766 INFO test supplementary records=2000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:39,193 INFO test supplementary records=2500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:42,721 INFO test supplementary records=3000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:46,237 INFO test supplementary records=3500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:49,565 INFO test supplementary records=4000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:52,844 INFO test supplementary records=4500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:56,141 INFO test supplementary records=5000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:05:59,312 INFO test supplementary records=5500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:02,539 INFO test supplementary records=6000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:06,101 INFO test supplementary records=6500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:09,451 INFO test supplementary records=7000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:12,685 INFO test supplementary records=7500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:15,856 INFO test supplementary records=8000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:19,001 INFO test supplementary records=8500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:22,160 INFO test supplementary records=9000000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:25,375 INFO test supplementary records=9500000/9969589 peak_RSS=2288 MiB
+2026-09-25 16:06:34,199 INFO test supplementary sorted shard=1/16 entries=6769528
+2026-09-25 16:06:40,327 INFO test supplementary sorted shard=2/16 entries=7124072
+2026-09-25 16:06:46,464 INFO test supplementary sorted shard=3/16 entries=7088585
+2026-09-25 16:06:53,004 INFO test supplementary sorted shard=4/16 entries=7482155
+2026-09-25 16:06:59,392 INFO test supplementary sorted shard=5/16 entries=7391008
+2026-09-25 16:07:06,048 INFO test supplementary sorted shard=6/16 entries=7642342
+2026-09-25 16:07:12,215 INFO test supplementary sorted shard=7/16 entries=7063046
+2026-09-25 16:07:18,560 INFO test supplementary sorted shard=8/16 entries=7301561
+2026-09-25 16:07:24,730 INFO test supplementary sorted shard=9/16 entries=7131484
+2026-09-25 16:07:30,920 INFO test supplementary sorted shard=10/16 entries=7196800
+2026-09-25 16:07:37,022 INFO test supplementary sorted shard=11/16 entries=7009497
+2026-09-25 16:07:43,512 INFO test supplementary sorted shard=12/16 entries=7409112
+2026-09-25 16:07:49,625 INFO test supplementary sorted shard=13/16 entries=7012218
+2026-09-25 16:07:55,348 INFO test supplementary sorted shard=14/16 entries=6618851
+2026-09-25 16:08:00,987 INFO test supplementary sorted shard=15/16 entries=6630664
+2026-09-25 16:08:06,456 INFO test supplementary sorted shard=16/16 entries=6476046
+2026-09-25 16:08:06,742 INFO Reusing verified train disk store
+2026-09-25 16:08:10,788 INFO Retrieval ranker fitting anchors=100/2000 pairs=59400 elapsed=4.0s
+2026-09-25 16:08:13,582 INFO Retrieval ranker fitting anchors=200/2000 pairs=119141 elapsed=6.8s
+2026-09-25 16:08:15,919 INFO Retrieval ranker fitting anchors=300/2000 pairs=175702 elapsed=9.1s
+2026-09-25 16:08:17,907 INFO Retrieval ranker fitting anchors=400/2000 pairs=233548 elapsed=11.1s
+2026-09-25 16:08:19,750 INFO Retrieval ranker fitting anchors=500/2000 pairs=284258 elapsed=13.0s
+2026-09-25 16:08:21,474 INFO Retrieval ranker fitting anchors=600/2000 pairs=345181 elapsed=14.7s
+2026-09-25 16:08:23,147 INFO Retrieval ranker fitting anchors=700/2000 pairs=404346 elapsed=16.4s
+2026-09-25 16:08:24,638 INFO Retrieval ranker fitting anchors=800/2000 pairs=466106 elapsed=17.8s
+2026-09-25 16:08:25,898 INFO Retrieval ranker fitting anchors=900/2000 pairs=520572 elapsed=19.1s
+2026-09-25 16:08:27,108 INFO Retrieval ranker fitting anchors=1000/2000 pairs=575813 elapsed=20.3s
+2026-09-25 16:08:28,491 INFO Retrieval ranker fitting anchors=1100/2000 pairs=640440 elapsed=21.7s
+2026-09-25 16:08:29,656 INFO Retrieval ranker fitting anchors=1200/2000 pairs=700992 elapsed=22.9s
+2026-09-25 16:08:30,750 INFO Retrieval ranker fitting anchors=1300/2000 pairs=758592 elapsed=24.0s
+2026-09-25 16:08:31,952 INFO Retrieval ranker fitting anchors=1400/2000 pairs=822650 elapsed=25.2s
+2026-09-25 16:08:32,812 INFO Retrieval ranker fitting anchors=1500/2000 pairs=873496 elapsed=26.0s
+2026-09-25 16:08:33,796 INFO Retrieval ranker fitting anchors=1600/2000 pairs=931230 elapsed=27.0s
+2026-09-25 16:08:34,777 INFO Retrieval ranker fitting anchors=1700/2000 pairs=990756 elapsed=28.0s
+2026-09-25 16:08:35,853 INFO Retrieval ranker fitting anchors=1800/2000 pairs=1056771 elapsed=29.1s
+2026-09-25 16:08:36,749 INFO Retrieval ranker fitting anchors=1900/2000 pairs=1111900 elapsed=30.0s
+2026-09-25 16:08:37,795 INFO Retrieval ranker fitting anchors=2000/2000 pairs=1172542 elapsed=31.0s
+2026-09-25 16:08:51,406 INFO Retrieval ranker held-out fitting results: {'true_pairs': 3453, 'raw_retained': 3399, 'anchors': 1000, 'raw_candidates': 588421, 'retained_top_8': 3319, 'retained_top_16': 3387, 'retained_top_32': 3394, 'retained_top_64': 3397, 'retained_top_128': 3399, 'recall': {'8': 0.9611931653634521, '16': 0.9808861859252823, '32': 0.9829134086301766, '64': 0.9837822183608457, '128': 0.9843614248479583}, 'raw_recall': 0.9843614248479583, 'split_scope': 'Held-out fitting entities; no calibration/validation/test labels used', 'fit_pairs': 1172542, 'fit_positives': 6856}
+2026-09-25 16:09:03,417 INFO validation feature batches=10/100 pairs=31986 elapsed=12.0s
+2026-09-25 16:09:12,311 INFO validation feature batches=20/100 pairs=63986 elapsed=20.9s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/real_pipeline.py", line 312, in <module>
+    generate(config)
+    
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/real_pipeline.py", line 306, in main
+    if args.command in ('train','run'):train_real(config)
+                                       ~~~~~~~~~~^^^^^^^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/real_pipeline.py", line 192, in train_real
+    data={name:feature_subset(config,name,ids,engineer_path,target_count) for name,ids in selected.items()}
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/real_pipeline.py", line 173, in feature_subset
+    for i,(pairs,features,summary,counts) in enumerate(pool_results(config,'train',batches,'features',str(engineer_path))):
+                                             ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/real_pipeline.py", line 87, in pool_results
+    yield pending.popleft().result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 451, in result
+    self._condition.wait(timeout)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/threading.py", line 359, in wait
+    waiter.acquire()
+    ~~~~~~~~~~~~~~^^
+KeyboardInterrupt

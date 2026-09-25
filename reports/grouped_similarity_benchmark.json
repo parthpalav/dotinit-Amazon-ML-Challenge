@@ -1,0 +1,74 @@
+[
+  {
+    "field": "name_norm",
+    "scorer": "ratio",
+    "flat_seconds": 0.011129124999570195,
+    "grouped_seconds": 0.006332583000585146,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "name_norm",
+    "scorer": "WRatio",
+    "flat_seconds": 0.10672329199951491,
+    "grouped_seconds": 0.07955620800021279,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "name_norm",
+    "scorer": "token_set_ratio",
+    "flat_seconds": 0.05391937500007771,
+    "grouped_seconds": 0.048599208000268845,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "name_norm",
+    "scorer": "token_sort_ratio",
+    "flat_seconds": 0.053631834000043455,
+    "grouped_seconds": 0.04470225000022765,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "name_norm",
+    "scorer": "normalized_similarity",
+    "flat_seconds": 0.020483750000494183,
+    "grouped_seconds": 0.012785833000634739,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "address_norm",
+    "scorer": "ratio",
+    "flat_seconds": 0.018638333000126295,
+    "grouped_seconds": 0.008492957999806094,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "address_norm",
+    "scorer": "WRatio",
+    "flat_seconds": 0.2186243750002177,
+    "grouped_seconds": 0.16479208400050993,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "address_norm",
+    "scorer": "token_set_ratio",
+    "flat_seconds": 0.12385325000013836,
+    "grouped_seconds": 0.10540475000016158,
+    "exact_equal": true,
+    "max_difference": 0.0
+  },
+  {
+    "field": "address_norm",
+    "scorer": "token_sort_ratio",
+    "flat_seconds": 0.09407474999989063,
+    "grouped_seconds": 0.046312958000271465,
+    "exact_equal": true,
+    "max_difference": 0.0
+  }
+]

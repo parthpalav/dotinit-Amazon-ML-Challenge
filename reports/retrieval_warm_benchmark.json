@@ -1,0 +1,23 @@
+[
+  {
+    "anchors": 100,
+    "raw_candidates": 60281,
+    "retrieval_seconds": 6.555977583000185,
+    "coarse_features_seconds": 0.8770691670001725,
+    "peak_rss_mb": 2177.84375
+  },
+  {
+    "anchors": 100,
+    "raw_candidates": 61790,
+    "retrieval_seconds": 4.625408290999985,
+    "coarse_features_seconds": 0.8348437499998909,
+    "peak_rss_mb": 2897.234375
+  },
+  {
+    "anchors": 100,
+    "raw_candidates": 60431,
+    "retrieval_seconds": 3.413488457999847,
+    "coarse_features_seconds": 0.8352985000001354,
+    "peak_rss_mb": 3395.078125
+  }
+]
