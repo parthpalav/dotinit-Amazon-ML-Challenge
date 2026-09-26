@@ -1,4 +1,4 @@
-> **Active follow-up (2026-09-27):** Raw-text correction models trained on RTX 4060 improved development F0.5 from 0.9577 to 0.9652 (full) / 0.9649 (minimal). Fresh 5,000-anchor validation is running; no new submission is promoted yet. The Amazon champion remains 0.942. See [live handover](reports/campaign_0942/RETHINK.md) for commands, checkpoints, limitations, and next experiments.
+> **Active follow-up (2026-09-27):** Fresh 5,000-anchor validation improved from **0.95994 to 0.96732**, with false matches reduced from **233 to 143**. Full-test raw-text correction is now running with resumable checkpoints. This is local evidence, not an Amazon score; the evaluated champion remains **0.942**. See [live handover](reports/campaign_0942/RETHINK.md) for results, commands, and concurrent reverse-retrieval/neural experiments.
 
 > **Latest result:** France-only rollback scored **0.941** and is not promoted. Main and alias remain best at **0.942**. Further work is auditing matching errors and validation realism; no country rollback is recommended.
 

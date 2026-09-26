@@ -56,12 +56,20 @@ def subset(part,mask):
     return {'pairs':pairs,'truth_counts':{k:v for k,v in part['truth_counts'].items() if k in ids}}
 
 
-def train(minimal=False):
+def train(minimal=False,reverse=False):
     parts=[]; xs=[]; ps=[]; rs=[];offset=0
     for split in ['selection','v3','v4']:
-        d=joblib.load(ROOT/(split+'_raw.joblib'));parts.append(d['part']);xs.append(d['X']);ps.append(d['p']);rs.append(d['rows']+offset);offset+=len(d['p'])
+        d=joblib.load(ROOT/(split+'_raw.joblib'))
+        if reverse:
+            from .campaign_reverse import evidence
+            path=ROOT/(split+'_reverse_features.joblib')
+            if path.exists():rx=joblib.load(path)
+            else:
+                con=connect('work/windows_v1/train/records.sqlite',True);rx=evidence(d['part']['pairs'].iloc[d['rows']],joblib.load(ROOT/(split+'_competitors.joblib')),con);joblib.dump(rx,path);con.close()
+            assert rx.index.equals(d['X'].index);d['X']=pd.concat([d['X'],rx],axis=1)
+        parts.append(d['part']);xs.append(d['X']);ps.append(d['p']);rs.append(d['rows']+offset);offset+=len(d['p'])
     X=pd.concat(xs,ignore_index=True);p=np.concatenate(ps);rows=np.concatenate(rs)
-    if minimal:X=X[[c for c in X.columns if c.startswith('raw_') or c=='current_probability']]
+    if minimal or reverse:X=X[[c for c in X.columns if c.startswith(('raw_','reverse_')) or c=='current_probability']]
     part={'pairs':pd.concat([v['pairs'] for v in parts],ignore_index=True),'truth_counts':{k:v for d in parts for k,v in d['truth_counts'].items()}}
     ids=np.array(list(part['truth_counts']),dtype=object);np.random.default_rng(20260929).shuffle(ids)
     # 14k fit, 3k early stopping/calibration, 3k development selection.
@@ -73,17 +81,17 @@ def train(minimal=False):
         started=time.time();model=CatBoostClassifier(iterations=1800,depth=depth,learning_rate=.035,l2_leaf_reg=10,loss_function='Logloss',task_type='GPU',devices='0',random_seed=44,thread_count=3,allow_writing_files=False,verbose=200)
         model.fit(X.loc[fit],y[fit],eval_set=(X.loc[cal],y[cal]),early_stopping_rounds=150)
         matcher=CalibratedMatcher(model);matcher.calibrate(X.loc[cal],y[cal]);q=p.copy();q[rows]=predict({'matcher':matcher,'feature_names':X.columns.tolist()},X)
-        stem=f'raw_{"minimal" if minimal else "residual"}_d{depth}';joblib.dump({'matcher':matcher,'feature_names':X.columns.tolist(),'gate':GATE,'training_ids':ids[6000:],'calibration_ids':ids[3000:6000]},ART/(stem+'.joblib'))
+        stem=f'raw_{"reverse" if reverse else "minimal" if minimal else "residual"}_d{depth}';joblib.dump({'matcher':matcher,'feature_names':X.columns.tolist(),'gate':GATE,'training_ids':ids[6000:],'calibration_ids':ids[3000:6000]},ART/(stem+'.joblib'))
         np.save(ROOT/(stem+'_development_p.npy'),q)
         for weight in [0.5,1.0]:
             qq=(1-weight)*p+weight*q;t,_=choose(sp,qq[select]);r={'model':stem,'weight':weight,'threshold':t,'trees':model.tree_count_,'seconds':time.time()-started,**evaluate(sp,qq[select],t)};report['experiments'].append(r);print('RAW_RESULT',json.dumps(r),flush=True)
-        (OUT/('raw_minimal_selection.json' if minimal else 'raw_selection.json')).write_text(json.dumps(report,indent=2),encoding='utf-8')
+        (OUT/('raw_reverse_selection.json' if reverse else 'raw_minimal_selection.json' if minimal else 'raw_selection.json')).write_text(json.dumps(report,indent=2),encoding='utf-8')
         del matcher,model;gc.collect()
     print('RAW_DONE',json.dumps(report),flush=True)
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=['prepare','train']);parser.add_argument('--minimal',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=['prepare','train']);parser.add_argument('--minimal',action='store_true');parser.add_argument('--reverse',action='store_true');args=parser.parse_args()
     for folder in [ROOT,OUT,ART]:folder.mkdir(parents=True,exist_ok=True)
-    if args.stage=='train':train(args.minimal)
+    if args.stage=='train':train(args.minimal,args.reverse)
     else:prepare()

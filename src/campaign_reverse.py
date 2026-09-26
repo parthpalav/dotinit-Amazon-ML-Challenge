@@ -47,7 +47,12 @@ class Reverse:
         self.native.lookup=SortedLookup(self.native)
 
     def candidates(self,targets,topk=4):
-        rr,mm,oo=self.native.lookup(self.native.keys(targets),240)
+        keys=self.native.keys(targets)
+        # For competing-owner evidence, broad token/postal/address-LSH postings
+        # swamp the useful alternatives. Keep name LSH, exact name/address and
+        # name+street-number keys; this is not a replacement forward blocker.
+        keys[:,1:4]=0;keys[:,12:21]=0
+        rr,mm,oo=self.native.lookup(keys,120)
         anc=fetch_records(self.con,'anchors',np.unique(rr));ai=np.searchsorted(anc.rid.to_numpy(),rr);ti=np.repeat(np.arange(len(targets)),np.diff(oo))
         if not len(rr):return pd.DataFrame(columns=['anchor_rid','target_rid','source1_entity_id','candidate_entity_id','blocking_rules'])
         ns=process.cpdist(anc.name_norm.to_numpy()[ai],targets.name_norm.to_numpy()[ti],scorer=fuzz.ratio,dtype=np.float32,workers=1)/100
@@ -63,7 +68,7 @@ class Reverse:
 def prepare():
     rev=Reverse('train')
     for split in ['selection','v3','v4']:
-        data=joblib.load(ROOT/(split+'_raw.joblib'));pairs=data['part']['pairs'].iloc[data['rows']];folder=ROOT/('competitors_'+split);folder.mkdir(exist_ok=True)
+        data=joblib.load(ROOT/(split+'_raw.joblib'));pairs=data['part']['pairs'].iloc[data['rows']];folder=ROOT/('competitors_name_address_'+split);folder.mkdir(exist_ok=True)
         ids=np.sort(pairs.target_rid.unique());blocks=[]
         for start in range(0,len(ids),400):
             path=folder/f'{start:07d}.joblib'
