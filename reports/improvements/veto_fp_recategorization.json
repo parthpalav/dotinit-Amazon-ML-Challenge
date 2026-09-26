@@ -1,0 +1,279 @@
+{
+  "total_fps": 873,
+  "threshold": 0.6750000000000003,
+  "breakdown": {
+    "other": {
+      "count": 620,
+      "percentage": 71.02
+    },
+    "franchise_or_multi_location": {
+      "count": 250,
+      "percentage": 28.64
+    },
+    "shared_address_different_name": {
+      "count": 144,
+      "percentage": 16.49
+    },
+    "street_number_conflict": {
+      "count": 117,
+      "percentage": 13.4
+    },
+    "legal_suffix_or_type_mismatch": {
+      "count": 4,
+      "percentage": 0.46
+    }
+  },
+  "samples": {
+    "duplicate_target_conflict": [],
+    "street_number_conflict": [
+      {
+        "s1_id": "S1-15908893",
+        "target_id": "S3-17709024",
+        "prob": 0.8784456147603914,
+        "s1_name": "huskey value freedom p c",
+        "target_name": "huskey engineering value p c",
+        "s1_address": "il 820 wagner rd glenview",
+        "target_address": "82 wagner rd glenview illinois",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-202485774",
+        "target_id": "S3-495724915",
+        "prob": 0.8089759721622921,
+        "s1_name": "chandresh manure",
+        "target_name": "khandresh manure",
+        "s1_address": "alliance bhawan domestic terminal 1 igi airport new delhi delhi",
+        "target_address": "igi airport hn b3 74 alliance bhawan domestic terminal 10 dl new delhi",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-236552717",
+        "target_id": "S3-400213883",
+        "prob": 0.7630264057106333,
+        "s1_name": "urgent care quality group",
+        "target_name": "urgent cadr quality group",
+        "s1_address": "2540 massachusetts ave unit 506 washington dc",
+        "target_address": "254 massachusetts ave washington district of columbia",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-378356999",
+        "target_id": "S2-92888356",
+        "prob": 0.9658593112022263,
+        "s1_name": "reggi drake central",
+        "target_name": "reggi central drake",
+        "s1_address": "214 admirals court fl 0 arnold md",
+        "target_address": "27 admirals ct arnold md",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-804127936",
+        "target_id": "S3-671495456",
+        "prob": 0.8125003520605371,
+        "s1_name": "swarna institute of technology",
+        "target_name": "swarna institute of technology",
+        "s1_address": "house no 486 mohalla narobhaskar uttar pradesh jalaun uttar pradesh",
+        "target_address": "plot 93 house no 488 jalaun uttar pradesh up",
+        "country": "india"
+      }
+    ],
+    "shared_address_different_name": [
+      {
+        "s1_id": "S1-899797681",
+        "target_id": "S2-787992019",
+        "prob": 0.7392179303001416,
+        "s1_name": "global investment",
+        "target_name": "\u0b95\u0bc1\u0bb3\u0bcb\u0baa\u0bb2\u0bcd \u0b95\u0ba9\u0bcd\u0b9a\u0bb2\u0bcd\u0b9f\u0ba9\u0bcd\u0b9a\u0bbf \u0baa\u0bbf\u0bb0\u0bc8\u0bb5\u0bc7\u0b9f\u0bcd \u0bb2\u0bbf\u0bae\u0bbf\u0b9f\u0bc6\u0b9f\u0bcd",
+        "s1_address": "sf no 1864 8 no 5 car st sriperumbudur kancheepuram tamil nadu",
+        "target_address": "kancheepuram sriperumbudur sf no 1864 8 no 12 tamil nadu",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-554260351",
+        "target_id": "S3-484000828",
+        "prob": 0.8999296794890034,
+        "s1_name": "meenesh distribution",
+        "target_name": "meeneique distributi0n",
+        "s1_address": "e 08 sai anand park dnyandeep colony ln no 02 karve nagar pune pune maharashtra",
+        "target_address": "e 08 sai anand park pune mh",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-128938016",
+        "target_id": "S2-577223834",
+        "prob": 0.6824916760276486,
+        "s1_name": "kesaix",
+        "target_name": "iriaria",
+        "s1_address": "3555 plymouth blvd plymouth mn",
+        "target_address": "3555 plymouth blvd plymouth mn",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-781814179",
+        "target_id": "S3-159651461",
+        "prob": 0.7056943938739884,
+        "s1_name": "sanchaya law chambers co",
+        "target_name": "\u091c\u092f \u091f\u0947\u0915\u094d\u0928\u094b\u0932\u0949\u091c\u0940",
+        "s1_address": "d 111 punchsheel enclave new delhi delhi",
+        "target_address": "d 111 new delhi punchsheel enclave dl",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-497502999",
+        "target_id": "S2-964051185",
+        "prob": 0.8991997213687245,
+        "s1_name": "health initiative",
+        "target_name": "avionyx \u00ednitiative",
+        "s1_address": "315 400 brigham city ut",
+        "target_address": "ut 315 400 brigham city",
+        "country": "us"
+      }
+    ],
+    "franchise_or_multi_location": [
+      {
+        "s1_id": "S1-632812909",
+        "target_id": "S3-737305339",
+        "prob": 0.9071945966066525,
+        "s1_name": "alto healthcare",
+        "target_name": "alto healthcare group",
+        "s1_address": "mahat rd cuttack orissa",
+        "target_address": "28 mahat rd cuttack od",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-382641160",
+        "target_id": "S2-381990515",
+        "prob": 0.7120256089269574,
+        "s1_name": "brown and herzog devices",
+        "target_name": "brown and herzog devices",
+        "s1_address": "7701 black sand way antelope ca",
+        "target_address": "",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-382641160",
+        "target_id": "S3-379278246",
+        "prob": 0.7075076563141626,
+        "s1_name": "brown and herzog devices",
+        "target_name": "brown and herzog devices",
+        "s1_address": "7701 black sand way antelope ca",
+        "target_address": "",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-801067412",
+        "target_id": "S2-279181973",
+        "prob": 0.7786940877085831,
+        "s1_name": "srg to",
+        "target_name": "srg to",
+        "s1_address": "a3 12 kamal residencysukhsagarnagar part 2 pune maharashtra",
+        "target_address": "",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-341733568",
+        "target_id": "S3-358919813",
+        "prob": 0.793717564946538,
+        "s1_name": "direct antimony",
+        "target_name": "direct antimony",
+        "s1_address": "11019 hunting path court houston tx",
+        "target_address": "11040b hunting path ct houston texas",
+        "country": "us"
+      }
+    ],
+    "legal_suffix_or_type_mismatch": [
+      {
+        "s1_id": "S1-500914000",
+        "target_id": "S2-811821182",
+        "prob": 0.9794863638117951,
+        "s1_name": "nitya and co",
+        "target_name": "pvt nitya and co",
+        "s1_address": "r n ave panihati sodepur north 24 parganas west bengal",
+        "target_address": "h no 72 r n ave panihati sodepur north 24 parganas west bengal",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-871636584",
+        "target_id": "S2-57179128",
+        "prob": 0.6874017400206279,
+        "s1_name": "sai foundation",
+        "target_name": "primetime foundation pvt",
+        "s1_address": "216 d central block dilshad garden shahdara delhi",
+        "target_address": "00216 d central block dilshad garden shahdara delhi",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-946340498",
+        "target_id": "S3-866116269",
+        "prob": 0.8373615956543228,
+        "s1_name": "limelight and co",
+        "target_name": "pvt limelight and co",
+        "s1_address": "at rodhapur bali sahi po salepur cuttack orissa",
+        "target_address": "no 11 at rodhapur bali sahi po salepur cuttack orissa",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-934412598",
+        "target_id": "S3-89736584",
+        "prob": 0.6871091038020823,
+        "s1_name": "johnson hanes and brookhart pllc",
+        "target_name": "llc johnson hanes and br\u00f3okhart",
+        "s1_address": "3800 lickenbrock school rd marissa il",
+        "target_address": "8807 lickenbrock school rd marissa illinois",
+        "country": "us"
+      }
+    ],
+    "other": [
+      {
+        "s1_id": "S1-942221484",
+        "target_id": "S2-546821402",
+        "prob": 0.8340228769207986,
+        "s1_name": "healthcare janki nutrition",
+        "target_name": "healthcare janki real",
+        "s1_address": "kalasandesh bharatkunj 2 19 38 erandwana pune maharashtra",
+        "target_address": "no 82 kalasandesh bharatkunj 2 19 38 erandwana pune maharashtra",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-632812909",
+        "target_id": "S3-737305339",
+        "prob": 0.9071945966066525,
+        "s1_name": "alto healthcare",
+        "target_name": "alto healthcare group",
+        "s1_address": "mahat rd cuttack orissa",
+        "target_address": "28 mahat rd cuttack od",
+        "country": "india"
+      },
+      {
+        "s1_id": "S1-291436819",
+        "target_id": "S3-616197370",
+        "prob": 0.8550841318536312,
+        "s1_name": "south centurion",
+        "target_name": "5outh centurion holdings",
+        "s1_address": "unit 706 leander 1400 183 tx",
+        "target_address": "1411 183 706 leander texas",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-198101753",
+        "target_id": "S3-173747575",
+        "prob": 0.7427010132955699,
+        "s1_name": "lyrify crumrine",
+        "target_name": "llc lyrrify crumrine",
+        "s1_address": "300 water st unit 311 mobile al",
+        "target_address": "03 water st 311 mobile alabama",
+        "country": "us"
+      },
+      {
+        "s1_id": "S1-971678821",
+        "target_id": "S2-800158998",
+        "prob": 0.7209817014848088,
+        "s1_name": "sre realty",
+        "target_name": "sre realty",
+        "s1_address": "parsonscourt no 85 menglesroadnagalnagar dindigul tamil nadu",
+        "target_address": "72 parsonscourt no 85 menglesroadnagalnagar tamil nadu",
+        "country": "india"
+      }
+    ]
+  }
+}

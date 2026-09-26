@@ -1,0 +1,444 @@
+{
+  "total_model_rejected_fns": 3562,
+  "probability_distribution": {
+    "0.60 <= P < 0.675 (Near Miss)": 426,
+    "0.40 <= P < 0.60": 854,
+    "0.20 <= P < 0.40": 831,
+    "P < 0.20 (Severe Miss)": 1451
+  },
+  "veto_overtrigger_counts": {
+    "veto_core_name_conflict": 1036,
+    "veto_shared_building_diff_name": 661,
+    "veto_address_number_conflict": 658
+  },
+  "category_breakdown": {
+    "veto_overtrigger_name_conflict": {
+      "count": 543,
+      "pct": 15.24
+    },
+    "severe_address_divergence": {
+      "count": 1001,
+      "pct": 28.1
+    },
+    "subtle_low_confidence": {
+      "count": 974,
+      "pct": 27.34
+    },
+    "indic_script_name_divergence": {
+      "count": 432,
+      "pct": 12.13
+    },
+    "veto_overtrigger_number_conflict": {
+      "count": 559,
+      "pct": 15.69
+    },
+    "abbreviation_or_short_name": {
+      "count": 53,
+      "pct": 1.49
+    }
+  },
+  "sample_cases": {
+    "veto_overtrigger_number_conflict": [
+      {
+        "s1_id": "S1-282277625",
+        "target_id": "S2-850324571",
+        "prob": 0.24554458931581455,
+        "s1_name": "unified robotics partners co",
+        "s1_addr": "1117 flannigan creek rd viola id",
+        "t_name": "unified robotics partners",
+        "t_addr": "1483 flannigan creek rd viola id",
+        "country": "us",
+        "name_sim": 0.9433962264150944,
+        "addr_sim": 0.9152542372881356,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-282277625",
+        "target_id": "S3-978389006",
+        "prob": 0.37303481599858496,
+        "s1_name": "unified robotics partners co",
+        "s1_addr": "1117 flannigan creek rd viola id",
+        "t_name": "unified robotics partners",
+        "t_addr": "1483 flannigan creek rd viola idaho",
+        "country": "us",
+        "name_sim": 0.9433962264150944,
+        "addr_sim": 0.8656716417910448,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-229106235",
+        "target_id": "S2-414835340",
+        "prob": 0.5172403172780888,
+        "s1_name": "drusilla jarvi btc",
+        "s1_addr": "wa 18020 erickson rd longbranch",
+        "t_name": "drusilla jarvi",
+        "t_addr": "longbranch wa 18021 erickson rd",
+        "country": "us",
+        "name_sim": 0.875,
+        "addr_sim": 0.967741935483871,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-393777400",
+        "target_id": "S2-42530412",
+        "prob": 0.4217859845201419,
+        "s1_name": "w lloyds",
+        "s1_addr": "91 rural retreat dr ranson wv",
+        "t_name": "w lloyds",
+        "t_addr": "89 rural retreat dr ranson city wv",
+        "country": "us",
+        "name_sim": 1.0,
+        "addr_sim": 0.9454545454545454,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-393777400",
+        "target_id": "S2-632868759",
+        "prob": 0.4217859845201419,
+        "s1_name": "w lloyds",
+        "s1_addr": "91 rural retreat dr ranson wv",
+        "t_name": "w lloyds",
+        "t_addr": "89 rural retreat dr ranson city wv",
+        "country": "us",
+        "name_sim": 1.0,
+        "addr_sim": 0.9454545454545454,
+        "is_indic": false
+      }
+    ],
+    "veto_overtrigger_name_conflict": [
+      {
+        "s1_id": "S1-134898809",
+        "target_id": "S3-307933717",
+        "prob": 0.37884241790394724,
+        "s1_name": "corner hypnosis",
+        "s1_addr": "26 stone st unit 3 beverly ma",
+        "t_name": "arclumjax labs",
+        "t_addr": "26 stone st unit 3 beverly ma",
+        "country": "us",
+        "name_sim": 0.2068965517241379,
+        "addr_sim": 1.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-450305455",
+        "target_id": "S2-487991577",
+        "prob": 0.02024722045109541,
+        "s1_name": "transcontinental robotics products",
+        "s1_addr": "columbus 2323 mcclennan court in",
+        "t_name": "ca1obelo",
+        "t_addr": "2323 mcclennan ct columbbus in",
+        "country": "us",
+        "name_sim": 0.23809523809523814,
+        "addr_sim": 0.9354838709677419,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-239172760",
+        "target_id": "S3-60141364",
+        "prob": 0.021717592244899084,
+        "s1_name": "services bright lines",
+        "s1_addr": "10 2 111 1st floor st no 6 west marredpally hyderabad telangana",
+        "t_name": "novivio",
+        "t_addr": "10 2 111 west marredpally hyderabad \u0c24\u0c46\u0c32\u0c02\u0c17\u0c3e\u0c23",
+        "country": "india",
+        "name_sim": 0.2142857142857143,
+        "addr_sim": 0.8974358974358974,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-992495575",
+        "target_id": "S2-232513012",
+        "prob": 0.16341247782878232,
+        "s1_name": "wood thrall and haynes latin",
+        "s1_addr": "11501 paganica way albuquerque nm",
+        "t_name": "halowex",
+        "t_addr": "11501 paganica way albuquerque nm",
+        "country": "us",
+        "name_sim": 0.22857142857142854,
+        "addr_sim": 1.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-613937548",
+        "target_id": "S2-833827730",
+        "prob": 0.4297308319747612,
+        "s1_name": "vanguard aura",
+        "s1_addr": "5120 annapolis dekalb rd bucyrus oh",
+        "t_name": "tavoveo",
+        "t_addr": "5120 annapolis dekalb rd bucyrus ccdp oh",
+        "country": "us",
+        "name_sim": 0.09999999999999998,
+        "addr_sim": 1.0,
+        "is_indic": false
+      }
+    ],
+    "indic_script_name_divergence": [
+      {
+        "s1_id": "S1-706274174",
+        "target_id": "S2-459222556",
+        "prob": 0.21981183741030424,
+        "s1_name": "bharat tech",
+        "s1_addr": "flat no 03 1st floor vijay residency sr no 5 hissa no 02 pune cantonment bank kesh av nagar mundhwa pune maharashtra",
+        "t_name": "\u092d\u093e\u0930\u0924 \u091f\u0947\u0915 \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "t_addr": "\u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930 door no 03 mundhwa pune",
+        "country": "india",
+        "name_sim": 0.07407407407407407,
+        "addr_sim": 0.6923076923076923,
+        "is_indic": true
+      },
+      {
+        "s1_id": "S1-706274174",
+        "target_id": "S3-636680282",
+        "prob": 0.4901643577644971,
+        "s1_name": "bharat tech",
+        "s1_addr": "flat no 03 1st floor vijay residency sr no 5 hissa no 02 pune cantonment bank kesh av nagar mundhwa pune maharashtra",
+        "t_name": "\u092d\u093e\u0930\u0924 \u091f\u0947\u0915 \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "t_addr": "b3 03 av nagar mundhwa pune \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930",
+        "country": "india",
+        "name_sim": 0.07407407407407407,
+        "addr_sim": 0.7741935483870968,
+        "is_indic": true
+      },
+      {
+        "s1_id": "S1-88895990",
+        "target_id": "S3-957438958",
+        "prob": 0.2911773300526518,
+        "s1_name": "swastik hospitality",
+        "s1_addr": "plot no 1 renuka bagh khushi enclave agra uttar pradesh",
+        "t_name": "\u0938\u094d\u0935\u0938\u094d\u0924\u093f\u0915 \u0939\u0949\u0938\u094d\u092a\u093f\u091f\u0948\u0932\u093f\u091f\u0940 \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "t_addr": "plot no 9 1 renuka bagh mumbai agra up",
+        "country": "india",
+        "name_sim": 0.04166666666666662,
+        "addr_sim": 0.8125,
+        "is_indic": true
+      },
+      {
+        "s1_id": "S1-750845447",
+        "target_id": "S2-82028812",
+        "prob": 0.5349474635244515,
+        "s1_name": "new gujarat systems",
+        "s1_addr": "office no 1210 12th floor rupa solitaire bl no a1 sector 1 mbp mahape navi mumbai thane maharashtra",
+        "t_name": "\u0928\u094d\u092f\u0942 \u0917\u0941\u091c\u0930\u093e\u0924 \u0938\u093f\u0938\u094d\u091f\u092e\u094d\u0938 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "t_addr": "hn 815 4 office no 1210 thane maharashtra",
+        "country": "india",
+        "name_sim": 0.0714285714285714,
+        "addr_sim": 0.8767123287671232,
+        "is_indic": true
+      },
+      {
+        "s1_id": "S1-609690180",
+        "target_id": "S3-427683120",
+        "prob": 0.48141583189267284,
+        "s1_name": "first agro",
+        "s1_addr": "sr no pune 52 2b flat 301 krishna kunj apt par maharashtra",
+        "t_name": "\u092b\u0930\u094d\u0938\u094d\u091f \u090f\u0917\u094d\u0930\u094b \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "t_addr": "dgor no 912 sr no 52 2b flat 301 krishna kunj apt par pune \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930",
+        "country": "india",
+        "name_sim": 0.05128205128205132,
+        "addr_sim": 0.8846153846153847,
+        "is_indic": true
+      }
+    ],
+    "severe_address_divergence": [
+      {
+        "s1_id": "S1-912855728",
+        "target_id": "S3-95029469",
+        "prob": 0.2278582610797748,
+        "s1_name": "shivam law chambers",
+        "s1_addr": "west godavari eluru bank colony satrampadu andhra pradesh h no 2 and 3",
+        "t_name": "sri shivam law chambers",
+        "t_addr": "",
+        "country": "india",
+        "name_sim": 0.9047619047619048,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-421901356",
+        "target_id": "S3-614883104",
+        "prob": 0.00271601608395414,
+        "s1_name": "chiropractic health",
+        "s1_addr": "4995 seward rd pfafftown nc",
+        "t_name": "chiropractic health",
+        "t_addr": "",
+        "country": "us",
+        "name_sim": 1.0,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-926867729",
+        "target_id": "S3-877551608",
+        "prob": 0.6207283174583829,
+        "s1_name": "manipuri automotive",
+        "s1_addr": "5 1223 raghurajpuri railway station manipuri manipuri mainpuri uttar pradesh",
+        "t_name": "manipuri automotive pvt",
+        "t_addr": "",
+        "country": "india",
+        "name_sim": 0.9047619047619048,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-502180936",
+        "target_id": "S3-560952092",
+        "prob": 0.007007137104269382,
+        "s1_name": "shyam management",
+        "s1_addr": "gadchiroli aheri 14 khamancheru maharashtra",
+        "t_name": "mr shyam management private",
+        "t_addr": "",
+        "country": "india",
+        "name_sim": 0.7441860465116279,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-546373760",
+        "target_id": "S2-855178373",
+        "prob": 0.05366328966620555,
+        "s1_name": "patriot program",
+        "s1_addr": "733 liberty rd delaware oh",
+        "t_name": "patri0t program",
+        "t_addr": "",
+        "country": "us",
+        "name_sim": 0.9333333333333332,
+        "addr_sim": 0.0,
+        "is_indic": false
+      }
+    ],
+    "abbreviation_or_short_name": [
+      {
+        "s1_id": "S1-513876426",
+        "target_id": "S2-327112211",
+        "prob": 0.020143886748500282,
+        "s1_name": "delta charities iii",
+        "s1_addr": "portland or 11934 sacramento st",
+        "t_name": "delta iii services",
+        "t_addr": "",
+        "country": "us",
+        "name_sim": 0.5405405405405406,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-18482947",
+        "target_id": "S3-132080643",
+        "prob": 0.023092735367831872,
+        "s1_name": "true solution",
+        "s1_addr": "a 9 sidco pharmaceuticalindustrial estate alathur kanchipuram dt 603 110 kanchipuram tamil nadu",
+        "t_name": "true solution porsfe limited www truesolut com",
+        "t_addr": "",
+        "country": "india",
+        "name_sim": 0.44067796610169496,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-39209721",
+        "target_id": "S3-168972125",
+        "prob": 0.0016235301021934243,
+        "s1_name": "sunrise infra",
+        "s1_addr": "21 dadu colony near vikash public school bus depot link rd jaipur rajasthan",
+        "t_name": "sunrise private limited center center",
+        "t_addr": "21 jhalawar jaipur \u0930\u093e\u091c\u0938\u094d\u0925\u093e\u0928",
+        "country": "india",
+        "name_sim": 0.43999999999999995,
+        "addr_sim": 0.5,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-298475021",
+        "target_id": "S3-639036949",
+        "prob": 0.03454505311866401,
+        "s1_name": "vwu infra",
+        "s1_addr": "a117 120 149 150 sakar 7 nr nehru bridge city ahmedabad ahmedabad gujarat",
+        "t_name": "vwu private limited services",
+        "t_addr": "",
+        "country": "india",
+        "name_sim": 0.32432432432432434,
+        "addr_sim": 0.0,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-294649080",
+        "target_id": "S3-108454729",
+        "prob": 0.043620401121040285,
+        "s1_name": "jpm travel",
+        "s1_addr": "2231 sector 46 opposite kratos salon haryana gurgaon",
+        "t_name": "jpm pvt ltd services",
+        "t_addr": "",
+        "country": "india",
+        "name_sim": 0.5333333333333333,
+        "addr_sim": 0.0,
+        "is_indic": false
+      }
+    ],
+    "subtle_low_confidence": [
+      {
+        "s1_id": "S1-413524687",
+        "target_id": "S3-994570529",
+        "prob": 0.6684346850214089,
+        "s1_name": "mav promotersprivate",
+        "s1_addr": "no 341 sy no 46 8th cross 4th phase peenya industrial area bangalore karnataka",
+        "t_name": "mav promotersprivate",
+        "t_addr": "no 0341 sy no 46 bengaluru bangalore \u0c95\u0cb0\u0ccd\u0ca8\u0cbe\u0c9f\u0c95",
+        "country": "india",
+        "name_sim": 1.0,
+        "addr_sim": 0.6101694915254238,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-889785911",
+        "target_id": "S3-874286491",
+        "prob": 0.09691922770282663,
+        "s1_name": "surya om hospitality",
+        "s1_addr": "flat no 201 anshu courtyard rangareddy telangana",
+        "t_name": "surya om hospitality private",
+        "t_addr": "199 rangareddy \u0c24\u0c46\u0c32\u0c02\u0c17\u0c3e\u0c23",
+        "country": "india",
+        "name_sim": 0.8333333333333335,
+        "addr_sim": 0.625,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-913450089",
+        "target_id": "S2-552712302",
+        "prob": 0.3920983224250843,
+        "s1_name": "jackson animal hospital",
+        "s1_addr": "3018 emerald chase dr fairfax county va",
+        "t_name": "jackson animal",
+        "t_addr": "emerald chase dr herndon va",
+        "country": "us",
+        "name_sim": 0.7567567567567568,
+        "addr_sim": 0.826086956521739,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-512069001",
+        "target_id": "S3-984502215",
+        "prob": 0.32802589877373906,
+        "s1_name": "first management",
+        "s1_addr": "501 madhuram enclave behind sarvottam hotel gandhinagar gandhi nagar gujarat",
+        "t_name": "first management limited center",
+        "t_addr": "plot 473 501 gandhinagar ahmadabad gj",
+        "country": "india",
+        "name_sim": 0.6808510638297872,
+        "addr_sim": 0.576923076923077,
+        "is_indic": false
+      },
+      {
+        "s1_id": "S1-780642176",
+        "target_id": "S3-405950186",
+        "prob": 0.6418494022034187,
+        "s1_name": "patrick county tri state aspen p c",
+        "s1_addr": "148 shady ln patrick county va",
+        "t_name": "patrick c\u00f3unty tri state aspen pc",
+        "t_addr": "shady ln woolwine toownship virginia",
+        "country": "us",
+        "name_sim": 0.9552238805970148,
+        "addr_sim": 0.45454545454545453,
+        "is_indic": false
+      }
+    ]
+  }
+}
