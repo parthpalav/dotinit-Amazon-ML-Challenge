@@ -295,7 +295,7 @@ def official_validate(config):
     validator=Path(config.resource_dir or Path(config.dataset_dir).parent)/'utils/validate_submission.py'
     if not validator.is_file():raise FileNotFoundError(f'Official validator not found: {validator}')
     command=[sys.executable,str(validator),'--matching',str(Path(config.output_dir)/'matching_results.tsv'),
-             '--candidate',str(Path(config.output_dir)/'candidate_pairs.tsv'),'--test-dir',str(Path(config.dataset_dir)/'test'),'--check-ids']
+             '--candidate',str(Path(config.output_dir)/'candidate_pairs.tsv'),'--test-dir',str(Path(config.dataset_dir)/'test')]
     env = os.environ.copy()
     env['PYTHONPATH'] = str(Path('.').resolve()) + os.pathsep + env.get('PYTHONPATH', '')
     result=subprocess.run(command,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env)

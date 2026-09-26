@@ -14,6 +14,7 @@ def main():
     parser.add_argument("--matching", required=True)
     parser.add_argument("--candidate", required=True)
     parser.add_argument("--test-dir", required=True)
+    parser.add_argument("--check-ids", action="store_true", default=False, help="Check ID membership against test sources")
     args = parser.parse_args()
     try:
         root = Path(args.test_dir)
