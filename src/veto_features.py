@@ -84,15 +84,20 @@ def extract_acronym_score(n1, n2):
 
     return max(test_pair(w1, w2), test_pair(w2, w1))
 
-def compute_veto_features(pairs, con):
+def compute_veto_features(pairs, con, record_maps=None):
     """Compute precision-focused veto features for a DataFrame of pairs."""
     from .disk_store import fetch_records
     
     a_rids = pairs.anchor_rid.unique()
     t_rids = pairs.target_rid.unique()
     
-    anchors = fetch_records(con, 'anchors', a_rids).set_index('entity_id')
-    targets = fetch_records(con, 'targets', t_rids).set_index('entity_id')
+    if record_maps is None:
+        anchors = fetch_records(con, 'anchors', a_rids).set_index('entity_id')
+        targets = fetch_records(con, 'targets', t_rids).set_index('entity_id')
+    else:
+        # Preloaded dictionaries avoid repeated database reads during full inference.
+        from types import SimpleNamespace
+        anchors, targets = (SimpleNamespace(loc=records) for records in record_maps)
     
     rows = []
     for p in pairs.itertuples(index=False):

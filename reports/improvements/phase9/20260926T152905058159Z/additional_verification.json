@@ -1,0 +1,109 @@
+{
+  "fit": {
+    "identical_anchor_ids_and_truth_counts": true,
+    "rebuilt": {
+      "path": "work/cap64_rebuilt/features/fit.joblib",
+      "bytes": 547594367,
+      "mtime": "2026-09-26T15:11:01.310872+00:00",
+      "sha256": "ae499c4851442a7123bbaa8e04c232cff0fc85cbd1283199266f49107e2fb00c"
+    },
+    "rebuilt_counts": {
+      "anchors": 30000,
+      "raw_candidates": 53774167,
+      "candidate_pairs": 1919893,
+      "no_candidate": 0,
+      "one_candidate": 0,
+      "multiple_candidates": 30000,
+      "topk_truncated_anchors": 29996,
+      "true_pairs": 104019,
+      "true_singletons": 1605,
+      "raw_retained_true": 103106,
+      "retained_true": 102782,
+      "max_raw_candidates": 6770,
+      "max_candidates": 64
+    }
+  },
+  "calibration": {
+    "identical_anchor_ids_and_truth_counts": true,
+    "rebuilt": {
+      "path": "work/cap64_rebuilt/features/calibration.joblib",
+      "bytes": 91262140,
+      "mtime": "2026-09-26T14:37:39.453191+00:00",
+      "sha256": "f8cdc48e841407c98c87ffc7248d3b96715a80c348781a05e2fde5559ae0b719"
+    },
+    "rebuilt_counts": {
+      "anchors": 5000,
+      "raw_candidates": 8964536,
+      "candidate_pairs": 319984,
+      "no_candidate": 0,
+      "one_candidate": 0,
+      "multiple_candidates": 5000,
+      "topk_truncated_anchors": 4999,
+      "true_pairs": 17421,
+      "true_singletons": 270,
+      "raw_retained_true": 17264,
+      "retained_true": 17194,
+      "max_raw_candidates": 5889,
+      "max_candidates": 64
+    }
+  },
+  "validation": {
+    "identical_anchor_ids_and_truth_counts": true,
+    "rebuilt": {
+      "path": "work/cap64_rebuilt/features/validation.joblib",
+      "bytes": 182519490,
+      "mtime": "2026-09-26T14:33:02.094832+00:00",
+      "sha256": "a13cadc4ba7dfdfa188dacaf6cab8464b32f97c3dc8fb7c4b42c049bdea4156a"
+    },
+    "rebuilt_counts": {
+      "anchors": 10000,
+      "raw_candidates": 18005463,
+      "candidate_pairs": 639959,
+      "no_candidate": 0,
+      "one_candidate": 0,
+      "multiple_candidates": 10000,
+      "topk_truncated_anchors": 9997,
+      "true_pairs": 34676,
+      "true_singletons": 528,
+      "raw_retained_true": 34383,
+      "retained_true": 34276,
+      "max_raw_candidates": 6379,
+      "max_candidates": 64
+    }
+  },
+  "fixed_current_true_positives_zero_false_positives": {
+    "precision": 0.9873,
+    "recall": 0.8785378174603174,
+    "f0.5": 0.9536440397831156,
+    "f1": 0.9183250097717899,
+    "singleton_accuracy": 1.0,
+    "true_positive": 30109,
+    "false_positive": 0,
+    "false_negative": 4567,
+    "true_negative_all_possible": 103202155324,
+    "false_positive_rate": 0.0,
+    "predicted_positive": 30109,
+    "predicted_negative_candidates": 289847,
+    "predicted_positive_rate": 0.09410356424008301
+  },
+  "phase4_raw_reproduction": {
+    "reference_f05": 0.9372308853017451,
+    "saved_reference_f05": 0.9372308853017451,
+    "recovered_diagnostic_pairs": 608,
+    "simulated_added_tp": 535,
+    "simulated_added_fp": 25,
+    "hard_coded_f05_increment": 0.0004,
+    "architecture_features": 72,
+    "raw_reproduction_passed": true
+  },
+  "identical_training_parameters": {
+    "iterations": 1200,
+    "depth": 8,
+    "learning_rate": 0.06,
+    "l2_leaf_reg": 5,
+    "random_seed": 42,
+    "thread_count": 6,
+    "loss_function": "Logloss",
+    "eval_metric": "Logloss"
+  }
+}

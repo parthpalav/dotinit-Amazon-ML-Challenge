@@ -1,0 +1,62 @@
+{
+  "manifest": {
+    "path": "config/phase9_production_lock.json",
+    "bytes": 4605,
+    "mtime": "2026-09-26T15:31:15.534596+00:00",
+    "sha256": "c662bd0b096eb8cd06a0b08bead29cf5256aa01b5f2e435d69aa36e546771717"
+  },
+  "model": {
+    "path": "artifacts/improvements/phase9_true_control_20260926T152905058159Z.joblib",
+    "bytes": 6530634,
+    "mtime": "2026-09-26T15:30:15.565006+00:00",
+    "sha256": "01ce4e9be779db7b80a520aaca793e219c80603de8ac8aae2717484f9a316768"
+  },
+  "candidates": {
+    "path": "outputs/real_submission/candidate_pairs.tsv",
+    "bytes": 736790898,
+    "mtime": "2026-09-26T09:10:24.126662+00:00",
+    "sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20"
+  },
+  "original_library": {
+    "path": "work/real_v1/native/libber-b6e5285e72862775.dylib",
+    "bytes": 77984,
+    "mtime": "2026-09-25T10:32:44.106273+00:00",
+    "sha256": "793ba8688ab455ababb1b4346b09b3736f743c0bb48d8d707fe6a35335debb27"
+  },
+  "input_sources": [
+    {
+      "path": "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/student_resource/dataset/test/test_source1.tsv",
+      "bytes": 175022086,
+      "mtime": "2026-09-18T12:47:50+00:00",
+      "sha256": "3d4a32c54c2ca9c53fd7c2be105bf26f708f94c4d2f88eb370972a195665c2f5"
+    },
+    {
+      "path": "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/student_resource/dataset/test/test_source2.tsv",
+      "bytes": 509456422,
+      "mtime": "2026-09-18T12:47:50+00:00",
+      "sha256": "79d906c7497af2ace70aa277f6e334a652094909de99bd6c57b53420b6a7b2dd"
+    },
+    {
+      "path": "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/student_resource/dataset/test/test_source3.tsv",
+      "bytes": 506002772,
+      "mtime": "2026-09-18T12:47:51+00:00",
+      "sha256": "850942b11d2a4343486ed0834e28bce9f3b385f3fd497fd60ccf4ea3b8bda035"
+    }
+  ],
+  "code": {
+    "phase9_inference.py": "99d343bada7d083cb9c254986111a7d5d7cae2fcdb341d38ef62b6cee6dc6920",
+    "veto_features.py": "2b0c714d43f40dd4819ec066607b849b8a96c45a5ede125ef6482236642ee079",
+    "enhanced_features.py": "2671f41333c000b84f4a6f2216664baf9443aa7a13edd05ee5000cdfbd417c32",
+    "features.py": "abe522c8cd9da7d253b745b3b54aae33493f207a05106c1f08fb4a3f360baca6",
+    "normalization.py": "739750d5321e714d248619879752c17d9c5d2f3151ce473382e0c5b87a3184ed",
+    "preprocessing.py": "5281bfe153ced23224290792397cad017b9172921b25d66bcda6d2e68fcd324b",
+    "contacts.py": "de8eb8516ba6396e6809ffc7707d5626c57ad5c659f34ee5eb687a30a77f19aa",
+    "provenance.py": "7dda906c88b10222683152f3844d2f696dca94d9c457e99d7ff460b3015707d5",
+    "native/provenance.cpp": "43190865be4418a0845c9f4b219f7a8cd7472b2207750ed3635ff6fb0e269ece"
+  },
+  "counts": {
+    "source1": 1732544,
+    "source2": 4887273,
+    "source3": 5082316
+  }
+}

@@ -6,15 +6,19 @@ from rapidfuzz.fuzz import ratio, token_set_ratio
 GENERIC_NAME = set('and the of company corporation group services international inc ltd limited private pvt llc llp corp co sarl sas sasu sci eurl sa association pllc'.split())
 GENERIC_ADDR = set('rd st ave ln blvd dr near main building apt ste and the floor block flat opposite near unit pmb'.split())
 
-def compute_enhanced_features(pairs, con, p_preliminary=None):
+def compute_enhanced_features(pairs, con, p_preliminary=None, record_maps=None):
     """Compute missing-address recovery features, tempered vetoes, and margin signals."""
     from .disk_store import fetch_records
     
     a_rids = pairs.anchor_rid.unique()
     t_rids = pairs.target_rid.unique()
     
-    anchors = fetch_records(con, 'anchors', a_rids).set_index('entity_id')
-    targets = fetch_records(con, 'targets', t_rids).set_index('entity_id')
+    if record_maps is None:
+        anchors = fetch_records(con, 'anchors', a_rids).set_index('entity_id')
+        targets = fetch_records(con, 'targets', t_rids).set_index('entity_id')
+    else:
+        from types import SimpleNamespace
+        anchors, targets = (SimpleNamespace(loc=records) for records in record_maps)
     
     # Pre-calculate margin signals if preliminary probabilities are supplied
     if p_preliminary is not None:

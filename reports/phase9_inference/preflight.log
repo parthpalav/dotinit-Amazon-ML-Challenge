@@ -1,0 +1,36 @@
+ARTIFACTS VERIFIED; original candidates and original key library pinned
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/phase9_inference.py", line 354, in <module>
+    main()
+    ~~~~^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/phase9_inference.py", line 342, in main
+    smoke()
+    ~~~~~^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/src/phase9_inference.py", line 213, in smoke
+    np.testing.assert_array_equal(replay, native_mask)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/.venv/lib/python3.13/site-packages/numpy/testing/_private/utils.py", line 1128, in assert_array_equal
+    assert_array_compare(operator.__eq__, actual, desired, err_msg=err_msg,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         verbose=verbose, header='Arrays are not equal',
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         strict=strict)
+                         ^^^^^^^^^^^^^^
+  File "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/.venv/lib/python3.13/site-packages/numpy/testing/_private/utils.py", line 988, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not equal
+
+Mismatched elements: 1102 / 3200 (34.4%)
+First 5 mismatches are at indices:
+ [19]: 473 (ACTUAL), 345 (DESIRED)
+ [25]: 208 (ACTUAL), 80 (DESIRED)
+ [29]: 128 (ACTUAL), 64 (DESIRED)
+ [32]: 128 (ACTUAL), 64 (DESIRED)
+ [33]: 224 (ACTUAL), 96 (DESIRED)
+Max absolute difference among violations: 128
+Max relative difference among violations: 2.
+ ACTUAL: array([  9,   1, 265, ..., 144,  16, 128], shape=(3200,), dtype=uint16)
+ DESIRED: array([  9,   1, 265, ...,  80,  16, 128], shape=(3200,), dtype=uint16)

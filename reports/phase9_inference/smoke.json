@@ -1,0 +1,9 @@
+{
+  "feature_rows": 1152,
+  "exact_81_feature_parity": true,
+  "exact_probability_parity": true,
+  "exact_original_test_provenance_parity": true,
+  "test_anchors": 100,
+  "test_pairs": 3200,
+  "seconds": 1.5851922035217285
+}
