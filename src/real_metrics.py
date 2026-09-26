@@ -28,7 +28,7 @@ def entity_scores(anchor_indices,labels,probabilities,truth_counts,threshold,tar
 
 
 def tune(anchor_indices,labels,probabilities,truth_counts,target_count):
-    thresholds=np.r_[np.arange(.05,.951,.025),.975,.99,.995,.999,1.,np.nextafter(1.,2.)]
+    thresholds=np.r_[np.arange(.05,.951,.01),.975,.99,.995,.999,1.,np.nextafter(1.,2.)]
     table=pd.DataFrame([{'threshold':float(t),**entity_scores(anchor_indices,labels,probabilities,truth_counts,t,target_count)} for t in thresholds])
     best=table.sort_values(['f0.5','precision','threshold'],ascending=False,kind='stable').iloc[0]
     return float(best.threshold),table

@@ -5,8 +5,8 @@ from .evaluation import evaluate, predictions_from_pairs
 
 
 def optimize_threshold(pairs, probabilities, truth, target_count, metric="entity_macro"):
-    # Include a reject-all point. >= 1 can still select probability-one pairs.
-    thresholds = np.concatenate([np.arange(0.10, 0.951, 0.05), [0.99, 1.0, np.nextafter(1.0, 2.0)]])
+    # Include fine-grained sweep and a reject-all point. >= 1 can still select probability-one pairs.
+    thresholds = np.concatenate([np.arange(0.05, 0.951, 0.01), [0.975, 0.99, 0.995, 1.0, np.nextafter(1.0, 2.0)]])
     rows = []
     for threshold in thresholds:
         predictions = predictions_from_pairs(pairs, probabilities, truth, float(threshold))

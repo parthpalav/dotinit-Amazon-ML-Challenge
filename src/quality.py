@@ -1,9 +1,17 @@
 """Streaming quality audit of actual TSV inputs. No raw-file writes."""
 from pathlib import Path
-import json, time, resource, hashlib
+import json, time, hashlib
 from collections import Counter
 import numpy as np
 import pandas as pd
+
+
+def get_max_rss():
+    try:
+        import resource
+        return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    except Exception:
+        return 0
 
 
 def quality_report(config):
@@ -56,7 +64,7 @@ def quality_report(config):
         if hashes:
             hashes=np.concatenate(hashes); np.save(out/(p.stem+'_business_hashes.npy'),hashes)
             counts['duplicate_business_fingerprints']=len(hashes)-len(np.unique(hashes))
-        info={'counts':dict(counts),'columns':frame.columns.tolist(),'dtypes':{c:str(t) for c,t in frame.dtypes.items()},'missing':dict(missing),'countries':dict(countries),'match_count_distribution':dict(match_counts),'sample':sample,'seconds':time.time()-start,'max_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+        info={'counts':dict(counts),'columns':frame.columns.tolist(),'dtypes':{c:str(t) for c,t in frame.dtypes.items()},'missing':dict(missing),'countries':dict(countries),'match_count_distribution':dict(match_counts),'sample':sample,'seconds':time.time()-start,'max_rss_bytes':get_max_rss()}
         summary[str(p.relative_to(root))]=info
         (out/'initial_profile.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
         print(p.stem, {**dict(counts),'countries':dict(countries),'missing':dict(missing)},flush=True)

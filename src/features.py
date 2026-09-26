@@ -1,8 +1,9 @@
 """Pairwise numeric features with training-fitted sparse TF-IDF."""
+import re
 import numpy as np
 import pandas as pd
 from rapidfuzz.distance import Levenshtein, JaroWinkler
-from rapidfuzz.fuzz import WRatio, token_set_ratio
+from rapidfuzz.fuzz import WRatio, token_set_ratio, token_sort_ratio, partial_ratio
 from sklearn.feature_extraction.text import TfidfVectorizer
 from .blocking import RULES
 from .normalization import ngrams
@@ -22,6 +23,11 @@ def similarity(a: str, b: str) -> float:
 
 def length_ratio(a: str, b: str) -> float:
     return min(len(a), len(b)) / max(len(a), len(b)) if a and b else 0.0
+
+
+def acronym(text: str) -> str:
+    tokens = text.split()
+    return "".join(t[0] for t in tokens if t and t[0].isalnum()) if len(tokens) > 1 else ""
 
 
 class FeatureEngineer:
@@ -85,16 +91,38 @@ class FeatureEngineer:
                 row[f"{component}_both_present"] = float(bool(a[component] and b[component]))
             row["country_match"] = equal(a["country_norm"], b["country_norm"])
             row["country_both_present"] = float(bool(a["country_norm"] and b["country_norm"]))
-            row["name_jaro_winkler"] = JaroWinkler.normalized_similarity(a["name_norm"], b["name_norm"]) if a["name_norm"] and b["name_norm"] else 0.0
-            row["name_wratio"] = WRatio(a["name_norm"], b["name_norm"])/100 if a["name_norm"] and b["name_norm"] else 0.0
-            row["address_token_set_similarity"] = token_set_ratio(a["address_norm"], b["address_norm"])/100 if a["address_norm"] and b["address_norm"] else 0.0
+            
+            # RapidFuzz enhanced similarities
+            an, bn = a["name_norm"], b["name_norm"]
+            aa, ba = a["address_norm"], b["address_norm"]
+            row["name_jaro_winkler"] = JaroWinkler.normalized_similarity(an, bn) if an and bn else 0.0
+            row["name_wratio"] = WRatio(an, bn)/100 if an and bn else 0.0
+            row["name_token_sort_ratio"] = token_sort_ratio(an, bn)/100 if an and bn else 0.0
+            row["name_token_set_ratio"] = token_set_ratio(an, bn)/100 if an and bn else 0.0
+            row["name_partial_ratio"] = partial_ratio(an, bn)/100 if an and bn else 0.0
+            row["address_token_sort_ratio"] = token_sort_ratio(aa, ba)/100 if aa and ba else 0.0
+            row["address_token_set_similarity"] = token_set_ratio(aa, ba)/100 if aa and ba else 0.0
+
+            # Acronym & first token matching
+            ac_a, ac_b = acronym(an), acronym(bn)
+            row["name_acronym_match"] = float(bool((ac_a and (ac_a == bn or ac_a == ac_b)) or (ac_b and ac_b == an)))
+            a_toks, b_toks = an.split(), bn.split()
+            row["name_first_token_match"] = float(bool(a_toks and b_toks and a_toks[0] == b_toks[0]))
+            row["name_first_two_tokens_match"] = float(bool(len(a_toks) >= 2 and len(b_toks) >= 2 and a_toks[:2] == b_toks[:2]))
+
+            # Address number bag matching
+            num_a, num_b = set(re.findall(r"\d+", aa)), set(re.findall(r"\d+", ba))
+            row["address_numbers_jaccard"] = jaccard(num_a, num_b)
+            row["address_numbers_overlap"] = len(num_a & num_b)
+            row["address_numbers_exact"] = float(bool(num_a and num_a == num_b))
+
             for field in ("email", "email_domain", "website_domain", "phone"):
                 row[f"{field}_match"] = equal(a.get(field, ""), b.get(field, ""))
                 row[f"{field}_both_present"] = float(bool(a.get(field) and b.get(field)))
             row["phone_suffix_match"] = equal(a.get("phone", "")[-7:], b.get("phone", "")[-7:])
             row["name_address_combined_similarity"] = similarity(
-                (a["name_norm"] + " " + a["address_norm"]).strip(),
-                (b["name_norm"] + " " + b["address_norm"]).strip())
+                (an + " " + aa).strip(),
+                (bn + " " + ba).strip())
             rules = set(pair.blocking_rules.split("|"))
             for rule in RULES:
                 row[f"blocked_by_{rule}"] = float(rule in rules)

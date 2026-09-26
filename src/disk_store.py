@@ -6,7 +6,6 @@ import json
 import logging
 import os
 from pathlib import Path
-import resource
 import shutil
 import sqlite3
 import subprocess
@@ -24,8 +23,12 @@ COLUMNS = ['entity_id','business_name','business_address','country','name_norm',
 
 
 def rss_mb():
-    value=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    return value/(1024*1024) if sys.platform=='darwin' else value/1024
+    try:
+        import resource
+        value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        return value / (1024 * 1024) if sys.platform == 'darwin' else value / 1024
+    except Exception:
+        return 0.0
 
 
 class NativeIndex:
@@ -95,7 +98,9 @@ class NativeIndex:
 
 
 def connect(path,readonly=False):
-    con=sqlite3.connect(f'file:{Path(path).resolve()}?mode=ro',uri=True) if readonly else sqlite3.connect(path)
+    posix_path = Path(path).resolve().as_posix()
+    uri = f"file:///{posix_path}?mode=ro" if sys.platform == "win32" else f"file:{posix_path}?mode=ro"
+    con=sqlite3.connect(uri,uri=True) if readonly else sqlite3.connect(path)
     con.execute('PRAGMA cache_size=-65536')
     con.execute('PRAGMA mmap_size=268435456')
     if not readonly:

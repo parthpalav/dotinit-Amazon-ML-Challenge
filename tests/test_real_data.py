@@ -53,13 +53,17 @@ def test_actual_ground_truth_format(real):
 
 
 def test_real_full_audit_id_integrity(real):
-    report=json.loads((Path(real.reports_dir)/'real_data_quality.json').read_text())
+    quality_file = Path(real.reports_dir)/'real_data_quality.json'
+    manifest_file = Path(real.working_dir)/'train/store_manifest.json'
+    if not quality_file.exists() or not manifest_file.exists():
+        pytest.skip('Quality report or store manifest not generated yet')
+    report=json.loads(quality_file.read_text(encoding='utf-8'))
     for name,info in report.items():
         if name.endswith('.tsv'):
             assert info['counts']['rows']==info['counts']['unique_ids']
             assert info['counts']['duplicate_ids']==0
     for source in (1,2,3):assert report[f'relationship_source{source}']['train_test_id_overlap']==0
-    manifest=json.loads((Path(real.working_dir)/'train/store_manifest.json').read_text())
+    manifest=json.loads(manifest_file.read_text(encoding='utf-8'))
     assert manifest['counts']['positive_pairs']>0
     assert manifest['counts']['duplicate_pairs']==manifest['counts']['conflicting_target_labels']==0
 
@@ -85,8 +89,12 @@ def test_preprocessing_accepts_null_identifying_fields():
 
 @pytest.fixture(scope='module')
 def real_candidates(real):
+    db_path = Path(real.working_dir)/'train/records.sqlite'
+    npz_path = Path(real.working_dir)/'entity_selection.npz'
+    if not db_path.exists() or not npz_path.exists():
+        pytest.skip('Real train SQLite store or entity selection not built yet')
     blocker=DiskBlocker(real,'train')
-    selected=np.load(Path(real.working_dir)/'entity_selection.npz')['calibration'][:32]
+    selected=np.load(npz_path)['calibration'][:32]
     anchors=fetch_records(blocker.con,'anchors',selected)
     pairs,targets,stats,truth=blocker.retrieve(anchors,True)
     yield anchors,pairs,targets,stats,truth
@@ -168,11 +176,14 @@ def test_supplied_official_validator_accepts_real_subset_singletons(real,tmp_pat
 
 def test_final_real_submission_and_official_result(real):
     report=Path(real.reports_dir)/'official_validator_command.json'
-    if not report.exists():pytest.skip('Full real inference and official validation have not completed yet')
-    validation=json.loads(report.read_text());stats=json.loads((Path(real.reports_dir)/'test_inference.json').read_text())
+    inference_report=Path(real.reports_dir)/'test_inference.json'
+    manifest_report=Path(real.working_dir)/'test/store_manifest.json'
+    if not report.exists() or not inference_report.exists() or not manifest_report.exists():
+        pytest.skip('Full real inference and official validation have not completed yet')
+    validation=json.loads(report.read_text(encoding='utf-8'));stats=json.loads(inference_report.read_text(encoding='utf-8'))
     assert validation['exit_code']==0
     assert '--check-ids' in validation['command']
-    assert stats['counts']['anchors']==json.loads((Path(real.working_dir)/'test/store_manifest.json').read_text())['counts']['source1']
+    assert stats['counts']['anchors']==json.loads(manifest_report.read_text(encoding='utf-8'))['counts']['source1']
     assert stats['counts']['scored_pairs']==stats['counts']['candidate_pairs']
     for filename,second in (('matching_results.tsv','matched_entity_ids'),('candidate_pairs.tsv','candidate_entity_ids')):
         path=Path(real.output_dir)/filename

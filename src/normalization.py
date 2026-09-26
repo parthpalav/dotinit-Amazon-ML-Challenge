@@ -3,16 +3,24 @@ import re
 import unicodedata
 import pandas as pd
 
-NAME_WORDS = {"corp": "corporation", "intl": "international", "svc": "services", "svcs": "services"}
-LEGAL_ENDINGS = ("private limited", "pvt ltd", "pvt limited", "private ltd", "limited", "ltd", "incorporated", "inc", "llc", "llp", "plc")
+NAME_WORDS = {"corp": "corporation", "intl": "international", "svc": "services", "svcs": "services",
+              "mfg": "manufacturing", "mgmt": "management", "tech": "technologies", "techs": "technologies",
+              "co": "company", "assoc": "associates"}
+LEGAL_ENDINGS = (
+    "societe par actions simplifiee", "sas", "s.a.s", "sarl", "s.a.r.l", "sci", "s.c.i", "eurl", "e.u.r.l",
+    "private limited", "pvt ltd", "pvt limited", "private ltd", "public limited", "limited", "ltd",
+    "incorporated", "inc", "llc", "llp", "plc", "gmbh", "holding", "holdings", "groupe", "et fils", "and sons"
+)
 ADDRESS_WORDS = {"road": "rd", "street": "st", "avenue": "ave", "boulevard": "blvd",
-                 "drive": "dr", "lane": "ln", "suite": "ste", "apartment": "apt"}
+                 "drive": "dr", "lane": "ln", "suite": "ste", "apartment": "apt",
+                 "floor": "fl", "building": "bldg", "rue": "r", "chemin": "che", "route": "rte", "place": "pl"}
 
 
 def raw_text(text) -> str:
     if text is None or pd.isna(text):
         return ""
-    return str(text).strip()
+    val = str(text).strip()
+    return "" if val.lower() == "null" else val
 
 
 def normalize_text(text) -> str:
@@ -42,22 +50,32 @@ def normalize_address(text) -> str:
 def extract_address_components(text) -> dict[str, str]:
     """Hints, not verified geographic facts; unknown formats remain missing.
 
-    Postal hints use trailing numeric/alphanumeric patterns. City/state hints
-    require comma-separated segments. No country-specific branches or gazetteer.
+    Postal hints check trailing then embedded numeric/alphanumeric patterns.
+    City/state hints use comma-separated segments.
     """
     raw = unicodedata.normalize("NFKC", raw_text(text)).casefold()
     postal = ""
     # Handle separated alphanumeric postal codes and numeric postal suffixes.
-    patterns = (r"\b([a-z]\d[a-z]\s?\d[a-z]\d)\s*$",
-                r"\b([a-z]{1,2}\d[a-z\d]?\s*\d[a-z]{2})\s*$",
-                r"\b(\d{4,10}(?:-\d{3,4})?)\s*$")
+    trailing_patterns = (r"\b([a-z]\d[a-z]\s?\d[a-z]\d)\s*$",
+                         r"\b([a-z]{1,2}\d[a-z\d]?\s*\d[a-z]{2})\s*$",
+                         r"\b(\d{4,10}(?:-\d{3,4})?)\s*$")
     address_without_postal = raw
-    for pattern in patterns:
+    for pattern in trailing_patterns:
         match = re.search(pattern, raw)
         if match:
             postal = re.sub(r"[\s-]", "", match.group(1))
             address_without_postal = raw[:match.start()].rstrip(" ,")
             break
+    if not postal:
+        # Fallback to embedded standard postal codes (India 6-digit, US/France 5-digit, UK/Canada)
+        embedded_patterns = (r"\b([a-z]\d[a-z]\s?\d[a-z]\d)\b",
+                             r"\b([a-z]{1,2}\d[a-z\d]?\s*\d[a-z]{2})\b",
+                             r"\b(\d{5,6}(?:-\d{4})?)\b")
+        for pattern in embedded_patterns:
+            match = re.search(pattern, raw)
+            if match:
+                postal = re.sub(r"[\s-]", "", match.group(1))
+                break
     parts = [normalize_text(p) for p in address_without_postal.split(",") if normalize_text(p)]
     city = parts[-2] if len(parts) >= 3 else parts[-1] if len(parts) == 2 else ""
     state = parts[-1] if len(parts) >= 3 else ""
@@ -73,3 +91,4 @@ def ngrams(value: str, n: int) -> set[str]:
     if not value:
         return set()
     return {value[i:i+n] for i in range(max(1, len(value) - n + 1))}
+
