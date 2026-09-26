@@ -1,0 +1,13 @@
+{
+  "name": "oof",
+  "model": {
+    "name": "oof",
+    "path": "artifacts\\campaign_0931\\oof_compact_d9.joblib",
+    "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+    "threshold": 0.6000000000000002
+  },
+  "work": "work\\campaign_0931\\test_final_oof",
+  "output": "outputs\\campaign_0931_oof_unique",
+  "reason": "OOF selected only if its paired 95% CI versus compact is strictly positive; otherwise use confirmed compact.",
+  "state": "scoring"
+}

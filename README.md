@@ -7,7 +7,19 @@
 
 An offline Python pipeline for the problem described in the supplied **Amazon ML Challenge 2026 – Business Entity Resolution Challenge** specification. Source 1 is the deduplicated reference; each record may match zero, one, or several Source 2/3 records. The implementation does not verify competition rules or claim a competition score.
 
-## Current Windows improvement workflow
+## Current contextual matching campaign
+
+The selected cross-fitted reranker improved fresh confirmation macro F0.5 from **0.940297 to 0.959566**. This is not an Amazon score; the last team-reported Amazon score remains **0.931**. Full test scoring is currently running, with resumable 1,000-anchor checkpoints. See the [model card](reports/CAMPAIGN_MODEL_CARD.md), [live journal](reports/CAMPAIGN_0931.md), and `reports/campaign_0931/production_plan.json` for the current stage.
+
+Resume the current run from this repository on `parth`:
+
+```powershell
+.\.venv\Scripts\python.exe -u -m src.campaign_run --main-workers 6 --alias-workers 4
+```
+
+Install `requirements-campaign-tested.txt` in a restored environment. This workflow reuses the complete verified base scores imported from F, plus the two model artifacts listed in the model card. F remains read-only. The older `complete_improvements` command reproduces the earlier baseline, not this campaign.
+
+## Earlier Windows workflow (0.931 baseline)
 
 See [the Windows runbook](reports/WINDOWS_IMPROVEMENTS.md) for reproducible commands, results, preserved baseline files, and limitations. GPU CatBoost with 113 evidence features reached **0.943147 selection F0.5**, versus **0.875670** for the original forest on the same anchors. This is not an Amazon evaluation score. A fresh 5,000-anchor confirmation achieved **0.943215**, versus **0.878801** baseline; details are in `reports/improvements/confirmation_evaluation.json`. Full improved inference was stopped by the user for transfer; see `reports/improvements/completion_status.json` for live state. All **45 tests passed** on Windows, including native retrieval, export, and exact provenance replay.
 

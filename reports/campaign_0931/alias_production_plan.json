@@ -1,0 +1,6 @@
+{
+  "work": "work/campaign_0931/test_alias_v2",
+  "output": "outputs\\campaign_0931_oof_alias_unique",
+  "state": "scoring",
+  "preserves_existing_matches": true
+}

@@ -1,0 +1,12 @@
+{
+  "validation": {
+    "cross_country_candidates": 3647,
+    "accepted_cross_country": 0,
+    "true_cross_country_candidates": 0
+  },
+  "confirmation_v4": {
+    "cross_country_candidates": 1755,
+    "accepted_cross_country": 0,
+    "true_cross_country_candidates": 0
+  }
+}

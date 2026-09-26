@@ -19,5 +19,10 @@
     "A5000": "unavailable",
     "free_C_GB": 36.627812352
   },
-  "state": "Frozen contextual rerankers selected; fresh confirmation_v3 running; no new Amazon submission yet"
+  "state": "Sequential coordinator active: main OOF first, then confirmed alias additions; all checkpoints preserved",
+  "updated_utc": "2026-09-26T15:45:46.176227+00:00",
+  "production_plan": "reports/campaign_0931/production_plan.json",
+  "latest_amazon_score": 0.931,
+  "resume_command": "python -u -m src.campaign_run --main-workers 6 --alias-workers 4",
+  "coordinator": "reports/campaign_0931/coordinator.json"
 }

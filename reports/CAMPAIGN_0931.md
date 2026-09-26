@@ -1,6 +1,8 @@
 # Campaign beyond Amazon 0.931
 
 ## Current state
+**Current execution command:** `python -u -m src.campaign_run --main-workers 6 --alias-workers 4`. It resumes the main submission first, then the independently confirmed alias-enhanced submission. Stages run sequentially to avoid RAM/cache contention. Live stage: `reports/campaign_0931/coordinator.json`. Earlier worker-count notes below are historical experiments.
+
 Active on `parth`, C: working repo. `F:/dotinit-Amazon-ML-Challenge` is read-only reference. User reports Amazon **0.920** pair threshold and **0.931** unique owner. A5000 unavailable; local RTX4060 8GB / 16GB system RAM. New work must be bounded-memory and resumable. Preserve the proven model and submissions; an old model is still useful as a control or ensemble member.
 
 ## Verified constraints and baseline
@@ -69,3 +71,25 @@ Retrieval audit:784 true pairs absent from the old validation candidate pool;363
 Full suite:52 tests passed. End-to-end completion command now `python -u -m src.campaign_finish --workers 6` after v4 confirmation. It chooses OOF only if paired CI versus compact is positive, checkpoints scoring, preserves interrupted exports, and runs official matching-ID validation. Full candidate equality/subset validation is streamed during export to avoid the supplied validator's high-memory all-candidates mapping on16GB RAM.
 
 Implementation checkpoint: the ensemble-support edit introduced an indentation error caught by a targeted recheck; corrected before production execution. Added a deployment prediction/portable-ensemble regression test. Compile-all and six targeted tests pass. Scoring now writes an explicit complete=true progress record at full completion. The earlier 2,000-anchor benchmark directory has the old code signature; production uses separate `test_final_*` directories.
+
+## Checkpoint: second fresh confirmation PASSED; production selected
+Fresh `confirmation_v4` excludes all prior55,000 anchors. Champion **0.940297**, initial compact **0.954455**, expanded OOF reranker **0.959566**. OOF versus champion: TP15,325 ->16,040; FP336 ->214; FN1,923 ->1,208. Paired delta+0.019269,95%CI[+0.016336,+0.022321]. Versus compact: delta+0.005111,95%CI[+0.002804,+0.007423]. US0.957770 ->0.967773; India0.912851 ->0.946675. France has no labeled validation and remains an explicit generalization uncertainty.
+
+Production selects `oof_compact_d9.joblib`, SHA256 `b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651`, threshold0.6000000000000002. Main production will retain global unique ownership and exact-tie abstention. A12,000-anchor six-worker benchmark uses `work/campaign_0931/test_final_oof`; those completed shards will be reused immediately by `src.campaign_finish --workers 6`. Follow `production_scoring.log`, `work/campaign_0931/test_final_oof/progress.json`, and `production_plan.json`. Do not edit fingerprinted scoring/feature modules during the run.
+
+Alias selection experiment remains separate:17,835 new candidate proposals on3,247 of10,000 selection anchors. No candidate expansion has been applied to production. It must improve independent confirmation before promotion.
+
+## Checkpoint: conservative alias expansion independently confirmed
+Using the unchanged0.60 cutoff on newly proposed aliases harmed selection F0.5. A separate added-pair cutoff0.975 was selected on old validation (+63TP,+6FP;F0.5 0.961505 ->0.961902), frozen, then evaluated on v4. Confirmation: **+37 true links,0 additional false links**, macro F0.5 **0.959566 ->0.960144**, paired delta+0.000578,95%CI[+0.000327,+0.000896]. See `alias_frozen.json` and `alias_confirmation_decision.json`.
+
+Preparing a separate alias-enhanced output. The main output stays unchanged. For full-data deployment, additions will be restricted to targets not already assigned in the main unique-owner output; this preserves every existing accepted match and avoids comparing the differently calibrated candidate populations when displacing owners. The random-anchor confirmation has no accepted ownership collisions, so this full-graph safeguard cannot be measured directly there. All newly scored candidates, including rejected ones, must be included in the expanded candidate TSV.
+
+`src/campaign_alias_scoring.py` follows completed main scoring shards, uses one worker by default, and checkpoints every100anchors. It refuses changed model/code/recipe signatures. No recursive propagation: only main-model predictions >=.95 supply one-hop aliases. The main production is approximately400-500anchors/sec; conservative alias work runs separately and may finish later.
+
+## Resource checkpoint: rebalance parallel jobs
+The alias pilot was too slow because it loaded full target rows for IDs and recomputed peer/detail features for anchors with no additions. Optimized packed-ID reads and affected-anchor filtering reproduce all checked probabilities exactly (100 mixed anchors; see the added-pair count in parity JSON). New alias cache is `work/campaign_0931/test_alias_v2`, with500-anchor checkpoints; the original pilot cache remains preserved but unused. Alias export/owner/tie tests passed (7 targeted tests total).
+
+Running6 main workers plus1 alias worker reduced available RAM below1GB. Rebalancing the main scorer to4 workers, preserving all completed shards. This is a resource adjustment, not a restart from zero. Current completion commands: `python -u -m src.campaign_finish --workers 4` and `python -u -m src.campaign_alias_finish --workers 1`. Both completion scripts automatically export and run official matching-ID validation. Alias additions never remove a main accepted owner. Do not start duplicate copies while these jobs are already active.
+
+## Current resource decision: sequential main then alias
+Concurrent execution reduced main throughput substantially despite the lower worker count. To get a validated main submission sooner and avoid memory/cache contention, the coordinator now runs main scoring/export/validation with6workers, then resumes the alias stage with up to4workers (bounded by available RAM). Every existing main and alias checkpoint is preserved. Single resume command: `python -u -m src.campaign_run --main-workers 6 --alias-workers 4`. It skips already validated, hash-matching outputs. Main progress and alias progress remain in their respective work directories; `coordinator.json` identifies the active stage. No more model/feature changes are planned during full inference.
