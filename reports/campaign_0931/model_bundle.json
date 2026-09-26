@@ -1,36 +1,45 @@
 {
-  "kind": "weights-only add-on, not a complete dataset/index/checkpoint backup",
+  "kind": "Weights-only add-on; not a complete dataset/index/checkpoint backup",
+  "restore": "Extract into the parth repository root. Only ignored artifacts/ and transfer/ paths are written. Original dataset/index assets and the complete verified base-score cache are still required.",
   "files": {
     "artifacts/improvements/catboost_d10_evidence.joblib": {
+      "source": "artifacts/improvements/catboost_d10_evidence.joblib",
       "bytes": 39623384,
       "sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69"
     },
     "artifacts/campaign_0931/oof_compact_d9.joblib": {
+      "source": "artifacts/campaign_0931/oof_compact_d9.joblib",
       "bytes": 17259032,
       "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651"
     },
-    "reports/CAMPAIGN_MODEL_CARD.md": {
-      "bytes": 5157,
-      "sha256": "871ee50901bb02a5e6578112d2ee7cf13a47ffa3a7c7d13ab3c7469d31f27dae"
+    "transfer/campaign_model_bundle/reports/CAMPAIGN_MODEL_CARD.md": {
+      "source": "reports/CAMPAIGN_MODEL_CARD.md",
+      "bytes": 5289,
+      "sha256": "2fd72d0b8c306a21c8e33e7da3e8200c3234040cc26e0749354457ac9acab571"
     },
-    "reports/CAMPAIGN_MODEL_LICENSE.txt": {
+    "transfer/campaign_model_bundle/reports/CAMPAIGN_MODEL_LICENSE.txt": {
+      "source": "reports/CAMPAIGN_MODEL_LICENSE.txt",
       "bytes": 1288,
       "sha256": "0909ae6a9ce736aec9733edc70e28c88b813fd6116db9f1ab040d9d146fe75ca"
     },
-    "reports/campaign_0931/frozen_confirmation_v4.json": {
+    "transfer/campaign_model_bundle/reports/campaign_0931/frozen_confirmation_v4.json": {
+      "source": "reports/campaign_0931/frozen_confirmation_v4.json",
       "bytes": 667,
       "sha256": "4b31d17b45cff31b43168627d4dc5c88799eb2a6f747d6289d90cf788308e5e0"
     },
-    "reports/campaign_0931/alias_frozen.json": {
+    "transfer/campaign_model_bundle/reports/campaign_0931/alias_frozen.json": {
+      "source": "reports/campaign_0931/alias_frozen.json",
       "bytes": 549,
       "sha256": "b01e4897114fd9e2ef1a6b2c61ee529acbad5c39cf5b9b90c44fc40c876d8e7f"
     },
-    "requirements-campaign-tested.txt": {
+    "transfer/campaign_model_bundle/requirements-campaign-tested.txt": {
+      "source": "requirements-campaign-tested.txt",
       "bytes": 52,
       "sha256": "1446dd2fdc969b4cd35a93f9356889bbc083dfdbe0832454ed8b54ee6eeae371"
     }
   },
-  "restore": "Extract into the cloned parth repository root. Existing dataset/index/base-score assets are still required. See reports/CAMPAIGN_0931.md.",
-  "zip_bytes": 14929787,
-  "zip_sha256": "1bc5cf1d4d71e3386f04895619d913bfe66271e08946846bc334735d235d23dc"
+  "zip_path": "transfer\\campaign-0931-models.zip",
+  "zip_bytes": 14930296,
+  "zip_sha256": "4cebde1081b77fd84927cef3b519d286a170f0a80a6e1caf15f9fddef956677c",
+  "verified": true
 }

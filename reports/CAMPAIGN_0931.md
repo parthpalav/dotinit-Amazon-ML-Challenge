@@ -1,6 +1,15 @@
 # Campaign beyond Amazon 0.931
 
 ## Current state
+**Delivery complete:** both full submissions are exported and officially validated. No campaign compute job remains running. Recommended first evaluation: `outputs/campaign_0931_oof_alias_unique/matching_results.tsv`; main comparison: `outputs/campaign_0931_oof_unique/matching_results.tsv`. Last reported Amazon score remains **0.931**; neither new file has an Amazon score yet.
+
+| Output | Matches | Candidates | Fresh confirmation macro F0.5 |
+|---|---:|---:|---:|
+| Main contextual unique-owner | 5,753,928 | 55,431,940 | 0.959566 |
+| Contextual + alias unique-owner | 5,768,373 | 58,313,891 | 0.960144 |
+
+Both cover all 1,732,544 anchors, have 108,973 empty rows and zero duplicate target ownership. Baseline on the same fresh confirmation is 0.940297. Final suite: 59 tests passed. Full streaming candidate/subset/coverage checks and official matching-ID validation passed for both files. Official-validator optional-candidate warnings are expected because candidates were checked separately in bounded memory. Main comparison and alias-only changes are in `main_output_audit.json` and `alias_output_audit.json`; final manifests are in `delivery.json`.
+
 **Current execution command:** `python -u -m src.campaign_run --main-workers 6 --alias-workers 2`. It resumes the main submission first, then the independently confirmed alias-enhanced submission. Stages run sequentially to avoid RAM/cache contention. Live stage: `reports/campaign_0931/coordinator.json`. Earlier worker-count notes below are historical experiments.
 
 Active on `parth`, C: working repo. `F:/dotinit-Amazon-ML-Challenge` is read-only reference. User reports Amazon **0.920** pair threshold and **0.931** unique owner. A5000 unavailable; local RTX4060 8GB / 16GB system RAM. New work must be bounded-memory and resumable. Preserve the proven model and submissions; an old model is still useful as a control or ensemble member.
@@ -127,3 +136,12 @@ Final regression suite after the alias ownership safeguard: **59 passed in 44.76
 
 ## Checkpoint: late-run memory adjustment
 With about 1.3 million alias anchors complete, free RAM fell to 0.85 GB and recent throughput dropped from roughly 600-750 to about 300 anchors/sec. Stopped only the verified campaign process tree and resumed all saved checkpoints with two alias workers. New current command: `python -u -m src.campaign_run --main-workers 6 --alias-workers 2`. Main output is already validated and is skipped automatically. No model/feature changes or rescoring of completed shards. Original coordinator process/session has ended; replacement execution session is 35865.
+
+
+Model-bundle reproduction: `python -m src.campaign_model_bundle`. The verified ~15 MB ZIP now extracts only into ignored `artifacts/` and `transfer/` paths; provenance documents are nested inside the transfer folder, so extraction cannot overwrite newer tracked reports/configuration. This is still a weights-only add-on, not the complete assets/checkpoints ZIP.
+
+
+## Final delivery checkpoint
+Alias inference completed all 1,732,544 anchors and scored 2,881,951 additional pairs. The final file adds 14,445 links (India 14,010; US 172; France 263), removes zero main links and changes zero singleton decisions. 445 high-confidence alias assignments to already-owned targets were excluded. The main-tie safeguard blocked zero final winners. Alias matching SHA256: `227698d86146a4feb9858c9f35ffb89068dab665d5d1a0a7a2b169967aa8ad0e`; expanded candidate SHA256: `009d58359ea7a9559ed861444d74994b4c7ea76b9d8031fc87ffd215e057327b`. Official validator passed, and the coordinator exited successfully.
+
+Next meaningful evidence is the Amazon score of the new submissions. Do not treat the training-derived .960144 as an Amazon result. Test labels are unavailable, and France remains an unlabeled generalization risk. Keep the proven .931 output on F as the fallback. No original model or submission was deleted, and F was never modified.

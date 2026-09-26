@@ -1,0 +1,22 @@
+{
+  "anchors": 1732544,
+  "pairs": 58313891,
+  "matches": 5768373,
+  "empty": 108973,
+  "new_candidates": 2881951,
+  "new_matches": 14445,
+  "blocked_by_main_tie": 0,
+  "baseline_matches": 5753928,
+  "skipped_alias_assignments_to_owned_targets": 445,
+  "unique_owner": true,
+  "existing_threshold": 0.6000000000000002,
+  "new_pair_threshold": 0.975,
+  "model_sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+  "base_matching_sha256": "65a1648f0e07d230dfb488328987f416ce76da55e7c2f3292e5bbc50a74fcc94",
+  "preserves_every_existing_match": true,
+  "duplicate_target_ids": 0,
+  "excess_target_assignments": 0,
+  "matching_sha256": "227698d86146a4feb9858c9f35ffb89068dab665d5d1a0a7a2b169967aa8ad0e",
+  "candidate_sha256": "009d58359ea7a9559ed861444d74994b4c7ea76b9d8031fc87ffd215e057327b",
+  "streaming_validation": "PASS: all anchors; all scored added candidates exported; candidate uniqueness; valid added IDs; matching subset; original matches preserved; global unique ownership"
+}

@@ -1,0 +1,10 @@
+
+RESUME/RUN 2026-09-26 22:52:48
+ML Challenge 2026 — submission validator
+  test dir: dataset/test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (108973 empty, 1623571 non-empty).
+
+WARNING: output/candidate_pairs.tsv not found — skipping candidate_pairs.tsv checks. It is optional here, but your final submission zip must include output/candidate_pairs.tsv.
+PASS — no blocking issues found. Safe to submit.

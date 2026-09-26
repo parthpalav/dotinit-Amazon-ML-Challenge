@@ -1,6 +1,7 @@
 {
-  "stage": "alias",
-  "workers": 2,
-  "state": "running",
-  "started_utc": "2026-09-26T17:05:33Z"
+  "state": "ready_for_amazon_evaluation",
+  "outputs": [
+    "outputs/campaign_0931_oof_unique",
+    "outputs/campaign_0931_oof_alias_unique"
+  ]
 }
