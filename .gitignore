@@ -16,3 +16,4 @@ outputs/
 *.bin
 *.joblib
 *.dylib
+.DS_Store
