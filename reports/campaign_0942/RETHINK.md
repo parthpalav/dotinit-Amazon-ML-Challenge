@@ -41,3 +41,29 @@ Reverse source index build resumed and is sorting its last partitions. It is ent
 Neural experiment started: src/campaign_neural.py, Microsoft Multilingual-MiniLM-L12-H384, MIT, ~117M parameters (21M transformer + 96M embeddings), suitable for 8GB GPU. Model card: https://huggingface.co/microsoft/Multilingual-MiniLM-L12-H384. PyTorch 2.8.0 CUDA 12.6 is downloading; transformers 4.57.6 and sentencepiece 0.2.1 installed. Tokenization/model download stage running in neural_prepare.log. No neural training has started yet. Training command: `python -u -m src.campaign_neural train --batch 32 --epochs 3`; optimizer/model/RNG resume checkpoint every 500 steps. Original multilingual embeddings remain frozen. Same 14k/3k/3k development split; a neural ensemble will require its own untouched confirmation before promotion.
 
 Code/audit checkpoint 4908622 was pushed to origin/parth. Later result logs and neural code still need the next checkpoint push. Generic pretrained weights are downloaded; no business records are sent to any external API. PDFs were re-read: max five submissions per day and deadline 27 Sep 2026 23:59 IST; preserve scarce submissions for meaningful variants.
+
+### Runtime / handover update (~03:53 IST)
+
+Checkpoint **2a89720** was pushed. Fresh-model result files are now in Git. `transfer/campaign-0942-models.zip` is a verified weights-only backup of the three required models, with MIT model license and a model card. The previous two models remain dependencies and must not be discarded. This ZIP is not a full data/index backup.
+
+SQLite-based raw scoring completed 375k anchors before switching to a compact, lossless raw-text store. `src.raw_packed` streamed the identical raw names/addresses into memory-mapped fields. `src.campaign_raw_packed --parity` verified **1,200 exact feature and probability matches** across four widely separated test shards. Existing verified shards were hard-linked into the new run, with their original signature recorded in import.json. No model, gate, threshold, or candidate change occurred.
+
+**ACTIVE production work is now `work/campaign_0942/test_minimal_packed`**, log `reports/campaign_0942/raw_packed_production.log`. Do not run both storage backends concurrently. Resume with:
+
+```
+python -u -m src.campaign_raw_packed --workers 2
+```
+
+After the current scoring process ends, finish/export/officially validate with:
+
+```
+python -u -m src.campaign_raw_finish --packed --workers 2
+```
+
+The finish command can itself resume scoring; **do not launch it while another scorer is running**. Output will be `outputs/campaign_0942_raw_unique`. Full export is not ready yet. New storage/algorithm files have LF rules in .gitattributes so frozen byte hashes survive Windows checkout.
+
+Neural training is actually using RTX 4060: measured 89% GPU utilization, 2.2GB VRAM. PyTorch reports CUDA device explicitly. First epoch calibration logloss 0.13643; two passes finished/nearing completion, three configured. Main checkpoint `work/campaign_0942/neural_checkpoint.pt` saves model/optimizer/scheduler/RNG every 500 steps. Resume original training command with batch32/epochs3. After training: `python -u -m src.campaign_neural infer --batch 32`, then `python -u -m src.campaign_neural_select`. These test logistic and small-tree fusion on disjoint development anchors. Neither neural model nor fusion is promoted yet.
+
+Reverse preparation's first broad key set produced excessive I/O. That partial cache is preserved but unused. The current restricted competitor search uses exact name/address, name LSH, and name+street-number keys; disables generic single-token/postal/address-LSH postings; caps postings at120 and retains top4 alternatives by text strength. It is background-competitor evidence, not the forward candidate blocker. New caches: `competitors_name_address_*`; old `competitors_*` partials must not be mixed. The run was paused during dependency installation disk contention, then resumed. After prepare completes: `python -u -m src.campaign_raw train --reverse`.
+
+v5 is now consumed for diagnostic ceiling calculations; any new neural/reverse promotion requires a fresh holdout. Current-pool v5 oracle = 0.9924558 with 396 omitted true pairs. This is a local bound, not a test-score promise. Raw model feature importance confirms legal distinction evidence is useful, but never a hard rule.

@@ -14,14 +14,14 @@ def stage(name,argv):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--workers',type=int,default=2);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--workers',type=int,default=2);p.add_argument('--packed',action='store_true');args=p.parse_args()
     if subprocess.check_output(['git','branch','--show-current'],text=True).strip()!='parth':raise ValueError('Requires parth branch')
     report=json.loads((ROOT/'minimal_confirmation_v5.json').read_text(encoding='utf-8'))
     if not report['promotion_supported']:raise ValueError('Confirmation failed')
-    work=Path('work/campaign_0942/test_minimal');out=Path('outputs/campaign_0942_raw_unique');state=ROOT/'production_plan.json'
+    work=Path('work/campaign_0942')/('test_minimal_packed' if args.packed else 'test_minimal');out=Path('outputs/campaign_0942_raw_unique');state=ROOT/'production_plan.json'
     plan={'state':'scoring','output':str(out),'work':str(work),'frozen':report['frozen'],'amazon_score':None}
     state.write_text(json.dumps(plan,indent=2),encoding='utf-8')
-    stage('raw_production',['-m','src.campaign_raw_scoring','--workers',str(args.workers)])
+    stage('raw_production',['-m','src.campaign_raw_packed' if args.packed else 'src.campaign_raw_scoring','--workers',str(args.workers)])
     validation=out/'validation.json'
     if validation.exists():
         v=json.loads(validation.read_text(encoding='utf-8'))

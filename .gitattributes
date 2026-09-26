@@ -2,3 +2,5 @@ outputs/**/*.tsv filter=lfs diff=lfs merge=lfs -text
 # Preserve byte-stable source fingerprints for the frozen raw-text campaign.
 src/raw_evidence.py text eol=lf
 src/campaign_raw_scoring.py text eol=lf
+src/raw_packed.py text eol=lf
+src/campaign_raw_packed.py text eol=lf
