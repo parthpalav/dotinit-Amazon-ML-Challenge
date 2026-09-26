@@ -1,0 +1,169 @@
+{
+  "phase": "Phase 7: Blocking Rule Verification and Implementation Audit",
+  "status": "COMPLETED",
+  "timestamp": "2026-09-26T20:10:00Z",
+  "phase_7_0_in_flight_tasks": {
+    "task_528_fit_extraction": {
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runtime_seconds": 599.2,
+      "output_file": "work/cap64_v1/features/fit.joblib",
+      "size_mb": 519,
+      "pairs": 1919431,
+      "candidate_recall": "102128/104019 = 0.9818"
+    },
+    "task_530_validation_features": {
+      "status": "COMPLETED",
+      "exit_code": 0,
+      "runtime_seconds": 225.8,
+      "output_dir": "work/cap64_v1/supplemental_cache/",
+      "pairs": 639617,
+      "veto_features_shape": [639617, 14],
+      "enhanced_features_shape": [639617, 9]
+    }
+  },
+  "phase_7_1_rule_presence_audit": {
+    "were_rules_in_production_prior_to_phase_7": false,
+    "direct_code_evidence": {
+      "src_native_index_cpp": {
+        "has_indic_transliteration": false,
+        "has_soundex_keys": false,
+        "emitted_channels": ["N|name", "T|country|word", "LSH", "P|country|postal", "A|sorted_addr", "X|country|num|word"]
+      },
+      "src_native_supplement_cpp": {
+        "has_indic_transliteration": false,
+        "has_soundex_keys": false,
+        "emitted_channels": ["AN|country|number|word (cap 56)", "NP|country|word1|word2 (cap 8)"]
+      },
+      "src_disk_blocking_py": {
+        "has_phonetic_or_relaxed_rules": false,
+        "role": "Lookup-only wrapper querying native/supplement binary indexes"
+      },
+      "root_cause_of_recall_shortfall": "Indic transliteration and phonetic Soundex rules existed only in offline diagnostic scripts (src/analyze_blocking_fn.py, src/measure_rebuilt_blocking.py) and classifier veto features (src/veto_features.py). The earlier Cap 64 candidate run only tuned configuration knobs (retrieval_posting_limit 240->500, max_candidates_per_anchor 32->64), which yielded +158 true pairs solely from posting-limit relaxation."
+    }
+  },
+  "phase_7_2_implementation_and_rebuild": {
+    "cpp_source_file": "src/native/supplement.cpp",
+    "compiled_binary": "src/native/libber-4e8d06ea4e37c964.dylib",
+    "rebuilt_index_file": "work/cap64_rebuilt/train/supplement_index.bin",
+    "rebuilt_index_size_bytes": 3424140360,
+    "build_runtime_seconds": 352.6,
+    "implemented_channels": [
+      "SXN|country|soundex|number (Soundex + Address number)",
+      "SXW|country|soundex|address_word (Soundex + Address word)",
+      "AN|country|number|address_word (Address number + non-generic word)",
+      "AW2|country|word1|word2 (Relaxed address word pair)",
+      "NP|country|word1|word2 (Unordered name word pair)"
+    ],
+    "diagnostic_784_missed_pairs_recall": {
+      "total_diagnostic_misses": 784,
+      "baseline_recall": "0 / 784 (0.0%)",
+      "cap64_v1_recall_posting_limit_only": "166 / 784 (21.17%)",
+      "rebuilt_cpp_index_recall": "414 / 784 (52.81%)",
+      "net_new_true_matches_over_cap64_v1": 248,
+      "breakdown_by_failure_mode": {
+        "indic_script_divergence": {
+          "total": 363,
+          "baseline": "0 / 363 (0.0%)",
+          "cap64_v1": "53 / 363 (14.6%)",
+          "rebuilt_cpp": "184 / 363 (50.7%)"
+        },
+        "other_token_pruning": {
+          "total": 323,
+          "baseline": "0 / 323 (0.0%)",
+          "cap64_v1": "90 / 323 (27.9%)",
+          "rebuilt_cpp": "188 / 323 (58.2%)"
+        },
+        "zero_name_overlap_address_heavy": {
+          "total": 98,
+          "baseline": "0 / 98 (0.0%)",
+          "cap64_v1": "23 / 98 (23.5%)",
+          "rebuilt_cpp": "42 / 98 (42.9%)"
+        }
+      }
+    },
+    "validation_aggregate_candidate_recall": {
+      "total_ground_truth": 34676,
+      "baseline_retained_true": 33892,
+      "baseline_recall": 0.97739,
+      "cap64_v1_retained_true": 34050,
+      "cap64_v1_recall": 0.98195,
+      "rebuilt_cpp_retained_true": 34276,
+      "rebuilt_cpp_recall": 0.98846,
+      "rebuilt_raw_inverted_index_retained_true": 34383,
+      "rebuilt_raw_inverted_index_recall": 0.99155
+    },
+    "calibration_aggregate_candidate_recall": {
+      "total_ground_truth": 17421,
+      "rebuilt_cpp_retained_true": 17194,
+      "rebuilt_cpp_recall": 0.98697
+    }
+  },
+  "phase_7_3_gap_diagnosis": {
+    "simulated_recoverable_pairs": 614,
+    "production_retained_pairs": 414,
+    "gap": 200,
+    "gap_breakdown": {
+      "retrieved_in_raw_dropped_by_top64_cap": {
+        "count": 85,
+        "percentage_of_784": 10.84,
+        "mechanism": "Candidate was retrieved by the rebuilt inverted index, but dropped by the coarse candidate ranker when the anchor candidate pool exceeded 64. Coarse ranker ranks candidates by name token/Levenshtein overlap."
+      },
+      "not_retrieved_in_raw_due_to_compound_address_requirement": {
+        "count": 115,
+        "percentage_of_784": 14.67,
+        "mechanism": "Unconstrained soundex (country|soundex) in India generates posting lists > 50,000, which causes RAM blowup. Production C++ intentionally constrained soundex with address numbers (SXN) and words (SXW) with posting limit 500. True pairs with divergent names AND blank/disjoint addresses could not fire compound keys."
+      },
+      "out_of_scope_or_disjoint": {
+        "count": 170,
+        "percentage_of_784": 21.68,
+        "mechanism": "Completely disjoint names and addresses with no shared numbers or phonetic overlap."
+      }
+    }
+  },
+  "phase_7_4_evaluation_stack": {
+    "validation_pairs": 639959,
+    "calibration_pairs": 319984,
+    "features_dimension": 81,
+    "evaluated_configurations": {
+      "enhanced_model_v3_recalibrated_rebuilt": {
+        "raw": {"threshold": 0.5750, "precision": 0.95084, "recall": 0.87841, "f0.5": 0.92482, "tp": 30497, "fp": 1246, "fn": 4179},
+        "target_arbitrated": {"threshold": 0.5750, "precision": 0.95102, "recall": 0.87851, "f0.5": 0.92498, "tp": 30497, "fp": 1240, "fn": 4179},
+        "stacked_margin_delta_0.20": {"threshold": 0.5000, "precision": 0.96118, "recall": 0.86311, "f0.5": 0.92874, "tp": 29819, "fp": 767, "fn": 4857}
+      },
+      "retrained_catboost_rebuilt": {
+        "raw": {"threshold": 0.7500, "precision": 0.94962, "recall": 0.86838, "f0.5": 0.92102, "tp": 30134, "fp": 1141, "fn": 4542},
+        "target_arbitrated": {"threshold": 0.7500, "precision": 0.94961, "recall": 0.86835, "f0.5": 0.92101, "tp": 30133, "fp": 1140, "fn": 4543},
+        "stacked_margin_delta_0.10": {"threshold": 0.5500, "precision": 0.95725, "recall": 0.85919, "f0.5": 0.92463, "tp": 29703, "fp": 872, "fn": 4973}
+      }
+    },
+    "comparison_vs_last_benchmark": {
+      "benchmark_score": 0.93723,
+      "benchmark_context": "Phase 4 simulation on un-retrained model with Cap 32 candidate density",
+      "rebuilt_candidate_density": "64 candidates per anchor (2x density, 639k pairs vs 319k pairs)",
+      "retrained_true_positives_gain": "+388 true positives retrieved over original cap-32 baseline (30,497 vs 30,109)",
+      "precision_penalty_under_macro_f05": "Because candidate pool doubled from 32 to 64, negative candidate volume doubled, increasing raw false positive exposure under the macro F0.5 metric (which weights precision 2x). Full 30k fit anchor training on all 81 features is needed to push precision back above 96.5% at threshold 0.65+."
+    }
+  },
+  "work_preservation": {
+    "cap64_v1_preserved": true,
+    "cap64_v1_files": [
+      "work/cap64_v1/features/fit.joblib (519MB)",
+      "work/cap64_v1/features/calibration.joblib (87MB)",
+      "work/cap64_v1/features/validation.joblib (173MB)",
+      "work/cap64_v1/supplemental_cache/validation_veto.joblib (35MB)",
+      "work/cap64_v1/supplemental_cache/validation_enh.joblib (23MB)",
+      "work/cap64_v1/supplemental_cache/calibration_veto.joblib (17MB)",
+      "work/cap64_v1/supplemental_cache/calibration_enh.joblib (11MB)"
+    ],
+    "cap64_rebuilt_files": [
+      "work/cap64_rebuilt/train/supplement_index.bin (3.42GB)",
+      "work/cap64_rebuilt/features/validation.joblib (182MB)",
+      "work/cap64_rebuilt/features/calibration.joblib (91MB)",
+      "work/cap64_rebuilt/supplemental_cache/validation_veto.joblib (35MB)",
+      "work/cap64_rebuilt/supplemental_cache/validation_enh.joblib (23MB)",
+      "work/cap64_rebuilt/supplemental_cache/calibration_veto.joblib (17MB)",
+      "work/cap64_rebuilt/supplemental_cache/calibration_enh.joblib (11MB)"
+    ]
+  }
+}

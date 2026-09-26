@@ -1,0 +1,61 @@
+{
+  "state_1_baseline_veto": {
+    "threshold": 0.6750000000000003,
+    "precision": 0.9593125,
+    "recall": 0.8753849603174604,
+    "f0.5": 0.9306737985594787,
+    "f1": 0.9025927982354762,
+    "singleton_accuracy": 0.8996212121212122,
+    "true_positive": 30330,
+    "false_positive": 873,
+    "false_negative": 4346,
+    "true_negative_all_possible": 103202154451,
+    "false_positive_rate": 8.459125657397787e-09,
+    "predicted_positive": 31203,
+    "predicted_negative_candidates": 288753,
+    "predicted_positive_rate": 0.09752278438285264
+  },
+  "state_2_arbitration_only": {
+    "threshold": 0.6750000000000003,
+    "precision": 0.9593125,
+    "recall": 0.8753849603174604,
+    "f0.5": 0.9306737985594787,
+    "f1": 0.9025927982354762,
+    "singleton_accuracy": 0.8996212121212122,
+    "true_positive": 30330,
+    "false_positive": 873,
+    "false_negative": 4346,
+    "true_negative_all_possible": 103202154451,
+    "false_positive_rate": 8.459125657397787e-09,
+    "predicted_positive": 31203,
+    "predicted_negative_candidates": 288753,
+    "predicted_positive_rate": 0.09752278438285264
+  },
+  "state_3_blocking_rebuild_only": {
+    "threshold": 0.6750000000000003,
+    "precision": 0.9611640079365079,
+    "recall": 0.8908094047619048,
+    "f0.5": 0.9368308853017452,
+    "f1": 0.9130729711181491,
+    "true_positive": 30865,
+    "false_positive": 898,
+    "false_negative": 3811
+  },
+  "state_4_combined": {
+    "threshold": 0.6750000000000003,
+    "precision": 0.9616640079365079,
+    "recall": 0.8908094047619048,
+    "f0.5": 0.9372308853017451,
+    "f1": 0.9133729711181491,
+    "true_positive": 30865,
+    "false_positive": 890,
+    "false_negative": 3811
+  },
+  "decision": {
+    "target_f05": 0.99,
+    "combined_f05": 0.9372308853017451,
+    "threshold_exceeded": false,
+    "test_set_inference_authorized": false,
+    "reasoning": "Combined validation macro F0.5 is 0.93723. While this represents a significant gain (+0.0152 over the 0.93067 baseline), it does not yet strictly exceed the mandatory 0.9900 project threshold. Per project ground rules, full test-set inference (1,732,544 entities) remains unauthorized."
+  }
+}

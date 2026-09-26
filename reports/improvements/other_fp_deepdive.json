@@ -1,0 +1,151 @@
+{
+  "total_other_fps": 437,
+  "singleton_anchors": 25,
+  "anchors_with_ground_truth": 412,
+  "similarity_distribution": {
+    ">= 0.90": 135,
+    "0.80 - 0.89": 136,
+    "0.70 - 0.79": 90,
+    "0.50 - 0.69": 22,
+    "< 0.50": 54
+  },
+  "near_duplicate_count_gte_09": 135,
+  "near_duplicate_pct_gte_09": 30.89,
+  "same_source_conflicts": 281,
+  "diff_source_conflicts": 131,
+  "margin_analysis": {
+    "mean_margin": -0.09576655859408224,
+    "median_margin": -0.11208204830093732,
+    "margin_le_0_05_count": 379,
+    "margin_le_0_05_pct": 0.9199029126213593,
+    "margin_le_0_10_count": 387,
+    "margin_le_0_10_pct": 0.9393203883495146
+  },
+  "sample_cases": [
+    {
+      "anchor_id": "S1-971678821",
+      "target_id": "S2-800158998",
+      "prob": 0.7209817014848088,
+      "a_name": "sre realty",
+      "a_addr": "parsonscourt no 85 menglesroadnagalnagar dindigul tamil nadu",
+      "t_name": "sre realty",
+      "t_addr": "72 parsonscourt no 85 menglesroadnagalnagar tamil nadu",
+      "country": "india",
+      "t_source": "S2",
+      "truth_type": "has_truth_matches",
+      "best_comparison": {
+        "true_id": "S2-337000520",
+        "true_source": "S2",
+        "true_name": "sre realty",
+        "true_addr": "parsonscourt no 85 menglesroadnagalnagar \u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1",
+        "name_sim": 1.0,
+        "addr_sim": 0.8888888888888888,
+        "combined_sim": 0.9444444444444444,
+        "p_true": 0.9967741352337802,
+        "p_fp": 0.7209817014848088,
+        "prob_margin": -0.27579243374897144
+      },
+      "max_sim_to_true": 0.9444444444444444
+    },
+    {
+      "anchor_id": "S1-580286323",
+      "target_id": "S3-827745523",
+      "prob": 0.8076430349338336,
+      "a_name": "johnson jayne b l c s w dds pc center",
+      "a_addr": "1726 bhairavi st mcminnville tn",
+      "t_name": "noe jayne b l c s w dds",
+      "t_addr": "1726 bhairavi st mcminnville tennessee",
+      "country": "us",
+      "t_source": "S3",
+      "truth_type": "has_truth_matches",
+      "best_comparison": {
+        "true_id": "S3-247982102",
+        "true_source": "S3",
+        "true_name": "johnson jayne b l c s w dds pc",
+        "true_addr": "po box 1453 mcminnville tennessee 1726 bhairavi st",
+        "name_sim": 0.8301886792452831,
+        "addr_sim": 1.0,
+        "combined_sim": 0.9150943396226415,
+        "p_true": 0.9792251198900078,
+        "p_fp": 0.8076430349338336,
+        "prob_margin": -0.17158208495617422
+      },
+      "max_sim_to_true": 0.9150943396226415
+    },
+    {
+      "anchor_id": "S1-625938843",
+      "target_id": "S3-437371261",
+      "prob": 0.8430390155897775,
+      "a_name": "hyderabad constructions",
+      "a_addr": "8 3 833 208 kamalapuri colony hyderabad telangana",
+      "t_name": "hyderabad constructions",
+      "t_addr": "8 3 222 1 hyderabad tg",
+      "country": "india",
+      "t_source": "S3",
+      "truth_type": "has_truth_matches",
+      "best_comparison": {
+        "true_id": "S3-542279068",
+        "true_source": "S3",
+        "true_name": "hyderabad constructions",
+        "true_addr": "8 8 3 833 208 kamalaupri colony hyderabad tg",
+        "name_sim": 1.0,
+        "addr_sim": 0.8421052631578948,
+        "combined_sim": 0.9210526315789473,
+        "p_true": 0.932331538961585,
+        "p_fp": 0.8430390155897775,
+        "prob_margin": -0.0892925233718076
+      },
+      "max_sim_to_true": 0.9210526315789473
+    },
+    {
+      "anchor_id": "S1-338438830",
+      "target_id": "S2-765504155",
+      "prob": 0.8052101427815861,
+      "a_name": "nectar and associates",
+      "a_addr": "chennai city corporation tamil nadu no 4 608 desk no 204 v o c st perungudi g1 kanchipuram",
+      "t_name": "nectar and associates",
+      "t_addr": "g 6 no 4 608 desk no 204 v o c st perungudi chennai city corporation \u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1",
+      "country": "india",
+      "t_source": "S2",
+      "truth_type": "has_truth_matches",
+      "best_comparison": {
+        "true_id": "S3-476089073",
+        "true_source": "S3",
+        "true_name": "nectar and associates",
+        "true_addr": "707 g1 kanchipuram no 4 608 desk no 204 v o c st perungudi chennai city corporation \u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1",
+        "name_sim": 1.0,
+        "addr_sim": 0.9726027397260275,
+        "combined_sim": 0.9863013698630138,
+        "p_true": 0.9976515318871296,
+        "p_fp": 0.8052101427815861,
+        "prob_margin": -0.19244138910554354
+      },
+      "max_sim_to_true": 0.9863013698630138
+    },
+    {
+      "anchor_id": "S1-619585628",
+      "target_id": "S3-741263534",
+      "prob": 0.977265502766857,
+      "a_name": "vana group of companies",
+      "a_addr": "c o shivnarayan jagannath 347 akodia shajapur madhya pradesh",
+      "t_name": "vana group of companies",
+      "t_addr": "46 c o shivnarsyan jagannath 347 shajapur agar malwa mp",
+      "country": "india",
+      "t_source": "S3",
+      "truth_type": "has_truth_matches",
+      "best_comparison": {
+        "true_id": "S3-651806",
+        "true_source": "S3",
+        "true_name": "vana group of companies",
+        "true_addr": "c o shivnarayan jagannath 347 akodia shajapur mp",
+        "name_sim": 1.0,
+        "addr_sim": 0.8349514563106796,
+        "combined_sim": 0.9174757281553398,
+        "p_true": 0.9987039390070089,
+        "p_fp": 0.977265502766857,
+        "prob_margin": -0.02143843624015196
+      },
+      "max_sim_to_true": 0.9174757281553398
+    }
+  ]
+}
