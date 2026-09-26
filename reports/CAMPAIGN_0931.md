@@ -1,7 +1,9 @@
 # Campaign beyond Amazon 0.931
 
 ## Current state
-**Delivery complete:** both full submissions are exported and officially validated. No campaign compute job remains running. Recommended first evaluation: `outputs/campaign_0931_oof_alias_unique/matching_results.tsv`; main comparison: `outputs/campaign_0931_oof_unique/matching_results.tsv`. Last reported Amazon score remains **0.931**; neither new file has an Amazon score yet.
+**Latest Amazon feedback:** main and alias both scored **0.942**. A separate, unscored France-only rollback diagnostic is ready at `outputs/campaign_0942_france_baseline/matching_results.tsv`. It preserves main US/India predictions exactly and restores prior France predictions. Do not assume it beats 0.942 until evaluated.
+
+**Delivery complete:** both full submissions are exported and officially validated. No campaign compute job remains running. Recommended first evaluation: `outputs/campaign_0931_oof_alias_unique/matching_results.tsv`; main comparison: `outputs/campaign_0931_oof_unique/matching_results.tsv`. User reported **0.942 on both files on 2026-09-27**, an absolute gain of 0.011 over the previous 0.931. They are tied at the reported precision.
 
 | Output | Matches | Candidates | Fresh confirmation macro F0.5 |
 |---|---:|---:|---:|
@@ -145,3 +147,12 @@ Model-bundle reproduction: `python -m src.campaign_model_bundle`. The verified ~
 Alias inference completed all 1,732,544 anchors and scored 2,881,951 additional pairs. The final file adds 14,445 links (India 14,010; US 172; France 263), removes zero main links and changes zero singleton decisions. 445 high-confidence alias assignments to already-owned targets were excluded. The main-tie safeguard blocked zero final winners. Alias matching SHA256: `227698d86146a4feb9858c9f35ffb89068dab665d5d1a0a7a2b169967aa8ad0e`; expanded candidate SHA256: `009d58359ea7a9559ed861444d74994b4c7ea76b9d8031fc87ffd215e057327b`. Official validator passed, and the coordinator exited successfully.
 
 Next meaningful evidence is the Amazon score of the new submissions. Do not treat the training-derived .960144 as an Amazon result. Test labels are unavailable, and France remains an unlabeled generalization risk. Keep the proven .931 output on F as the fallback. No original model or submission was deleted, and F was never modified.
+
+
+## Amazon feedback: 2026-09-27
+User reports main **0.942**, alias **0.942**. Gain over previous best: +0.011. Alias improvement is not demonstrated at the reported precision. Local confirmation .959566/.960144 must not be confused with these Amazon scores. Aggregate scores do not identify the country responsible for the generalization gap.
+
+Next diagnostic submission: keep the main 0.942 US/India predictions exactly unchanged, restore only France from the preserved 0.931 unique-owner output, and reuse the unchanged original candidate pool. This is a country-transfer experiment, not a validated improvement. France has no labeled holdout; this hybrid therefore has no measured France accuracy or promised Amazon score. No retraining is needed. Preserve both 0.942 outputs.
+
+
+France diagnostic READY: 1,732,544 rows, 5,748,778 matches, 108,911 empty rows, zero duplicate ownership. Exactly 40,380 France rows change versus main; zero US/India rows change. Same 55,431,940 candidates. Streaming full-row/subset/ownership checks and official matching-ID validator passed. Two dedicated tests passed, including a deliberately conflicting cross-country ownership case. Matching SHA256: `d03c1d19b821698562f57e4021606aeb4541632019165fa89a06cb1d98119ab0`. Reproduce with `python -X utf8 -m src.campaign_country_hybrid` (requires preserved baseline output; refuses overwriting an existing output). No training, model changes or F writes. Score is unknown.

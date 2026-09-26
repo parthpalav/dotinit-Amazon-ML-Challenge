@@ -9,12 +9,14 @@ An offline Python pipeline for the problem described in the supplied **Amazon ML
 
 ## Current contextual matching campaign
 
+**Amazon update (2026-09-27): both main and alias scored 0.942.** Next optional diagnostic: `outputs/campaign_0942_france_baseline/matching_results.tsv`, which restores only the previous France predictions and keeps main US/India unchanged. It is fully validated but has **no Amazon score yet**.
+
 Both new submissions are complete and officially validated:
 
-- **Recommended first evaluation:** `outputs/campaign_0931_oof_alias_unique/matching_results.tsv` (5,768,373 matches).
-- **Main comparison:** `outputs/campaign_0931_oof_unique/matching_results.tsv` (5,753,928 matches).
+- **Evaluated alias version (Amazon 0.942):** `outputs/campaign_0931_oof_alias_unique/matching_results.tsv` (5,768,373 matches).
+- **Evaluated main version (Amazon 0.942):** `outputs/campaign_0931_oof_unique/matching_results.tsv` (5,753,928 matches).
 
-Fresh confirmation macro F0.5 improved from **0.940297** to **0.959566**, then **0.960144** with conservative alias additions. These are not Amazon scores; the last team-reported Amazon score remains **0.931**. Both files cover all 1,732,544 anchors, have no duplicate target ownership, and passed full streaming integrity checks plus official matching-ID validation. All **59 regression tests passed**. The alias file preserves every main match and adds 14,445 links. Each output folder includes its corresponding `candidate_pairs.tsv`; use the expanded candidate file with the alias output.
+Fresh confirmation macro F0.5 improved from **0.940297** to **0.959566**, then **0.960144** with conservative alias additions. These are local confirmation scores. On 2026-09-27, the user reported **0.942 on both new Amazon submissions**, up from **0.931**. The alias gain is not demonstrated at the reported precision. Both files cover all 1,732,544 anchors, have no duplicate target ownership, and passed full streaming integrity checks plus official matching-ID validation. All **59 regression tests passed**. The alias file preserves every main match and adds 14,445 links. Each output folder includes its corresponding `candidate_pairs.tsv`; use the expanded candidate file with the alias output.
 
 See the [model card](reports/CAMPAIGN_MODEL_CARD.md), [experiment journal and handover](reports/CAMPAIGN_0931.md), and `reports/campaign_0931/delivery.json`. Both required model weights are preserved; a verified weights-only add-on is at `transfer/campaign-0931-models.zip` (rebuild with `python -m src.campaign_model_bundle`). This ZIP does not replace dataset/index/base-score assets.
 

@@ -1,0 +1,10 @@
+{
+  "reported_date": "2026-09-27",
+  "source": "user-reported Amazon evaluation",
+  "reported_precision_digits": 3,
+  "previous_best": 0.931,
+  "main": 0.942,
+  "alias": 0.942,
+  "gain_over_previous": 0.011,
+  "interpretation": "Tied at reported precision; the alias contribution is not demonstrated on Amazon. Country-level performance cannot be inferred from these aggregate scores alone."
+}

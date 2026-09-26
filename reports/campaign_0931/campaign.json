@@ -5,7 +5,9 @@
   "amazon_scores_reported_by_user": {
     "original": 0.842,
     "improved_pair_threshold": 0.92,
-    "improved_unique_owner": 0.931
+    "improved_unique_owner": 0.931,
+    "campaign_main": 0.942,
+    "campaign_alias": 0.942
   },
   "test_labels_available": false,
   "rules": {
@@ -19,10 +21,10 @@
     "A5000": "unavailable",
     "free_C_GB": 36.627812352
   },
-  "state": "Both submissions ready and officially validated; coordinator exited successfully",
+  "state": "Best reported Amazon score 0.942 on both models; France rollback diagnostic ready",
   "updated_utc": "2026-09-26T17:27:01.810656+00:00",
   "production_plan": "reports/campaign_0931/production_plan.json",
-  "latest_amazon_score": 0.931,
+  "latest_amazon_score": 0.942,
   "resume_command": "python -u -m src.campaign_run --main-workers 6 --alias-workers 2",
   "coordinator": "reports/campaign_0931/coordinator.json",
   "main_output": "outputs/campaign_0931_oof_unique/matching_results.tsv",
@@ -71,5 +73,6 @@
     "streaming_validation": "PASS: all anchors; all scored added candidates exported; candidate uniqueness; valid added IDs; matching subset; original matches preserved; global unique ownership"
   },
   "delivery_manifest": "reports/campaign_0931/delivery.json",
-  "compute_jobs_remaining": false
+  "compute_jobs_remaining": false,
+  "next_experimental_output": "outputs\\campaign_0942_france_baseline\\matching_results.tsv"
 }

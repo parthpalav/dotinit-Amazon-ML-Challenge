@@ -1,11 +1,14 @@
 {
   "completed_utc": "2026-09-26T17:27:01.810656+00:00",
   "branch": "parth",
-  "state": "ready_for_amazon_evaluation",
+  "state": "amazon_evaluated",
   "recommended_output": "outputs\\campaign_0931_oof_alias_unique",
   "main_comparison_output": "outputs\\campaign_0931_oof_unique",
   "amazon_previous_reported": 0.931,
-  "new_amazon_scores": null,
+  "new_amazon_scores": {
+    "main": 0.942,
+    "alias": 0.942
+  },
   "fresh_confirmation": {
     "baseline": 0.9402966815,
     "main": 0.959565599,
@@ -53,5 +56,12 @@
   },
   "read_only_reference": "F:/dotinit-Amazon-ML-Challenge",
   "weights_bundle": "transfer/campaign-0931-models.zip",
-  "compute_jobs_remaining": false
+  "compute_jobs_remaining": false,
+  "next_experiment": {
+    "output": "outputs\\campaign_0942_france_baseline",
+    "status": "ready_for_experimental_amazon_evaluation",
+    "amazon_score": null,
+    "policy": "Previous 0.931 France predictions; current 0.942 main US/India predictions unchanged",
+    "matching_sha256": "d03c1d19b821698562f57e4021606aeb4541632019165fa89a06cb1d98119ab0"
+  }
 }
