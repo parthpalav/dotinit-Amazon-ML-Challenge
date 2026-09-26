@@ -1,0 +1,26 @@
+{
+  "US": {
+    "anchors": 663106,
+    "pair_matches": 2092729,
+    "unique_matches": 2091035,
+    "small_margin_unique": 783,
+    "pair_empty": 42881,
+    "unique_empty": 42974
+  },
+  "India": {
+    "anchors": 809986,
+    "pair_matches": 2508813,
+    "unique_matches": 2471154,
+    "small_margin_unique": 17351,
+    "pair_empty": 56008,
+    "unique_empty": 57754
+  },
+  "France": {
+    "anchors": 259452,
+    "pair_matches": 1024845,
+    "unique_matches": 869115,
+    "small_margin_unique": 34737,
+    "pair_empty": 11391,
+    "unique_empty": 13570
+  }
+}

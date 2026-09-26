@@ -1,6 +1,8 @@
-> **STOPPED for workstation transfer:** 133,000 inference anchors preserved. See [A5000 setup and resume instructions](reports/A5000_HANDOVER.md). No ML jobs remain running on the laptop.
+> **Active campaign beyond Amazon 0.931:** see [current experiment journal](reports/CAMPAIGN_0931.md). Work is on `parth`; F: is read-only reference. Older transfer/stopped notices below describe the previous run.
 
-> **2026-09-26 improvement campaign:** Amazon evaluation baseline reported by the team: **0.842**. See [live status and handover](reports/IMPROVEMENT_STATUS.md) for current work, evidence, limitations, and restart instructions. The old HANDOVER.md is historical. Baseline outputs remain preserved; no v2 score is claimed yet.
+> **Historical transfer checkpoint:** the old run stopped locally at 133,000 anchors and subsequently completed on the A5000. Its unique-owner output scored **0.931 on Amazon** (team-reported). The laptop is now running the new campaign linked above.
+
+> **Earlier improvement campaign (historical):** the original Amazon baseline was **0.842**. [Earlier findings](reports/IMPROVEMENT_STATUS.md) document the changes that led to **0.920 pair-threshold / 0.931 unique-owner** scores. The current journal supersedes its status and restart instructions.
 # Business Entity Resolution
 
 An offline Python pipeline for the problem described in the supplied **Amazon ML Challenge 2026 – Business Entity Resolution Challenge** specification. Source 1 is the deduplicated reference; each record may match zero, one, or several Source 2/3 records. The implementation does not verify competition rules or claim a competition score.

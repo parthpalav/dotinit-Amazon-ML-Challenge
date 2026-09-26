@@ -1,0 +1,23 @@
+{
+  "started_utc": "2026-09-26T19:52:47.500391+05:30",
+  "branch": "parth",
+  "read_only_reference": "F:\\dotinit-Amazon-ML-Challenge",
+  "amazon_scores_reported_by_user": {
+    "original": 0.842,
+    "improved_pair_threshold": 0.92,
+    "improved_unique_owner": 0.931
+  },
+  "test_labels_available": false,
+  "rules": {
+    "metric": "macro per-S1 F0.5 including singletons",
+    "external_entity_lookup": "prohibited",
+    "submissions_per_day": 5,
+    "model_license": "MIT/Apache-2.0; <=8B parameters"
+  },
+  "resources": {
+    "GPU": "RTX 4060 8GB",
+    "A5000": "unavailable",
+    "free_C_GB": 36.627812352
+  },
+  "state": "Frozen contextual rerankers selected; fresh confirmation_v3 running; no new Amazon submission yet"
+}

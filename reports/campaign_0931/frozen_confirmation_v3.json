@@ -1,0 +1,20 @@
+{
+  "seed": 20260927,
+  "anchors": 5000,
+  "excluded_prior_anchors": 50000,
+  "models": [
+    {
+      "name": "full",
+      "path": "artifacts\\campaign_0931\\context_peer_detail_d9.joblib",
+      "sha256": "f7c0da8875e3adac60e76c7333c5e3a7af8865cbdcfb5b56c32c0d582568a638",
+      "threshold": 0.675
+    },
+    {
+      "name": "compact",
+      "path": "artifacts\\campaign_0931\\context_peer_detail_compact_d5.joblib",
+      "sha256": "47aeb7c577fa976647c141040b1c7b1a8b4ea463902cd1675e88c768de943489",
+      "threshold": 0.675
+    }
+  ],
+  "preferred": "compact if confirmation supports improvement; full diagnostic comparison; thresholds frozen before preparation"
+}

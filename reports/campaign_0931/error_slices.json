@@ -1,0 +1,64 @@
+{
+  "all": {
+    "pairs": 319956,
+    "positive_pairs": 33892,
+    "tp": 30996,
+    "fp": 657,
+    "candidate_fn": 2896
+  },
+  "source2": {
+    "pairs": 177814,
+    "positive_pairs": 16410,
+    "tp": 14912,
+    "fp": 315,
+    "candidate_fn": 1498
+  },
+  "source3": {
+    "pairs": 142142,
+    "positive_pairs": 17482,
+    "tp": 16084,
+    "fp": 342,
+    "candidate_fn": 1398
+  },
+  "right_address_missing": {
+    "pairs": 68522,
+    "positive_pairs": 1348,
+    "tp": 692,
+    "fp": 38,
+    "candidate_fn": 656
+  },
+  "both_addresses_present": {
+    "pairs": 251434,
+    "positive_pairs": 32544,
+    "tp": 30304,
+    "fp": 619,
+    "candidate_fn": 2240
+  },
+  "right_name_nonlatin": {
+    "pairs": 39294,
+    "positive_pairs": 2145,
+    "tp": 1611,
+    "fp": 186,
+    "candidate_fn": 534
+  },
+  "numeric_exclusive_both": {
+    "pairs": 132216,
+    "positive_pairs": 2368,
+    "tp": 1125,
+    "fp": 124,
+    "candidate_fn": 1243
+  },
+  "ambiguous_anchor_name": {
+    "pairs": 142036,
+    "positive_pairs": 14730,
+    "tp": 13127,
+    "fp": 344,
+    "candidate_fn": 1603
+  },
+  "row_order_S2": {
+    "pearson": 0.006262775361676111
+  },
+  "row_order_S3": {
+    "pearson": -0.0019381473464436469
+  }
+}
