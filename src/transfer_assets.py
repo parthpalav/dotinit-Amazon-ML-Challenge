@@ -52,7 +52,11 @@ def restore(bundle):
   manifest=json.loads(archive.read('ASSET_MANIFEST.json'))
   for i,e in enumerate(manifest['entries']):
    dest=safe(root,e['path']);dest.parent.mkdir(parents=True,exist_ok=True)
-   if dest.exists():
+   pointer=False
+   if dest.is_file() and dest.stat().st_size<1024:
+    expected=('version https://git-lfs.github.com/spec/v1\noid sha256:'+e['sha256']+'\nsize '+str(e['bytes'])+'\n').encode()
+    pointer=dest.read_bytes().replace(b'\r\n',b'\n')==expected
+   if dest.exists() and not pointer:
     if dest.stat().st_size!=e['bytes'] or digest(dest)!=e['sha256']:raise ValueError('Existing file differs: '+str(dest))
    elif 'alias' in e:
     source=safe(root,e['alias'])

@@ -96,4 +96,8 @@ The 4060 was used for training, but full submission generation uses CPU feature 
 
 
 ## Final transfer verification
-All 1,465 asset entries passed decompression/SHA256/size/alias checks. Staged Git source signatures match the saved scoring checkpoint, and all required inference assets are present. Git main is being published; an offline Git bundle is included as a backup. Resume only on the workstation using the A5000 handover.
+All 1,465 asset entries passed decompression/SHA256/size/alias checks. Staged Git source signatures match the saved scoring checkpoint, and all required inference assets are present. Git parth is being published; an offline Git bundle is included as a backup. Resume only on the workstation using the A5000 handover.
+
+
+## Branch correction requested by user
+Remote and local `main` restored to baseline `3b5485e`. Improvement commit `cdfb4e9` is preserved on `parth`, with follow-up transfer fixes also committed there. Local active branch: parth. No inference restarted.

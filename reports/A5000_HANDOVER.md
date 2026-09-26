@@ -4,7 +4,7 @@ The laptop inference was deliberately stopped at **133,000 / 1,732,544 anchors**
 
 ## Transfer two things
 
-1. Git code: pull `main` from `origin` after the transfer commit is pushed. An offline `transfer/amazon-ml-code.bundle` is also provided if GitHub authentication is unavailable.
+1. Git code: pull `parth` from `origin` after the transfer commit is pushed. An offline `transfer/amazon-ml-code.bundle` is also provided if GitHub authentication is unavailable.
 2. Non-Git assets: copy `transfer/amazon-ml-assets.zip` **and** `transfer/amazon-ml-assets.sha256` to the workstation. The archive contains all datasets, all saved models, original outputs, feature/index caches, diagnostics and completed inference shards. Existing hard-linked copies are stored once and restored as hard links where supported. The virtual environment and platform-specific compiled libraries are excluded and rebuilt. Incomplete temporary files and empty SQLite journals are excluded.
 
 Extract with the provided restore command, not Explorer/unzip: the manifest restores hard links and exact index timestamps required by posting-count cache checks. Restoration verifies archive and per-file SHA256 hashes. Only restore this project's trusted archive: model files contain pickled Python objects.
@@ -18,7 +18,9 @@ Use **Python 3.12** and a C++17 compiler (`g++` or `clang++`) available on PATH.
 Windows PowerShell, from the checkout root:
 
 ```powershell
-git pull --ff-only origin main
+git fetch origin
+git switch parth
+git pull --ff-only origin parth
 py -3.12 -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements-transfer.txt
 .venv/Scripts/python.exe -m src.transfer_assets restore "D:/transfer/amazon-ml-assets.zip"
@@ -29,7 +31,9 @@ g++ --version
 Linux, from the checkout root:
 
 ```bash
-git pull --ff-only origin main
+git fetch origin
+git switch parth
+git pull --ff-only origin parth
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements-transfer.txt
 .venv/bin/python -m src.transfer_assets restore /path/to/amazon-ml-assets.zip
@@ -37,7 +41,7 @@ g++ --version
 .venv/bin/python -u -m src.complete_improvements --workers 6 --full-validator
 ```
 
-If using the offline Git bundle instead of GitHub, start with `git clone /path/to/amazon-ml-code.bundle amazon-ml` and `cd amazon-ml`, then skip the `git pull` command above.
+If using the offline Git bundle instead of GitHub, start with `git clone --branch parth /path/to/amazon-ml-code.bundle amazon-ml` and `cd amazon-ml`, then skip the `git pull` command above.
 
 Do not run two continuations at the same time. The command resumes the saved shards, scores the remainder, writes `outputs/improved_pair_threshold/` and `outputs/improved_unique_owner/`, and validates them. The independent pair-threshold policy is the one confirmed on holdout. Unique ownership is an additional, separately named variant, not a separately proven score improvement.
 
@@ -66,3 +70,6 @@ Baseline model and both original TSVs remain byte-for-byte unchanged. No paid se
 
 ## Created asset bundle
 Archive size: **9.97 GB** (9,972,950,552 bytes). Unique restored data: **22.18 GB**; logical size with duplicated hard-link paths: **38.84 GB**. Archive SHA256: `a220f6ab74d6d9e89f8e89054f4a2e958b9a719476c25ab3de010c51bbea6029`. Includes 1,465 files and 25 hard-link aliases. The archive is deliberately ignored by Git.
+
+
+Branch correction: the original baseline remains on `main` at `3b5485e`; all improvement/transfer work is on `parth`. Pull `parth`, not `main`. The restore command recognizes Git LFS pointers only when their declared SHA256 and size match the archived asset, and replaces those pointers with the verified real files.
