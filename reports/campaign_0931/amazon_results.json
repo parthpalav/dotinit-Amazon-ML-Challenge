@@ -6,5 +6,6 @@
   "main": 0.942,
   "alias": 0.942,
   "gain_over_previous": 0.011,
-  "interpretation": "Tied at reported precision; the alias contribution is not demonstrated on Amazon. Country-level performance cannot be inferred from these aggregate scores alone."
+  "interpretation": "Main and alias remain best at 0.942. The France-only rollback submission scored 0.941, so reverting France did not improve the result. These are overall submission scores, not country-specific scores.",
+  "france_rollback_submission": 0.941
 }

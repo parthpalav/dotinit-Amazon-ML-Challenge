@@ -1,3 +1,5 @@
+> **Latest result:** France-only rollback scored **0.941** and is not promoted. Main and alias remain best at **0.942**. Further work is auditing matching errors and validation realism; no country rollback is recommended.
+
 # Campaign beyond Amazon 0.931
 
 ## Current state

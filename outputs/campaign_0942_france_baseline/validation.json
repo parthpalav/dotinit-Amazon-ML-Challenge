@@ -1,7 +1,7 @@
 {
-  "state": "ready_for_experimental_amazon_evaluation",
+  "state": "evaluated_not_promoted",
   "experimental": true,
-  "amazon_score": null,
+  "amazon_score": 0.941,
   "policy": "Previous 0.931 France predictions; current 0.942 main US/India predictions unchanged",
   "inputs": {
     "baseline": {

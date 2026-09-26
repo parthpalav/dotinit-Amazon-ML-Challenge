@@ -59,8 +59,8 @@
   "compute_jobs_remaining": false,
   "next_experiment": {
     "output": "outputs\\campaign_0942_france_baseline",
-    "status": "ready_for_experimental_amazon_evaluation",
-    "amazon_score": null,
+    "status": "evaluated_not_promoted",
+    "amazon_score": 0.941,
     "policy": "Previous 0.931 France predictions; current 0.942 main US/India predictions unchanged",
     "matching_sha256": "d03c1d19b821698562f57e4021606aeb4541632019165fa89a06cb1d98119ab0"
   }
