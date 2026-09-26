@@ -1,0 +1,8 @@
+VERIFIED 200
+VERIFIED 400
+VERIFIED 600
+VERIFIED 800
+VERIFIED 1000
+VERIFIED 1200
+VERIFIED 1400
+{"status": "PASS", "files": 1465, "unique_bytes": 22184574176, "seconds": 113.46558690071106, "checks": "Decompressed every stored file and compared SHA256 and size; checked every hard-link alias."}

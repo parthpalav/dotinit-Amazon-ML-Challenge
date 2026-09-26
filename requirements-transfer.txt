@@ -1,0 +1,10 @@
+catboost==1.2.10
+joblib==1.6.0
+numpy==2.5.3
+pandas==3.0.6
+psutil==7.2.2
+pytest==9.1.1
+RapidFuzz==3.14.6
+scikit-learn==1.9.1
+scipy==1.18.1
+xgboost==3.4.1

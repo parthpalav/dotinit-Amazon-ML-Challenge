@@ -1,0 +1,4 @@
+SCORED {"last_completed_anchor": 2000, "anchors_processed_this_run": 1000, "seconds": 9.51852822303772, "model": "artifacts/improvements/catboost_d10_evidence.joblib", "scope": "benchmark", "complete": false}
+SCORED {"last_completed_anchor": 3000, "anchors_processed_this_run": 2000, "seconds": 13.823367357254028, "model": "artifacts/improvements/catboost_d10_evidence.joblib", "scope": "benchmark", "complete": false}
+SCORED {"last_completed_anchor": 4000, "anchors_processed_this_run": 3000, "seconds": 18.122458934783936, "model": "artifacts/improvements/catboost_d10_evidence.joblib", "scope": "benchmark", "complete": false}
+SCORING FINISHED 3000 18.395242929458618

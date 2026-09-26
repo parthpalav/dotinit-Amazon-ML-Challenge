@@ -1,0 +1,56 @@
+{
+  "counts": {
+    "anchors": 5000,
+    "raw_candidates": 2925839,
+    "candidate_pairs": 159937,
+    "no_candidate": 0,
+    "one_candidate": 0,
+    "multiple_candidates": 5000,
+    "topk_truncated_anchors": 4994,
+    "true_pairs": 17634,
+    "true_singletons": 245,
+    "raw_retained_true": 17257,
+    "retained_true": 17225,
+    "max_raw_candidates": 2374,
+    "max_candidates": 32
+  },
+  "raw_rule_true": {
+    "country_name": 5913,
+    "city_name": 0,
+    "postal": 1937,
+    "name_ngram": 12057,
+    "address": 13003,
+    "strong_name": 5938,
+    "name_number": 9972,
+    "address_number": 13562,
+    "name_pair": 11208
+  },
+  "final_rule_true": {
+    "country_name": 5908,
+    "city_name": 0,
+    "postal": 1936,
+    "name_ngram": 12048,
+    "address": 12997,
+    "strong_name": 5937,
+    "name_number": 9968,
+    "address_number": 13548,
+    "name_pair": 11199
+  },
+  "rule_candidates": {
+    "country_name": 192688,
+    "city_name": 0,
+    "postal": 81091,
+    "name_ngram": 825891,
+    "address": 797794,
+    "strong_name": 118619,
+    "name_number": 133046,
+    "address_number": 747009,
+    "name_pair": 344257
+  },
+  "worker_peak_rss_mb": 5109.19921875,
+  "candidate_recall": 0.9768061698990587,
+  "raw_candidate_recall": 0.9786208460927753,
+  "average_candidates": 31.9874,
+  "candidate_reduction_ratio": 0.9999969005115105,
+  "possible_pairs_removed": 51600935063
+}

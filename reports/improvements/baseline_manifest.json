@@ -1,0 +1,18 @@
+{
+  "amazon_score": 0.842,
+  "score_source": "Reported by user, 2026-09-26",
+  "files": {
+    "artifacts/real_model.joblib": {
+      "bytes": 507658914,
+      "sha256": "da291b83ff08d0bea8bb7a2e8d1c1bba61b05382b827ac73a686fc8b9a025a70"
+    },
+    "outputs/real_submission/matching_results.tsv": {
+      "bytes": 96506234,
+      "sha256": "87ee1e3e0802dace7635e2c987dad9b40b3fe48878b12e3fc8bdbd2c2da07a93"
+    },
+    "outputs/real_submission/candidate_pairs.tsv": {
+      "bytes": 736790898,
+      "sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20"
+    }
+  }
+}

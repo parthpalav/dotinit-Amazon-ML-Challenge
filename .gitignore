@@ -17,3 +17,9 @@ outputs/
 *.joblib
 *.dylib
 .DS_Store
+
+# Transfer payloads and generated binary diagnostics
+transfer/
+reports/improvements/*.npy
+*.dll
+*.so

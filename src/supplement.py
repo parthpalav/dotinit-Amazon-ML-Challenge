@@ -15,9 +15,9 @@ LOG=logging.getLogger(__name__)
 def build_supplement(config,split):
     directory=Path(config.working_dir)/split;manifest_path=directory/'supplement_manifest.json'
     source=Path(__file__).parent/'native/supplement.cpp'
-    signature=hashlib.sha256(source.read_bytes()+(source.parent/'index.cpp').read_bytes()).hexdigest()
+    signature=hashlib.sha256((source.read_text(encoding='utf-8')+(source.parent/'index.cpp').read_text(encoding='utf-8')).encode()).hexdigest()
     if manifest_path.exists():
-        existing=json.loads(manifest_path.read_text())
+        existing=json.loads(manifest_path.read_text(encoding='utf-8'))
         if existing['native_sha256']!=signature:raise ValueError('Supplement changed; use a fresh working_dir')
         return existing
     con=connect(directory/'records.sqlite',readonly=True);count=con.execute('SELECT COUNT(*) FROM targets').fetchone()[0]
@@ -55,10 +55,10 @@ def build_supplement(config,split):
                 if len(values)>1:values=values[np.r_[True,(values['key'][1:]!=values['key'][:-1])|(values['row'][1:]!=values['row'][:-1])]]
                 values.tofile(destination);LOG.info('%s supplementary sorted shard=%d/16 entries=%d',split,j+1,len(values))
         pending.replace(directory/'supplement_index.bin')
-    (directory/'country_vocabulary.json').write_text(json.dumps(vocabulary))
+    (directory/'country_vocabulary.json').write_text(json.dumps(vocabulary), encoding='utf-8')
     result={'records':count,'native_sha256':signature,'seconds':time.time()-started,'peak_rss_mb':rss_mb(),
             'index_bytes':(directory/'supplement_index.bin').stat().st_size}
-    manifest_path.write_text(json.dumps(result,indent=2));con.close();return result
+    manifest_path.write_text(json.dumps(result,indent=2), encoding='utf-8');con.close();return result
 
 
 class PackedText:
@@ -69,7 +69,7 @@ class PackedText:
             self.maps[field]=mmap.mmap(self.files[field].fileno(),0,access=mmap.ACCESS_READ)
             self.offsets[field]=np.load(directory/f'{field}_offsets.npy',mmap_mode='r')
         self.countries=np.load(directory/'countries.npy',mmap_mode='r')
-        vocab=json.loads((directory/'country_vocabulary.json').read_text())
+        vocab=json.loads((directory/'country_vocabulary.json').read_text(encoding='utf-8'))
         self.vocabulary=np.array(sorted(vocab,key=vocab.get),dtype=object)
 
     def get(self,ids):

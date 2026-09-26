@@ -1,0 +1,7 @@
+{
+  "stage": "full_rescoring",
+  "state": "stopped_by_user",
+  "updated_utc": "2026-09-26T07:59:30.318905+00:00",
+  "completed_anchors": 133000,
+  "reason": "Transfer project to another computer; preserve checkpoints; do not restart locally."
+}

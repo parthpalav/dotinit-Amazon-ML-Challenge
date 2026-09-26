@@ -1,0 +1,8 @@
+{
+  "model": "artifacts\\improvements\\catboost_d10_evidence.joblib",
+  "sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
+  "threshold": 0.6750000000000003,
+  "selection_f05": 0.9431473885339383,
+  "frozen_at": "2026-09-26T07:27:24.870480+00:00",
+  "policy": "Independent pair threshold. Fixed before confirmation evaluation."
+}

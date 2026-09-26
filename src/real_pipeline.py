@@ -27,6 +27,8 @@ from .model import model_candidates,CalibratedMatcher
 from .preprocessing import preprocess
 from .real_metrics import tune,entity_scores,probability_diagnostics
 
+from . import cache_guard
+
 LOG=logging.getLogger(__name__)
 _WORKER={}
 
@@ -122,6 +124,7 @@ def prepare(config):
 
 def choose_entities(config,manifest):
     path=Path(config.working_dir)/'entity_selection.npz'
+    cache_guard.verify(path,config,'selection')
     if path.exists():return dict(np.load(path))
     n=manifest['counts']['source1'];rng=np.random.default_rng(config.seed)
     order=rng.permutation(n)+1
@@ -130,10 +133,11 @@ def choose_entities(config,manifest):
     limits={'fit':config.fit_anchor_limit,'calibration':config.calibration_anchor_limit,'validation':config.validation_anchor_limit}
     selected={name:np.sort(ids[:limits[name]]).astype(np.uint32) for name,ids in groups.items()}
     np.savez(path,**selected)
+    cache_guard.record(path,config,'selection')
     details={name:{'assigned_entities':len(ids),'sampled_entities':len(selected[name])} for name,ids in groups.items()}
     Path(config.reports_dir).mkdir(parents=True,exist_ok=True)
     (Path(config.reports_dir)/'entity_sampling.json').write_text(json.dumps({'seed':config.seed,'groups':details,
-        'method':'Seeded permutation of every training S1; disjoint group assignment then bounded S1 sampling. Every retrieved candidate of each sampled S1 retained.'},indent=2))
+        'method':'Seeded permutation of every training S1; disjoint group assignment then bounded S1 sampling. Every retrieved candidate of each sampled S1 retained.'},indent=2), encoding='utf-8')
     con=connect(Path(config.working_dir)/'train/records.sqlite',readonly=True)
     # Complete manifest: no training record silently disappears from the audit.
     codes=np.empty(n,dtype=np.uint8);used=np.zeros(n,dtype=bool)
@@ -148,6 +152,7 @@ def choose_entities(config,manifest):
 
 def fit_engineer(config,selected,manifest):
     path=Path(config.working_dir)/'feature_engineer.joblib'
+    cache_guard.verify(path,config,'engineer')
     if path.exists():return path
     con=connect(Path(config.working_dir)/'train/records.sqlite',readonly=True)
     anchors=fetch_records(con,'anchors',selected['fit'])
@@ -164,14 +169,16 @@ def fit_engineer(config,selected,manifest):
             columns=['source1_entity_id','candidate_entity_id','blocking_rules'])
         engineer.transform(schema_pair,engineer.prepare(tiny))
     joblib.dump(engineer,path)
+    cache_guard.record(path,config,'engineer')
     (Path(config.reports_dir)/'tfidf_corpus.json').write_text(json.dumps({'fit_s1_rows':len(anchors),'random_training_reference_rows':len(targets),
-        'test_rows':0,'vocabularies':{k:len(v.vocabulary_) if v is not None else 0 for k,v in engineer.vectorizers.items()}},indent=2))
+        'test_rows':0,'vocabularies':{k:len(v.vocabulary_) if v is not None else 0 for k,v in engineer.vectorizers.items()}},indent=2), encoding='utf-8')
     con.close();return path
 
 
 def feature_subset(config,name,ids,engineer_path,target_count):
     directory=Path(config.working_dir)/'features';directory.mkdir(exist_ok=True)
     path=directory/f'{name}.joblib'
+    cache_guard.verify(path,config,'features',ids)
     if path.exists():return joblib.load(path)
     batches=[ids[start:start+config.anchor_batch_size] for start in range(0,len(ids),config.anchor_batch_size)]
     all_pairs=[];all_features=[];truth_counts=[];stats={};started=time.time()
@@ -181,7 +188,8 @@ def feature_subset(config,name,ids,engineer_path,target_count):
     result={'pairs':pd.concat(all_pairs,ignore_index=True),'features':pd.concat(all_features,ignore_index=True),
             'truth_counts':dict(truth_counts),'stats':enrich_stats(stats,target_count)}
     joblib.dump(result,path)
-    (Path(config.reports_dir)/f'{name}_blocking.json').write_text(json.dumps(result['stats'],indent=2))
+    cache_guard.record(path,config,'features',ids)
+    (Path(config.reports_dir)/f'{name}_blocking.json').write_text(json.dumps(result['stats'],indent=2), encoding='utf-8')
     return result
 
 
@@ -244,8 +252,8 @@ def train_real(config):
          'versions':{p:importlib.metadata.version(p) for p in ('numpy','pandas','scikit-learn','xgboost','rapidfuzz','joblib')},
          'data_origin':'Only real competition training records; no synthetic data, test labels, embeddings or external lookups',
          'validation_scope':'Disjoint S1 validation sample, used for model/calibration/threshold selection; not an untouched generalization estimate'}
-    (reports/'real_run_manifest.json').write_text(json.dumps(run,indent=2))
-    (reports/'feature_names.json').write_text(json.dumps(feature_names,indent=2))
+    (reports/'real_run_manifest.json').write_text(json.dumps(run,indent=2), encoding='utf-8')
+    (reports/'feature_names.json').write_text(json.dumps(feature_names,indent=2), encoding='utf-8')
     LOG.info('Selected %s using validation F0.5; artifact=%s',winner,destination);return run
 
 
@@ -258,7 +266,7 @@ def audit_blocking(config):
         if (i+1)%50==0:LOG.info('Full training blocking audit anchors=%d/%d recall=%.4f elapsed=%.1fs',stats['counts']['anchors'],total,
             stats['counts']['retained_true']/max(1,stats['counts']['true_pairs']),time.time()-started)
     enrich_stats(stats,target_count);stats['seconds']=time.time()-started
-    (Path(config.reports_dir)/'full_training_blocking.json').write_text(json.dumps(stats,indent=2))
+    (Path(config.reports_dir)/'full_training_blocking.json').write_text(json.dumps(stats,indent=2), encoding='utf-8')
     return stats
 
 
@@ -287,7 +295,7 @@ def infer_real(config):
         raise ValueError('Inference/export coverage mismatch')
     matching.replace(output/'matching_results.tsv');candidate.replace(output/'candidate_pairs.tsv')
     enrich_stats(stats,manifest['counts']['source2']+manifest['counts']['source3']);stats['seconds']=time.time()-started
-    (Path(config.reports_dir)/'test_inference.json').write_text(json.dumps(stats,indent=2));return stats
+    (Path(config.reports_dir)/'test_inference.json').write_text(json.dumps(stats,indent=2), encoding='utf-8');return stats
 
 
 def official_validate(config):
@@ -296,9 +304,9 @@ def official_validate(config):
     command=[sys.executable,str(validator),'--matching',str(Path(config.output_dir)/'matching_results.tsv'),
              '--candidate',str(Path(config.output_dir)/'candidate_pairs.tsv'),'--test-dir',str(Path(config.dataset_dir)/'test'),'--check-ids']
     result=subprocess.run(command,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-    report=Path(config.reports_dir)/'official_validator.log';report.write_text(result.stdout)
+    report=Path(config.reports_dir)/'official_validator.log';report.write_text(result.stdout, encoding='utf-8')
     (Path(config.reports_dir)/'official_validator_command.json').write_text(json.dumps({'command':command,'exit_code':result.returncode,
-        'validator_sha256':hashlib.sha256(validator.read_bytes()).hexdigest()},indent=2))
+        'validator_sha256':hashlib.sha256(validator.read_bytes()).hexdigest()},indent=2), encoding='utf-8')
     LOG.info('Official validator exit=%d\n%s',result.returncode,result.stdout)
     if result.returncode:raise RuntimeError(f'Official validator failed; see {report}')
     return result.stdout

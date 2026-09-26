@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import os
 from itertools import zip_longest
 import numpy as np
 import pandas as pd
@@ -21,7 +22,7 @@ from src.evaluation import evaluate
 
 @pytest.fixture(scope='module')
 def real():
-    config_path=Path('config/real.json')
+    config_path=Path(os.environ.get('BER_TEST_CONFIG', 'config/windows.json' if sys.platform=='win32' and Path('config/windows.json').exists() else 'config/real.json'))
     if not config_path.exists():pytest.skip('Real resource config not configured')
     config=Config.load(str(config_path))
     if not Path(config.dataset_dir).exists():pytest.skip('Real competition files unavailable')
@@ -53,13 +54,13 @@ def test_actual_ground_truth_format(real):
 
 
 def test_real_full_audit_id_integrity(real):
-    report=json.loads((Path(real.reports_dir)/'real_data_quality.json').read_text())
+    report=json.loads((Path(real.reports_dir)/'real_data_quality.json').read_text(encoding='utf-8'))
     for name,info in report.items():
         if name.endswith('.tsv'):
             assert info['counts']['rows']==info['counts']['unique_ids']
             assert info['counts']['duplicate_ids']==0
     for source in (1,2,3):assert report[f'relationship_source{source}']['train_test_id_overlap']==0
-    manifest=json.loads((Path(real.working_dir)/'train/store_manifest.json').read_text())
+    manifest=json.loads((Path(real.working_dir)/'train/store_manifest.json').read_text(encoding='utf-8'))
     assert manifest['counts']['positive_pairs']>0
     assert manifest['counts']['duplicate_pairs']==manifest['counts']['conflicting_target_labels']==0
 
@@ -169,21 +170,21 @@ def test_supplied_official_validator_accepts_real_subset_singletons(real,tmp_pat
 def test_final_real_submission_and_official_result(real):
     report=Path(real.reports_dir)/'official_validator_command.json'
     if not report.exists():pytest.skip('Full real inference and official validation have not completed yet')
-    validation=json.loads(report.read_text());stats=json.loads((Path(real.reports_dir)/'test_inference.json').read_text())
+    validation=json.loads(report.read_text(encoding='utf-8'));stats=json.loads((Path(real.reports_dir)/'test_inference.json').read_text(encoding='utf-8'))
     assert validation['exit_code']==0
     assert '--check-ids' in validation['command']
-    assert stats['counts']['anchors']==json.loads((Path(real.working_dir)/'test/store_manifest.json').read_text())['counts']['source1']
+    assert stats['counts']['anchors']==json.loads((Path(real.working_dir)/'test/store_manifest.json').read_text(encoding='utf-8'))['counts']['source1']
     assert stats['counts']['scored_pairs']==stats['counts']['candidate_pairs']
     for filename,second in (('matching_results.tsv','matched_entity_ids'),('candidate_pairs.tsv','candidate_entity_ids')):
         path=Path(real.output_dir)/filename
         assert path.stat().st_size>0
-        with path.open() as stream:assert stream.readline().strip().split('\t')==['source1_entity_id',second]
+        with path.open(encoding="utf-8") as stream:assert stream.readline().strip().split('\t')==['source1_entity_id',second]
     # Streaming equality to unique raw anchors proves coverage, ordering, row count
     # and absence of duplicate output IDs without retaining millions of strings.
     output=Path(real.output_dir)
-    with (Path(real.dataset_dir)/'test/test_source1.tsv').open() as raw, \
-         (output/'matching_results.tsv').open() as matching, \
-         (output/'candidate_pairs.tsv').open() as candidate:
+    with (Path(real.dataset_dir)/'test/test_source1.tsv').open(encoding='utf-8') as raw, \
+         (output/'matching_results.tsv').open(encoding='utf-8') as matching, \
+         (output/'candidate_pairs.tsv').open(encoding='utf-8') as candidate:
         for stream in (raw,matching,candidate):next(stream)
         rows=matches=candidates=empty=0
         for expected,m,c in zip_longest(raw,matching,candidate):

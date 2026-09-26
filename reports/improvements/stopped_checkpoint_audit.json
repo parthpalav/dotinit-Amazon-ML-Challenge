@@ -1,0 +1,7 @@
+{
+  "shards": 1330,
+  "anchors": 133000,
+  "pairs": 4255387,
+  "contiguous": true,
+  "finite_probabilities": true
+}

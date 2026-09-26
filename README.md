@@ -1,10 +1,17 @@
+> **STOPPED for workstation transfer:** 133,000 inference anchors preserved. See [A5000 setup and resume instructions](reports/A5000_HANDOVER.md). No ML jobs remain running on the laptop.
+
+> **2026-09-26 improvement campaign:** Amazon evaluation baseline reported by the team: **0.842**. See [live status and handover](reports/IMPROVEMENT_STATUS.md) for current work, evidence, limitations, and restart instructions. The old HANDOVER.md is historical. Baseline outputs remain preserved; no v2 score is claimed yet.
 # Business Entity Resolution
 
 An offline Python pipeline for the problem described in the supplied **Amazon ML Challenge 2026 – Business Entity Resolution Challenge** specification. Source 1 is the deduplicated reference; each record may match zero, one, or several Source 2/3 records. The implementation does not verify competition rules or claim a competition score.
 
-## Real competition run
+## Current Windows improvement workflow
 
-The actual resource directory is `../student_resource`; `config/real.json` configures the disk backend. Run from this repository root:
+See [the Windows runbook](reports/WINDOWS_IMPROVEMENTS.md) for reproducible commands, results, preserved baseline files, and limitations. GPU CatBoost with 113 evidence features reached **0.943147 selection F0.5**, versus **0.875670** for the original forest on the same anchors. This is not an Amazon evaluation score. A fresh 5,000-anchor confirmation achieved **0.943215**, versus **0.878801** baseline; details are in `reports/improvements/confirmation_evaluation.json`. Full improved inference was stopped by the user for transfer; see `reports/improvements/completion_status.json` for live state. All **45 tests passed** on Windows, including native retrieval, export, and exact provenance replay.
+
+## Original competition run (historical baseline)
+
+The supplied resources are in `../6ab10eb3b23ba_student_resource/student_resource`; raw data are in this repository's `dataset/`. `config/real.json` configures the disk backend. Run from this repository root:
 
 ```bash
 python3 -m venv .venv
@@ -19,11 +26,11 @@ A C++17 compiler is required for compact memory-mapped retrieval. Raw TSVs remai
 
 The real backend preserves the existing four classifiers, features, sigmoid calibration and singleton convention. SQLite and memory-mapped indexes replace the oversized Python retrieval indexes. Exact-name, country/name, minhash name/address, postal, address-bag, number/token and name-token-pair rules form a union. A retrieval ranker trained on fitting entities retains at most 32 candidates. Every retained candidate is scored and exported; cap/posting losses are measured, never hidden. `city_name` is inactive in this backend. The reference pool includes all S2/S3 records.
 
-For bounded fitting, the seeded S1 split samples 30,000 fitting, 5,000 calibration and 10,000 validation anchors, retaining every candidate for those anchors. All 2.2 million training S1 records are audited for blocking, and every test S1 is predicted. TF-IDF fits on fitting anchors plus 70,000 random training reference records. Shared reference text is a transductive aspect of the split; held-out labels are never used for fitting. Validation is a model/threshold selection set, not an untouched test estimate. The official metric is macro per-S1 F0.5, including correct singletons.
+For bounded fitting, the seeded S1 split samples 30,000 fitting, 5,000 calibration and 10,000 validation anchors, retaining every candidate for those anchors. Full training blocking audit was interrupted (last recorded progress approximately 1.4 million anchors); test inference completed for every test S1. TF-IDF fits on fitting anchors plus 70,000 random training reference records. Shared reference text is a transductive aspect of the split; held-out labels are never used for fitting. Validation is a model/threshold selection set, not an untouched test estimate. The official metric is macro per-S1 F0.5, including correct singletons.
 
 `work/real_v1` contains rebuildable caches. **Use a fresh working directory after changing data, normalization, retrieval, sampling or feature settings.** Do not mix old feature caches with a new ranker. Four workers and 100-anchor batches are configured for this 16 GB Mac; the task queue is bounded. Allow tens of GB of disk space and substantial time for full scans, indexing, audit and inference. The supplied full validator additionally materializes large ID sets.
 
-Measured results are in `reports/real_dataset_results.md` after the run and report command complete. Per-stage JSON/TSV artifacts and `reports/real_pipeline.log` preserve evidence. `reports/prior_run/` contains copied historical measurements and is not evidence of the current run. Synthetic data is used only by software tests.
+The final `reports/real_dataset_results.md` was not generated in the original run. Existing measured results are in `reports/model_comparison.tsv`, `reports/real_run_manifest.json`, and the improvement reports linked above. Per-stage JSON/TSV artifacts and `reports/real_pipeline.log` preserve evidence. `reports/prior_run/` contains copied historical measurements and is not evidence of the current run. Synthetic data is used only by software tests.
 
 The remaining sections document the original in-memory backend (`config/default.json`), whose retrieval and threshold grid differ from the real disk backend.
 

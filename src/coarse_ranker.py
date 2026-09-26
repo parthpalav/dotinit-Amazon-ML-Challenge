@@ -72,6 +72,8 @@ def fit_candidate_ranker(config,selected):
     from .disk_store import fetch_records
     from .disk_blocking import DiskBlocker
     log=logging.getLogger(__name__);path=Path(config.working_dir)/'candidate_ranker.joblib'
+    from . import cache_guard
+    cache_guard.verify(path,config,'ranker')
     if path.exists():return joblib.load(path)
     rng=np.random.default_rng(config.seed+311);order=rng.permutation(selected['fit'])
     train_ids=order[:min(2000,len(order)//2)];holdout=order[len(train_ids):len(train_ids)+min(1000,len(order)-len(train_ids))]
@@ -94,6 +96,7 @@ def fit_candidate_ranker(config,selected):
               'fit_pairs':len(y),'positive_pairs':int(y.sum()),'holdout_source1_ids':holdout.tolist(),
               'config':{'posting_limit':config.retrieval_posting_limit},'runtime_seconds':time.time()-started}
     joblib.dump(artifact,path)
+    cache_guard.record(path,config,'ranker')
     del x,y
     stats={'true_pairs':0,'raw_retained':0,'anchors':0,'raw_candidates':0};caps=(8,16,32,64,128)
     for cap in caps:stats[f'retained_top_{cap}']=0
@@ -111,6 +114,6 @@ def fit_candidate_ranker(config,selected):
     stats['raw_recall']=stats['raw_retained']/max(1,stats['true_pairs'])
     stats['split_scope']='Held-out fitting entities; no calibration/validation/test labels used'
     stats['fit_pairs']=artifact['fit_pairs'];stats['fit_positives']=artifact['positive_pairs']
-    (Path(config.reports_dir)/'retrieval_ranker_pilot.json').write_text(json.dumps(stats,indent=2))
+    (Path(config.reports_dir)/'retrieval_ranker_pilot.json').write_text(json.dumps(stats,indent=2), encoding='utf-8')
     log.info('Retrieval ranker held-out fitting results: %s',stats)
     blocker.close();return artifact

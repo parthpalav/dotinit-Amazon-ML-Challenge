@@ -1,0 +1,5 @@
+{
+  "artifacts/real_model.joblib": true,
+  "outputs/real_submission/matching_results.tsv": true,
+  "outputs/real_submission/candidate_pairs.tsv": true
+}

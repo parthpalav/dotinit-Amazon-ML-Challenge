@@ -1,0 +1,15 @@
+{
+  "precision": 0.9089289069264068,
+  "recall": 0.8241079365079363,
+  "f0.5": 0.8756702501887288,
+  "f1": 0.8460286029312963,
+  "singleton_accuracy": 0.740530303030303,
+  "true_positive": 28797,
+  "false_positive": 2308,
+  "false_negative": 5879,
+  "true_negative_all_possible": 103202153016,
+  "false_positive_rate": 2.2363874017496095e-08,
+  "predicted_positive": 31105,
+  "predicted_negative_candidates": 288851,
+  "predicted_positive_rate": 0.0972164922676868
+}

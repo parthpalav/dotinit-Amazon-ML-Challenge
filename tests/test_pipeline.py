@@ -130,16 +130,16 @@ def test_validator_rejects_illegal_matches(tmp_path, bad):
     anchors = records([["S1-a", "Example", "", ""]])
     targets = records([["S2-a", "Example", "", ""]])
     matching, candidate = tmp_path / "matches.tsv", tmp_path / "candidates.tsv"
-    matching.write_text(f"source1_entity_id\tmatched_entity_ids\nS1-a\t{bad}\n")
-    candidate.write_text("source1_entity_id\tcandidate_entity_ids\nS1-a\tS2-a\n")
+    matching.write_text(f"source1_entity_id\tmatched_entity_ids\nS1-a\t{bad}\n", encoding='utf-8')
+    candidate.write_text("source1_entity_id\tcandidate_entity_ids\nS1-a\tS2-a\n", encoding='utf-8')
     with pytest.raises(ValueError):
         validate_submission(matching, candidate, anchors, targets)
 
 
 def test_validator_rejects_match_outside_candidates(tmp_path):
     matching, candidate = tmp_path / "matches.tsv", tmp_path / "candidates.tsv"
-    matching.write_text("source1_entity_id\tmatched_entity_ids\nS1-a\tS2-a\n")
-    candidate.write_text("source1_entity_id\tcandidate_entity_ids\nS1-a\t\n")
+    matching.write_text("source1_entity_id\tmatched_entity_ids\nS1-a\tS2-a\n", encoding='utf-8')
+    candidate.write_text("source1_entity_id\tcandidate_entity_ids\nS1-a\t\n", encoding='utf-8')
     with pytest.raises(ValueError, match="absent"):
         validate_submission(matching, candidate, records([["S1-a", "", "", ""]]), records([["S2-a", "", "", ""]]))
 
@@ -148,7 +148,7 @@ def test_embedding_permission_and_unknown_config(tmp_path):
     with pytest.raises(ValueError, match="permission"):
         Config(embedding_model_dir="somewhere", embedding_license="MIT")
     path = tmp_path / "config.json"
-    path.write_text(json.dumps({"misspelled_option": True}))
+    path.write_text(json.dumps({"misspelled_option": True}), encoding='utf-8')
     with pytest.raises(ValueError, match="Unknown"):
         Config.load(str(path))
 

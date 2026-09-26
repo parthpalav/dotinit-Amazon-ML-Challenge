@@ -6,7 +6,6 @@ import json
 import logging
 import os
 from pathlib import Path
-import resource
 import shutil
 import sqlite3
 import subprocess
@@ -24,6 +23,11 @@ COLUMNS = ['entity_id','business_name','business_address','country','name_norm',
 
 
 def rss_mb():
+    if sys.platform == 'win32':
+        import psutil
+        info = psutil.Process().memory_info()
+        return getattr(info, 'peak_wset', info.rss) / (1024 * 1024)
+    import resource
     value=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     return value/(1024*1024) if sys.platform=='darwin' else value/1024
 
@@ -32,21 +36,28 @@ class NativeIndex:
     def __init__(self, directory: str | Path, index_path=None, supplemental=False):
         directory=Path(directory); directory.mkdir(parents=True,exist_ok=True)
         source=Path(__file__).parent/'native'/('supplement.cpp' if supplemental else 'index.cpp')
-        digest=hashlib.sha256(source.read_bytes()+(source.parent/'index.cpp').read_bytes()).hexdigest()[:16]
+        digest=hashlib.sha256((source.read_text(encoding='utf-8')+(source.parent/'index.cpp').read_text(encoding='utf-8')).encode()).hexdigest()[:16]
         self.width=64 if supplemental else WIDTH
-        suffix='.dylib' if sys.platform=='darwin' else '.so'
+        suffix='.dll' if sys.platform=='win32' else '.dylib' if sys.platform=='darwin' else '.so'
         library=directory/f'libber-{digest}{suffix}'
         if not library.exists():
             compiler=shutil.which('clang++') or shutil.which('g++')
             if not compiler: raise RuntimeError('A C++17 compiler is required for the disk retrieval backend')
-            temporary=library.with_suffix(library.suffix+'.tmp')
-            subprocess.run([compiler,'-O3','-std=c++17','-dynamiclib' if sys.platform=='darwin' else '-shared',
-                            '-fPIC',str(source),'-o',str(temporary)],check=True)
-            temporary.replace(library)
+            temporary=library.with_suffix(library.suffix+f'.{os.getpid()}.tmp')
+            flags=['-O3','-std=c++17','-dynamiclib' if sys.platform=='darwin' else '-shared']
+            flags += ['-static-libgcc','-static-libstdc++'] if sys.platform=='win32' else ['-fPIC']
+            subprocess.run([compiler,*flags,str(source),'-o',str(temporary)],check=True)
+            try:
+                temporary.replace(library)
+            except PermissionError:
+                if not library.exists():raise
+                temporary.unlink()
+        compiler=shutil.which('g++') or shutil.which('clang++')
+        self._dll_directory = os.add_dll_directory(str(Path(compiler).parent)) if sys.platform=='win32' and compiler else None
         self.lib=ctypes.CDLL(str(library.resolve()))
         chars=ctypes.POINTER(ctypes.c_char_p)
         self.lib.ber_keys.argtypes=[chars,chars,chars,ctypes.c_size_t,ctypes.c_void_p]
-        self.lib.ber_open.argtypes=[ctypes.c_char_p]; self.lib.ber_open.restype=ctypes.c_void_p
+        self.lib.ber_attach.argtypes=[ctypes.c_void_p,ctypes.c_size_t]; self.lib.ber_attach.restype=ctypes.c_void_p
         self.lib.ber_close.argtypes=[ctypes.c_void_p]
         self.lib.ber_lookup.argtypes=[ctypes.c_void_p,ctypes.c_void_p,ctypes.c_size_t,ctypes.c_uint32,
                                      ctypes.c_void_p,ctypes.c_void_p,ctypes.c_void_p,ctypes.c_size_t]
@@ -60,8 +71,12 @@ class NativeIndex:
             self.lookup_function.argtypes=self.lib.ber_lookup.argtypes
             self.lookup_function.restype=ctypes.c_size_t
         self.handle=None
+        self.mapping=None
         if index_path:
-            self.handle=self.lib.ber_open(os.fsencode(index_path))
+            size=Path(index_path).stat().st_size
+            if size % ENTRY.itemsize:raise ValueError('Corrupt packed index length')
+            self.mapping=np.memmap(index_path,dtype=ENTRY,mode='r') if size else np.empty(0,dtype=ENTRY)
+            self.handle=self.lib.ber_attach(self.mapping.ctypes.data,size)
             if not self.handle: raise OSError(f'Unable to mmap index {index_path}')
 
     def keys(self, records):
@@ -89,13 +104,14 @@ class NativeIndex:
     def close(self):
         if getattr(self,'handle',None):
             self.lib.ber_close(self.handle);self.handle=None
+        self.mapping=None
 
     def __del__(self):
         self.close()
 
 
 def connect(path,readonly=False):
-    con=sqlite3.connect(f'file:{Path(path).resolve()}?mode=ro',uri=True) if readonly else sqlite3.connect(path)
+    con=sqlite3.connect(Path(path).resolve().as_uri()+'?mode=ro',uri=True) if readonly else sqlite3.connect(path)
     con.execute('PRAGMA cache_size=-65536')
     con.execute('PRAGMA mmap_size=268435456')
     if not readonly:
@@ -115,9 +131,9 @@ def build_store(config,split):
     directory.mkdir(parents=True,exist_ok=True)
     manifest_path=directory/'store_manifest.json'
     signature=_input_signature(root,split)
-    native_hash=hashlib.sha256((Path(__file__).parent/'native/index.cpp').read_bytes()).hexdigest()
+    native_hash=hashlib.sha256((Path(__file__).parent/'native/index.cpp').read_text(encoding='utf-8').encode()).hexdigest()
     if manifest_path.exists():
-        manifest=json.loads(manifest_path.read_text())
+        manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
         if manifest['inputs']!=signature or manifest['native_sha256']!=native_hash:
             raise ValueError('Cached store differs from inputs or key code; use a fresh working_dir')
         LOG.info('Reusing verified %s disk store',split);return manifest
@@ -201,7 +217,7 @@ def build_store(config,split):
     manifest={'inputs':signature,'native_sha256':native_hash,'counts':counts,'countries':country_counts,
               'seconds':time.time()-started,'peak_rss_mb':rss_mb(),'index_bytes':index_path.stat().st_size,
               'index_entries':index_path.stat().st_size//ENTRY.itemsize}
-    manifest_path.write_text(json.dumps(manifest,indent=2));return manifest
+    manifest_path.write_text(json.dumps(manifest,indent=2), encoding='utf-8');return manifest
 
 
 def fetch_records(con,table,ids):

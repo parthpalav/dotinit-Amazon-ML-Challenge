@@ -14,7 +14,7 @@ def quality_report(config):
     signature={str(p.relative_to(root)):[p.stat().st_size,p.stat().st_mtime_ns] for p in sorted(root.rglob('*')) if p.is_file()}
     result_path=reports/'real_data_quality.json'
     if result_path.exists():
-        previous=json.loads(result_path.read_text())
+        previous=json.loads(result_path.read_text(encoding='utf-8'))
         if previous.get('signature')==signature:
             return previous
     summary={}
@@ -58,7 +58,7 @@ def quality_report(config):
             counts['duplicate_business_fingerprints']=len(hashes)-len(np.unique(hashes))
         info={'counts':dict(counts),'columns':frame.columns.tolist(),'dtypes':{c:str(t) for c,t in frame.dtypes.items()},'missing':dict(missing),'countries':dict(countries),'match_count_distribution':dict(match_counts),'sample':sample,'seconds':time.time()-start,'max_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
         summary[str(p.relative_to(root))]=info
-        (out/'initial_profile.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
+        (out/'initial_profile.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False), encoding='utf-8')
         print(p.stem, {**dict(counts),'countries':dict(countries),'missing':dict(missing)},flush=True)
     for source in (1,2,3):
         a=np.load(out/f'train_source{source}_ids.npy'); b=np.load(out/f'test_source{source}_ids.npy')
@@ -72,7 +72,7 @@ def quality_report(config):
             inventory.append({'path':str(path.relative_to(root)),'bytes':path.stat().st_size,'sha256':digest.hexdigest()})
     summary['inventory']=inventory
     summary['signature']=signature
-    (reports/'real_data_quality.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
+    (reports/'real_data_quality.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False), encoding='utf-8')
     lines=['# Real data quality report','',
            'All supplied source files use the same four-field UTF-8 TSV schema. This is one train triplet and one test triplet, not three independent prediction tasks. Raw inputs are unchanged.','',
            '| File | Rows | Unique IDs | Duplicate IDs | Missing names | Missing addresses | Countries |',
@@ -86,5 +86,5 @@ def quality_report(config):
             'Ground-truth pair duplication, conflicting ownership, source coverage and target existence are enforced by the disk-store build and abort on failure. Final results include these checks.', '',
             'The normalizer now preserves Indic combining marks. City/state and postal extraction are uncertain when address components are reordered; no structured address field is mandatory for retrieval. Missing strings never become false exact-match evidence.', '',
             'Every resource file, including documentation, official validator and filesystem metadata, is included in the SHA-256 inventory in real_data_quality.json.']
-    (reports/'real_data_quality_report.md').write_text('\n'.join(lines)+'\n')
+    (reports/'real_data_quality_report.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
     return summary

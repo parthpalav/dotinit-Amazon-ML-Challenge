@@ -1,5 +1,5 @@
 {
-  "dataset_dir": "../student_resource/dataset",
+  "dataset_dir": "dataset",
   "output_dir": "outputs/real_submission",
   "model_path": "artifacts/real_model.joblib",
   "seed": 42,
@@ -25,7 +25,7 @@
   "backend": "disk",
   "working_dir": "work/real_v1",
   "reports_dir": "reports",
-  "resource_dir": "../student_resource",
+  "resource_dir": "../6ab10eb3b23ba_student_resource/student_resource",
   "io_chunk_size": 50000,
   "retrieval_posting_limit": 240,
   "max_candidates_per_anchor": 32,

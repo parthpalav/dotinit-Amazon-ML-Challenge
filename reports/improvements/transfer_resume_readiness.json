@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "staged_git_source_signatures_match_saved_checkpoint": true,
+  "archive_signature_matches": true,
+  "required_resume_assets_present": 13
+}

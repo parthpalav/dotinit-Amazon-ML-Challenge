@@ -15,7 +15,7 @@ def table(frame, columns):
 
 def generate(config):
     reports=Path(config.reports_dir)
-    def read(name):return json.loads((reports/name).read_text())
+    def read(name):return json.loads((reports/name).read_text(encoding='utf-8'))
     run=read('real_run_manifest.json');quality=read('real_data_quality.json')
     audit=read('full_training_blocking.json');inference=read('test_inference.json')
     validation=read('official_validator_command.json');sampling=read('entity_sampling.json')
@@ -61,7 +61,7 @@ def generate(config):
                  ['candidate_cap','retained_true_pairs','recall'])
     historical=reports/'prior_run/posting_limit_pilot.json'
     if historical.exists():
-        history=json.loads(historical.read_text())
+        history=json.loads(historical.read_text(encoding='utf-8'))
         lines+=['','Historical posting-limit pilot retained from the previous work (same raw TSV hashes; the 120/500 settings were not rerun here). The 240-posting result was reproduced by the current pilot. The chosen 240/32 configuration trades some recall for substantially fewer raw comparisons; the held-out validation recall remains below the 98% target.','']
         lines+=table(pd.DataFrame([{'posting_limit':r['posting_limit'],
                                    'raw_candidates':r['counts']['raw_candidates'],
@@ -85,12 +85,12 @@ def generate(config):
     lines += [f"All {c['anchors']:,} test Source 1 anchors are exported once in source order against both test reference sources, including France. {c['scored_pairs']:,} candidates were scored; {c['predicted_matches']:,} accepted and {c['predicted_nonmatches']:,} rejected. Empty matching lists: {c['predicted_singletons']:,} ({c['predicted_singletons']/c['anchors']:.4%}). Candidate counts: zero={c['no_candidate']:,}, exactly one={c['one_candidate']:,}, multiple={c['multiple_candidates']:,}. No match is forced.",'']
     for name in ('matching_results.tsv','candidate_pairs.tsv'):
         path=(Path(config.output_dir)/name).resolve();lines.append(f'- `{path}` ({path.stat().st_size:,} bytes)')
-    lines+=['','## Official validation','',f"Unmodified supplied validator SHA-256: `{validation['validator_sha256']}`. Exit code: **{validation['exit_code']}**. Both TSVs were checked together with `--check-ids`.",'','```text',(reports/'official_validator.log').read_text().rstrip(),'```','',
+    lines+=['','## Official validation','',f"Unmodified supplied validator SHA-256: `{validation['validator_sha256']}`. Exit code: **{validation['exit_code']}**. Both TSVs were checked together with `--check-ids`.",'','```text',(reports/'official_validator.log').read_text(encoding='utf-8').rstrip(),'```','',
         '## Runtime and memory','',f"Training stage: {run['runtime_seconds']:.1f} seconds; full blocking audit: {audit['seconds']:.1f} seconds; inference: {inference['seconds']:.1f} seconds. Reported high-water RSS includes mapped pages and is per process, not aggregate physical memory. Parent training peak: {run['peak_parent_rss_mb']:.1f} MiB; inference worker peak: {inference['worker_peak_rss_mb']:.1f} MiB. Native index builds, quality scan and validation have additional runtime. Elapsed timings include long pauses visible in the log and are not CPU-time benchmarks.",'',
         '## Tests','']
     for filename in ('original_tests.log','final_tests.log'):
         path=reports/filename
-        if path.exists():lines+=['```text',path.read_text().rstrip(),'```','']
+        if path.exists():lines+=['```text',path.read_text(encoding='utf-8').rstrip(),'```','']
     lines+=['## Reproduction','',
         'Run from the repository root with the supplied resource directory at `../student_resource`. Python 3.13, a C++17 compiler and macOS OpenMP are used. Keep raw data unchanged. A new working directory is required after changing retrieval, normalization, sampling or feature settings; do not reuse stale caches.','',
         '```bash','python3 -m venv .venv','.venv/bin/python -m pip install -r requirements-tested.txt',

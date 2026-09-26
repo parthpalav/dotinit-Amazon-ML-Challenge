@@ -1,0 +1,2 @@
+SCORED {"last_completed_anchor": 1000, "anchors_processed_this_run": 1000, "seconds": 184.1543939113617, "model": "artifacts/improvements/catboost_d10_evidence.joblib", "scope": "benchmark", "complete": false}
+SCORING FINISHED 1000 184.77566123008728

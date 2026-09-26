@@ -1,0 +1,8 @@
+{
+  "anchors": 1000,
+  "pairs": 31973,
+  "exact_prediction_parity": true,
+  "old_seconds": 184.77566123008728,
+  "direct_seconds": 21.53285551071167,
+  "scope": "First 1000 test anchors, old native index lookup vs exact posting-aware key replay"
+}

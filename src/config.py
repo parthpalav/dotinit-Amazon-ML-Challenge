@@ -73,7 +73,7 @@ class Config:
     def load(cls, path: str | None):
         if path is None:
             return cls()
-        data = json.loads(Path(path).read_text())
+        data = json.loads(Path(path).read_text(encoding='utf-8'))
         unknown = set(data) - {f.name for f in fields(cls)}
         if unknown:
             raise ValueError(f"Unknown configuration keys: {sorted(unknown)}")

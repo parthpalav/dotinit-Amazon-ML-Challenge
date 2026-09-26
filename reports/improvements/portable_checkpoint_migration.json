@@ -1,0 +1,35 @@
+{
+  "reason": "Only source-signature hashing normalized for UTF-8 BOM and CRLF/LF portability. Numerical scoring code unchanged. Prior source hashes verified before change.",
+  "before": {
+    "model_sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
+    "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+    "batch": 100,
+    "direct_provenance": true,
+    "code": {
+      "rescoring.py": "bb48231ee3f8ff3550844f89ed53a76d4c99dce80a639b913a7fce6dba5cce18",
+      "evidence.py": "3226821dfdedfe9b2809f806a0a22ac8cc0d599fc9d34b80427d8ff21d7aba7b",
+      "features.py": "b2685353ca868f4d1e830002027e95adc9e9737c1ced0b1e3ccb281514984d6a",
+      "normalization.py": "eb8360439c62b521bdab06292d3094536580ace1728451df6b984d051c735118",
+      "preprocessing.py": "afc762b0b2ef62a2b40c396b5f95a28c5cf1f7239809ec9cec22ca570ed1aa38",
+      "contacts.py": "89ce4a729822c3af610a08a0b729855e1b3d55fd134e99258392b08eef8d57e6",
+      "provenance.py": "38ffb7b665737672b23a9498c3826f3db8c1a46c4660756d2e809060e1a441fb",
+      "native/provenance.cpp": "83826b82208e1012bcabe0e0926609596307ab0938a77dec1e66bf5a5b8770e1"
+    }
+  },
+  "after": {
+    "model_sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
+    "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+    "batch": 100,
+    "direct_provenance": true,
+    "code": {
+      "rescoring.py": "cbe62ca43371ee2782de306f3c94b13a3109577d79cef4ce731d79c0383f3ce0",
+      "evidence.py": "08b1ecd4228d7c431130c499d545711e44868e62270a7b05ef4864eb967710d9",
+      "features.py": "abe522c8cd9da7d253b745b3b54aae33493f207a05106c1f08fb4a3f360baca6",
+      "normalization.py": "739750d5321e714d248619879752c17d9c5d2f3151ce473382e0c5b87a3184ed",
+      "preprocessing.py": "5281bfe153ced23224290792397cad017b9172921b25d66bcda6d2e68fcd324b",
+      "contacts.py": "de8eb8516ba6396e6809ffc7707d5626c57ad5c659f34ee5eb687a30a77f19aa",
+      "provenance.py": "7dda906c88b10222683152f3844d2f696dca94d9c457e99d7ff460b3015707d5",
+      "native/provenance.cpp": "43190865be4418a0845c9f4b219f7a8cd7472b2207750ed3635ff6fb0e269ece"
+    }
+  }
+}

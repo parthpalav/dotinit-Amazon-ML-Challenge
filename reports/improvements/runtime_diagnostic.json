@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-09-26T07:53:43.542778+00:00",
+  "gpu_snapshot": {
+    "name": "RTX 4060 Laptop",
+    "utilization_percent": 0,
+    "memory_used_mib": 0,
+    "temperature_c": 49,
+    "active_compute_processes": 0
+  },
+  "current_stage": "CPU feature extraction and CPU CatBoost prediction; GPU training completed earlier",
+  "progress_snapshot": {
+    "last_completed_anchor": 79200,
+    "anchors_processed_this_run": 75200,
+    "seconds": 459.2053942680359,
+    "model": "artifacts/improvements/catboost_d10_evidence.joblib",
+    "scope": "full scoring",
+    "complete": false
+  },
+  "memory_used_percent": 91.8,
+  "windows_pages_input_per_second_samples": [
+    7071.08,
+    7475.23,
+    7296.93
+  ],
+  "diagnosis": "Progress advancing; real memory/disk pressure, not a GPU training failure. Page reads include file-backed data and do not alone prove pagefile thrashing.",
+  "action": "No processes stopped, restarted, or reconfigured, as requested."
+}

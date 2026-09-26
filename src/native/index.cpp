@@ -5,10 +5,6 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include <sys/mman.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
 
 #pragma pack(push,1)
 struct Entry { uint64_t key; uint32_t row; };
@@ -62,14 +58,15 @@ extern "C" void ber_keys(const char** names,const char** addresses,const char** 
   if(!number.empty()&&!country.empty())for(size_t j=0;j<std::min(size_t(2),informative.size());++j)k[22+j]=hashstr("X|"+country+"|"+number+"|"+informative[j]);
  }
 }
-struct Index {int fd;size_t size;Entry* data;};
-extern "C" void* ber_open(const char* path) {
- int fd=open(path,O_RDONLY);if(fd<0)return nullptr;struct stat s;if(fstat(fd,&s)!=0){close(fd);return nullptr;}
- if(s.st_size==0)return new Index{fd,0,nullptr};
- void*p=mmap(nullptr,s.st_size,PROT_READ,MAP_SHARED,fd,0);if(p==MAP_FAILED){close(fd);return nullptr;}
- return new Index{fd,size_t(s.st_size)/sizeof(Entry),(Entry*)p};
+// Python owns the read-only NumPy memory map. Keeping file I/O outside this
+// library makes the same packed index usable on Windows, Linux and macOS.
+// Python owns a read-only NumPy memory map on every supported platform.
+struct Index {size_t size;const Entry* data;};
+extern "C" void* ber_attach(const void* data,size_t bytes) {
+ if(bytes%sizeof(Entry))return nullptr;
+ return new Index{bytes/sizeof(Entry),static_cast<const Entry*>(data)};
 }
-extern "C" void ber_close(void* ptr) {if(!ptr)return;auto x=(Index*)ptr;if(x->data)munmap(x->data,x->size*sizeof(Entry));close(x->fd);delete x;}
+extern "C" void ber_close(void* ptr) {delete static_cast<Index*>(ptr);}
 extern "C" size_t ber_lookup(void* ptr,const uint64_t* keys,size_t n,uint32_t maxpost,uint32_t* rows,uint16_t* masks,uint32_t* offsets,size_t capacity) {
  auto x=(Index*)ptr;size_t used=0;offsets[0]=0;
  for(size_t i=0;i<n;++i) {

@@ -75,7 +75,7 @@ def train(config):
         comparison.insert(0, "split", name)
         comparisons.append(comparison)
     pd.concat(comparisons, ignore_index=True).to_csv(output / "blocking_comparison.tsv", sep="\t", index=False)
-    (output / "candidate_metrics.json").write_text(json.dumps(reports, indent=2))
+    (output / "candidate_metrics.json").write_text(json.dumps(reports, indent=2), encoding='utf-8')
     for name, report in reports.items():
         recall = report["candidate_recall"]
         if recall is not None and recall < config.minimum_candidate_recall:
@@ -161,6 +161,6 @@ def train(config):
         pending = Path(temporary) / "model.joblib"
         joblib.dump(artifact, pending)
         pending.replace(model_path)
-    (output / "run_manifest.json").write_text(json.dumps(manifest, indent=2))
+    (output / "run_manifest.json").write_text(json.dumps(manifest, indent=2), encoding='utf-8')
     LOG.info("Selected %s; saved %s. Preserving fitted model/calibrator/threshold together (no uncalibrated full-data refit).", winner, model_path)
     return manifest

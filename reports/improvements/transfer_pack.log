@@ -1,0 +1,60 @@
+{"files": 5, "unique_bytes": 612009030, "seconds": 6.7, "last": "artifacts/real_model.joblib"}
+{"files": 6, "unique_bytes": 1119666856, "seconds": 12.2, "last": "artifacts/real_model_windows.joblib"}
+{"files": 8, "unique_bytes": 1294695090, "seconds": 15.0, "last": "dataset/test/test_source1.tsv"}
+{"files": 9, "unique_bytes": 1804151512, "seconds": 24.0, "last": "dataset/test/test_source2.tsv"}
+{"files": 10, "unique_bytes": 2310154284, "seconds": 32.7, "last": "dataset/test/test_source3.tsv"}
+{"files": 11, "unique_bytes": 2437169867, "seconds": 34.3, "last": "dataset/train/train_ground_truth.tsv"}
+{"files": 12, "unique_bytes": 2647239580, "seconds": 37.7, "last": "dataset/train/train_source1.tsv"}
+{"files": 13, "unique_bytes": 3136541068, "seconds": 46.4, "last": "dataset/train/train_source2.tsv"}
+{"files": 14, "unique_bytes": 3640246705, "seconds": 55.1, "last": "dataset/train/train_source3.tsv"}
+{"files": 15, "unique_bytes": 4377037603, "seconds": 64.4, "last": "outputs/real_submission/candidate_pairs.tsv"}
+{"files": 23, "unique_bytes": 4796771277, "seconds": 68.6, "last": "work/improvements/fit_extra.joblib"}
+{"files": 100, "unique_bytes": 4802246512, "seconds": 69.1, "last": "work/improvements/test_scores_d10_direct/00006300.npy"}
+{"files": 200, "unique_bytes": 4807384832, "seconds": 69.7, "last": "work/improvements/test_scores_d10_direct/00016300.npy"}
+{"files": 300, "unique_bytes": 4812523984, "seconds": 70.3, "last": "work/improvements/test_scores_d10_direct/00026300.npy"}
+{"files": 400, "unique_bytes": 4817661920, "seconds": 70.8, "last": "work/improvements/test_scores_d10_direct/00036300.npy"}
+{"files": 500, "unique_bytes": 4822800352, "seconds": 71.4, "last": "work/improvements/test_scores_d10_direct/00046300.npy"}
+{"files": 600, "unique_bytes": 4827938416, "seconds": 72.1, "last": "work/improvements/test_scores_d10_direct/00056300.npy"}
+{"files": 700, "unique_bytes": 4833076640, "seconds": 72.6, "last": "work/improvements/test_scores_d10_direct/00066300.npy"}
+{"files": 800, "unique_bytes": 4838215424, "seconds": 73.2, "last": "work/improvements/test_scores_d10_direct/00076300.npy"}
+{"files": 900, "unique_bytes": 4843354352, "seconds": 73.7, "last": "work/improvements/test_scores_d10_direct/00086300.npy"}
+{"files": 1000, "unique_bytes": 4848492704, "seconds": 74.2, "last": "work/improvements/test_scores_d10_direct/00096300.npy"}
+{"files": 1100, "unique_bytes": 4853631600, "seconds": 74.7, "last": "work/improvements/test_scores_d10_direct/00106300.npy"}
+{"files": 1200, "unique_bytes": 4858770080, "seconds": 75.2, "last": "work/improvements/test_scores_d10_direct/00116300.npy"}
+{"files": 1300, "unique_bytes": 4863908592, "seconds": 75.7, "last": "work/improvements/test_scores_d10_direct/00126300.npy"}
+{"files": 1377, "unique_bytes": 5387358274, "seconds": 81.7, "last": "work/real_v1/features/fit.joblib"}
+{"files": 1393, "unique_bytes": 6366632800, "seconds": 109.4, "last": "work/real_v1/test/address_norm.bin"}
+{"files": 1395, "unique_bytes": 9110539336, "seconds": 195.9, "last": "work/real_v1/test/blocking_index.bin"}
+{"files": 1398, "unique_bytes": 9258975126, "seconds": 200.5, "last": "work/real_v1/test/entity_id.bin"}
+{"files": 1400, "unique_bytes": 9625874219, "seconds": 209.5, "last": "work/real_v1/test/name_norm.bin"}
+{"files": 1402, "unique_bytes": 12315807067, "seconds": 317.9, "last": "work/real_v1/test/records.sqlite"}
+{"files": 1404, "unique_bytes": 13675971830, "seconds": 366.2, "last": "work/real_v1/test/supplement_index.bin"}
+{"files": 1406, "unique_bytes": 14139973313, "seconds": 377.7, "last": "work/real_v1/train/address_norm.bin"}
+{"files": 1408, "unique_bytes": 16969814937, "seconds": 460.4, "last": "work/real_v1/train/blocking_index.bin"}
+{"files": 1411, "unique_bytes": 17123470386, "seconds": 465.3, "last": "work/real_v1/train/entity_id.bin"}
+{"files": 1413, "unique_bytes": 17489720045, "seconds": 480.4, "last": "work/real_v1/train/name_norm.bin"}
+{"files": 1415, "unique_bytes": 20848483917, "seconds": 596.7, "last": "work/real_v1/train/records.sqlite"}
+{"files": 1417, "unique_bytes": 22122901652, "seconds": 641.4, "last": "work/real_v1/train/supplement_index.bin"}
+{"files": 1429, "unique_bytes": 22169208840, "seconds": 645.3, "last": "work/windows_v1/features/fit.joblib"}
+{"files": 1433, "unique_bytes": 22169212174, "seconds": 646.1, "last": "work/windows_v1/test/address_norm.bin"}
+{"files": 1435, "unique_bytes": 22169212174, "seconds": 646.5, "last": "work/windows_v1/test/blocking_index.bin"}
+{"files": 1438, "unique_bytes": 22169212220, "seconds": 646.9, "last": "work/windows_v1/test/entity_id.bin"}
+{"files": 1440, "unique_bytes": 22169212220, "seconds": 647.1, "last": "work/windows_v1/test/name_norm.bin"}
+{"files": 1442, "unique_bytes": 22169212220, "seconds": 647.2, "last": "work/windows_v1/test/records.sqlite"}
+{"files": 1444, "unique_bytes": 22169213699, "seconds": 647.6, "last": "work/windows_v1/test/supplement_index.bin"}
+{"files": 1446, "unique_bytes": 22169213906, "seconds": 647.7, "last": "work/windows_v1/train/address_norm.bin"}
+{"files": 1448, "unique_bytes": 22169213906, "seconds": 647.7, "last": "work/windows_v1/train/blocking_index.bin"}
+{"files": 1451, "unique_bytes": 22169213936, "seconds": 647.7, "last": "work/windows_v1/train/entity_id.bin"}
+{"files": 1453, "unique_bytes": 22169213936, "seconds": 647.8, "last": "work/windows_v1/train/name_norm.bin"}
+{"files": 1455, "unique_bytes": 22169213936, "seconds": 647.8, "last": "work/windows_v1/train/records.sqlite"}
+{"files": 1457, "unique_bytes": 22169215840, "seconds": 647.8, "last": "work/windows_v1/train/supplement_index.bin"}
+{
+  "archive": "transfer\\amazon-ml-assets.zip",
+  "archive_bytes": 9972950552,
+  "sha256": "a220f6ab74d6d9e89f8e89054f4a2e958b9a719476c25ab3de010c51bbea6029",
+  "files": 1465,
+  "aliases": 25,
+  "unique_bytes": 22184574176,
+  "logical_bytes": 38837927359,
+  "seconds": 672.939994096756
+}

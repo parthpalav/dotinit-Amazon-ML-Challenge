@@ -1,0 +1,6 @@
+INFO:src.real_pipeline:confirmation feature batches=10/50 pairs=31975 elapsed=177.6s
+INFO:src.real_pipeline:confirmation feature batches=20/50 pairs=63974 elapsed=285.5s
+INFO:src.real_pipeline:confirmation feature batches=30/50 pairs=95968 elapsed=375.0s
+INFO:src.real_pipeline:confirmation feature batches=40/50 pairs=127958 elapsed=421.6s
+INFO:src.real_pipeline:confirmation feature batches=50/50 pairs=159937 elapsed=467.1s
+CONFIRMATION PREPARED (159937, 58)

@@ -1,3 +1,5 @@
+> Historical baseline handover. Current work and live continuation status are documented in [reports/IMPROVEMENT_STATUS.md](reports/IMPROVEMENT_STATUS.md) and [the Windows runbook](reports/WINDOWS_IMPROVEMENTS.md).
+
 # Session handover — paused 2026-09-25
 
 ## Current status
