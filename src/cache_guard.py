@@ -1,6 +1,7 @@
 """Fail closed when experiment caches no longer match their inputs/settings."""
 import hashlib,json
 from pathlib import Path
+from .native_schema import supplement_source
 
 FIELDS={
  'selection':['seed','validation_fraction','calibration_fraction','fit_anchor_limit','calibration_anchor_limit','validation_anchor_limit'],
@@ -21,7 +22,7 @@ def signature(config,stage,ids=None):
  if stage in ('engineer','features'):source_files+=['features.py']
  if stage in ('ranker','features'):source_files+=['disk_blocking.py','coarse_ranker.py','native/index.cpp','native/supplement.cpp']
  result={'stage':stage,'config':{k:getattr(config,k) for k in FIELDS[stage]},
-  'code':{s:hashlib.sha256((root/s).read_text(encoding='utf-8-sig').encode()).hexdigest() for s in source_files}}
+  'code':{s:hashlib.sha256((supplement_source() if s=='native/supplement.cpp' else root/s).read_text(encoding='utf-8-sig').encode()).hexdigest() for s in source_files}}
  manifest=Path(config.working_dir)/'train/store_manifest.json'
  if manifest.exists():result['store']=json.loads(manifest.read_text(encoding='utf-8')).get('verified_input_sha256',json.loads(manifest.read_text(encoding='utf-8'))['inputs'])
  for name in (['candidate_ranker.joblib','feature_engineer.joblib'] if stage=='features' else ['entity_selection.npz'] if stage in ('engineer','ranker') else []):

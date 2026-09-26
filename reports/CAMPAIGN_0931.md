@@ -93,3 +93,12 @@ Running6 main workers plus1 alias worker reduced available RAM below1GB. Rebalan
 
 ## Current resource decision: sequential main then alias
 Concurrent execution reduced main throughput substantially despite the lower worker count. To get a validated main submission sooner and avoid memory/cache contention, the coordinator now runs main scoring/export/validation with6workers, then resumes the alias stage with up to4workers (bounded by available RAM). Every existing main and alias checkpoint is preserved. Single resume command: `python -u -m src.campaign_run --main-workers 6 --alias-workers 4`. It skips already validated, hash-matching outputs. Main progress and alias progress remain in their respective work directories; `coordinator.json` identifies the active stage. No more model/feature changes are planned during full inference.
+
+## Checkpoint: concurrent Phase 8 merge and index compatibility
+Merged remote `ddc16e7` into `parth` without replacing the confirmed campaign. Its best reported local F0.5 is 0.932878, versus this campaign's selection 0.961505; its wider retrieval remains an experiment. The incoming root blocking reports describe its cap-64 pool, not this campaign's frozen 55,431,940 candidates.
+
+The incoming native supplemental key layout was incompatible with existing indexes. Preserved it as `src/native/supplement_phase8.cpp`, restored the legacy default, and require explicit `AMAZON_SUPPLEMENT_VARIANT=phase8` for that experiment. Native loading now checks the index manifest's source hash. Rebuilding supplemental packed records refuses shared links, preventing accidental truncation of existing assets; the experimental rebuild creates private packed records and uses Windows-compatible hardlinks only for immutable inputs. It has NOT been run. Targeted integration tests: 20 passed. Existing legacy native hash and fresh confirmation feature-cache signature still match exactly. No running inference feature/model files changed.
+
+At this checkpoint main scoring passed 922,000 / 1,732,544 anchors at about 463 anchors/sec; sequential coordinator continues automatically into alias scoring, export and validation. Resume with the command at the top of this report. New outputs are not ready until their production plan says `ready_for_amazon_evaluation`.
+
+Full post-merge verification: 56 tests passed in 58.53 seconds (eports/campaign_0931/integration_tests.log).
