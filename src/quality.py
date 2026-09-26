@@ -27,8 +27,10 @@ def quality_report(config):
             return previous
     summary={}
     for p in sorted((root/'dataset').rglob('*.tsv')):
+        if p.name.startswith('._') or '__MACOSX' in str(p):
+            continue
         start=time.time(); counts=Counter(); countries=Counter(); missing=Counter(); ids=[]; hashes=[]; sample=[]; match_counts=Counter()
-        for frame in pd.read_csv(p, sep='\t', dtype=str, keep_default_na=False, chunksize=100000):
+        for frame in pd.read_csv(p, sep='\t', dtype=str, keep_default_na=False, encoding_errors='replace', chunksize=100000):
             counts['rows']+=len(frame)
             for c in frame:
                 missing[c]+=int(frame[c].str.strip().eq('').sum())

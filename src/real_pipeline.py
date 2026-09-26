@@ -12,6 +12,7 @@ import importlib.metadata
 import json
 import logging
 import multiprocessing
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -295,7 +296,9 @@ def official_validate(config):
     if not validator.is_file():raise FileNotFoundError(f'Official validator not found: {validator}')
     command=[sys.executable,str(validator),'--matching',str(Path(config.output_dir)/'matching_results.tsv'),
              '--candidate',str(Path(config.output_dir)/'candidate_pairs.tsv'),'--test-dir',str(Path(config.dataset_dir)/'test'),'--check-ids']
-    result=subprocess.run(command,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    env = os.environ.copy()
+    env['PYTHONPATH'] = str(Path('.').resolve()) + os.pathsep + env.get('PYTHONPATH', '')
+    result=subprocess.run(command,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env)
     report=Path(config.reports_dir)/'official_validator.log';report.write_text(result.stdout)
     (Path(config.reports_dir)/'official_validator_command.json').write_text(json.dumps({'command':command,'exit_code':result.returncode,
         'validator_sha256':hashlib.sha256(validator.read_bytes()).hexdigest()},indent=2))
