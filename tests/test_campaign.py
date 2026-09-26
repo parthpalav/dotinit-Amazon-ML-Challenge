@@ -35,3 +35,16 @@ def test_task_boundaries_preserve_empty_anchors_and_all_pairs():
  a=np.array([(1,1,.9),(1,2,.8),(3,1,.5),(5,3,.2)],dtype=DTYPE)
  assert list(tasks(a,6,2))==[(0,2,0,2),(2,4,2,3),(4,6,3,4)]
  assert list(tasks(a,6,2,3))==[(0,2,0,2),(2,3,2,3)]
+
+def test_deployment_predict_and_portable_ensemble(tmp_path):
+ import joblib,pytest
+ from catboost import CatBoostClassifier
+ from src.model import CalibratedMatcher
+ from src.campaign_ensemble import ProbabilityEnsemble
+ from src.campaign_scoring import predict
+ X=pd.DataFrame({'a':np.arange(20,dtype=float),'b':np.arange(20,dtype=float)%3});y=(X.a>8).astype(int)
+ est=CatBoostClassifier(iterations=3,depth=2,verbose=False,thread_count=1,allow_writing_files=False);est.fit(X,y)
+ m=CalibratedMatcher(est);m.calibrate(X,y);artifact={'matcher':ProbabilityEnsemble([m,m],[.25,.75]),'feature_names':list(X.columns)}
+ path=tmp_path/'model.joblib';joblib.dump(artifact,path);loaded=joblib.load(path)
+ np.testing.assert_allclose(predict(loaded,X),m.predict(X),rtol=0,atol=1e-15)
+ with pytest.raises(ValueError,match='schema'):predict(loaded,X[['b','a']])

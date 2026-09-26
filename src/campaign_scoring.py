@@ -19,7 +19,7 @@ def init_worker(config,model,scores):
 
 def predict(model,X):
  if list(X.columns)!=model['feature_names']:raise ValueError('Context feature schema mismatch')
-  matcher=model['matcher']
+ matcher=model['matcher']
  if hasattr(matcher,'members'):
   return sum(w*predict({'matcher':m,'feature_names':model['feature_names']},X) for w,m in zip(matcher.weights,matcher.members))
  p=matcher.estimator.predict_proba(X,thread_count=1)[:,1]
@@ -86,7 +86,9 @@ def run(args):
    pending.append(pool.submit(score_batch,task))
    if len(pending)>=args.workers*2:consume()
   while pending:consume()
- if args.limit is None:(root/'SCORING_COMPLETE.json').write_text(json.dumps({'signature':sig,'anchors':total,'seconds_this_run':time.time()-started},indent=2),encoding='utf-8')
+ if args.limit is None:
+  (root/'SCORING_COMPLETE.json').write_text(json.dumps({'signature':sig,'anchors':total,'seconds_this_run':time.time()-started},indent=2),encoding='utf-8')
+  (root/'progress.json').write_text(json.dumps({'complete':True,'last_completed_anchor':total,'anchors_processed_this_run':done,'seconds':time.time()-started,'estimated_remaining_seconds':0},indent=2),encoding='utf-8')
  print('CONTEXT_SCORING_FINISHED',total,time.time()-started,flush=True)
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--frozen',default='reports/campaign_0931/frozen_confirmation_v3.json');p.add_argument('--confirmation',default='reports/campaign_0931/confirmation_v3_results.json');p.add_argument('--model-name',default='compact');p.add_argument('--workers',type=int,default=2);p.add_argument('--batch',type=int,default=1000);p.add_argument('--limit',type=int);p.add_argument('--work',default='work/campaign_0931/test_compact');p.add_argument('--scores',default='work/campaign_0931/test_scores.npy');p.add_argument('--candidates',default='outputs/real_submission/candidate_pairs.tsv');run(p.parse_args())
