@@ -101,4 +101,7 @@ The incoming native supplemental key layout was incompatible with existing index
 
 At this checkpoint main scoring passed 922,000 / 1,732,544 anchors at about 463 anchors/sec; sequential coordinator continues automatically into alias scoring, export and validation. Resume with the command at the top of this report. New outputs are not ready until their production plan says `ready_for_amazon_evaluation`.
 
-Full post-merge verification: 56 tests passed in 58.53 seconds (eports/campaign_0931/integration_tests.log).
+Full post-merge verification: 56 tests passed in 58.53 seconds (reports/campaign_0931/integration_tests.log).
+
+
+Model handover: `transfer/campaign-0931-models.zip` contains both required model weights, frozen recipes, dependencies and license/model card. Every extracted byte hash was verified. This is a weights-only add-on, NOT a replacement for the original dataset/index assets or complete base score cache. ZIP manifest/hash: `reports/campaign_0931/model_bundle.json`. Both old and new models remain in place because inference requires both.
