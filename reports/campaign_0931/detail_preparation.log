@@ -1,0 +1,8 @@
+DETAIL calibration 0 3.2
+DETAIL calibration 100000 30.9
+SAVED calibration
+DETAIL validation 0 3.9
+DETAIL validation 100000 48.5
+DETAIL validation 200000 66.2
+DETAIL validation 300000 83.2
+SAVED validation

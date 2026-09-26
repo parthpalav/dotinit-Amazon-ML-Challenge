@@ -1,0 +1,17 @@
+PEERS calibration 0 2.6
+PEERS calibration 1000 10.5
+PEERS calibration 2000 17.6
+PEERS calibration 3000 24.2
+PEERS calibration 4000 30.1
+SAVED calibration
+PEERS validation 0 1.4
+PEERS validation 1000 6.7
+PEERS validation 2000 12.0
+PEERS validation 3000 17.7
+PEERS validation 4000 22.7
+PEERS validation 5000 28.3
+PEERS validation 6000 33.4
+PEERS validation 7000 37.9
+PEERS validation 8000 43.0
+PEERS validation 9000 47.7
+SAVED validation

@@ -1,0 +1,6 @@
+{
+  "anchors": 20,
+  "pairs": 627,
+  "max_absolute_difference": 0,
+  "status": "PASS: deployed raw-record feature path matches cached selection probabilities"
+}

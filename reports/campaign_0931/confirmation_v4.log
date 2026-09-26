@@ -1,0 +1,2 @@
+INFO:src.real_pipeline:confirmation_v4 feature batches=10/50 pairs=32000 elapsed=281.5s
+INFO:src.real_pipeline:confirmation_v4 feature batches=20/50 pairs=63981 elapsed=436.5s

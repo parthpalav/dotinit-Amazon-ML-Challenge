@@ -1,0 +1,2 @@
+TRAIN_HASHED 2206821 7.5
+{"exact_normalized_anchor_overlap": 1, "by_country": {"us": 1}, "hash_hits": 1, "seconds": 15.817583322525024, "note": "Overlap is verified by full normalized name/address/country equality; no test labels are assumed or inferred by this audit."}

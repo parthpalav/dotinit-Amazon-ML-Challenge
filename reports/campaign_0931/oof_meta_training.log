@@ -1,0 +1,39 @@
+0:	learn: 0.5773926	test: 0.5776719	best: 0.5776719 (0)	total: 102ms	remaining: 4m 3s
+300:	learn: 0.0202294	test: 0.0223520	best: 0.0223520 (300)	total: 2.88s	remaining: 20.1s
+600:	learn: 0.0189918	test: 0.0215071	best: 0.0215071 (600)	total: 5.6s	remaining: 16.8s
+900:	learn: 0.0183091	test: 0.0211213	best: 0.0211213 (900)	total: 8.28s	remaining: 13.8s
+1200:	learn: 0.0177911	test: 0.0208432	best: 0.0208386 (1192)	total: 11s	remaining: 10.9s
+1500:	learn: 0.0173836	test: 0.0206500	best: 0.0206425 (1488)	total: 13.7s	remaining: 8.18s
+1800:	learn: 0.0169996	test: 0.0205084	best: 0.0205083 (1799)	total: 16.4s	remaining: 5.45s
+2100:	learn: 0.0166571	test: 0.0203901	best: 0.0203901 (2100)	total: 19.2s	remaining: 2.73s
+2399:	learn: 0.0163667	test: 0.0203328	best: 0.0203283 (2305)	total: 21.9s	remaining: 0us
+bestTest = 0.0203282795
+bestIteration = 2305
+Shrink model to first 2306 iterations.
+OOF_RESULT {"model": "oof_compact_d5", "threshold": 0.6250000000000002, "trees": 2306, "seconds": 24.026285409927368, "precision": 0.9751902777777778, "recall": 0.9293744841269841, "f0.5": 0.960284653565255, "f1": 0.944769462253433, "singleton_accuracy": 0.9564393939393939, "true_positive": 32271, "false_positive": 433, "false_negative": 2405, "true_negative_all_possible": 103202154891, "false_positive_rate": 4.195648808308409e-09, "predicted_positive": 32704, "predicted_negative_candidates": 287252, "predicted_positive_rate": 0.10221405443248446}
+0:	learn: 0.5702745	test: 0.5707604	best: 0.5707604 (0)	total: 15.1ms	remaining: 36.2s
+300:	learn: 0.0188869	test: 0.0213751	best: 0.0213751 (300)	total: 3.79s	remaining: 26.4s
+600:	learn: 0.0174749	test: 0.0207529	best: 0.0207529 (600)	total: 7.55s	remaining: 22.6s
+900:	learn: 0.0165069	test: 0.0203866	best: 0.0203855 (893)	total: 11.3s	remaining: 18.7s
+1200:	learn: 0.0157508	test: 0.0201451	best: 0.0201451 (1200)	total: 15s	remaining: 15s
+1500:	learn: 0.0150771	test: 0.0199693	best: 0.0199693 (1500)	total: 18.7s	remaining: 11.2s
+1800:	learn: 0.0144653	test: 0.0198380	best: 0.0198367 (1764)	total: 22.5s	remaining: 7.47s
+2100:	learn: 0.0139193	test: 0.0197587	best: 0.0197586 (2099)	total: 26.2s	remaining: 3.72s
+2399:	learn: 0.0133944	test: 0.0197122	best: 0.0197106 (2398)	total: 29.9s	remaining: 0us
+bestTest = 0.01971061134
+bestIteration = 2398
+Shrink model to first 2399 iterations.
+OOF_RESULT {"model": "oof_compact_d7", "threshold": 0.6750000000000003, "trees": 2399, "seconds": 31.74942898750305, "precision": 0.9775234126984127, "recall": 0.9261482936507937, "f0.5": 0.9612755582440404, "f1": 0.9441099827460122, "singleton_accuracy": 0.9696969696969697, "true_positive": 32151, "false_positive": 338, "false_negative": 2525, "true_negative_all_possible": 103202154986, "false_positive_rate": 3.275125397709567e-09, "predicted_positive": 32489, "predicted_negative_candidates": 287467, "predicted_positive_rate": 0.10154208703696758}
+0:	learn: 0.5644767	test: 0.5646419	best: 0.5646419 (0)	total: 21.5ms	remaining: 51.6s
+300:	learn: 0.0174465	test: 0.0208791	best: 0.0208791 (300)	total: 5.79s	remaining: 40.4s
+600:	learn: 0.0154551	test: 0.0204412	best: 0.0204398 (594)	total: 11.6s	remaining: 34.7s
+900:	learn: 0.0139771	test: 0.0201315	best: 0.0201315 (900)	total: 17.3s	remaining: 28.8s
+1200:	learn: 0.0128131	test: 0.0199956	best: 0.0199905 (1173)	total: 23s	remaining: 23s
+1500:	learn: 0.0118044	test: 0.0198854	best: 0.0198840 (1497)	total: 28.7s	remaining: 17.2s
+1800:	learn: 0.0108765	test: 0.0198610	best: 0.0198453 (1758)	total: 34.4s	remaining: 11.4s
+2100:	learn: 0.0100232	test: 0.0198105	best: 0.0197960 (2029)	total: 40s	remaining: 5.7s
+bestTest = 0.01979595375
+bestIteration = 2029
+Shrink model to first 2030 iterations.
+OOF_RESULT {"model": "oof_compact_d9", "threshold": 0.6000000000000002, "trees": 2030, "seconds": 43.885809659957886, "precision": 0.9760504365079363, "recall": 0.9313646031746033, "f0.5": 0.9615045904574767, "f1": 0.9463924591584885, "singleton_accuracy": 0.9545454545454546, "true_positive": 32359, "false_positive": 421, "false_negative": 2317, "true_negative_all_possible": 103202154903, "false_positive_rate": 4.079372166969609e-09, "predicted_positive": 32780, "predicted_negative_candidates": 287176, "predicted_positive_rate": 0.10245158709322531}
+OOF_BEST {"model": "oof_compact_d9", "threshold": 0.6000000000000002, "trees": 2030, "seconds": 43.885809659957886, "precision": 0.9760504365079363, "recall": 0.9313646031746033, "f0.5": 0.9615045904574767, "f1": 0.9463924591584885, "singleton_accuracy": 0.9545454545454546, "true_positive": 32359, "false_positive": 421, "false_negative": 2317, "true_negative_all_possible": 103202154903, "false_positive_rate": 4.079372166969609e-09, "predicted_positive": 32780, "predicted_negative_candidates": 287176, "predicted_positive_rate": 0.10245158709322531}

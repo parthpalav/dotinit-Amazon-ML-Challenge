@@ -1,0 +1,20 @@
+{
+  "seed": 20260928,
+  "anchors": 5000,
+  "excluded_prior_anchors": 55000,
+  "models": [
+    {
+      "name": "compact",
+      "path": "artifacts\\campaign_0931\\context_peer_detail_compact_d5.joblib",
+      "sha256": "47aeb7c577fa976647c141040b1c7b1a8b4ea463902cd1675e88c768de943489",
+      "threshold": 0.675
+    },
+    {
+      "name": "oof",
+      "path": "artifacts\\campaign_0931\\oof_compact_d9.joblib",
+      "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+      "threshold": 0.6000000000000002
+    }
+  ],
+  "selection": "OOF model and threshold selected on original validation only; compact comparator fixed"
+}

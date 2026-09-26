@@ -1,0 +1,123 @@
+{
+  "counts": {
+    "missing_true_pairs": 784,
+    "missing_india": 553,
+    "missing_address": 158,
+    "nonlatin_name": 363,
+    "exact_predicted_alias": 156,
+    "missing_us": 231,
+    "alias_with_address_similarity_085": 5,
+    "alias_missing_address": 6
+  },
+  "examples": [
+    {
+      "source": "S1-609690180",
+      "missed_target": "S2-430036122",
+      "name": "फर्स्ट एग्रो प्राइवेट लिमिटेड",
+      "address": "pune maharashtra poona sr no",
+      "predicted_peer": "S3-427683120",
+      "peer_address": "dgor no 912 sr no 52 2b flat 301 krishna kunj apt par pune महाराष्ट्र",
+      "address_similarity": 0.41237113402061853
+    },
+    {
+      "source": "S1-824201082",
+      "missed_target": "S3-554903179",
+      "name": "पायोनियर इंटरनेशनल प्राइवेट लिमिटेड",
+      "address": "block f 272 c o chanchal giri bijnor bijnore उत्तर प्रदेश",
+      "predicted_peer": "S2-375577939",
+      "peer_address": "c o chanchal giri kutubpur gawadi chandpur bijnor bijnore उत्तर प्रदेश",
+      "address_similarity": 0.7244094488188977
+    },
+    {
+      "source": "S1-829711705",
+      "missed_target": "S2-764051457",
+      "name": "रेड प्रॉपर्टीज प्राइवेट लिमिटेड",
+      "address": "32 delhi south west delhi दिल्ली",
+      "predicted_peer": "S2-70497372",
+      "peer_address": "32 shivji marg westend greens rangpuri delhi south west delhi delhi",
+      "address_similarity": 0.5252525252525253
+    },
+    {
+      "source": "S1-829711705",
+      "missed_target": "S3-504458417",
+      "name": "रेड प्रॉपर्टीज प्राइवेट लिमिटेड",
+      "address": "32 south west delhi dl",
+      "predicted_peer": "S2-70497372",
+      "peer_address": "32 shivji marg westend greens rangpuri delhi south west delhi delhi",
+      "address_similarity": 0.4943820224719101
+    },
+    {
+      "source": "S1-829711705",
+      "missed_target": "S3-60921046",
+      "name": "रेड प्रॉपर्टीज प्राइवेट लिमिटेड",
+      "address": "32 delhi dl",
+      "predicted_peer": "S2-70497372",
+      "peer_address": "32 shivji marg westend greens rangpuri delhi south west delhi delhi",
+      "address_similarity": 0.28205128205128205
+    },
+    {
+      "source": "S1-837306628",
+      "missed_target": "S3-441648535",
+      "name": "डायनामिक केयर प्राइवेट लिमिटेड",
+      "address": "c o bhanwar lal bada naya gaon rj",
+      "predicted_peer": "S2-694915344",
+      "peer_address": "c o bhanwar lal vill got hra brahman ka luhariya bundi rajasthan",
+      "address_similarity": 0.5360824742268041
+    },
+    {
+      "source": "S1-91957656",
+      "missed_target": "S3-413183814",
+      "name": "বালাজি ডেভেলপারস এলএলপি",
+      "address": "s p mukherjee rd darjiling darjeeling wb",
+      "predicted_peer": "S2-140280054",
+      "peer_address": "s p mukherjee rod siliguri siliguri darjiling darjeeling west bengal",
+      "address_similarity": 0.7222222222222221
+    },
+    {
+      "source": "S1-964526321",
+      "missed_target": "S3-177926843",
+      "name": "बाबा ट्रेडिंग प्राइवेट लिमिटेड",
+      "address": "plot 895 c 57 f f delhi east delhi दिल्ली",
+      "predicted_peer": "S2-191005111",
+      "peer_address": "east delhi door no 19 c 57 f f kh no 168 171 172 gali no 2 mulla colony gharoli extn delhi",
+      "address_similarity": 0.5151515151515151
+    },
+    {
+      "source": "S1-154111746",
+      "missed_target": "S3-953353335",
+      "name": "सुपर सॉल्यूशंस प्राइवेट लिमिटेड",
+      "address": "a 1 floor â grd null mumbai महाराष्ट्र mumbai city",
+      "predicted_peer": "S2-397003423",
+      "peer_address": "001 floor â grd 6 heaven building christ church ln off mirza galib marg nagpada mumbai cent ral mumbai city mumbai maharashtra",
+      "address_similarity": 0.5371428571428571
+    },
+    {
+      "source": "S1-256525049",
+      "missed_target": "S2-179956398",
+      "name": "ಬಾಂಬೆ ಸಿಸ್ಟಮ್ಸ್ ಲಿಮಿಟೆಡ್",
+      "address": "117 bangalore ಕರ್ನಾಟಕ",
+      "predicted_peer": "S2-123684555",
+      "peer_address": "bangalore 117 2nd floor wheelers rd cox town bangalore ಕರ್ನಾಟಕ",
+      "address_similarity": 0.5060240963855422
+    },
+    {
+      "source": "S1-270376880",
+      "missed_target": "S3-922495410",
+      "name": "ಗ್ಲೋಬಲ್ ವೆಂಚರ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್",
+      "address": "b3 123 bangalore ka",
+      "predicted_peer": "S2-358315419",
+      "peer_address": "h no 123 2nd floor sva archade 7th cross 5th block rajajinagar bangalore karnataka",
+      "address_similarity": 0.3366336633663366
+    },
+    {
+      "source": "S1-55090732",
+      "missed_target": "S3-562088133",
+      "name": "स्मार्ट एक्सपोर्ट्स प्राइवेट लिमिटेड",
+      "address": "c o shammi kawatra madan yamuna nagar hr",
+      "predicted_peer": "S2-973398826",
+      "peer_address": "c o shammi kawatra madan 968 near gujral electric store jagadhri yamuna nagar हरियाणा",
+      "address_similarity": 0.851063829787234
+    }
+  ],
+  "scope": "Labels identify omitted true pairs for audit only; aliases come from predictions >= .95 without peer labels."
+}
