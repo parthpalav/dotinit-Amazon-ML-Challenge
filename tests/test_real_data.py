@@ -159,12 +159,12 @@ def test_supplied_official_validator_accepts_real_subset_singletons(real,tmp_pat
     matching=tmp_path/'matching_results.tsv';candidate=tmp_path/'candidate_pairs.tsv'
     for path,column in ((matching,'matched_entity_ids'),(candidate,'candidate_entity_ids')):
         pd.DataFrame({'source1_entity_id':frames[0].entity_id,column:''}).to_csv(path,sep='\t',index=False)
-    command=[sys.executable,str(Path(real.resource_dir)/'utils/validate_submission.py'),'--matching',str(matching),'--candidate',str(candidate),'--test-dir',str(testdir),'--check-ids']
-    result=subprocess.run(command,capture_output=True,text=True)
+    command=[sys.executable,'-X','utf8',str(Path(real.resource_dir)/'utils/validate_submission.py'),'--matching',str(matching),'--candidate',str(candidate),'--test-dir',str(testdir),'--check-ids']
+    result=subprocess.run(command,capture_output=True,text=True,encoding='utf-8')
     assert result.returncode==0 and 'PASS' in result.stdout
     bad=pd.read_csv(matching,sep='\t',dtype=str,keep_default_na=False)
     bad.loc[0,'matched_entity_ids']=bad.loc[0,'source1_entity_id'];bad.to_csv(matching,sep='\t',index=False)
-    assert subprocess.run(command,capture_output=True,text=True).returncode==1
+    assert subprocess.run(command,capture_output=True,text=True,encoding='utf-8').returncode==1
 
 
 def test_final_real_submission_and_official_result(real):

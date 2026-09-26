@@ -82,3 +82,28 @@ Restricted reverse search recovers only 20 of 417 missing v4 true pairs, leaving
 Fresh v6 confirmation RUNNING via `python -X utf8 -u -m src.campaign_confirm_v6`, log confirmation_v6.log. Five thousand anchors exclude all earlier 65k; seed20260930. Models/tokenizer and recipes are frozen before accessing outcomes. Paired bootstrap: neural promotion needs positive 97.5% delta interval vs raw; joint needs positive 97.5% vs raw AND95% vs neural. Atomic 100-anchor base and prediction checkpoints. Do not retune on v6. No neural/joint test submission exists yet. Next: finish v6, implement bounded/resumable full test inference for supported model, export and validate. New production serialization must preserve actual country; the raw-only packed adapter intentionally has blank country and cannot be used unchanged for neural input.
 
 Checkpoint bded698 is on origin/parth; subsequent ready output and neural results await the next checkpoint. Old models are still required dependencies. No files removed or moved; F reference untouched.
+
+
+### Fresh v6 passed; neural full-test run started (~04:24 IST)
+
+Frozen fresh v6: raw F0.5 0.96621632 (TP16256/FP126/FN1203), neural 0.97373510 (TP16482/FP119/FN977), joint 0.97460373 (TP16481/FP97/FN978). Neural delta +0.0075188 with 97.5%CI [0.0050327,0.0101339]. Joint vs raw also positive; joint vs neural95%CI [-0.00036385,0.00210446], so the preregistered rule selects **neural_stack_d3**. Joint remains experimental. Threshold0.675, batch64, bf16, full192-token padding. Confirmation file: confirmation_v6.json. v6 is now consumed; no retuning on it.
+
+Full pipeline RUNNING: `python -X utf8 -u -m src.campaign_ensemble_run --workers 2`. This reuses completed neural pilot shards, scores all test candidates using the frozen gate, exports to outputs/campaign_0942_neural_unique, runs bounded full integrity checks and official ID validator. It does NOT automatically deploy the joint model because joint was not selected. Log ensemble_run.log; neural_production.log; state ensemble_production.json; detailed work/campaign_0942/test_neural/progress.json. Per1000-anchor score and neural-component caches have input/output hashes and can resume. Do not launch duplicate GPU scorers. Expected GPU inference roughly1-3hours from the warm pilot, subject to sustained throughput; measure progress after several shards. Initial load time distorts early estimates.
+
+`src.campaign_test_records` provides full packed raw+normalized records with actual country preserved, unlike raw-only adapter. All fields matched SQLite exactly on4,004 sampled/end-point records. `src.campaign_neural_test` uses one CPU preparation thread and GPUdevice0, bounded memory. `src.campaign_joint_test` is available for future supported joint inference, but is not running and requires a reverse_test index. Source1 remains one-to-many; only target ownership is unique.
+
+Performance experiment src.neural_batched tested length sorting/batch256. Across11,750 unlabelled test pairs it changed0 neural-fusion threshold decisions but introduced small probability changes (max0.004817, mean~3e-6). It is NOT used for production, preserving exact confirmation inference settings. v5 gate audit: upper-gate1804pairs all true; lower-gate131956pairs contained27true links; all143raw FP within the corrected gate. No expensive gate expansion justified.
+
+`transfer/campaign-0942-ensemble-models.zip` verified; includes old dependencies, both fusion/reverse models, fine-tuned neural weights/config/tokenizer. ZIP paths normalized to forward slashes (fixed a Windows archive verification error). Dataset/index/score caches remain separate. Source/reports/ready raw output checkpoint e28cbfb successfully pushed. Later neural code and confirmation await next checkpoint. F reference remains untouched; no models deleted.
+
+
+### Sustained runtime update (~04:27 IST)
+
+Neural inference has passed19,000anchors, with100,834 ambiguous pairs processed in136.5s this run (plus2,000 pilot anchors reused). Current estimate ~3.8hours remaining for scoring; earlier1-3hour pilot estimate was optimistic. Allow export/official validation afterwards. GPU observed98%utilization,832MiB VRAM,76C; profiler shows the main thread receiving GPU predictions and preparation worker idle, so compute is active and not stalled. The automatic end-to-end process remains running and will export/validate without a manual command. Do not close the computer or start another scorer. Resume after interruption with the same campaign_ensemble_run command. It preserves completed score shards and verifies hashes before reusing them.
+
+
+### Verification checkpoint (~04:29 IST)
+
+Full regression run:66 passed,1 failed solely because the Windows test child wrote cp1252 while its UTF8 parent decoded stdout. Fixed the test subprocess to request `-X utf8` and explicit UTF8 decoding; targeted rerun passed (including rejection of invalid S1-as-target IDs). Logs regression_tests.log and validator_test_recheck.log retain both evidence and repair. Actual production already explicitly runs child Python in UTF8 and raw official validation passed. All67 tests are therefore verified across the full run plus the repaired-test rerun.
+
+Neural production continues (34k anchors at04:28, sustained estimate~3.3hours then); detailed progress is updated every1000anchors. C has20.5GB free; F1149GB free. No offloading/deletion needed. Verified ensemble ZIP rebuilt with the fresh result and updated model card. The current pipeline is fully scripted through output validation, so no manual step is required after scoring. Amazon evaluation still requires uploading the resulting matching_results.tsv; no new Amazon score has been reported.

@@ -1,0 +1,46 @@
+...........................................................F.......      [100%]
+================================== FAILURES ===================================
+_______ test_supplied_official_validator_accepts_real_subset_singletons _______
+
+real = Config(dataset_dir='dataset', output_dir='outputs/real_submission', model_path='artifacts/real_model_windows.joblib', ...fit_anchor_limit=30000, calibration_anchor_limit=5000, validation_anchor_limit=10000, workers=1, anchor_batch_size=100)
+tmp_path = WindowsPath('C:/Users/parth/AppData/Local/Temp/pytest-of-parth/pytest-22/test_supplied_official_validat0')
+
+    def test_supplied_official_validator_accepts_real_subset_singletons(real,tmp_path):
+        testdir=tmp_path/'test';testdir.mkdir()
+        frames=[]
+        for source in (1,2,3):
+            frame=pd.read_csv(Path(real.dataset_dir)/'test'/f'test_source{source}.tsv',sep='\t',dtype=str,keep_default_na=False,nrows=10)
+            frame.to_csv(testdir/f'test_source{source}.tsv',sep='\t',index=False);frames.append(frame)
+        matching=tmp_path/'matching_results.tsv';candidate=tmp_path/'candidate_pairs.tsv'
+        for path,column in ((matching,'matched_entity_ids'),(candidate,'candidate_entity_ids')):
+            pd.DataFrame({'source1_entity_id':frames[0].entity_id,column:''}).to_csv(path,sep='\t',index=False)
+        command=[sys.executable,str(Path(real.resource_dir)/'utils/validate_submission.py'),'--matching',str(matching),'--candidate',str(candidate),'--test-dir',str(testdir),'--check-ids']
+        result=subprocess.run(command,capture_output=True,text=True)
+>       assert result.returncode==0 and 'PASS' in result.stdout
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: argument of type 'NoneType' is not iterable
+
+tests\test_real_data.py:164: TypeError
+============================== warnings summary ===============================
+tests/test_real_data.py::test_supplied_official_validator_accepts_real_subset_singletons
+  C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\.venv\Lib\site-packages\_pytest\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-1 (_readerthread)
+  
+  Traceback (most recent call last):
+    File "C:\Users\parth\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\parth\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "C:\Users\parth\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 1599, in _readerthread
+      buffer.append(fh.read())
+                    ^^^^^^^^^
+    File "<frozen codecs>", line 322, in decode
+  UnicodeDecodeError: 'utf-8' codec can't decode byte 0x97 in position 18: invalid start byte
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_real_data.py::test_supplied_official_validator_accepts_real_subset_singletons
+1 failed, 66 passed, 1 warning in 36.42s

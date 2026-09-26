@@ -4,3 +4,4 @@ src/raw_evidence.py text eol=lf
 src/campaign_raw_scoring.py text eol=lf
 src/raw_packed.py text eol=lf
 src/campaign_raw_packed.py text eol=lf
+src/campaign_test_records.py text eol=lf

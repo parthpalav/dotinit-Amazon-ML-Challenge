@@ -1,3 +1,101 @@
 V6_BASE 100 5000
 V6_BASE 200 5000
 V6_BASE 300 5000
+V6_BASE 400 5000
+V6_BASE 500 5000
+V6_BASE 600 5000
+V6_BASE 700 5000
+V6_BASE 800 5000
+V6_BASE 900 5000
+V6_BASE 1000 5000
+V6_BASE 1100 5000
+V6_BASE 1200 5000
+V6_BASE 1300 5000
+V6_BASE 1400 5000
+V6_BASE 1500 5000
+V6_BASE 1600 5000
+V6_BASE 1700 5000
+V6_BASE 1800 5000
+V6_BASE 1900 5000
+V6_BASE 2000 5000
+V6_BASE 2100 5000
+V6_BASE 2200 5000
+V6_BASE 2300 5000
+V6_BASE 2400 5000
+V6_BASE 2500 5000
+V6_BASE 2600 5000
+V6_BASE 2700 5000
+V6_BASE 2800 5000
+V6_BASE 2900 5000
+V6_BASE 3000 5000
+V6_BASE 3100 5000
+V6_BASE 3200 5000
+V6_BASE 3300 5000
+V6_BASE 3400 5000
+V6_BASE 3500 5000
+V6_BASE 3600 5000
+V6_BASE 3700 5000
+V6_BASE 3800 5000
+V6_BASE 3900 5000
+V6_BASE 4000 5000
+V6_BASE 4100 5000
+V6_BASE 4200 5000
+V6_BASE 4300 5000
+V6_BASE 4400 5000
+V6_BASE 4500 5000
+V6_BASE 4600 5000
+V6_BASE 4700 5000
+V6_BASE 4800 5000
+V6_BASE 4900 5000
+V6_BASE 5000 5000
+V6_PREDICT 0
+V6_PREDICT 100
+V6_PREDICT 200
+V6_PREDICT 300
+V6_PREDICT 400
+V6_PREDICT 500
+V6_PREDICT 600
+V6_PREDICT 700
+V6_PREDICT 800
+V6_PREDICT 900
+V6_PREDICT 1000
+V6_PREDICT 1100
+V6_PREDICT 1200
+V6_PREDICT 1300
+V6_PREDICT 1400
+V6_PREDICT 1500
+V6_PREDICT 1600
+V6_PREDICT 1700
+V6_PREDICT 1800
+V6_PREDICT 1900
+V6_PREDICT 2000
+V6_PREDICT 2100
+V6_PREDICT 2200
+V6_PREDICT 2300
+V6_PREDICT 2400
+V6_PREDICT 2500
+V6_PREDICT 2600
+V6_PREDICT 2700
+V6_PREDICT 2800
+V6_PREDICT 2900
+V6_PREDICT 3000
+V6_PREDICT 3100
+V6_PREDICT 3200
+V6_PREDICT 3300
+V6_PREDICT 3400
+V6_PREDICT 3500
+V6_PREDICT 3600
+V6_PREDICT 3700
+V6_PREDICT 3800
+V6_PREDICT 3900
+V6_PREDICT 4000
+V6_PREDICT 4100
+V6_PREDICT 4200
+V6_PREDICT 4300
+V6_PREDICT 4400
+V6_PREDICT 4500
+V6_PREDICT 4600
+V6_PREDICT 4700
+V6_PREDICT 4800
+V6_PREDICT 4900
+V6_RESULT {"metrics": {"raw": {"precision": 0.9814921428571429, "recall": 0.9317792063492063, "f0.5": 0.9662163202977676, "f1": 0.9497245993428656, "singleton_accuracy": 0.950381679389313, "true_positive": 16256, "false_positive": 126, "false_negative": 1203, "true_negative_all_possible": 51601077415, "false_positive_rate": 2.441809473840654e-09, "predicted_positive": 16382, "predicted_negative_candidates": 143606, "predicted_positive_rate": 0.10239517963847289}, "neural_stack_d3": {"precision": 0.986493492063492, "recall": 0.9452523015873016, "f0.5": 0.9737350972680952, "f1": 0.9600721754715873, "singleton_accuracy": 0.9656488549618321, "true_positive": 16482, "false_positive": 119, "false_negative": 977, "true_negative_all_possible": 51601077422, "false_positive_rate": 2.3061533919606178e-09, "predicted_positive": 16601, "predicted_negative_candidates": 143387, "predicted_positive_rate": 0.10376403230242268}, "joint_stack_d3": {"precision": 0.9876492857142857, "recall": 0.9448566666666666, "f0.5": 0.974603731808281, "f1": 0.9605032582656422, "singleton_accuracy": 0.9656488549618321, "true_positive": 16481, "false_positive": 97, "false_negative": 978, "true_negative_all_possible": 51601077444, "false_positive_rate": 1.879805706051932e-09, "predicted_positive": 16578, "predicted_negative_candidates": 143410, "predicted_positive_rate": 0.10362027152036403}}, "comparisons": {"neural_vs_raw": {"delta": 0.007518776970327648, "ci": [0.005032700326164569, 0.01013386711126844]}, "joint_vs_raw": {"delta": 0.00838741151051319, "ci": [0.005912044404572516, 0.01117160565546544]}, "joint_vs_neural": {"delta": 0.0008686345401855412, "ci": [-0.0003638458067522842, 0.002104461103928203]}}, "frozen": {"ids_hash": "d2d7c2a2c40b52065507ed6e38bec0128fefefb66065ebbe00a33be46c4bedc2", "excluded_anchors": 65000, "seed": 20260930, "recipes": [{"model": "neural_stack_d3", "threshold": 0.6750000000000003, "precision": 0.9876013227513226, "recall": 0.9413824074074074, "f0.5": 0.9733320399102334, "f1": 0.9580372224181049, "singleton_accuracy": 0.9821428571428571, "true_positive": 9941, "false_positive": 65, "false_negative": 596, "true_negative_all_possible": 30960646398, "false_positive_rate": 2.099439366606226e-09, "predicted_positive": 10006, "predicted_negative_candidates": 85982, "predicted_positive_rate": 0.10424219694128432}, {"model": "joint_stack_d3", "threshold": 0.7250000000000003, "precision": 0.9891878306878307, "recall": 0.942935582010582, "f0.5": 0.9749752097505323, "f1": 0.959684985765868, "singleton_accuracy": 0.9880952380952381, "true_positive": 9950, "false_positive": 50, "false_negative": 587, "true_negative_all_possible": 30960646413, "false_positive_rate": 1.614953358927866e-09, "predicted_positive": 10000, "predicted_negative_candidates": 85988, "predicted_positive_rate": 0.10417968912780765}], "models": {"artifacts/improvements/catboost_d10_evidence.joblib": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69", "artifacts/campaign_0931/oof_compact_d9.joblib": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651", "artifacts\\campaign_0942\\raw_minimal_d7.joblib": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49", "artifacts\\campaign_0942\\raw_reverse_d7.joblib": "b0cc2a53ad443beec3d7186b0f68f008ac97ee460d46f49a8ed4f8b51f6c9f5b", "artifacts\\campaign_0942\\neural_stack_d3.joblib": "2dc1cf1e5653b8c48f19cc7bf70c864152d3b6b2ea397ba31b743801e6d8ac23", "artifacts\\campaign_0942\\joint_stack_d3.joblib": "00b39053aac646361cd3a23b3f3752ceb7803e648bed35488caeebc7b4be2541", "artifacts\\campaign_0942\\neural_minilm\\model.safetensors": "69de1509f43b8735d7d8abb7fff1c37f2d8acde8533c00b912a49ccaac7bd406", "artifacts\\campaign_0942\\neural_minilm\\config.json": "cb1da43e713b16aed0ae03057d5edca3fe3ae901ad537a6cd4eaa2235e6c17fc", "artifacts\\campaign_0942\\neural_minilm\\sentencepiece.bpe.model": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865", "artifacts\\campaign_0942\\neural_minilm\\special_tokens_map.json": "8574792bfefae68f2ce2eae93a4145d95b1232c59e71094bcdcb49dbcb549c97", "artifacts\\campaign_0942\\neural_minilm\\tokenizer_config.json": "5ea071e31cef414d6e6c55a90e80fd27a4308095eb12a4bfe83653863e66a367"}, "code": {"raw_evidence.py": "6afca1dcea38cd8789032fa55ac46e260423843df80a76e4ddc707d2511e427c", "campaign_reverse.py": "93fd1812a6b7dc0978b37fc844a67d3fbd95e0661f292318e19152749931ba6c"}, "neural_batch": 64, "neural_precision": "bfloat16", "baseline_threshold": 0.7250000000000003, "rule": "Promote neural only if paired 97.5% interval versus raw is positive. Prefer joint only if its 97.5% interval versus raw and 95% interval versus neural are positive."}, "chosen": "neural_stack_d3", "promotion_supported": true}

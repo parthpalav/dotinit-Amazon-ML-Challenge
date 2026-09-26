@@ -40,3 +40,12 @@ Use branch `parth` and the tested base environment. Existing dataset, indexes, a
 The optional packed raw-text backend changes only storage, with exact feature/prediction parity checks. Its separate work directory and cache-import provenance are documented in `reports/campaign_0942/RETHINK.md`. No output is ready until production_plan.json reports `ready_for_amazon_evaluation`.
 
 Model license: the trained correction follows the campaign's existing MIT model-license declaration; CatBoost is Apache 2.0. No external business identity lookup or augmentation was used. The separate multilingual MiniLM experiment uses MIT-licensed generic pretrained weights and is not part of this submission unless independently validated and explicitly documented later.
+
+
+## Confirmed multilingual ensemble (2026-09-27)
+
+A fine-tuned microsoft/Multilingual-MiniLM-L12-H384 (MIT,117,654,530parameters) classifies raw name/address/country record pairs. XLMRobertaTokenizer, max192tokens; frozen embeddings; three epochs on the same14k training anchors, AdamW4e-5, batch32, bfloat16 on RTX4060. Epoch1 is best by3k calibration BCE0.10716694. The pair serialization preserves names, legal endings, addresses and country. A depth3/350-tree CatBoost fuses logits from original contextual model, raw correction and neural classifier, trained on3k calibration anchors. Threshold0.675 was chosen on the separate3k development anchors.
+
+New untouched v6 excludes all earlier65k anchors. Raw0.9662163 -> neural0.9737351; paired97.5% deltaCI [0.0050327,0.0101339]. TP16256->16482, FP126->119, FN1203->977. A four-input global-owner alternative scored0.9746037 but its advantage over neural was not statistically established, so it is not promoted. Full inference uses the same batch64/bfloat16/padded192-token settings as confirmation. Unique-owner export remains unchanged. Global labels are not features. No test truth exists in the supplied resources.
+
+Resume all confirmed neural work using `python -X utf8 -u -m src.campaign_ensemble_run --workers 2`. Required environment: base requirements plus requirements-neural.txt. Model ZIP: transfer/campaign-0942-ensemble-models.zip (weights only). Expected output outputs/campaign_0942_neural_unique is not ready until ensemble_production.json marks ready_for_amazon_evaluation. Raw output is already ready.
