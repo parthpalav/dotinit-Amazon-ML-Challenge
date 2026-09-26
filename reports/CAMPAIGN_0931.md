@@ -105,3 +105,13 @@ Full post-merge verification: 56 tests passed in 58.53 seconds (reports/campaign
 
 
 Model handover: `transfer/campaign-0931-models.zip` contains both required model weights, frozen recipes, dependencies and license/model card. Every extracted byte hash was verified. This is a weights-only add-on, NOT a replacement for the original dataset/index assets or complete base score cache. ZIP manifest/hash: `reports/campaign_0931/model_bundle.json`. Both old and new models remain in place because inference requires both.
+
+
+## Checkpoint: full main inference complete
+All 1,732,544 anchors / 55,431,940 original candidates have been scored. `work/campaign_0931/test_final_oof/SCORING_COMPLETE.json` exists. The final resumed segment processed 1,188,544 anchors in 2,522 seconds (about 471/sec). Main export and official matching-ID validation are now active; the sequential coordinator will then resume alias inference automatically. Do not submit a partially written output; check the corresponding production plan for `ready_for_amazon_evaluation`.
+
+
+## Checkpoint: main submission READY
+`outputs/campaign_0931_oof_unique/matching_results.tsv` is complete: 1,732,544 rows, 5,753,928 matches, 108,973 empty rows, zero duplicate target ownership. SHA256 `65a1648f0e07d230dfb488328987f416ce76da55e7c2f3292e5bbc50a74fcc94`. Full streaming candidate equality/subset/coverage checks passed; official matching validator with `--check-ids` passed. Its optional candidate-file warning is expected: the separate full streaming checks covered all 55,431,940 candidates without materializing the huge candidate file in the official validator. Export took 134.8 seconds.
+
+Full output comparison: +427,927 links and -105,303 links versus the preserved 0.931 output; this is not a labeled test gain. France count changed 869,115 -> 874,265; US 2,091,035 -> 2,218,776; India 2,471,154 -> 2,660,887. Report: `reports/campaign_0931/main_output_audit.json`. User was asked for the Amazon score of this ready main file while alias inference continues. Coordinator selected 3 alias workers based on available RAM.
