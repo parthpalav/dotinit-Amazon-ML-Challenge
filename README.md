@@ -1,6 +1,6 @@
 > **Completed campaign beyond Amazon 0.931:** see [current experiment journal](reports/CAMPAIGN_0931.md). Work is on `parth`; F: is read-only reference. Older transfer/stopped notices below describe the previous run.
 
-> **Historical transfer checkpoint:** the old run stopped locally at 133,000 anchors and subsequently completed on the A5000. Its unique-owner output scored **0.931 on Amazon** (team-reported). The laptop is now running the new campaign linked above.
+> **Historical transfer checkpoint:** the old run stopped locally at 133,000 anchors and subsequently completed on the A5000. Its unique-owner output scored **0.931 on Amazon** (team-reported). The laptop has completed the newer campaign linked above.
 
 > **Earlier improvement campaign (historical):** the original Amazon baseline was **0.842**. [Earlier findings](reports/IMPROVEMENT_STATUS.md) document the changes that led to **0.920 pair-threshold / 0.931 unique-owner** scores. The current journal supersedes its status and restart instructions.
 # Business Entity Resolution
