@@ -24,7 +24,7 @@ def finalize(args):
   a=np.load(path);win=a['p']==best[a['target']];np.add.at(ties,a['target'][win],1)
  owned=(best>=recipe['existing_pair_threshold'])&(ties==1)
  if int(owned.sum())!=base_report['matches']:raise ValueError('Main ownership disagrees with validated export')
- del best,ties
+ previous_best=best;del ties
  best=np.zeros(nt+1);ties=np.zeros(nt+1,np.uint32);new_pairs=0;skipped_owned=0
  for path in alias_paths:
   a=np.load(path);start=int(path.stem)
@@ -34,13 +34,13 @@ def finalize(args):
   a=np.load(path);win=~owned[a['target']]&(a['p']==best[a['target']]);np.add.at(ties,a['target'][win],1)
  out.mkdir(parents=True,exist_ok=True);packed=Path(cfg.working_dir)/'test';offsets=np.load(packed/'entity_id_offsets.npy',mmap_mode='r');idfile=(packed/'entity_id.bin').open('rb');ids=mmap.mmap(idfile.fileno(),0,access=mmap.ACCESS_READ)
  def entity(r):return ids[int(offsets[r-1]):int(offsets[r])-1].decode('utf-8')
- stats={'anchors':0,'pairs':0,'matches':0,'empty':0,'new_candidates':new_pairs,'new_matches':0,'baseline_matches':0,'skipped_alias_assignments_to_owned_targets':skipped_owned,'unique_owner':True,'existing_threshold':recipe['existing_pair_threshold'],'new_pair_threshold':recipe['new_pair_threshold'],'model_sha256':recipe['model_sha256'],'base_matching_sha256':base_report['matching_sha256'],'preserves_every_existing_match':True};seen=np.zeros(nt+1,np.uint8)
+ stats={'anchors':0,'pairs':0,'matches':0,'empty':0,'new_candidates':new_pairs,'new_matches':0,'blocked_by_main_tie':0,'baseline_matches':0,'skipped_alias_assignments_to_owned_targets':skipped_owned,'unique_owner':True,'existing_threshold':recipe['existing_pair_threshold'],'new_pair_threshold':recipe['new_pair_threshold'],'model_sha256':recipe['model_sha256'],'base_matching_sha256':base_report['matching_sha256'],'preserves_every_existing_match':True};seen=np.zeros(nt+1,np.uint8)
  with (base_out/'candidate_pairs.tsv').open(encoding='utf-8') as oldcand,(base_out/'matching_results.tsv').open(encoding='utf-8') as oldmatch,(out/'candidate_pairs.tsv').open('w',encoding='utf-8',newline='') as candidates,(out/'matching_results.tsv').open('w',encoding='utf-8',newline='') as matching:
   if next(oldcand).rstrip('\r\n')!='source1_entity_id\tcandidate_entity_ids' or next(oldmatch).rstrip('\r\n')!='source1_entity_id\tmatched_entity_ids':raise ValueError('Base schema')
   candidates.write('source1_entity_id\tcandidate_entity_ids\n');matching.write('source1_entity_id\tmatched_entity_ids\n')
   anchor_iter=iter(con.execute('select rid,entity_id from anchors order by rid'))
   for path in alias_paths:
-   a=np.load(path);start=int(path.stem);selected=(a['p']>=recipe['new_pair_threshold'])&~owned[a['target']]&(a['p']==best[a['target']])&(ties[a['target']]==1);chosen=a[selected];np.add.at(seen,chosen['target'],1)
+   a=np.load(path);start=int(path.stem);selected=(a['p']>=recipe['new_pair_threshold'])&~owned[a['target']]&(a['p']==best[a['target']])&(ties[a['target']]==1);beats_previous=a['p']>previous_best[a['target']];stats['blocked_by_main_tie']+=int((selected&~beats_previous).sum());selected&=beats_previous;chosen=a[selected];np.add.at(seen,chosen['target'],1)
    for rid in range(start+1,min(start+sig['batch'],n)+1):
     got,source=next(anchor_iter);c=next(oldcand).rstrip('\r\n').split('\t');m=next(oldmatch).rstrip('\r\n').split('\t')
     if got!=rid or c[0]!=source or m[0]!=source:raise ValueError('Anchor alignment')
