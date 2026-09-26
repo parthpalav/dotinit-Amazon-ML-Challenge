@@ -1,6 +1,6 @@
 {
-  "stage": "main",
-  "workers": 6,
+  "stage": "alias",
+  "workers": 2,
   "state": "running",
-  "started_utc": "2026-09-26T15:44:02Z"
+  "started_utc": "2026-09-26T17:05:33Z"
 }

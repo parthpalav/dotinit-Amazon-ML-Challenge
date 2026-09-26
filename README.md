@@ -5,7 +5,7 @@
 > **Earlier improvement campaign (historical):** the original Amazon baseline was **0.842**. [Earlier findings](reports/IMPROVEMENT_STATUS.md) document the changes that led to **0.920 pair-threshold / 0.931 unique-owner** scores. The current journal supersedes its status and restart instructions.
 # Business Entity Resolution
 
-An offline Python pipeline for the problem described in the supplied **Amazon ML Challenge 2026 â€“ Business Entity Resolution Challenge** specification. Source 1 is the deduplicated reference; each record may match zero, one, or several Source 2/3 records. The implementation does not verify competition rules or claim a competition score.
+An offline Python pipeline for the problem described in the supplied **Amazon ML Challenge 2026 Ã¢â‚¬â€œ Business Entity Resolution Challenge** specification. Source 1 is the deduplicated reference; each record may match zero, one, or several Source 2/3 records. The implementation does not verify competition rules or claim a competition score.
 
 ## Current contextual matching campaign
 
@@ -14,7 +14,7 @@ The selected cross-fitted reranker improved fresh confirmation macro F0.5 from *
 Resume the current run from this repository on `parth`:
 
 ```powershell
-.\.venv\Scripts\python.exe -u -m src.campaign_run --main-workers 6 --alias-workers 4
+.\.venv\Scripts\python.exe -u -m src.campaign_run --main-workers 6 --alias-workers 2
 ```
 
 Install `requirements-campaign-tested.txt` in a restored environment. This workflow reuses the complete verified base scores imported from F, plus the two model artifacts listed in the model card. F remains read-only. The older `complete_improvements` command reproduces the earlier baseline, not this campaign.
@@ -141,7 +141,7 @@ Ground truth requires `source1_entity_id` and `matched_entity_ids`, with exactly
 
 Names retain their original text alongside Unicode NFKC/case-folded text. Apostrophes are removed, other punctuation becomes spaces, `&` becomes `and`, common abbreviations are expanded, and terminal legal suffixes are removed conservatively. `corporation` is retained; names such as `Limited Edition` remain intact. Unicode scripts are preserved. Examples in the request are covered by tests.
 
-Addresses keep information while applying consistent abbreviations such as `road â†’ rd` and `street â†’ st`. The parser extracts leading street numbers, trailing numeric/alphanumeric postal patterns, and city/state hints from comma-separated address segments. It uses no gazetteer. **These are uncertain hints:** international formats, postal codes followed by country names, unit-first addresses, and ambiguous comma layouts may be missed or misparsed. Structured-field presence flags let the model distinguish missing evidence from a mismatch. Missing values never produce a positive exact-match feature. A postal mismatch never vetoes a candidate.
+Addresses keep information while applying consistent abbreviations such as `road Ã¢â€ â€™ rd` and `street Ã¢â€ â€™ st`. The parser extracts leading street numbers, trailing numeric/alphanumeric postal patterns, and city/state hints from comma-separated address segments. It uses no gazetteer. **These are uncertain hints:** international formats, postal codes followed by country names, unit-first addresses, and ambiguous comma layouts may be missed or misparsed. Structured-field presence flags let the model distinguish missing evidence from a mismatch. Missing values never produce a positive exact-match feature. A postal mismatch never vetoes a candidate.
 
 ## Candidate generation and recall
 
@@ -164,7 +164,7 @@ For fitting, calibration, and validation separately, reports include:
 
 - Candidate recall = retrieved ground-truth pairs / all ground-truth pairs, including positives absent from blocking.
 - Mean candidates per S1, including S1s with none.
-- Reduction ratio = 1 âˆ’ candidates / (`number of S1 Ã— number of S2/S3`).
+- Reduction ratio = 1 Ã¢Ë†â€™ candidates / (`number of S1 Ãƒâ€” number of S2/S3`).
 - Fraction of S1 entities with zero candidates.
 
 Recall is `null` if a split contains no positive truth pairs. `minimum_candidate_recall` defaults to 0.98 and warns below this target; enable `fail_on_low_candidate_recall` to enforce a hard gate. `blocking_comparison.tsv` compares every rule, analytical country-only retrieval, and the combined union. The comparison measures standalone recall and candidate count, not a separately trained model per blocker.
@@ -192,15 +192,15 @@ The supplied challenge README confirms **entity-macro F0.5** and the empty/empty
 ```text
 if both P and T are empty: precision = recall = 1
 if exactly one is empty:  precision = recall = 0
-otherwise: precision = |P âˆ© T| / |P|; recall = |P âˆ© T| / |T|
-F0.5 = 1.25 Ã— precision Ã— recall / (0.25 Ã— precision + recall)
+otherwise: precision = |P Ã¢Ë†Â© T| / |P|; recall = |P Ã¢Ë†Â© T| / |T|
+F0.5 = 1.25 Ãƒâ€” precision Ãƒâ€” recall / (0.25 Ãƒâ€” precision + recall)
 ```
 
 A zero denominator gives F0.5 = 0. Reported entity precision, recall and F0.5 are the separate means across **all** validation S1 entities, including singletons and zero-candidate anchors. Mean F0.5 is not generally the F0.5 of mean precision/recall. All missed positive pairs, including blocking misses, contribute false negatives. `metric: "micro"` instead selects by pooled pair F0.5; micro metrics are always also reported. Use entity-macro for this challenge, as configured in `config/real.json`.
 
-Thresholds are 0.10, 0.15, â€¦, 0.95, plus 0.99, 1.0, and a floating-point value just above 1 for explicit reject-all behavior. Selection uses `probability >= threshold`; ties favor higher precision, then higher threshold. Models tie-break deterministically. Ordinary accuracy is never an optimization target.
+Thresholds are 0.10, 0.15, Ã¢â‚¬Â¦, 0.95, plus 0.99, 1.0, and a floating-point value just above 1 for explicit reject-all behavior. Selection uses `probability >= threshold`; ties favor higher precision, then higher threshold. Models tie-break deterministically. Ordinary accuracy is never an optimization target.
 
-`singleton_accuracy` is the fraction of true singleton anchors predicted empty (null when no true singleton is present). `singleton_false_merge_rate` is its complement. `false_positive_rate` uses all possible negative S1â€“target pairs as the denominator, so it can be small in a huge retrieval space; inspect singleton false merges and precision alongside it.
+`singleton_accuracy` is the fraction of true singleton anchors predicted empty (null when no true singleton is present). `singleton_false_merge_rate` is its complement. `false_positive_rate` uses all possible negative S1Ã¢â‚¬â€œtarget pairs as the denominator, so it can be small in a huge retrieval space; inspect singleton false merges and precision alongside it.
 
 ## Match decisions and exports
 

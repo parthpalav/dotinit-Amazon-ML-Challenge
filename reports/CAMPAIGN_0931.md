@@ -1,7 +1,7 @@
 # Campaign beyond Amazon 0.931
 
 ## Current state
-**Current execution command:** `python -u -m src.campaign_run --main-workers 6 --alias-workers 4`. It resumes the main submission first, then the independently confirmed alias-enhanced submission. Stages run sequentially to avoid RAM/cache contention. Live stage: `reports/campaign_0931/coordinator.json`. Earlier worker-count notes below are historical experiments.
+**Current execution command:** `python -u -m src.campaign_run --main-workers 6 --alias-workers 2`. It resumes the main submission first, then the independently confirmed alias-enhanced submission. Stages run sequentially to avoid RAM/cache contention. Live stage: `reports/campaign_0931/coordinator.json`. Earlier worker-count notes below are historical experiments.
 
 Active on `parth`, C: working repo. `F:/dotinit-Amazon-ML-Challenge` is read-only reference. User reports Amazon **0.920** pair threshold and **0.931** unique owner. A5000 unavailable; local RTX4060 8GB / 16GB system RAM. New work must be bounded-memory and resumable. Preserve the proven model and submissions; an old model is still useful as a control or ensemble member.
 
@@ -121,3 +121,9 @@ Full output comparison: +427,927 links and -105,303 links versus the preserved 0
 A complete main-score audit found only seven targets with tied top scores above the matching threshold (all seven also above .975). Alias export now requires an otherwise eligible new winner to strictly exceed any prior main score, so an alias cannot turn a tied main abstention into a lower/equal-scoring assignment. Existing accepted main owners remain untouched. Four exporter edge-case tests passed. Rechecking the fresh confirmation found zero high-score ties and zero affected alias decisions: the confirmed .960144 result is unchanged. This correctness safeguard is not claimed as a measured Amazon gain. Reports: `main_tie_audit.json`, `alias_tie_tests.log`, `alias_tie_confirmation.json`. No inference feature/model code changed or checkpoints invalidated.
 
 One completed 500-anchor alias batch reproduced its saved scores exactly under profiling. Most time was database reads and peer/detail text features; model prediction was not the dominant cost. Alias throughput improved after initial warm-up; 486,500 anchors completed at this checkpoint. The ready main output is committed/pushed as `b575be8`; alias inference continues under the same coordinator.
+
+Final regression suite after the alias ownership safeguard: **59 passed in 44.76 seconds**. Log: reports/campaign_0931/final_regression_tests.log. No further model or rule changes are planned before Amazon evaluation.
+
+
+## Checkpoint: late-run memory adjustment
+With about 1.3 million alias anchors complete, free RAM fell to 0.85 GB and recent throughput dropped from roughly 600-750 to about 300 anchors/sec. Stopped only the verified campaign process tree and resumed all saved checkpoints with two alias workers. New current command: `python -u -m src.campaign_run --main-workers 6 --alias-workers 2`. Main output is already validated and is skipped automatically. No model/feature changes or rescoring of completed shards. Original coordinator process/session has ended; replacement execution session is 35865.

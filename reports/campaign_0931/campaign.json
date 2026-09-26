@@ -19,11 +19,11 @@
     "A5000": "unavailable",
     "free_C_GB": 36.627812352
   },
-  "state": "Main submission ready and officially validated; alias inference active",
-  "updated_utc": "2026-09-26T16:30:01.043496+00:00",
+  "state": "Main ready; alias resumed with two workers after memory pressure",
+  "updated_utc": "2026-09-26T17:06:09.376222+00:00",
   "production_plan": "reports/campaign_0931/production_plan.json",
   "latest_amazon_score": 0.931,
-  "resume_command": "python -u -m src.campaign_run --main-workers 6 --alias-workers 4",
+  "resume_command": "python -u -m src.campaign_run --main-workers 6 --alias-workers 2",
   "coordinator": "reports/campaign_0931/coordinator.json",
   "main_output": "outputs/campaign_0931_oof_unique/matching_results.tsv",
   "main_validation": {
@@ -39,5 +39,12 @@
     "excess_target_assignments": 0,
     "matching_sha256": "65a1648f0e07d230dfb488328987f416ce76da55e7c2f3292e5bbc50a74fcc94",
     "streaming_validation": "PASS: full row order, IDs through trusted index, candidate equality, subset, uniqueness and finite scores"
+  },
+  "main_submission_commit": "b575be8",
+  "latest_code_commit": "fa49c67",
+  "alias_progress_path": "work/campaign_0931/test_alias_v2/progress.json",
+  "final_regression_tests": {
+    "passed": 59,
+    "seconds": 44.76
   }
 }
