@@ -1,0 +1,33 @@
+{
+  "stage": "complete",
+  "started_at_unix": 1790362037.77218,
+  "matching": "/Users/vishesharora/Documents/Codex/2026-09-25/files-pasted-by-the-user-build/outputs/business_entity_resolution/outputs/real_submission/matching_results.tsv",
+  "candidates": "/Users/vishesharora/Documents/Codex/2026-09-25/files-pasted-by-the-user-build/outputs/business_entity_resolution/outputs/real_submission/candidate_pairs.tsv",
+  "validation_command": [
+    "/Users/vishesharora/Documents/Codex/2026-09-25/files-pasted-by-the-user-build/work/.venv/bin/python",
+    "-m",
+    "src.real_pipeline",
+    "validate",
+    "--config",
+    "config/real.json"
+  ],
+  "latest_checkpoint": "2026-09-26 08:45:28,967 INFO Test inference anchors=1730000/1732544 scored=55350576 matches=5738518 elapsed=30866.7s",
+  "updated_at_unix": 1790392557.331944,
+  "inference_counts": {
+    "anchors": 1732544,
+    "raw_candidates": 1049800636,
+    "candidate_pairs": 55431940,
+    "no_candidate": 0,
+    "one_candidate": 0,
+    "multiple_candidates": 1732544,
+    "topk_truncated_anchors": 1731408,
+    "max_raw_candidates": 4467,
+    "max_candidates": 32,
+    "predicted_matches": 5747090,
+    "predicted_nonmatches": 49684850,
+    "predicted_singletons": 101827,
+    "scored_pairs": 55431940
+  },
+  "validator_exit_code": 0,
+  "finished_at_unix": 1790392647.4706619
+}

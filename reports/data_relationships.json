@@ -1,0 +1,19 @@
+{
+  "train_raw_business_overlap_1_2": 1,
+  "train_raw_business_overlap_1_3": 17,
+  "train_raw_business_overlap_2_3": 471,
+  "test_raw_business_overlap_1_2": 0,
+  "test_raw_business_overlap_1_3": 1642,
+  "test_raw_business_overlap_2_3": 429,
+  "train_test_raw_business_overlap_source1": 0,
+  "train_test_raw_business_overlap_source2": 0,
+  "train_test_raw_business_overlap_source3": 0,
+  "true_pair_consistency": {
+    "positive_pairs": 7638365,
+    "same_country": 7638365,
+    "normalized_name_equal": 2526751,
+    "normalized_address_equal": 867496,
+    "target_address_missing": 337018
+  },
+  "join_seconds": 624.3126299381256
+}

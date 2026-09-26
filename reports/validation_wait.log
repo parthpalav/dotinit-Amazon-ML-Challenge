@@ -1,0 +1,11 @@
+2026-09-26 08:47:27,360 INFO Official validator exit=0
+ML Challenge 2026 — submission validator
+  test dir: /Users/vishesharora/Downloads/student_resource 2/dataset/test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (101827 empty, 1630717 non-empty).
+  candidate_pairs.tsv: 1732544 rows (0 empty, 1732544 non-empty).
+
+PASS — no blocking issues found. Safe to submit.
+
+

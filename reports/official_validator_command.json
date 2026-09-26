@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Users/vishesharora/Documents/Codex/2026-09-25/files-pasted-by-the-user-build/work/.venv/bin/python",
+    "/Users/vishesharora/Downloads/student_resource 2/utils/validate_submission.py",
+    "--matching",
+    "outputs/real_submission/matching_results.tsv",
+    "--candidate",
+    "outputs/real_submission/candidate_pairs.tsv",
+    "--test-dir",
+    "/Users/vishesharora/Downloads/student_resource 2/dataset/test",
+    "--check-ids"
+  ],
+  "exit_code": 0,
+  "validator_sha256": "f96f59934383a15095914f507620c078c474e8f9c60e864b2d051ed173a22dfc"
+}

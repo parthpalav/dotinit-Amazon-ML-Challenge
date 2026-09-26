@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "anchors": 1732544,
+    "raw_candidates": 1049800636,
+    "candidate_pairs": 55431940,
+    "no_candidate": 0,
+    "one_candidate": 0,
+    "multiple_candidates": 1732544,
+    "topk_truncated_anchors": 1731408,
+    "max_raw_candidates": 4467,
+    "max_candidates": 32,
+    "predicted_matches": 5747090,
+    "predicted_nonmatches": 49684850,
+    "predicted_singletons": 101827,
+    "scored_pairs": 55431940
+  },
+  "raw_rule_true": {},
+  "final_rule_true": {},
+  "rule_candidates": {},
+  "worker_peak_rss_mb": 3846.609375,
+  "candidate_recall": null,
+  "raw_candidate_recall": null,
+  "average_candidates": 31.99453520372354,
+  "candidate_reduction_ratio": 0.9999967907869418,
+  "possible_pairs_removed": 17272696172476,
+  "seconds": 30912.916923046112
+}
