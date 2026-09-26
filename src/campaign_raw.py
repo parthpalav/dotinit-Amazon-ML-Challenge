@@ -51,8 +51,8 @@ def prepare():
     con.close()
 
 
-def subset(part,mask):
-    pairs=part['pairs'].loc[mask].reset_index(drop=True);ids=set(pairs.source1_entity_id)
+def subset(part,mask,ids=None):
+    pairs=part['pairs'].loc[mask].reset_index(drop=True);ids=set(pairs.source1_entity_id) if ids is None else set(ids)
     return {'pairs':pairs,'truth_counts':{k:v for k,v in part['truth_counts'].items() if k in ids}}
 
 
@@ -75,7 +75,7 @@ def train(minimal=False,reverse=False):
     # 14k fit, 3k early stopping/calibration, 3k development selection.
     fitids=set(ids[6000:]);calids=set(ids[3000:6000]);selids=set(ids[:3000])
     fit=part['pairs'].iloc[rows].source1_entity_id.isin(fitids).to_numpy();cal=part['pairs'].iloc[rows].source1_entity_id.isin(calids).to_numpy()
-    select=part['pairs'].source1_entity_id.isin(selids).to_numpy();sp=subset(part,select);base=p[select]
+    select=part['pairs'].source1_entity_id.isin(selids).to_numpy();sp=subset(part,select,selids);base=p[select]
     y=part['pairs'].iloc[rows].label.to_numpy();report={'baseline':evaluate(sp,base,.6000000000000002),'experiments':[],'gate':GATE,'split_seed':20260929}
     for depth in [5,7]:
         started=time.time();model=CatBoostClassifier(iterations=1800,depth=depth,learning_rate=.035,l2_leaf_reg=10,loss_function='Logloss',task_type='GPU',devices='0',random_seed=44,thread_count=3,allow_writing_files=False,verbose=200)

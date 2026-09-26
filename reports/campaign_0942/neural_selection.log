@@ -1,0 +1,7 @@
+NEURAL_SELECTION {"model": "neural_logistic", "threshold": 0.7250000000000003, "precision": 0.9874132275132276, "recall": 0.9390566137566136, "f0.5": 0.9727220972205205, "f1": 0.9568006497315321, "singleton_accuracy": 0.9821428571428571, "true_positive": 9918, "false_positive": 55, "false_negative": 619, "true_negative_all_possible": 30960646408, "false_positive_rate": 1.7764486948206524e-09, "predicted_positive": 9973, "predicted_negative_candidates": 86015, "predicted_positive_rate": 0.10389840396716256}
+0:	learn: 0.6149770	total: 30.3ms	remaining: 10.6s
+100:	learn: 0.0662253	total: 291ms	remaining: 718ms
+200:	learn: 0.0639756	total: 543ms	remaining: 403ms
+300:	learn: 0.0627830	total: 793ms	remaining: 129ms
+349:	learn: 0.0622791	total: 921ms	remaining: 0us
+NEURAL_SELECTION {"model": "neural_stack_d3", "threshold": 0.6750000000000003, "precision": 0.9876013227513226, "recall": 0.9413824074074074, "f0.5": 0.9733320399102334, "f1": 0.9580372224181049, "singleton_accuracy": 0.9821428571428571, "true_positive": 9941, "false_positive": 65, "false_negative": 596, "true_negative_all_possible": 30960646398, "false_positive_rate": 2.099439366606226e-09, "predicted_positive": 10006, "predicted_negative_candidates": 85982, "predicted_positive_rate": 0.10424219694128432}

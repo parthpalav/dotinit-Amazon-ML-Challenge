@@ -373,3 +373,4 @@ RAW_TEST {"last_completed_anchor": 372000, "anchors_this_run": 372000, "gated_pa
 RAW_TEST {"last_completed_anchor": 373000, "anchors_this_run": 373000, "gated_pairs_this_run": 2218510, "seconds": 1260.6944172382355, "anchors_per_second": 295.86868546393634, "estimated_remaining_seconds": 4595.092575843806, "complete": false}
 RAW_TEST {"last_completed_anchor": 374000, "anchors_this_run": 374000, "gated_pairs_this_run": 2224361, "seconds": 1262.0946066379547, "anchors_per_second": 296.332777299702, "estimated_remaining_seconds": 4584.521538182763, "complete": false}
 RAW_TEST {"last_completed_anchor": 375000, "anchors_this_run": 375000, "gated_pairs_this_run": 2230147, "seconds": 1262.1993613243103, "anchors_per_second": 297.10045139505286, "estimated_remaining_seconds": 4569.3097860523985, "complete": false}
+RAW_SCORING_DONE 0 18.088630199432373

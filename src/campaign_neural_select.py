@@ -10,7 +10,9 @@ from .experiments import evaluate,choose
 def main():
     d=joblib.load(ROOT/'neural_data.joblib');part=d['part'];rows=d['rows'];current=d['p'];neural=np.load(ROOT/'neural_development_p.npy')
     raw=np.load(ROOT/'raw_minimal_d7_development_p.npy');source=part['pairs'].iloc[rows].source1_entity_id
-    cal=d['split']==1;selection_ids=set(source[d['split']==2]);select=part['pairs'].source1_entity_id.isin(selection_ids).to_numpy();sp=subset(part,select)
+    ids=np.array(list(part['truth_counts']),dtype=object);np.random.default_rng(20260929).shuffle(ids)
+    cal=d['split']==1;selection_ids=set(ids[:3000]);select=part['pairs'].source1_entity_id.isin(selection_ids).to_numpy();sp=subset(part,select,selection_ids)
+    assert len(sp['truth_counts'])==3000
     def logit(p):p=np.clip(p,1e-6,1-1e-6);return np.log(p/(1-p))
     X=pd.DataFrame({'current':logit(current[rows]),'raw':logit(raw[rows]),'neural':logit(neural)})
     y=part['pairs'].iloc[rows].label.to_numpy();results={'raw_baseline':evaluate(sp,raw[select],.7250000000000003),'experiments':[]}

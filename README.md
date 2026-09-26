@@ -1,4 +1,4 @@
-> **Active follow-up (2026-09-27):** Fresh 5,000-anchor validation improved from **0.95994 to 0.96732**, with false matches reduced from **233 to 143**. Full-test raw-text correction is now running with resumable checkpoints. This is local evidence, not an Amazon score; the evaluated champion remains **0.942**. See [live handover](reports/campaign_0942/RETHINK.md) for results, commands, and concurrent reverse-retrieval/neural experiments.
+> **Active follow-up (2026-09-27):** Fresh 5,000-anchor validation improved from **0.95994 to 0.96732**, with false matches reduced from **233 to 143**. **New submission ready:** `outputs/campaign_0942_raw_unique/matching_results.tsv` (official validator PASS). Full-test correction is complete. A multilingual/global-owner ensemble is undergoing new untouched v6 confirmation. This is local evidence, not an Amazon score; the evaluated champion remains **0.942**. See [live handover](reports/campaign_0942/RETHINK.md) for results, commands, and concurrent reverse-retrieval/neural experiments.
 
 > **Latest result:** France-only rollback scored **0.941** and is not promoted. Main and alias remain best at **0.942**. Further work is auditing matching errors and validation realism; no country rollback is recommended.
 
@@ -13,7 +13,7 @@ An offline Python pipeline for the problem described in the supplied **Amazon ML
 
 ## Current contextual matching campaign
 
-**Amazon update (2026-09-27): both main and alias scored 0.942.** Next optional diagnostic: `outputs/campaign_0942_france_baseline/matching_results.tsv`, which restores only the previous France predictions and keeps main US/India unchanged. It is fully validated but has **no Amazon score yet**.
+**Amazon update (2026-09-27): both main and alias scored 0.942.** The France-only rollback scored **0.941**, so it is rejected. The newly completed raw correction is the next submission to evaluate.
 
 Both new submissions are complete and officially validated:
 
