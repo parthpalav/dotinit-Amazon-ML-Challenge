@@ -10,12 +10,15 @@ PRETRAINED=ART/'pretrained_minilm'; BEST=ART/'neural_minilm'; LENGTH=192
 
 
 def prepare():
-    from huggingface_hub import snapshot_download,model_info
     from transformers import XLMRobertaTokenizer
     if not (PRETRAINED/'config.json').exists():
-        info=model_info(MODEL);snapshot_download(MODEL,revision=info.sha,local_dir=str(PRETRAINED),allow_patterns=['*.json','pytorch_model.bin','*.model','README.md','LICENSE*'])
-        (OUT/'neural_pretrained.json').write_text(json.dumps({'model':MODEL,'revision':info.sha,'license':'MIT','source':'https://huggingface.co/'+MODEL,'purpose':'Generic pretrained language representation; no external identity lookup'},indent=2),encoding='utf-8')
-    tokenizer=XLMRobertaTokenizer.from_pretrained(str(PRETRAINED));con=connect('work/windows_v1/train/records.sqlite',True)
+        raise FileNotFoundError(
+            f'Local pretrained weights are missing at {PRETRAINED}. Downloads are disabled. '
+            'Use python -m src.train_local for training from the available real_v1 caches; '
+            'the neural campaign additionally requires its original campaign assets.'
+        )
+    for folder in (ROOT, OUT, ART):folder.mkdir(parents=True,exist_ok=True)
+    tokenizer=XLMRobertaTokenizer.from_pretrained(str(PRETRAINED),local_files_only=True);con=connect('work/windows_v1/train/records.sqlite',True)
     parts=[];rows=[];probs=[];offset=0
     for split in ['selection','v3','v4']:
         d=joblib.load(ROOT/(split+'_raw.joblib'));parts.append(d['part']);rows.append(d['rows']+offset);probs.append(d['p']);offset+=len(d['p']);del d;gc.collect()
@@ -45,7 +48,7 @@ def train(args):
     torch.set_num_threads(2);torch.manual_seed(1942);torch.cuda.manual_seed_all(1942);torch.backends.cuda.matmul.allow_tf32=True
     print('NEURAL_DEVICE',torch.cuda.get_device_name(0),torch.__version__,flush=True)
     data=joblib.load(ROOT/'neural_data.joblib');tokens=np.load(ROOT/'neural_input_ids.npy',mmap_mode='r');labels=data['part']['pairs'].iloc[data['rows']].label.to_numpy(dtype=np.int64);trainids=np.flatnonzero(data['split']==0);calids=np.flatnonzero(data['split']==1)
-    model=AutoModelForSequenceClassification.from_pretrained(str(PRETRAINED),num_labels=2).cuda()
+    model=AutoModelForSequenceClassification.from_pretrained(str(PRETRAINED),num_labels=2,local_files_only=True).cuda()
     # Keep multilingual token embeddings intact and avoid 96M embedding optimizer states.
     for par in model.bert.embeddings.parameters():par.requires_grad=False
     optimizer=torch.optim.AdamW((p for p in model.parameters() if p.requires_grad),lr=4e-5,weight_decay=.01)
@@ -76,7 +79,7 @@ def train(args):
                 cal_loss+=float(loss)*len(ix)
         cal_loss/=len(calids)
         if cal_loss<best_loss:
-            best_loss=cal_loss;model.save_pretrained(str(BEST));XLMRobertaTokenizer.from_pretrained(str(PRETRAINED)).save_pretrained(str(BEST))
+            best_loss=cal_loss;model.save_pretrained(str(BEST));XLMRobertaTokenizer.from_pretrained(str(PRETRAINED),local_files_only=True).save_pretrained(str(BEST))
             (OUT/'neural_best.json').write_text(json.dumps({'epoch':epoch,'calibration_logloss':best_loss,'model':MODEL,'frozen_embeddings':True,'fit_anchors':14000,'calibration_anchors':3000,'selection_anchors':3000,'parameters':sum(p.numel() for p in model.parameters()),'device':torch.cuda.get_device_name(0)},indent=2),encoding='utf-8')
         print('NEURAL_EPOCH',epoch,'calibration_loss',cal_loss,'best',best_loss,flush=True);save(epoch+1,0)
 
@@ -84,7 +87,7 @@ def train(args):
 def infer(args):
     import torch
     from transformers import AutoModelForSequenceClassification
-    torch.set_num_threads(2);data=joblib.load(ROOT/'neural_data.joblib');tokens=np.load(ROOT/'neural_input_ids.npy',mmap_mode='r');model=AutoModelForSequenceClassification.from_pretrained(str(BEST)).cuda().eval();p=np.zeros(len(tokens),np.float64)
+    torch.set_num_threads(2);data=joblib.load(ROOT/'neural_data.joblib');tokens=np.load(ROOT/'neural_input_ids.npy',mmap_mode='r');model=AutoModelForSequenceClassification.from_pretrained(str(BEST),local_files_only=True).cuda().eval();p=np.zeros(len(tokens),np.float64)
     with torch.inference_mode():
         for lo in range(0,len(tokens),args.batch*2):
             x=torch.as_tensor(np.array(tokens[lo:lo+args.batch*2]),device='cuda',dtype=torch.long)

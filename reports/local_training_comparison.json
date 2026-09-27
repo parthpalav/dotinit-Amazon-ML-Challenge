@@ -1,0 +1,38 @@
+{
+  "runs": [
+    {
+      "model": "artifacts\\local_training\\model.joblib",
+      "depth": 7,
+      "requested_iterations": 1800,
+      "trees": 1799,
+      "threshold": 0.6000000000000002,
+      "precision": 0.928606994949495,
+      "recall": 0.8411979365079365,
+      "macro_f05": 0.8962361289135039
+    },
+    {
+      "model": "artifacts\\local_training_d10\\model.joblib",
+      "depth": 10,
+      "requested_iterations": 4000,
+      "trees": 3922,
+      "threshold": 0.5750000000000002,
+      "precision": 0.9314359704184704,
+      "recall": 0.8501271428571429,
+      "macro_f05": 0.9009820117212557
+    }
+  ],
+  "selected": {
+    "model": "artifacts\\local_training_d10\\model.joblib",
+    "depth": 10,
+    "requested_iterations": 4000,
+    "trees": 3922,
+    "threshold": 0.5750000000000002,
+    "precision": 0.9314359704184704,
+    "recall": 0.8501271428571429,
+    "macro_f05": 0.9009820117212557
+  },
+  "target": 0.98,
+  "target_met": false,
+  "scope": "Model and threshold selection on existing validation anchors; not an official competition score.",
+  "audits_run": false
+}

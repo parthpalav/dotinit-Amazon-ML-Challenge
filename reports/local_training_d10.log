@@ -1,0 +1,46 @@
+LOCAL_TRAIN_START GPU
+0:	learn: 0.6097944	test: 0.6104426	best: 0.6104426 (0)	total: 11.2s	remaining: 12h 28m 26s
+100:	learn: 0.0667550	test: 0.0696635	best: 0.0696635 (100)	total: 13.6s	remaining: 8m 44s
+200:	learn: 0.0592751	test: 0.0632693	best: 0.0632693 (200)	total: 15.9s	remaining: 5m
+300:	learn: 0.0551469	test: 0.0600738	best: 0.0600738 (300)	total: 18.2s	remaining: 3m 43s
+400:	learn: 0.0522068	test: 0.0580243	best: 0.0580243 (400)	total: 20.4s	remaining: 3m 2s
+500:	learn: 0.0500530	test: 0.0566661	best: 0.0566661 (500)	total: 22.6s	remaining: 2m 37s
+600:	learn: 0.0483364	test: 0.0556832	best: 0.0556832 (600)	total: 24.9s	remaining: 2m 20s
+700:	learn: 0.0468717	test: 0.0549186	best: 0.0549186 (700)	total: 27.2s	remaining: 2m 7s
+800:	learn: 0.0455097	test: 0.0542661	best: 0.0542661 (800)	total: 29.5s	remaining: 1m 57s
+900:	learn: 0.0443836	test: 0.0538092	best: 0.0538092 (900)	total: 31.8s	remaining: 1m 49s
+1000:	learn: 0.0433456	test: 0.0533912	best: 0.0533912 (1000)	total: 34.1s	remaining: 1m 42s
+1100:	learn: 0.0423736	test: 0.0530203	best: 0.0530196 (1099)	total: 36.4s	remaining: 1m 35s
+1200:	learn: 0.0415139	test: 0.0527580	best: 0.0527580 (1200)	total: 38.7s	remaining: 1m 30s
+1300:	learn: 0.0407191	test: 0.0525045	best: 0.0525045 (1300)	total: 40.9s	remaining: 1m 24s
+1400:	learn: 0.0399819	test: 0.0522899	best: 0.0522899 (1400)	total: 43.1s	remaining: 1m 19s
+1500:	learn: 0.0392995	test: 0.0521315	best: 0.0521315 (1500)	total: 45.3s	remaining: 1m 15s
+1600:	learn: 0.0386024	test: 0.0519599	best: 0.0519589 (1599)	total: 47.6s	remaining: 1m 11s
+1700:	learn: 0.0379913	test: 0.0518052	best: 0.0518052 (1700)	total: 49.8s	remaining: 1m 7s
+1800:	learn: 0.0373733	test: 0.0516861	best: 0.0516861 (1800)	total: 52s	remaining: 1m 3s
+1900:	learn: 0.0367794	test: 0.0515625	best: 0.0515625 (1900)	total: 54.2s	remaining: 59.9s
+2000:	learn: 0.0361700	test: 0.0514441	best: 0.0514441 (2000)	total: 56.4s	remaining: 56.4s
+2100:	learn: 0.0356030	test: 0.0513418	best: 0.0513418 (2100)	total: 58.8s	remaining: 53.1s
+2200:	learn: 0.0350761	test: 0.0512471	best: 0.0512469 (2198)	total: 1m	remaining: 49.9s
+2300:	learn: 0.0345757	test: 0.0511778	best: 0.0511778 (2300)	total: 1m 3s	remaining: 46.7s
+2400:	learn: 0.0340644	test: 0.0511006	best: 0.0511006 (2400)	total: 1m 5s	remaining: 43.6s
+2500:	learn: 0.0335523	test: 0.0510340	best: 0.0510340 (2499)	total: 1m 7s	remaining: 40.6s
+2600:	learn: 0.0330885	test: 0.0509757	best: 0.0509752 (2598)	total: 1m 9s	remaining: 37.6s
+2700:	learn: 0.0326424	test: 0.0509094	best: 0.0509082 (2699)	total: 1m 12s	remaining: 34.6s
+2800:	learn: 0.0321973	test: 0.0508639	best: 0.0508627 (2789)	total: 1m 14s	remaining: 31.8s
+2900:	learn: 0.0318062	test: 0.0508297	best: 0.0508297 (2900)	total: 1m 16s	remaining: 29s
+3000:	learn: 0.0313706	test: 0.0507927	best: 0.0507927 (3000)	total: 1m 18s	remaining: 26.2s
+3100:	learn: 0.0309240	test: 0.0507446	best: 0.0507446 (3100)	total: 1m 20s	remaining: 23.5s
+3200:	learn: 0.0305181	test: 0.0506955	best: 0.0506955 (3200)	total: 1m 23s	remaining: 20.8s
+3300:	learn: 0.0301276	test: 0.0506718	best: 0.0506718 (3300)	total: 1m 25s	remaining: 18.1s
+3400:	learn: 0.0297875	test: 0.0506605	best: 0.0506599 (3399)	total: 1m 27s	remaining: 15.4s
+3500:	learn: 0.0294034	test: 0.0506366	best: 0.0506366 (3500)	total: 1m 29s	remaining: 12.8s
+3600:	learn: 0.0290530	test: 0.0506045	best: 0.0506044 (3599)	total: 1m 32s	remaining: 10.2s
+3700:	learn: 0.0287189	test: 0.0505798	best: 0.0505798 (3692)	total: 1m 34s	remaining: 7.61s
+3800:	learn: 0.0283784	test: 0.0505695	best: 0.0505689 (3799)	total: 1m 36s	remaining: 5.05s
+3900:	learn: 0.0280422	test: 0.0505530	best: 0.0505476 (3885)	total: 1m 38s	remaining: 2.5s
+3999:	learn: 0.0277343	test: 0.0505561	best: 0.0505470 (3921)	total: 1m 41s	remaining: 0us
+bestTest = 0.05054696815
+bestIteration = 3921
+Shrink model to first 3922 iterations.
+LOCAL_TRAIN_COMPLETE artifacts\local_training_d10 {"precision": 0.9314359704184704, "recall": 0.8501271428571429, "f0.5": 0.9009820117212557, "f1": 0.872970202796, "singleton_accuracy": 0.8162878787878788, "true_positive": 29605, "false_positive": 1723, "false_negative": 5071, "true_negative_all_possible": 103202153601, "false_positive_rate": 1.6695387752229538e-08, "predicted_positive": 31328, "predicted_negative_candidates": 288628, "predicted_positive_rate": 0.0979134631011764}

@@ -1,0 +1,45 @@
+{
+  "models": [
+    {
+      "model": "artifacts\\local_training_d10\\model.joblib",
+      "macro_f05": 0.9009820117212557,
+      "precision": 0.9314359704184704,
+      "recall": 0.8501271428571429,
+      "true_matches": 29605,
+      "false_matches": 1723,
+      "threshold": 0.5750000000000002
+    },
+    {
+      "model": "artifacts\\local_training_enriched_d10\\model.joblib",
+      "macro_f05": 0.9622788736998645,
+      "precision": 0.9806370238095238,
+      "recall": 0.923650238095238,
+      "true_matches": 31942,
+      "false_matches": 439,
+      "threshold": 0.7000000000000003
+    },
+    {
+      "model": "artifacts\\local_training_context\\model.joblib",
+      "macro_f05": 0.9645022134795413,
+      "precision": 0.981732380952381,
+      "recall": 0.9260510714285715,
+      "true_matches": 31980,
+      "false_matches": 321,
+      "threshold": 0.7250000000000003
+    }
+  ],
+  "selected": {
+    "model": "artifacts\\local_training_context\\model.joblib",
+    "macro_f05": 0.9645022134795413,
+    "precision": 0.981732380952381,
+    "recall": 0.9260510714285715,
+    "true_matches": 31980,
+    "false_matches": 321,
+    "threshold": 0.7250000000000003
+  },
+  "exceeds_095_on_local_validation": true,
+  "exceeds_098_on_local_validation": false,
+  "official_score": null,
+  "scope": "Same existing validation set for local model/threshold selection; no claim of an official leaderboard gain or independent test score.",
+  "audits_run": false
+}
