@@ -1,0 +1,45 @@
+{
+  "precision": 0.9788225,
+  "recall": 0.9322210317460318,
+  "f0.5": 0.9640321613043273,
+  "f1": 0.9483986428440841,
+  "singleton_accuracy": 0.9491228070175438,
+  "true_positive": 32445,
+  "false_positive": 391,
+  "false_negative": 2359,
+  "true_negative_all_possible": 103202154805,
+  "false_positive_rate": 3.788680568321646e-09,
+  "predicted_positive": 32836,
+  "predicted_negative_candidates": 287056,
+  "predicted_positive_rate": 0.10264714341090118,
+  "pair_threshold_metrics": {
+    "precision": 0.9787725,
+    "recall": 0.9322210317460318,
+    "f0.5": 0.9639877168598828,
+    "f1": 0.9483653095107507,
+    "singleton_accuracy": 0.9491228070175438,
+    "true_positive": 32445,
+    "false_positive": 392,
+    "false_negative": 2359,
+    "true_negative_all_possible": 103202154804,
+    "false_positive_rate": 3.798370288445231e-09,
+    "predicted_positive": 32837,
+    "predicted_negative_candidates": 287055,
+    "predicted_positive_rate": 0.10265026946594476
+  },
+  "bootstrap_95ci": [
+    0.9615608268789932,
+    0.966467336060229
+  ],
+  "model_sha256": "cf218c02eebf206af9d3660d785ca2069ef9eb2daf34d9af1fb3ed757b187e22",
+  "threshold": 0.6500000000000002,
+  "anchors": 10000,
+  "leaderboard_score": null,
+  "limitation": "Training holdout covers India and US; France has no supplied labels. Ownership competition is measured only among sampled anchors.",
+  "country_f05": {
+    "india": 0.951101209195829,
+    "us": 0.9722960167822876
+  },
+  "eligible_for_local_inference": true,
+  "reached_local_target": false
+}

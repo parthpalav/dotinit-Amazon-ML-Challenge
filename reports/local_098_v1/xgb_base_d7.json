@@ -1,0 +1,21 @@
+{
+  "name": "xgb_base_d7",
+  "kind": "base",
+  "depth": 7,
+  "trees": 1684,
+  "threshold": 0.6750000000000003,
+  "path": "artifacts/local_098_v1/xgb_base_d7.joblib",
+  "precision": 0.9779138095238095,
+  "recall": 0.9154047619047618,
+  "f0.5": 0.9569443014149654,
+  "f1": 0.9361476244670363,
+  "singleton_accuracy": 0.9602272727272727,
+  "true_positive": 31682,
+  "false_positive": 439,
+  "false_negative": 2994,
+  "true_negative_all_possible": 103202154885,
+  "false_positive_rate": 4.253787128977811e-09,
+  "predicted_positive": 32121,
+  "predicted_negative_candidates": 287835,
+  "predicted_positive_rate": 0.1003919288902224
+}

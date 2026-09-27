@@ -2,7 +2,6 @@
 import argparse,json,time
 from pathlib import Path
 import joblib,numpy as np,pandas as pd
-from catboost import CatBoostClassifier
 from .real_metrics import tune,entity_scores,probability_diagnostics
 from .model import CalibratedMatcher
 
@@ -18,6 +17,7 @@ def choose(part,p):
     return tune(indices,part['pairs'].label.to_numpy(),p,np.array(list(truth.values())),10320219)
 
 def run(args):
+    from catboost import CatBoostClassifier
     out=Path('reports/improvements');out.mkdir(parents=True,exist_ok=True)
     artifactdir=Path('artifacts/improvements');artifactdir.mkdir(parents=True,exist_ok=True)
     data={s:joblib.load(Path('work/real_v1/features')/(s+'.joblib')) for s in ['fit','calibration','validation']}

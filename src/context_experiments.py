@@ -5,7 +5,6 @@ explicitly a selection set; a new confirmation set is required for promotion.
 from pathlib import Path
 import argparse,gc,json,time
 import joblib,numpy as np,pandas as pd
-from catboost import CatBoostClassifier
 from .experiments import evaluate,choose
 from .model import CalibratedMatcher
 ROOT=Path('work/campaign_0931');OUT=Path('reports/campaign_0931');ART=Path('artifacts/campaign_0931')
@@ -46,6 +45,7 @@ def policies(part,p):
  print('BEST_EXPECTED_F',json.dumps(max(results,key=lambda r:r['f0.5'])),flush=True)
 
 def main():
+ from catboost import CatBoostClassifier
  parser=argparse.ArgumentParser();parser.add_argument('--peers',action='store_true');parser.add_argument('--detail',action='store_true');parser.add_argument('--compact',action='store_true');args=parser.parse_args();prefix=('context_peer' if args.peers else 'context')+('_detail' if args.detail else '')+('_compact' if args.compact else '')
  for x in [ROOT,OUT,ART]:x.mkdir(parents=True,exist_ok=True)
  model=joblib.load('artifacts/improvements/catboost_d10_evidence.joblib')

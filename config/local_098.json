@@ -1,0 +1,20 @@
+{
+  "dataset_dir": "/Users/vishesharora/Downloads/student_resource 2/dataset",
+  "output_dir": "outputs/local_098_v1_unique",
+  "model_path": "artifacts/local_098_v1/selected_model.joblib",
+  "seed": 42,
+  "metric": "entity_macro",
+  "tfidf_max_features": 30000,
+  "threads": 6,
+  "backend": "disk",
+  "working_dir": "work/real_v1",
+  "reports_dir": "reports/local_098_v1",
+  "resource_dir": "/Users/vishesharora/Downloads/student_resource 2",
+  "retrieval_posting_limit": 240,
+  "max_candidates_per_anchor": 32,
+  "fit_anchor_limit": 30000,
+  "calibration_anchor_limit": 5000,
+  "validation_anchor_limit": 10000,
+  "workers": 2,
+  "anchor_batch_size": 100
+}

@@ -1,0 +1,29 @@
+{
+  "sha256": "cf218c02eebf206af9d3660d785ca2069ef9eb2daf34d9af1fb3ed757b187e22",
+  "threshold": 0.6500000000000002,
+  "selection": {
+    "name": "xgb_context_d8",
+    "kind": "context",
+    "base_path": "artifacts/local_098_v1/xgb_base_d10.joblib",
+    "depth": 8,
+    "trees": 815,
+    "threshold": 0.6500000000000002,
+    "path": "artifacts/local_098_v1/xgb_context_d8.joblib",
+    "precision": 0.9786950793650795,
+    "recall": 0.9315653571428572,
+    "f0.5": 0.9635796225225924,
+    "f1": 0.9477814264107066,
+    "singleton_accuracy": 0.9696969696969697,
+    "true_positive": 32338,
+    "false_positive": 354,
+    "false_negative": 2338,
+    "true_negative_all_possible": 103202154970,
+    "false_positive_rate": 3.4301609194946353e-09,
+    "predicted_positive": 32692,
+    "predicted_negative_candidates": 287264,
+    "predicted_positive_rate": 0.10217654927552539
+  },
+  "local_floor": 0.95,
+  "target": 0.98,
+  "scope": "Frozen before fresh confirmation; no hidden test labels available"
+}

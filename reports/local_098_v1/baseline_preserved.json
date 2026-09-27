@@ -1,0 +1,10 @@
+{
+  "user_reported_leaderboard": 0.94,
+  "baseline_directories": [
+    "outputs/improved_unique_owner",
+    "outputs/improved_pair_threshold"
+  ],
+  "new_artifacts": "artifacts/local_098_v1",
+  "new_output": "outputs/local_098_v1_unique",
+  "policy": "Separate outputs; no existing trained model or submission is overwritten."
+}

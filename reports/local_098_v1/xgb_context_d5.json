@@ -1,0 +1,22 @@
+{
+  "name": "xgb_context_d5",
+  "kind": "context",
+  "base_path": "artifacts/local_098_v1/xgb_base_d10.joblib",
+  "depth": 5,
+  "trees": 1069,
+  "threshold": 0.6500000000000002,
+  "path": "artifacts/local_098_v1/xgb_context_d5.joblib",
+  "precision": 0.977699126984127,
+  "recall": 0.9313492460317461,
+  "f0.5": 0.9627692292783,
+  "f1": 0.947188979217377,
+  "singleton_accuracy": 0.9659090909090909,
+  "true_positive": 32334,
+  "false_positive": 368,
+  "false_negative": 2342,
+  "true_negative_all_possible": 103202154956,
+  "false_positive_rate": 3.56581700105657e-09,
+  "predicted_positive": 32702,
+  "predicted_negative_candidates": 287254,
+  "predicted_positive_rate": 0.1022078035729913
+}

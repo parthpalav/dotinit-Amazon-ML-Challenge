@@ -7,7 +7,7 @@ from .disk_store import connect
 from .rescoring import filehash
 
 def finalize(args):
- root=Path(args.work);cfg=Config.load('config/windows.json');lock=json.loads(Path(getattr(args,'selection','reports/improvements/frozen_selection.json')).read_text(encoding='utf-8'))
+ root=Path(args.work);cfg=Config.load(getattr(args,'config','config/windows.json'));lock=json.loads(Path(getattr(args,'selection','reports/improvements/frozen_selection.json')).read_text(encoding='utf-8'))
  if not (root/'SCORING_COMPLETE.json').exists():raise ValueError('Full scoring is not complete')
  sig=json.loads((root/'signature.json').read_text(encoding='utf-8'))
  if sig['model_sha256']!=lock['sha256']:raise ValueError('Scores do not match frozen model')
@@ -57,4 +57,4 @@ def finalize(args):
  ids.close();idfile.close();con.close()
 
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--work',required=True);p.add_argument('--output',required=True);p.add_argument('--candidates',default='outputs/real_submission/candidate_pairs.tsv');p.add_argument('--unique-owner',action='store_true');p.add_argument('--selection',default='reports/improvements/frozen_selection.json');finalize(p.parse_args())
+ p=argparse.ArgumentParser();p.add_argument('--config',default='config/windows.json');p.add_argument('--work',required=True);p.add_argument('--output',required=True);p.add_argument('--candidates',default='outputs/real_submission/candidate_pairs.tsv');p.add_argument('--unique-owner',action='store_true');p.add_argument('--selection',default='reports/improvements/frozen_selection.json');finalize(p.parse_args())

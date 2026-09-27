@@ -1,4 +1,6 @@
-> **Active campaign beyond Amazon 0.931:** see [current experiment journal](reports/CAMPAIGN_0931.md). Work is on `parth`; F: is read-only reference. Older transfer/stopped notices below describe the previous run.
+> **Current local Mac run — user-reported Amazon 0.94, target 0.98:** see [the local runbook](reports/LOCAL_098_CAMPAIGN.md) and `reports/local_098_v1/status.json`. The CPU improvement run uses separate artifacts and submissions, a fresh confirmation gate, and no audits. A hidden-test score is not guaranteed. The older Windows journals and restart commands below are historical for this machine.
+
+> **Previous campaign beyond Amazon 0.931:** see [the prior experiment journal](reports/CAMPAIGN_0931.md). Its F: reference paths belong to the Windows machine, not this Mac.
 
 > **Historical transfer checkpoint:** the old run stopped locally at 133,000 anchors and subsequently completed on the A5000. Its unique-owner output scored **0.931 on Amazon** (team-reported). The laptop is now running the new campaign linked above.
 
