@@ -1,0 +1,14 @@
+{
+  "anchors": 1732544,
+  "pairs": 55431940,
+  "matches": 5685947,
+  "empty": 108690,
+  "unique_owner": true,
+  "threshold": 0.7250000000000003,
+  "model_sha256": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49",
+  "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+  "duplicate_target_ids": 0,
+  "excess_target_assignments": 0,
+  "matching_sha256": "b261646dd222fbc210aea72b13c90c28dc3880b1de15ecb2e4727f0413891936",
+  "streaming_validation": "PASS: full row order, IDs through trusted index, candidate equality, subset, uniqueness and finite scores"
+}

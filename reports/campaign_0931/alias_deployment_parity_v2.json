@@ -1,0 +1,6 @@
+{
+  "anchors": 100,
+  "added_pairs": 188,
+  "max_absolute_difference": 0.0,
+  "status": "PASS: packed IDs and affected-anchor optimization match selection predictions"
+}

@@ -1,0 +1,9 @@
+{
+  "seed_probability": 0.95,
+  "max_name_posting": 20,
+  "new_pair_threshold": 0.975,
+  "existing_pair_threshold": 0.6000000000000002,
+  "model_sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+  "code_sha256": "9b2506533934e78c7fe71802efaaf6cce516ab4d46b7721389e289f4b58dd802",
+  "selection_note": "Default .60 on added pairs reduced selection F0.5. A separate added-pair threshold .975 selected on original validation gives +.000397, +63 TP and +6 FP. Requires positive paired confirmation before deployment."
+}

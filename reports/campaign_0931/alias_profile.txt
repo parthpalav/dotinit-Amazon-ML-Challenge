@@ -1,0 +1,33 @@
+         6156604 function calls (6154990 primitive calls) in 4.833 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1449 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001    4.848    4.848 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\campaign_alias_scoring.py:31(score_batch)
+        1    0.049    0.049    4.845    4.845 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\campaign_alias_scoring.py:22(score_arrays)
+        9    0.004    0.000    1.694    0.188 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\disk_store.py:226(fetch_records)
+       22    1.667    0.076    1.667    0.076 {method 'fetchall' of 'sqlite3.Cursor' objects}
+        1    0.551    0.551    1.509    1.509 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\peer_evidence.py:11(features)
+        1    0.021    0.021    1.257    1.257 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\campaign_alias.py:27(proposals)
+        1    0.222    0.222    1.228    1.228 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\detail_evidence.py:25(features)
+   194216    0.158    0.000    0.719    0.000 {method 'join' of 'str' objects}
+     6220    0.024    0.000    0.470    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\detail_evidence.py:18(record)
+     7065    0.095    0.000    0.403    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\evidence.py:21(components)
+    52345    0.101    0.000    0.333    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\detail_evidence.py:12(skeleton)
+        1    0.002    0.002    0.252    0.252 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\preprocessing.py:7(preprocess)
+    21862    0.010    0.000    0.211    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\detail_evidence.py:20(<genexpr>)
+    12463    0.023    0.000    0.184    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\normalization.py:18(normalize_text)
+   117186    0.050    0.000    0.178    0.000 C:\Users\parth\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\re\__init__.py:179(sub)
+        1    0.039    0.039    0.175    0.175 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\evidence.py:40(enrich)
+    14130    0.009    0.000    0.172    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\evidence.py:15(fold)
+        1    0.000    0.000    0.170    0.170 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\features.py:46(prepare)
+     1008    0.006    0.000    0.162    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\normalization.py:42(extract_address_components)
+   115159    0.151    0.000    0.151    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\src\detail_evidence.py:23(sim)
+        2    0.000    0.000    0.143    0.071 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\.venv\Lib\site-packages\sklearn\feature_extraction\text.py:2116(transform)
+   197641    0.042    0.000    0.142    0.000 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\.venv\Lib\site-packages\pandas\core\arrays\base.py:559(__iter__)
+        2    0.000    0.000    0.124    0.062 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\.venv\Lib\site-packages\sklearn\feature_extraction\text.py:1409(transform)
+        2    0.044    0.022    0.124    0.062 C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\.venv\Lib\site-packages\sklearn\feature_extraction\text.py:1257(_count_vocab)
+    54041    0.036    0.000    0.120    0.000 {built-in method builtins.any}
+
+

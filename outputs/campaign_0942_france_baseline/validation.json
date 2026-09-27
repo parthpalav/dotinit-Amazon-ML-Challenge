@@ -1,0 +1,63 @@
+{
+  "state": "evaluated_not_promoted",
+  "experimental": true,
+  "amazon_score": 0.941,
+  "policy": "Previous 0.931 France predictions; current 0.942 main US/India predictions unchanged",
+  "inputs": {
+    "baseline": {
+      "path": "F:\\dotinit-Amazon-ML-Challenge\\outputs\\improved_unique_owner",
+      "matching_sha256": "468d46a1977e68e1feabefa5481014dc15b6f9afb80ca837ced05eee56313ec4",
+      "anchors": 1732544,
+      "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20"
+    },
+    "current": {
+      "path": "outputs\\campaign_0931_oof_unique",
+      "matching_sha256": "65a1648f0e07d230dfb488328987f416ce76da55e7c2f3292e5bbc50a74fcc94",
+      "anchors": 1732544,
+      "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20"
+    }
+  },
+  "by_country": {
+    "US": {
+      "anchors": 663106,
+      "matches": 2218776,
+      "pairs": 21212782,
+      "empty": 41670,
+      "changed_anchors_vs_main": 0,
+      "added_vs_main": 0,
+      "removed_vs_main": 0
+    },
+    "ALL": {
+      "anchors": 1732544,
+      "matches": 5748778,
+      "pairs": 55431940,
+      "empty": 108911,
+      "changed_anchors_vs_main": 40380,
+      "added_vs_main": 22299,
+      "removed_vs_main": 27449
+    },
+    "France": {
+      "anchors": 259452,
+      "matches": 869115,
+      "pairs": 8301196,
+      "empty": 13570,
+      "changed_anchors_vs_main": 40380,
+      "added_vs_main": 22299,
+      "removed_vs_main": 27449
+    },
+    "India": {
+      "anchors": 809986,
+      "matches": 2660887,
+      "pairs": 25917962,
+      "empty": 53671,
+      "changed_anchors_vs_main": 0,
+      "added_vs_main": 0,
+      "removed_vs_main": 0
+    }
+  },
+  "duplicate_target_ids": 0,
+  "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+  "matching_sha256": "d03c1d19b821698562f57e4021606aeb4541632019165fa89a06cb1d98119ab0",
+  "streaming_validation": "PASS: complete source alignment, all rows, valid candidate subset, per-row and global target uniqueness",
+  "official_matching_id_validation": "PASS"
+}

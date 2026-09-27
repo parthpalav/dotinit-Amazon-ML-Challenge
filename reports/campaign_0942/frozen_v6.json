@@ -1,0 +1,62 @@
+{
+  "ids_hash": "d2d7c2a2c40b52065507ed6e38bec0128fefefb66065ebbe00a33be46c4bedc2",
+  "excluded_anchors": 65000,
+  "seed": 20260930,
+  "recipes": [
+    {
+      "model": "neural_stack_d3",
+      "threshold": 0.6750000000000003,
+      "precision": 0.9876013227513226,
+      "recall": 0.9413824074074074,
+      "f0.5": 0.9733320399102334,
+      "f1": 0.9580372224181049,
+      "singleton_accuracy": 0.9821428571428571,
+      "true_positive": 9941,
+      "false_positive": 65,
+      "false_negative": 596,
+      "true_negative_all_possible": 30960646398,
+      "false_positive_rate": 2.099439366606226e-09,
+      "predicted_positive": 10006,
+      "predicted_negative_candidates": 85982,
+      "predicted_positive_rate": 0.10424219694128432
+    },
+    {
+      "model": "joint_stack_d3",
+      "threshold": 0.7250000000000003,
+      "precision": 0.9891878306878307,
+      "recall": 0.942935582010582,
+      "f0.5": 0.9749752097505323,
+      "f1": 0.959684985765868,
+      "singleton_accuracy": 0.9880952380952381,
+      "true_positive": 9950,
+      "false_positive": 50,
+      "false_negative": 587,
+      "true_negative_all_possible": 30960646413,
+      "false_positive_rate": 1.614953358927866e-09,
+      "predicted_positive": 10000,
+      "predicted_negative_candidates": 85988,
+      "predicted_positive_rate": 0.10417968912780765
+    }
+  ],
+  "models": {
+    "artifacts/improvements/catboost_d10_evidence.joblib": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
+    "artifacts/campaign_0931/oof_compact_d9.joblib": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+    "artifacts\\campaign_0942\\raw_minimal_d7.joblib": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49",
+    "artifacts\\campaign_0942\\raw_reverse_d7.joblib": "b0cc2a53ad443beec3d7186b0f68f008ac97ee460d46f49a8ed4f8b51f6c9f5b",
+    "artifacts\\campaign_0942\\neural_stack_d3.joblib": "2dc1cf1e5653b8c48f19cc7bf70c864152d3b6b2ea397ba31b743801e6d8ac23",
+    "artifacts\\campaign_0942\\joint_stack_d3.joblib": "00b39053aac646361cd3a23b3f3752ceb7803e648bed35488caeebc7b4be2541",
+    "artifacts\\campaign_0942\\neural_minilm\\model.safetensors": "69de1509f43b8735d7d8abb7fff1c37f2d8acde8533c00b912a49ccaac7bd406",
+    "artifacts\\campaign_0942\\neural_minilm\\config.json": "cb1da43e713b16aed0ae03057d5edca3fe3ae901ad537a6cd4eaa2235e6c17fc",
+    "artifacts\\campaign_0942\\neural_minilm\\sentencepiece.bpe.model": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+    "artifacts\\campaign_0942\\neural_minilm\\special_tokens_map.json": "8574792bfefae68f2ce2eae93a4145d95b1232c59e71094bcdcb49dbcb549c97",
+    "artifacts\\campaign_0942\\neural_minilm\\tokenizer_config.json": "5ea071e31cef414d6e6c55a90e80fd27a4308095eb12a4bfe83653863e66a367"
+  },
+  "code": {
+    "raw_evidence.py": "6afca1dcea38cd8789032fa55ac46e260423843df80a76e4ddc707d2511e427c",
+    "campaign_reverse.py": "93fd1812a6b7dc0978b37fc844a67d3fbd95e0661f292318e19152749931ba6c"
+  },
+  "neural_batch": 64,
+  "neural_precision": "bfloat16",
+  "baseline_threshold": 0.7250000000000003,
+  "rule": "Promote neural only if paired 97.5% interval versus raw is positive. Prefer joint only if its 97.5% interval versus raw and 95% interval versus neural are positive."
+}

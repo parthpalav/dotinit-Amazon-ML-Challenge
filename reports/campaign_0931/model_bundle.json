@@ -1,0 +1,45 @@
+{
+  "kind": "Weights-only add-on; not a complete dataset/index/checkpoint backup",
+  "restore": "Extract into the parth repository root. Only ignored artifacts/ and transfer/ paths are written. Original dataset/index assets and the complete verified base-score cache are still required.",
+  "files": {
+    "artifacts/improvements/catboost_d10_evidence.joblib": {
+      "source": "artifacts/improvements/catboost_d10_evidence.joblib",
+      "bytes": 39623384,
+      "sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69"
+    },
+    "artifacts/campaign_0931/oof_compact_d9.joblib": {
+      "source": "artifacts/campaign_0931/oof_compact_d9.joblib",
+      "bytes": 17259032,
+      "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651"
+    },
+    "transfer/campaign_model_bundle/reports/CAMPAIGN_MODEL_CARD.md": {
+      "source": "reports/CAMPAIGN_MODEL_CARD.md",
+      "bytes": 5671,
+      "sha256": "fe13379eee13f690002d25f01351eb24d1cae87d59c8e33d671289b6c280192f"
+    },
+    "transfer/campaign_model_bundle/reports/CAMPAIGN_MODEL_LICENSE.txt": {
+      "source": "reports/CAMPAIGN_MODEL_LICENSE.txt",
+      "bytes": 1288,
+      "sha256": "0909ae6a9ce736aec9733edc70e28c88b813fd6116db9f1ab040d9d146fe75ca"
+    },
+    "transfer/campaign_model_bundle/reports/campaign_0931/frozen_confirmation_v4.json": {
+      "source": "reports/campaign_0931/frozen_confirmation_v4.json",
+      "bytes": 667,
+      "sha256": "4b31d17b45cff31b43168627d4dc5c88799eb2a6f747d6289d90cf788308e5e0"
+    },
+    "transfer/campaign_model_bundle/reports/campaign_0931/alias_frozen.json": {
+      "source": "reports/campaign_0931/alias_frozen.json",
+      "bytes": 549,
+      "sha256": "b01e4897114fd9e2ef1a6b2c61ee529acbad5c39cf5b9b90c44fc40c876d8e7f"
+    },
+    "transfer/campaign_model_bundle/requirements-campaign-tested.txt": {
+      "source": "requirements-campaign-tested.txt",
+      "bytes": 52,
+      "sha256": "1446dd2fdc969b4cd35a93f9356889bbc083dfdbe0832454ed8b54ee6eeae371"
+    }
+  },
+  "zip_path": "transfer\\campaign-0931-models.zip",
+  "zip_bytes": 14930472,
+  "zip_sha256": "b3fb3512f54c7698e337ce49a93965110bd6eae18d84e689ad5e41d52ebbd063",
+  "verified": true
+}

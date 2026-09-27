@@ -1,0 +1,8 @@
+{
+  "pairs": 1200,
+  "features_bitwise_equal": true,
+  "probabilities_bitwise_equal": true,
+  "countries": "Samples across four widely separated test shards",
+  "packed_manifest_hash": "e95906ca017b0dbda6ec02b1bf06237dfde7cc222bc03a8983b75b58674f9d8b",
+  "adapter_hash": "4df31356f53e9ec06d4d76bd615fecabf1b7879f78bd2db6096eeb2b2a1ed28f"
+}

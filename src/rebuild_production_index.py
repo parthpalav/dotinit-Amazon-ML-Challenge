@@ -1,5 +1,5 @@
 """Build production supplement index with Indic Soundex and relaxed address channels."""
-import os, time, json, sqlite3
+import os, time, json, sqlite3, shutil
 from dataclasses import replace
 from pathlib import Path
 import joblib, numpy as np, pandas as pd
@@ -9,6 +9,7 @@ from src.disk_blocking import DiskBlocker
 from src.disk_store import connect, fetch_records
 
 def main():
+    os.environ['AMAZON_SUPPLEMENT_VARIANT']='phase8'
     target_dir = Path('work/cap64_rebuilt')
     target_train = target_dir / 'train'
     target_train.mkdir(parents=True, exist_ok=True)
@@ -18,28 +19,26 @@ def main():
     real_v1 = Path('work/real_v1').resolve()
     
     # Symlink base SQLite and text stores from real_v1 (zero extra disk space)
-    files_to_link = [
-        'records.sqlite', 'blocking_index.bin', 'store_manifest.json',
-        'address_norm.bin', 'address_norm_offsets.npy',
-        'name_norm.bin', 'name_norm_offsets.npy',
-        'entity_id.bin', 'entity_id_offsets.npy',
-        'countries.npy'
-    ]
+    # Only immutable inputs are shared. Packed text/offsets must be private:
+    # build_supplement opens those outputs for writing.
+    files_to_link = ['records.sqlite', 'blocking_index.bin', 'store_manifest.json']
     for fname in files_to_link:
         src = real_train / fname
         dst = target_train / fname
         if not dst.exists() and not dst.is_symlink():
-            os.symlink(src, dst)
+            try:os.link(src, dst)
+            except OSError:shutil.copy2(src, dst)
             print(f"Linked {fname}")
             
     for item in ['candidate_ranker.joblib', 'feature_engineer.joblib', 'entity_selection.npz']:
         src = real_v1 / item
         dst = target_dir / item
         if not dst.exists() and not dst.is_symlink():
-            os.symlink(src, dst)
+            try:os.link(src, dst)
+            except OSError:shutil.copy2(src, dst)
             print(f"Linked root file: {item}")
             
-    cfg = Config.load('config/real.json')
+    cfg = Config.load('config/windows.json' if os.name=='nt' else 'config/real.json')
     cfg = replace(cfg, working_dir=str(target_dir), retrieval_posting_limit=500, max_candidates_per_anchor=64)
     
     print("\n--- Building Rebuilt Supplement Index ---")

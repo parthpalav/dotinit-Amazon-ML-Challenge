@@ -1,0 +1,6 @@
+REVERSE_RECALL 0 17248
+REVERSE_RECALL 4000 17248
+REVERSE_RECALL 8000 17248
+REVERSE_RECALL 12000 17248
+REVERSE_RECALL 16000 17248
+REVERSE_RECALL_RESULT {"scope": "Positive-only reverse-retrieval diagnostic on consumed v4. Labels choose evaluation queries and measure recovery, never influence retrieved candidates. Not an end-to-end metric or deployable candidate set.", "true_links": 17248, "forward_retained": 16831, "reverse_top4_retained": 14382, "reverse_top1_retained": 14133, "union_retained": 16851, "forward_omissions_recovered": 20, "still_missing": 397}

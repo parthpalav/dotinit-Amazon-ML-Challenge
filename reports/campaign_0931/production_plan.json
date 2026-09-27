@@ -1,0 +1,27 @@
+{
+  "name": "oof",
+  "model": {
+    "name": "oof",
+    "path": "artifacts\\campaign_0931\\oof_compact_d9.joblib",
+    "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+    "threshold": 0.6000000000000002
+  },
+  "work": "work\\campaign_0931\\test_final_oof",
+  "output": "outputs\\campaign_0931_oof_unique",
+  "reason": "OOF selected only if its paired 95% CI versus compact is strictly positive; otherwise use confirmed compact.",
+  "state": "ready_for_amazon_evaluation",
+  "validation": {
+    "anchors": 1732544,
+    "pairs": 55431940,
+    "matches": 5753928,
+    "empty": 108973,
+    "unique_owner": true,
+    "threshold": 0.6000000000000002,
+    "model_sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+    "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+    "duplicate_target_ids": 0,
+    "excess_target_assignments": 0,
+    "matching_sha256": "65a1648f0e07d230dfb488328987f416ce76da55e7c2f3292e5bbc50a74fcc94",
+    "streaming_validation": "PASS: full row order, IDs through trusted index, candidate equality, subset, uniqueness and finite scores"
+  }
+}

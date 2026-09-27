@@ -1,0 +1,11 @@
+{
+  "epoch": 1,
+  "calibration_logloss": 0.10716694217111467,
+  "model": "microsoft/Multilingual-MiniLM-L12-H384",
+  "frozen_embeddings": true,
+  "fit_anchors": 14000,
+  "calibration_anchors": 3000,
+  "selection_anchors": 3000,
+  "parameters": 117654530,
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}

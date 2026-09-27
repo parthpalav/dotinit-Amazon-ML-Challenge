@@ -1,0 +1,74 @@
+{
+  "champion": {
+    "precision": 0.9671824603174602,
+    "recall": 0.8886453823953824,
+    "f0.5": 0.9402966815099241,
+    "f1": 0.9141253330656273,
+    "singleton_accuracy": 0.9113475177304965,
+    "true_positive": 15325,
+    "false_positive": 336,
+    "false_negative": 1923,
+    "true_negative_all_possible": 51601077416,
+    "false_positive_rate": 6.5114919036158505e-09,
+    "predicted_positive": 15661,
+    "predicted_negative_candidates": 144301,
+    "predicted_positive_rate": 0.09790450231930084,
+    "country_f05": {
+      "India": 0.9128508032864913,
+      "US": 0.9577704075801621
+    }
+  },
+  "compact": {
+    "precision": 0.9728204761904763,
+    "recall": 0.9148752236652237,
+    "f0.5": 0.9544547641583712,
+    "f1": 0.935141506532683,
+    "singleton_accuracy": 0.9397163120567376,
+    "true_positive": 15806,
+    "false_positive": 197,
+    "false_negative": 1442,
+    "true_negative_all_possible": 51601077555,
+    "false_positive_rate": 3.8177497172985795e-09,
+    "predicted_positive": 16003,
+    "predicted_negative_candidates": 143959,
+    "predicted_positive_rate": 0.10004251009614784,
+    "country_f05": {
+      "India": 0.9383751750365069,
+      "US": 0.9646920148431585
+    },
+    "paired_delta": 0.01415808264844698,
+    "paired_95ci": [
+      0.011403087612556272,
+      0.016737511968910997
+    ]
+  },
+  "oof": {
+    "precision": 0.9747057142857144,
+    "recall": 0.927799191919192,
+    "f0.5": 0.9595655990423193,
+    "f1": 0.9437498546877959,
+    "singleton_accuracy": 0.9468085106382979,
+    "true_positive": 16040,
+    "false_positive": 214,
+    "false_negative": 1208,
+    "true_negative_all_possible": 51601077538,
+    "false_positive_rate": 4.1472002005172385e-09,
+    "predicted_positive": 16254,
+    "predicted_negative_candidates": 143708,
+    "predicted_positive_rate": 0.10161163276278116,
+    "country_f05": {
+      "India": 0.9466746191048833,
+      "US": 0.9677727859419307
+    },
+    "paired_delta": 0.01926891753239515,
+    "paired_95ci": [
+      0.01633633495406216,
+      0.022321051570129397
+    ],
+    "delta_vs_compact": 0.005110834883948167,
+    "ci_vs_compact": [
+      0.002804110293783374,
+      0.0074230913955484175
+    ]
+  }
+}

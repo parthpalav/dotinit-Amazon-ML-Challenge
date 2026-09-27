@@ -1,0 +1,4 @@
+NEURAL_DEVICE NVIDIA GeForce RTX 4060 Laptop GPU
+NEURAL_TEST {"last_completed_anchor": 1000, "anchors_this_run": 1000, "neural_pairs_this_run": 5970, "seconds": 20.43119478225708, "anchors_per_second": 48.94476366445407, "estimated_remaining_seconds": 20.43119478225708, "complete": false, "device": "NVIDIA GeForce RTX 4060 Laptop GPU"}
+NEURAL_TEST {"last_completed_anchor": 2000, "anchors_this_run": 2000, "neural_pairs_this_run": 11750, "seconds": 24.011810302734375, "anchors_per_second": 83.29234550767076, "estimated_remaining_seconds": 0.0, "complete": false, "device": "NVIDIA GeForce RTX 4060 Laptop GPU"}
+NEURAL_TEST_DONE 2000 24.012810707092285

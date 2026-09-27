@@ -1,0 +1,60 @@
+Collecting transformers==4.57.6
+  Downloading transformers-4.57.6-py3-none-any.whl.metadata (43 kB)
+Collecting sentencepiece==0.2.1
+  Downloading sentencepiece-0.2.1-cp312-cp312-win_amd64.whl.metadata (10 kB)
+Collecting filelock (from transformers==4.57.6)
+  Downloading filelock-4.0.4-py3-none-any.whl.metadata (2.0 kB)
+Collecting huggingface-hub<1.0,>=0.34.0 (from transformers==4.57.6)
+  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: numpy>=1.17 in c:\users\parth\desktop\cs\amazon\.init-amazon-ml-challenge\.venv\lib\site-packages (from transformers==4.57.6) (2.5.3)
+Requirement already satisfied: packaging>=20.0 in c:\users\parth\desktop\cs\amazon\.init-amazon-ml-challenge\.venv\lib\site-packages (from transformers==4.57.6) (26.3)
+Collecting pyyaml>=5.1 (from transformers==4.57.6)
+  Downloading pyyaml-6.0.3-cp312-cp312-win_amd64.whl.metadata (2.4 kB)
+Collecting regex!=2019.12.17 (from transformers==4.57.6)
+  Downloading regex-2026.9.10-cp312-cp312-win_amd64.whl.metadata (41 kB)
+Collecting requests (from transformers==4.57.6)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.6)
+  Downloading tokenizers-0.22.2-cp39-abi3-win_amd64.whl.metadata (7.4 kB)
+Collecting safetensors>=0.4.3 (from transformers==4.57.6)
+  Downloading safetensors-0.8.0-cp310-abi3-win_amd64.whl.metadata (4.2 kB)
+Collecting tqdm>=4.27 (from transformers==4.57.6)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub<1.0,>=0.34.0->transformers==4.57.6)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting typing-extensions>=3.7.4.3 (from huggingface-hub<1.0,>=0.34.0->transformers==4.57.6)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: colorama in c:\users\parth\desktop\cs\amazon\.init-amazon-ml-challenge\.venv\lib\site-packages (from tqdm>=4.27->transformers==4.57.6) (0.4.6)
+Collecting charset_normalizer<4,>=2 (from requests->transformers==4.57.6)
+  Downloading charset_normalizer-3.5.1-cp312-cp312-win_amd64.whl.metadata (46 kB)
+Collecting idna<4,>=2.5 (from requests->transformers==4.57.6)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests->transformers==4.57.6)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests->transformers==4.57.6)
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Downloading transformers-4.57.6-py3-none-any.whl (12.0 MB)
+   ---------------------------------------- 12.0/12.0 MB 2.9 MB/s eta 0:00:00
+Downloading sentencepiece-0.2.1-cp312-cp312-win_amd64.whl (1.1 MB)
+   ---------------------------------------- 1.1/1.1 MB 3.0 MB/s eta 0:00:00
+Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+   ---------------------------------------- 566.4/566.4 kB 3.9 MB/s eta 0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-win_amd64.whl (154 kB)
+Downloading regex-2026.9.10-cp312-cp312-win_amd64.whl (277 kB)
+Downloading safetensors-0.8.0-cp310-abi3-win_amd64.whl (355 kB)
+Downloading tokenizers-0.22.2-cp39-abi3-win_amd64.whl (2.7 MB)
+   ---------------------------------------- 2.7/2.7 MB 2.6 MB/s eta 0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading filelock-4.0.4-py3-none-any.whl (108 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading charset_normalizer-3.5.1-cp312-cp312-win_amd64.whl (200 kB)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Installing collected packages: urllib3, typing-extensions, tqdm, sentencepiece, safetensors, regex, pyyaml, idna, fsspec, filelock, charset_normalizer, certifi, requests, huggingface-hub, tokenizers, transformers
+Successfully installed certifi-2026.7.22 charset_normalizer-3.5.1 filelock-4.0.4 fsspec-2026.9.0 huggingface-hub-0.36.2 idna-3.20 pyyaml-6.0.3 regex-2026.9.10 requests-2.34.2 safetensors-0.8.0 sentencepiece-0.2.1 tokenizers-0.22.2 tqdm-4.70.1 transformers-4.57.6 typing-extensions-4.16.0 urllib3-2.8.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: C:\Users\parth\Desktop\CS\amazon\.init-Amazon-ML-Challenge\.venv\Scripts\python.exe -m pip install --upgrade pip

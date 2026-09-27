@@ -1,0 +1,2 @@
+-r requirements-windows-tested.txt
+anyascii==0.3.3

@@ -1,6 +1,21 @@
+> **Latest result:** France-only rollback scored **0.941** and is not promoted. Main and alias remain best at **0.942**. Further work is auditing matching errors and validation realism; no country rollback is recommended.
+
 # Campaign beyond Amazon 0.931
 
 ## Current state
+**Latest Amazon feedback:** main and alias both scored **0.942**. A separate, unscored France-only rollback diagnostic is ready at `outputs/campaign_0942_france_baseline/matching_results.tsv`. It preserves main US/India predictions exactly and restores prior France predictions. Do not assume it beats 0.942 until evaluated.
+
+**Delivery complete:** both full submissions are exported and officially validated. No campaign compute job remains running. Recommended first evaluation: `outputs/campaign_0931_oof_alias_unique/matching_results.tsv`; main comparison: `outputs/campaign_0931_oof_unique/matching_results.tsv`. User reported **0.942 on both files on 2026-09-27**, an absolute gain of 0.011 over the previous 0.931. They are tied at the reported precision.
+
+| Output | Matches | Candidates | Fresh confirmation macro F0.5 |
+|---|---:|---:|---:|
+| Main contextual unique-owner | 5,753,928 | 55,431,940 | 0.959566 |
+| Contextual + alias unique-owner | 5,768,373 | 58,313,891 | 0.960144 |
+
+Both cover all 1,732,544 anchors, have 108,973 empty rows and zero duplicate target ownership. Baseline on the same fresh confirmation is 0.940297. Final suite: 59 tests passed. Full streaming candidate/subset/coverage checks and official matching-ID validation passed for both files. Official-validator optional-candidate warnings are expected because candidates were checked separately in bounded memory. Main comparison and alias-only changes are in `main_output_audit.json` and `alias_output_audit.json`; final manifests are in `delivery.json`.
+
+**Current execution command:** `python -u -m src.campaign_run --main-workers 6 --alias-workers 2`. It resumes the main submission first, then the independently confirmed alias-enhanced submission. Stages run sequentially to avoid RAM/cache contention. Live stage: `reports/campaign_0931/coordinator.json`. Earlier worker-count notes below are historical experiments.
+
 Active on `parth`, C: working repo. `F:/dotinit-Amazon-ML-Challenge` is read-only reference. User reports Amazon **0.920** pair threshold and **0.931** unique owner. A5000 unavailable; local RTX4060 8GB / 16GB system RAM. New work must be bounded-memory and resumable. Preserve the proven model and submissions; an old model is still useful as a control or ensemble member.
 
 ## Verified constraints and baseline
@@ -69,3 +84,77 @@ Retrieval audit:784 true pairs absent from the old validation candidate pool;363
 Full suite:52 tests passed. End-to-end completion command now `python -u -m src.campaign_finish --workers 6` after v4 confirmation. It chooses OOF only if paired CI versus compact is positive, checkpoints scoring, preserves interrupted exports, and runs official matching-ID validation. Full candidate equality/subset validation is streamed during export to avoid the supplied validator's high-memory all-candidates mapping on16GB RAM.
 
 Implementation checkpoint: the ensemble-support edit introduced an indentation error caught by a targeted recheck; corrected before production execution. Added a deployment prediction/portable-ensemble regression test. Compile-all and six targeted tests pass. Scoring now writes an explicit complete=true progress record at full completion. The earlier 2,000-anchor benchmark directory has the old code signature; production uses separate `test_final_*` directories.
+
+## Checkpoint: second fresh confirmation PASSED; production selected
+Fresh `confirmation_v4` excludes all prior55,000 anchors. Champion **0.940297**, initial compact **0.954455**, expanded OOF reranker **0.959566**. OOF versus champion: TP15,325 ->16,040; FP336 ->214; FN1,923 ->1,208. Paired delta+0.019269,95%CI[+0.016336,+0.022321]. Versus compact: delta+0.005111,95%CI[+0.002804,+0.007423]. US0.957770 ->0.967773; India0.912851 ->0.946675. France has no labeled validation and remains an explicit generalization uncertainty.
+
+Production selects `oof_compact_d9.joblib`, SHA256 `b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651`, threshold0.6000000000000002. Main production will retain global unique ownership and exact-tie abstention. A12,000-anchor six-worker benchmark uses `work/campaign_0931/test_final_oof`; those completed shards will be reused immediately by `src.campaign_finish --workers 6`. Follow `production_scoring.log`, `work/campaign_0931/test_final_oof/progress.json`, and `production_plan.json`. Do not edit fingerprinted scoring/feature modules during the run.
+
+Alias selection experiment remains separate:17,835 new candidate proposals on3,247 of10,000 selection anchors. No candidate expansion has been applied to production. It must improve independent confirmation before promotion.
+
+## Checkpoint: conservative alias expansion independently confirmed
+Using the unchanged0.60 cutoff on newly proposed aliases harmed selection F0.5. A separate added-pair cutoff0.975 was selected on old validation (+63TP,+6FP;F0.5 0.961505 ->0.961902), frozen, then evaluated on v4. Confirmation: **+37 true links,0 additional false links**, macro F0.5 **0.959566 ->0.960144**, paired delta+0.000578,95%CI[+0.000327,+0.000896]. See `alias_frozen.json` and `alias_confirmation_decision.json`.
+
+Preparing a separate alias-enhanced output. The main output stays unchanged. For full-data deployment, additions will be restricted to targets not already assigned in the main unique-owner output; this preserves every existing accepted match and avoids comparing the differently calibrated candidate populations when displacing owners. The random-anchor confirmation has no accepted ownership collisions, so this full-graph safeguard cannot be measured directly there. All newly scored candidates, including rejected ones, must be included in the expanded candidate TSV.
+
+`src/campaign_alias_scoring.py` follows completed main scoring shards, uses one worker by default, and checkpoints every100anchors. It refuses changed model/code/recipe signatures. No recursive propagation: only main-model predictions >=.95 supply one-hop aliases. The main production is approximately400-500anchors/sec; conservative alias work runs separately and may finish later.
+
+## Resource checkpoint: rebalance parallel jobs
+The alias pilot was too slow because it loaded full target rows for IDs and recomputed peer/detail features for anchors with no additions. Optimized packed-ID reads and affected-anchor filtering reproduce all checked probabilities exactly (100 mixed anchors; see the added-pair count in parity JSON). New alias cache is `work/campaign_0931/test_alias_v2`, with500-anchor checkpoints; the original pilot cache remains preserved but unused. Alias export/owner/tie tests passed (7 targeted tests total).
+
+Running6 main workers plus1 alias worker reduced available RAM below1GB. Rebalancing the main scorer to4 workers, preserving all completed shards. This is a resource adjustment, not a restart from zero. Current completion commands: `python -u -m src.campaign_finish --workers 4` and `python -u -m src.campaign_alias_finish --workers 1`. Both completion scripts automatically export and run official matching-ID validation. Alias additions never remove a main accepted owner. Do not start duplicate copies while these jobs are already active.
+
+## Current resource decision: sequential main then alias
+Concurrent execution reduced main throughput substantially despite the lower worker count. To get a validated main submission sooner and avoid memory/cache contention, the coordinator now runs main scoring/export/validation with6workers, then resumes the alias stage with up to4workers (bounded by available RAM). Every existing main and alias checkpoint is preserved. Single resume command: `python -u -m src.campaign_run --main-workers 6 --alias-workers 4`. It skips already validated, hash-matching outputs. Main progress and alias progress remain in their respective work directories; `coordinator.json` identifies the active stage. No more model/feature changes are planned during full inference.
+
+## Checkpoint: concurrent Phase 8 merge and index compatibility
+Merged remote `ddc16e7` into `parth` without replacing the confirmed campaign. Its best reported local F0.5 is 0.932878, versus this campaign's selection 0.961505; its wider retrieval remains an experiment. The incoming root blocking reports describe its cap-64 pool, not this campaign's frozen 55,431,940 candidates.
+
+The incoming native supplemental key layout was incompatible with existing indexes. Preserved it as `src/native/supplement_phase8.cpp`, restored the legacy default, and require explicit `AMAZON_SUPPLEMENT_VARIANT=phase8` for that experiment. Native loading now checks the index manifest's source hash. Rebuilding supplemental packed records refuses shared links, preventing accidental truncation of existing assets; the experimental rebuild creates private packed records and uses Windows-compatible hardlinks only for immutable inputs. It has NOT been run. Targeted integration tests: 20 passed. Existing legacy native hash and fresh confirmation feature-cache signature still match exactly. No running inference feature/model files changed.
+
+At this checkpoint main scoring passed 922,000 / 1,732,544 anchors at about 463 anchors/sec; sequential coordinator continues automatically into alias scoring, export and validation. Resume with the command at the top of this report. New outputs are not ready until their production plan says `ready_for_amazon_evaluation`.
+
+Full post-merge verification: 56 tests passed in 58.53 seconds (reports/campaign_0931/integration_tests.log).
+
+
+Model handover: `transfer/campaign-0931-models.zip` contains both required model weights, frozen recipes, dependencies and license/model card. Every extracted byte hash was verified. This is a weights-only add-on, NOT a replacement for the original dataset/index assets or complete base score cache. ZIP manifest/hash: `reports/campaign_0931/model_bundle.json`. Both old and new models remain in place because inference requires both.
+
+
+## Checkpoint: full main inference complete
+All 1,732,544 anchors / 55,431,940 original candidates have been scored. `work/campaign_0931/test_final_oof/SCORING_COMPLETE.json` exists. The final resumed segment processed 1,188,544 anchors in 2,522 seconds (about 471/sec). Main export and official matching-ID validation are now active; the sequential coordinator will then resume alias inference automatically. Do not submit a partially written output; check the corresponding production plan for `ready_for_amazon_evaluation`.
+
+
+## Checkpoint: main submission READY
+`outputs/campaign_0931_oof_unique/matching_results.tsv` is complete: 1,732,544 rows, 5,753,928 matches, 108,973 empty rows, zero duplicate target ownership. SHA256 `65a1648f0e07d230dfb488328987f416ce76da55e7c2f3292e5bbc50a74fcc94`. Full streaming candidate equality/subset/coverage checks passed; official matching validator with `--check-ids` passed. Its optional candidate-file warning is expected: the separate full streaming checks covered all 55,431,940 candidates without materializing the huge candidate file in the official validator. Export took 134.8 seconds.
+
+Full output comparison: +427,927 links and -105,303 links versus the preserved 0.931 output; this is not a labeled test gain. France count changed 869,115 -> 874,265; US 2,091,035 -> 2,218,776; India 2,471,154 -> 2,660,887. Report: `reports/campaign_0931/main_output_audit.json`. User was asked for the Amazon score of this ready main file while alias inference continues. Coordinator selected 3 alias workers based on available RAM.
+
+
+## Checkpoint: global tie safeguard and runtime profile
+A complete main-score audit found only seven targets with tied top scores above the matching threshold (all seven also above .975). Alias export now requires an otherwise eligible new winner to strictly exceed any prior main score, so an alias cannot turn a tied main abstention into a lower/equal-scoring assignment. Existing accepted main owners remain untouched. Four exporter edge-case tests passed. Rechecking the fresh confirmation found zero high-score ties and zero affected alias decisions: the confirmed .960144 result is unchanged. This correctness safeguard is not claimed as a measured Amazon gain. Reports: `main_tie_audit.json`, `alias_tie_tests.log`, `alias_tie_confirmation.json`. No inference feature/model code changed or checkpoints invalidated.
+
+One completed 500-anchor alias batch reproduced its saved scores exactly under profiling. Most time was database reads and peer/detail text features; model prediction was not the dominant cost. Alias throughput improved after initial warm-up; 486,500 anchors completed at this checkpoint. The ready main output is committed/pushed as `b575be8`; alias inference continues under the same coordinator.
+
+Final regression suite after the alias ownership safeguard: **59 passed in 44.76 seconds**. Log: reports/campaign_0931/final_regression_tests.log. No further model or rule changes are planned before Amazon evaluation.
+
+
+## Checkpoint: late-run memory adjustment
+With about 1.3 million alias anchors complete, free RAM fell to 0.85 GB and recent throughput dropped from roughly 600-750 to about 300 anchors/sec. Stopped only the verified campaign process tree and resumed all saved checkpoints with two alias workers. New current command: `python -u -m src.campaign_run --main-workers 6 --alias-workers 2`. Main output is already validated and is skipped automatically. No model/feature changes or rescoring of completed shards. Original coordinator process/session has ended; replacement execution session is 35865.
+
+
+Model-bundle reproduction: `python -m src.campaign_model_bundle`. The verified ~15 MB ZIP now extracts only into ignored `artifacts/` and `transfer/` paths; provenance documents are nested inside the transfer folder, so extraction cannot overwrite newer tracked reports/configuration. This is still a weights-only add-on, not the complete assets/checkpoints ZIP.
+
+
+## Final delivery checkpoint
+Alias inference completed all 1,732,544 anchors and scored 2,881,951 additional pairs. The final file adds 14,445 links (India 14,010; US 172; France 263), removes zero main links and changes zero singleton decisions. 445 high-confidence alias assignments to already-owned targets were excluded. The main-tie safeguard blocked zero final winners. Alias matching SHA256: `227698d86146a4feb9858c9f35ffb89068dab665d5d1a0a7a2b169967aa8ad0e`; expanded candidate SHA256: `009d58359ea7a9559ed861444d74994b4c7ea76b9d8031fc87ffd215e057327b`. Official validator passed, and the coordinator exited successfully.
+
+Next meaningful evidence is the Amazon score of the new submissions. Do not treat the training-derived .960144 as an Amazon result. Test labels are unavailable, and France remains an unlabeled generalization risk. Keep the proven .931 output on F as the fallback. No original model or submission was deleted, and F was never modified.
+
+
+## Amazon feedback: 2026-09-27
+User reports main **0.942**, alias **0.942**. Gain over previous best: +0.011. Alias improvement is not demonstrated at the reported precision. Local confirmation .959566/.960144 must not be confused with these Amazon scores. Aggregate scores do not identify the country responsible for the generalization gap.
+
+Next diagnostic submission: keep the main 0.942 US/India predictions exactly unchanged, restore only France from the preserved 0.931 unique-owner output, and reuse the unchanged original candidate pool. This is a country-transfer experiment, not a validated improvement. France has no labeled holdout; this hybrid therefore has no measured France accuracy or promised Amazon score. No retraining is needed. Preserve both 0.942 outputs.
+
+
+France diagnostic READY: 1,732,544 rows, 5,748,778 matches, 108,911 empty rows, zero duplicate ownership. Exactly 40,380 France rows change versus main; zero US/India rows change. Same 55,431,940 candidates. Streaming full-row/subset/ownership checks and official matching-ID validator passed. Two dedicated tests passed, including a deliberately conflicting cross-country ownership case. Matching SHA256: `d03c1d19b821698562f57e4021606aeb4541632019165fa89a06cb1d98119ab0`. Reproduce with `python -X utf8 -m src.campaign_country_hybrid` (requires preserved baseline output; refuses overwriting an existing output). No training, model changes or F writes. Score is unknown.

@@ -1,0 +1,81 @@
+{
+  "kind": "Weights only; dataset/index/score caches are separate",
+  "restore": "Extract ZIP at repo root on parth; ignored artifacts/ and transfer/ are written. Install requirements-neural.txt in addition to base environment. Follow RETHINK.md.",
+  "files": {
+    "artifacts/improvements/catboost_d10_evidence.joblib": {
+      "sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
+      "bytes": 39623384
+    },
+    "artifacts/campaign_0931/oof_compact_d9.joblib": {
+      "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+      "bytes": 17259032
+    },
+    "artifacts/campaign_0942/raw_minimal_d7.joblib": {
+      "sha256": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49",
+      "bytes": 3372058
+    },
+    "artifacts/campaign_0942/raw_reverse_d7.joblib": {
+      "sha256": "b0cc2a53ad443beec3d7186b0f68f008ac97ee460d46f49a8ed4f8b51f6c9f5b",
+      "bytes": 4294454
+    },
+    "artifacts/campaign_0942/neural_stack_d3.joblib": {
+      "sha256": "2dc1cf1e5653b8c48f19cc7bf70c864152d3b6b2ea397ba31b743801e6d8ac23",
+      "bytes": 75247
+    },
+    "artifacts/campaign_0942/joint_stack_d3.joblib": {
+      "sha256": "00b39053aac646361cd3a23b3f3752ceb7803e648bed35488caeebc7b4be2541",
+      "bytes": 75405
+    },
+    "artifacts/campaign_0942/neural_minilm/model.safetensors": {
+      "sha256": "69de1509f43b8735d7d8abb7fff1c37f2d8acde8533c00b912a49ccaac7bd406",
+      "bytes": 470641664
+    },
+    "artifacts/campaign_0942/neural_minilm/config.json": {
+      "sha256": "cb1da43e713b16aed0ae03057d5edca3fe3ae901ad537a6cd4eaa2235e6c17fc",
+      "bytes": 717
+    },
+    "artifacts/campaign_0942/neural_minilm/sentencepiece.bpe.model": {
+      "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+      "bytes": 5069051
+    },
+    "artifacts/campaign_0942/neural_minilm/special_tokens_map.json": {
+      "sha256": "8574792bfefae68f2ce2eae93a4145d95b1232c59e71094bcdcb49dbcb549c97",
+      "bytes": 295
+    },
+    "artifacts/campaign_0942/neural_minilm/tokenizer_config.json": {
+      "sha256": "5ea071e31cef414d6e6c55a90e80fd27a4308095eb12a4bfe83653863e66a367",
+      "bytes": 1287
+    },
+    "transfer/campaign_0942_ensemble_bundle/reports/campaign_0942/frozen_v6.json": {
+      "sha256": "1ddc9dee52ffbdfd28e71b5773b0f7201ebd97d7f7ddcb582e554397524555f4",
+      "bytes": 3321
+    },
+    "transfer/campaign_0942_ensemble_bundle/requirements-neural.txt": {
+      "sha256": "c762fde56eeb3d265b0eefb035bbc924d510a9dc764f7a50d0777d371106c246",
+      "bytes": 307
+    },
+    "transfer/campaign_0942_ensemble_bundle/requirements-campaign-tested.txt": {
+      "sha256": "1446dd2fdc969b4cd35a93f9356889bbc083dfdbe0832454ed8b54ee6eeae371",
+      "bytes": 52
+    },
+    "transfer/campaign_0942_ensemble_bundle/reports/CAMPAIGN_0942_MODEL_CARD.md": {
+      "sha256": "f923a2fd39ff31bd6158d2b05fd2293214220a7448b6a93278c0f8db61fabc62",
+      "bytes": 5653
+    },
+    "transfer/campaign_0942_ensemble_bundle/reports/CAMPAIGN_MODEL_LICENSE.txt": {
+      "sha256": "0909ae6a9ce736aec9733edc70e28c88b813fd6116db9f1ab040d9d146fe75ca",
+      "bytes": 1288
+    },
+    "transfer/campaign_0942_ensemble_bundle/reports/campaign_0942/confirmation_v6.json": {
+      "sha256": "af0818008ce1e54e8a56705b1eccf78b1c0ac3d38837f6194ab821ebb1b15cb8",
+      "bytes": 5702
+    },
+    "transfer/campaign_0942_ensemble_bundle/reports/campaign_0942/ensemble_production.json": {
+      "sha256": "f258fc3b331a0141e5182f7151de1713ae828c780f4a2bb060450cd9c5e1d87a",
+      "bytes": 83
+    }
+  },
+  "zip_path": "transfer\\campaign-0942-ensemble-models.zip",
+  "zip_sha256": "946a89b46712ea4a61cf8827d4adedbc16126c31d9d8fbc7ba0c5d8f2d669174",
+  "verified": true
+}
