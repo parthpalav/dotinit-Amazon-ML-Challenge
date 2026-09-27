@@ -1,0 +1,19 @@
+ALIAS_PROPOSALS confirmation_v4 9394 1645
+ALIAS_SCORED 0 2.3
+ALIAS_SCORED 100 4.4
+ALIAS_SCORED 200 7.2
+ALIAS_SCORED 300 9.2
+ALIAS_SCORED 400 11.7
+ALIAS_SCORED 500 14.3
+ALIAS_SCORED 600 16.5
+ALIAS_SCORED 700 18.9
+ALIAS_SCORED 800 21.5
+ALIAS_SCORED 900 23.5
+ALIAS_SCORED 1000 25.8
+ALIAS_SCORED 1100 28.2
+ALIAS_SCORED 1200 30.9
+ALIAS_SCORED 1300 33.3
+ALIAS_SCORED 1400 35.7
+ALIAS_SCORED 1500 37.8
+ALIAS_SCORED 1600 38.7
+ALIAS_RESULT {"split": "confirmation_v4", "seed_threshold": 0.95, "max_name_posting": 20, "new_candidates": 9394, "new_true_candidates": 72, "old_pair": {"precision": 0.9747057142857144, "recall": 0.927799191919192, "f0.5": 0.9595655990423193, "f1": 0.9437498546877959, "singleton_accuracy": 0.9468085106382979, "true_positive": 16040, "false_positive": 214, "false_negative": 1208, "true_negative_all_possible": 51601077538, "false_positive_rate": 4.1472002005172385e-09, "predicted_positive": 16254, "predicted_negative_candidates": 143708, "predicted_positive_rate": 0.10161163276278116}, "new_pair": {"precision": 0.9734708874458875, "recall": 0.9305101443001443, "f0.5": 0.9593784687877527, "f1": 0.9447219370498784, "singleton_accuracy": 0.9468085106382979, "true_positive": 16099, "false_positive": 252, "false_negative": 1149, "true_negative_all_possible": 51601077500, "false_positive_rate": 4.883618927711888e-09, "predicted_positive": 16351, "predicted_negative_candidates": 153005, "predicted_positive_rate": 0.09654809986064858}, "old_unique": {"precision": 0.9747057142857144, "recall": 0.927799191919192, "f0.5": 0.9595655990423193, "f1": 0.9437498546877959, "singleton_accuracy": 0.9468085106382979, "true_positive": 16040, "false_positive": 214, "false_negative": 1208, "true_negative_all_possible": 51601077538, "false_positive_rate": 4.1472002005172385e-09, "predicted_positive": 16254, "predicted_negative_candidates": 143708, "predicted_positive_rate": 0.10161163276278116}, "new_unique": {"precision": 0.9734708874458875, "recall": 0.9305101443001443, "f0.5": 0.9593784687877527, "f1": 0.9447219370498784, "singleton_accuracy": 0.9468085106382979, "true_positive": 16099, "false_positive": 252, "false_negative": 1149, "true_negative_all_possible": 51601077500, "false_positive_rate": 4.883618927711888e-09, "predicted_positive": 16351, "predicted_negative_candidates": 153005, "predicted_positive_rate": 0.09654809986064858}}

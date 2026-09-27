@@ -1,15 +1,38 @@
-> **Current local Mac run — user-reported Amazon 0.94, target 0.98:** see [the local runbook](reports/LOCAL_098_CAMPAIGN.md) and `reports/local_098_v1/status.json`. The CPU improvement run uses separate artifacts and submissions, a fresh confirmation gate, and no audits. A hidden-test score is not guaranteed. The older Windows journals and restart commands below are historical for this machine.
+> **Active follow-up (2026-09-27):** Fresh 5,000-anchor validation improved from **0.95994 to 0.96732**, with false matches reduced from **233 to 143**. **New submission ready:** `outputs/campaign_0942_raw_unique/matching_results.tsv` (official validator PASS). Full-test correction is complete. **Neural ensemble confirmed on fresh v6: 0.96622 -> 0.97374; full test inference is running on RTX4060.** Resume end-to-end with `python -X utf8 -u -m src.campaign_ensemble_run`. This is local evidence, not an Amazon score; the evaluated champion remains **0.942**. See [live handover](reports/campaign_0942/RETHINK.md) for results, commands, and concurrent reverse-retrieval/neural experiments.
 
-> **Previous campaign beyond Amazon 0.931:** see [the prior experiment journal](reports/CAMPAIGN_0931.md). Its F: reference paths belong to the Windows machine, not this Mac.
+> **Latest result:** France-only rollback scored **0.941** and is not promoted. Main and alias remain best at **0.942**. Further work is auditing matching errors and validation realism; no country rollback is recommended.
 
-> **Historical transfer checkpoint:** the old run stopped locally at 133,000 anchors and subsequently completed on the A5000. Its unique-owner output scored **0.931 on Amazon** (team-reported). The laptop is now running the new campaign linked above.
+> **Completed campaign beyond Amazon 0.931:** see [current experiment journal](reports/CAMPAIGN_0931.md). Work is on `parth`; F: is read-only reference. Older transfer/stopped notices below describe the previous run.
+
+> **Historical transfer checkpoint:** the old run stopped locally at 133,000 anchors and subsequently completed on the A5000. Its unique-owner output scored **0.931 on Amazon** (team-reported). The laptop has completed the newer campaign linked above.
 
 > **Earlier improvement campaign (historical):** the original Amazon baseline was **0.842**. [Earlier findings](reports/IMPROVEMENT_STATUS.md) document the changes that led to **0.920 pair-threshold / 0.931 unique-owner** scores. The current journal supersedes its status and restart instructions.
 # Business Entity Resolution
 
 An offline Python pipeline for the problem described in the supplied **Amazon ML Challenge 2026 – Business Entity Resolution Challenge** specification. Source 1 is the deduplicated reference; each record may match zero, one, or several Source 2/3 records. The implementation does not verify competition rules or claim a competition score.
 
-## Current Windows improvement workflow
+## Current contextual matching campaign
+
+**Amazon update (2026-09-27): both main and alias scored 0.942.** The France-only rollback scored **0.941**, so it is rejected. The newly completed raw correction is the next submission to evaluate.
+
+Both new submissions are complete and officially validated:
+
+- **Evaluated alias version (Amazon 0.942):** `outputs/campaign_0931_oof_alias_unique/matching_results.tsv` (5,768,373 matches).
+- **Evaluated main version (Amazon 0.942):** `outputs/campaign_0931_oof_unique/matching_results.tsv` (5,753,928 matches).
+
+Fresh confirmation macro F0.5 improved from **0.940297** to **0.959566**, then **0.960144** with conservative alias additions. These are local confirmation scores. On 2026-09-27, the user reported **0.942 on both new Amazon submissions**, up from **0.931**. The alias gain is not demonstrated at the reported precision. Both files cover all 1,732,544 anchors, have no duplicate target ownership, and passed full streaming integrity checks plus official matching-ID validation. All **59 regression tests passed**. The alias file preserves every main match and adds 14,445 links. Each output folder includes its corresponding `candidate_pairs.tsv`; use the expanded candidate file with the alias output.
+
+See the [model card](reports/CAMPAIGN_MODEL_CARD.md), [experiment journal and handover](reports/CAMPAIGN_0931.md), and `reports/campaign_0931/delivery.json`. Both required model weights are preserved; a verified weights-only add-on is at `transfer/campaign-0931-models.zip` (rebuild with `python -m src.campaign_model_bundle`). This ZIP does not replace dataset/index/base-score assets.
+
+Check/reuse the completed workflow from this repository on `parth` (validated outputs are skipped automatically):
+
+```powershell
+.\.venv\Scripts\python.exe -u -m src.campaign_run --main-workers 6 --alias-workers 2
+```
+
+Install `requirements-campaign-tested.txt` in a restored environment. This workflow reuses the complete verified base scores imported from F, plus the two model artifacts listed in the model card. F remains read-only. The older `complete_improvements` command reproduces the earlier baseline, not this campaign.
+
+## Earlier Windows workflow (0.931 baseline)
 
 See [the Windows runbook](reports/WINDOWS_IMPROVEMENTS.md) for reproducible commands, results, preserved baseline files, and limitations. GPU CatBoost with 113 evidence features reached **0.943147 selection F0.5**, versus **0.875670** for the original forest on the same anchors. This is not an Amazon evaluation score. A fresh 5,000-anchor confirmation achieved **0.943215**, versus **0.878801** baseline; details are in `reports/improvements/confirmation_evaluation.json`. Full improved inference was stopped by the user for transfer; see `reports/improvements/completion_status.json` for live state. All **45 tests passed** on Windows, including native retrieval, export, and exact provenance replay.
 

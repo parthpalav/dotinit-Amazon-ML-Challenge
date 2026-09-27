@@ -1,0 +1,41 @@
+{
+  "kind": "Weights-only add-on; dataset/index/main-score cache not included",
+  "restore": "Extract into repo root on parth; only ignored artifacts/ and transfer/ paths are written. Follow tracked README and RETHINK.md for current commands.",
+  "files": {
+    "artifacts/improvements/catboost_d10_evidence.joblib": {
+      "sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
+      "bytes": 39623384
+    },
+    "artifacts/campaign_0931/oof_compact_d9.joblib": {
+      "sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+      "bytes": 17259032
+    },
+    "artifacts/campaign_0942/raw_minimal_d7.joblib": {
+      "sha256": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49",
+      "bytes": 3372058
+    },
+    "transfer/campaign_0942_bundle/reports/CAMPAIGN_0942_MODEL_CARD.md": {
+      "sha256": "810664c2cdd0144e3b675e0f0f36e39c588d4395761acc804e17be7146d9e1a7",
+      "bytes": 4069
+    },
+    "transfer/campaign_0942_bundle/reports/CAMPAIGN_MODEL_LICENSE.txt": {
+      "sha256": "0909ae6a9ce736aec9733edc70e28c88b813fd6116db9f1ab040d9d146fe75ca",
+      "bytes": 1288
+    },
+    "transfer/campaign_0942_bundle/reports/campaign_0942/minimal_frozen_v5.json": {
+      "sha256": "346d123b971cb15e0d5e536b1acdb0e8b71b25cd9628f5bfb49f826b3852e4de",
+      "bytes": 1035
+    },
+    "transfer/campaign_0942_bundle/reports/campaign_0942/minimal_confirmation_v5.json": {
+      "sha256": "3443adafba1a7b0e7912811ea01522b1726c86c75948b6ecb7e0970cd084e564",
+      "bytes": 2298
+    },
+    "transfer/campaign_0942_bundle/requirements-campaign-tested.txt": {
+      "sha256": "1446dd2fdc969b4cd35a93f9356889bbc083dfdbe0832454ed8b54ee6eeae371",
+      "bytes": 52
+    }
+  },
+  "zip_path": "transfer\\campaign-0942-models.zip",
+  "zip_sha256": "2f498ce9e87e200e2db7f547b7410240bb2ea0360976766caca3b7b30b6e7d71",
+  "verified": true
+}

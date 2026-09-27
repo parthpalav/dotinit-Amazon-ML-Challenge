@@ -1,14 +1,3 @@
-{
-  "anchors": 1732544,
-  "pairs": 55431940,
-  "matches": 5626387,
-  "empty": 110280,
-  "unique_owner": false,
-  "threshold": 0.6750000000000003,
-  "model_sha256": "1e55e08605fc84b83ab3e0c5b59126d5e853c0dcd2f7b8de94f475363aea6f69",
-  "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
-  "duplicate_target_ids": 86460,
-  "excess_target_assignments": 194994,
-  "matching_sha256": "024ff196eff0e35d5930e67e4631aff6707f92c0eaf5e1b4d2b896f9b56fde0e",
-  "streaming_validation": "PASS: full row order, IDs through trusted index, candidate equality, subset, uniqueness and finite scores"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1b2cd5935388884f15304e51a9e00f6f88fc895e60c82bd6ec4d35eeed28621
+size 618

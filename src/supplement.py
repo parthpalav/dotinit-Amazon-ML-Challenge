@@ -9,17 +9,23 @@ import time
 import numpy as np
 import pandas as pd
 from .disk_store import NativeIndex,ENTRY,COLUMNS,connect,rss_mb
+from .native_schema import supplement_source
 LOG=logging.getLogger(__name__)
 
 
 def build_supplement(config,split):
     directory=Path(config.working_dir)/split;manifest_path=directory/'supplement_manifest.json'
-    source=Path(__file__).parent/'native/supplement.cpp'
+    source=supplement_source()
     signature=hashlib.sha256((source.read_text(encoding='utf-8')+(source.parent/'index.cpp').read_text(encoding='utf-8')).encode()).hexdigest()
     if manifest_path.exists():
         existing=json.loads(manifest_path.read_text(encoding='utf-8'))
         if existing['native_sha256']!=signature:raise ValueError('Supplement changed; use a fresh working_dir')
         return existing
+    # Packed text is rewritten below: reject symlinks/hardlinks to preserved assets.
+    for name in ['entity_id.bin','name_norm.bin','address_norm.bin','entity_id_offsets.npy','name_norm_offsets.npy','address_norm_offsets.npy','countries.npy']:
+        target=directory/name
+        if target.is_symlink() or (target.exists() and target.stat().st_nlink>1):
+            raise ValueError(f'Refusing to rewrite shared packed asset {target}; use a fresh working directory with private packed outputs')
     con=connect(directory/'records.sqlite',readonly=True);count=con.execute('SELECT COUNT(*) FROM targets').fetchone()[0]
     native=NativeIndex(Path(config.working_dir)/'native',supplemental=True);started=time.time()
     offsets={field:np.lib.format.open_memmap(directory/f'{field}_offsets.npy',mode='w+',dtype=np.uint64,shape=(count+1,)) for field in ('entity_id','name_norm','address_norm')}

@@ -1,0 +1,144 @@
+{
+  "total_diagnostic_misses": 784,
+  "standard_baseline": {
+    "recovered_in_cap64": 414,
+    "dropped_by_cap": 85,
+    "not_in_raw": 285
+  },
+  "dropped_pairs_analysis": {
+    "avg_pool_size": 2741.5176470588235,
+    "avg_rank_pos": 175.6,
+    "mask_counts": {
+      "192": 11,
+      "128": 43,
+      "196": 2,
+      "144": 9,
+      "193": 1,
+      "264": 2,
+      "16": 1,
+      "64": 5,
+      "265": 1,
+      "8": 3,
+      "132": 1,
+      "256": 1,
+      "1": 1,
+      "208": 2,
+      "385": 1,
+      "68": 1
+    }
+  },
+  "experiments": [
+    {
+      "method": "phonetic_boost_0.05",
+      "rescued_from_85": 14,
+      "total_diagnostic_recovered": 420,
+      "regressed_prior_recovered": 8,
+      "net_gain": 6
+    },
+    {
+      "method": "phonetic_boost_0.10",
+      "rescued_from_85": 16,
+      "total_diagnostic_recovered": 414,
+      "regressed_prior_recovered": 16,
+      "net_gain": 0
+    },
+    {
+      "method": "phonetic_boost_0.15",
+      "rescued_from_85": 17,
+      "total_diagnostic_recovered": 413,
+      "regressed_prior_recovered": 18,
+      "net_gain": -1
+    },
+    {
+      "method": "phonetic_boost_0.20",
+      "rescued_from_85": 18,
+      "total_diagnostic_recovered": 413,
+      "regressed_prior_recovered": 19,
+      "net_gain": -1
+    },
+    {
+      "method": "phonetic_boost_0.25",
+      "rescued_from_85": 19,
+      "total_diagnostic_recovered": 413,
+      "regressed_prior_recovered": 20,
+      "net_gain": -1
+    },
+    {
+      "method": "phonetic_boost_0.30",
+      "rescued_from_85": 20,
+      "total_diagnostic_recovered": 411,
+      "regressed_prior_recovered": 23,
+      "net_gain": -3
+    },
+    {
+      "method": "phonetic_boost_0.50",
+      "rescued_from_85": 20,
+      "total_diagnostic_recovered": 406,
+      "regressed_prior_recovered": 28,
+      "net_gain": -8
+    },
+    {
+      "method": "reserved_slots_2",
+      "rescued_from_85": 7,
+      "total_diagnostic_recovered": 92,
+      "regressed_prior_recovered": 329,
+      "net_gain": -322
+    },
+    {
+      "method": "reserved_slots_4",
+      "rescued_from_85": 7,
+      "total_diagnostic_recovered": 184,
+      "regressed_prior_recovered": 237,
+      "net_gain": -230
+    },
+    {
+      "method": "reserved_slots_8",
+      "rescued_from_85": 7,
+      "total_diagnostic_recovered": 315,
+      "regressed_prior_recovered": 106,
+      "net_gain": -99
+    },
+    {
+      "method": "reserved_slots_12",
+      "rescued_from_85": 7,
+      "total_diagnostic_recovered": 347,
+      "regressed_prior_recovered": 74,
+      "net_gain": -67
+    },
+    {
+      "method": "reserved_slots_16",
+      "rescued_from_85": 6,
+      "total_diagnostic_recovered": 367,
+      "regressed_prior_recovered": 53,
+      "net_gain": -47
+    },
+    {
+      "method": "sxn_only_boost_0.10",
+      "rescued_from_85": 22,
+      "total_diagnostic_recovered": 384,
+      "regressed_prior_recovered": 52,
+      "net_gain": -30
+    },
+    {
+      "method": "sxn_only_boost_0.15",
+      "rescued_from_85": 22,
+      "total_diagnostic_recovered": 377,
+      "regressed_prior_recovered": 59,
+      "net_gain": -37
+    },
+    {
+      "method": "sxn_only_boost_0.20",
+      "rescued_from_85": 22,
+      "total_diagnostic_recovered": 372,
+      "regressed_prior_recovered": 64,
+      "net_gain": -42
+    },
+    {
+      "method": "sxn_only_boost_0.25",
+      "rescued_from_85": 22,
+      "total_diagnostic_recovered": 370,
+      "regressed_prior_recovered": 66,
+      "net_gain": -44
+    }
+  ]
+}

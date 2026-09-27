@@ -1,0 +1,60 @@
+{
+  "baseline_veto": {
+    "threshold": 0.6750000000000003,
+    "precision": 0.9593125,
+    "recall": 0.8753849603174604,
+    "f0.5": 0.9306737985594787,
+    "f1": 0.9025927982354762,
+    "singleton_accuracy": 0.8996212121212122,
+    "true_positive": 30330,
+    "false_positive": 873,
+    "false_negative": 4346,
+    "true_negative_all_possible": 103202154451,
+    "false_positive_rate": 8.459125657397787e-09,
+    "predicted_positive": 31203,
+    "predicted_negative_candidates": 288753,
+    "predicted_positive_rate": 0.09752278438285264
+  },
+  "arbitration_target_only": {
+    "threshold": 0.6750000000000003,
+    "max_target_claims": 1,
+    "duplicate_target_claims": 0,
+    "correctness_passed": true,
+    "precision": 0.9593125,
+    "recall": 0.8753849603174604,
+    "f0.5": 0.9306737985594787,
+    "f1": 0.9025927982354762,
+    "singleton_accuracy": 0.8996212121212122,
+    "true_positive": 30330,
+    "false_positive": 873,
+    "false_negative": 4346,
+    "true_negative_all_possible": 103202154451,
+    "false_positive_rate": 8.459125657397787e-09,
+    "predicted_positive": 31203,
+    "predicted_negative_candidates": 288753,
+    "predicted_positive_rate": 0.09752278438285264
+  },
+  "arbitration_strict_per_source_1": {
+    "threshold": 0.47500000000000014,
+    "max_target_claims": 1,
+    "duplicate_target_claims": 0,
+    "correctness_passed": true,
+    "precision": 0.9712,
+    "recall": 0.5639680158730159,
+    "f0.5": 0.8176046884488061,
+    "f1": 0.6852121284271285,
+    "singleton_accuracy": 0.8428030303030303,
+    "true_positive": 16615,
+    "false_positive": 292,
+    "false_negative": 18061,
+    "true_negative_all_possible": 103202155032,
+    "false_positive_rate": 2.8293982725774957e-09,
+    "predicted_positive": 16907,
+    "predicted_negative_candidates": 303049,
+    "predicted_positive_rate": 0.05284164072559977
+  },
+  "findings": {
+    "target_uniqueness_verified": true,
+    "per_source_recall_regression_reason": "In the Amazon ML Challenge dataset, each business entity has multiple valid target fragments in S2 and S3 (52% of S1 anchors match >1 S2 record, and 59% match >1 S3 record in ground truth). Restricting an anchor to at most 1 match per source artificially cuts recall from 87.54% down to 56.40% and drops 13,715 true positives. In contrast, target-only uniqueness strictly preserves true multi-matches while guaranteeing zero duplicate target assignments across anchors."
+  }
+}

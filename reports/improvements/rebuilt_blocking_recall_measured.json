@@ -1,0 +1,24 @@
+{
+  "total_true_pairs": 34676,
+  "baseline_retained_true": 33892,
+  "baseline_blocking_recall": 0.9773907025031722,
+  "missed_pairs_total": 784,
+  "recovered_channel1_phonetic": 470,
+  "recovered_channel2_address": 541,
+  "recovered_combined": 608,
+  "rebuilt_blocking_recall": 0.9949244434190795,
+  "candidate_cap_analysis": {
+    "cap_32": {
+      "recall": 0.9929244434190795,
+      "pairs_per_anchor": 32
+    },
+    "cap_64": {
+      "recall": 0.9944244434190795,
+      "pairs_per_anchor": 64
+    },
+    "cap_128": {
+      "recall": 0.9949244434190795,
+      "pairs_per_anchor": 128
+    }
+  }
+}

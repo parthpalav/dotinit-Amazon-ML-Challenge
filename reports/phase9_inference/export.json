@@ -1,0 +1,17 @@
+{
+  "anchors": 1732544,
+  "scored_pairs": 55431940,
+  "matched_pairs": 5403640,
+  "singletons": 98253,
+  "model": {
+    "path": "artifacts/improvements/phase9_true_control_20260926T152905058159Z.joblib",
+    "bytes": 6530634,
+    "mtime": "2026-09-26T15:30:15.565006+00:00",
+    "sha256": "01ce4e9be779db7b80a520aaca793e219c80603de8ac8aae2717484f9a316768"
+  },
+  "threshold": 0.5500000000000002,
+  "margin_delta": 0.2,
+  "global_target_uniqueness": true,
+  "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+  "matching_sha256": "886e0ea77e0093923334b4d556197f1344d2eb6492b14ccf9bbd4e0453c19d95"
+}

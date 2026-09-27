@@ -1,0 +1,59 @@
+{
+  "baseline": "F:/dotinit-Amazon-ML-Challenge/outputs/improved_unique_owner/matching_results.tsv",
+  "current": "outputs/campaign_0931_oof_unique/matching_results.tsv",
+  "interpretation": "Prediction changes only. Test labels are unavailable; added/removed matches are not measured true/false positives. France has no labeled confirmation estimate.",
+  "by_country": {
+    "US": {
+      "anchors": 663106,
+      "old_matches": 2091035,
+      "new_matches": 2218776,
+      "retained_matches": 2072569,
+      "added_matches": 146207,
+      "removed_matches": 18466,
+      "changed_anchors": 119218,
+      "old_singletons": 42974,
+      "new_singletons": 41670,
+      "singleton_to_matched": 2725,
+      "matched_to_singleton": 1421
+    },
+    "ALL": {
+      "anchors": 1732544,
+      "old_matches": 5431304,
+      "new_matches": 5753928,
+      "retained_matches": 5326001,
+      "added_matches": 427927,
+      "removed_matches": 105303,
+      "changed_anchors": 385094,
+      "old_singletons": 114298,
+      "new_singletons": 108973,
+      "singleton_to_matched": 11677,
+      "matched_to_singleton": 6352
+    },
+    "France": {
+      "anchors": 259452,
+      "old_matches": 869115,
+      "new_matches": 874265,
+      "retained_matches": 846816,
+      "added_matches": 27449,
+      "removed_matches": 22299,
+      "changed_anchors": 40380,
+      "old_singletons": 13570,
+      "new_singletons": 13632,
+      "singleton_to_matched": 706,
+      "matched_to_singleton": 768
+    },
+    "India": {
+      "anchors": 809986,
+      "old_matches": 2471154,
+      "new_matches": 2660887,
+      "retained_matches": 2406616,
+      "added_matches": 254271,
+      "removed_matches": 64538,
+      "changed_anchors": 225496,
+      "old_singletons": 57754,
+      "new_singletons": 53671,
+      "singleton_to_matched": 8246,
+      "matched_to_singleton": 4163
+    }
+  }
+}

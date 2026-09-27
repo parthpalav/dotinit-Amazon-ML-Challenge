@@ -1,0 +1,14 @@
+{
+  "status": "rebuilt_index_success",
+  "supplement_manifest": {
+    "records": 10320219,
+    "native_sha256": "4e8d06ea4e37c9644974ab640da42ef8223f5a517d35a41843587686de414b22",
+    "seconds": 352.65060091018677,
+    "peak_rss_mb": 1291.84375,
+    "index_bytes": 3424140360
+  },
+  "missed_pairs_evaluated": 784,
+  "missed_pairs_recovered": 414,
+  "recovery_pct": 52.81,
+  "projected_candidate_recall": 0.9893297958242012
+}

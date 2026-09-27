@@ -1,0 +1,59 @@
+{
+  "baseline": "outputs/campaign_0931_oof_unique/matching_results.tsv",
+  "current": "outputs/campaign_0931_oof_alias_unique/matching_results.tsv",
+  "interpretation": "Prediction changes only. Test labels are unavailable; added/removed matches are not measured true/false positives. France has no labeled confirmation estimate.",
+  "by_country": {
+    "US": {
+      "anchors": 663106,
+      "old_matches": 2218776,
+      "new_matches": 2218948,
+      "retained_matches": 2218776,
+      "added_matches": 172,
+      "removed_matches": 0,
+      "changed_anchors": 170,
+      "old_singletons": 41670,
+      "new_singletons": 41670,
+      "singleton_to_matched": 0,
+      "matched_to_singleton": 0
+    },
+    "ALL": {
+      "anchors": 1732544,
+      "old_matches": 5753928,
+      "new_matches": 5768373,
+      "retained_matches": 5753928,
+      "added_matches": 14445,
+      "removed_matches": 0,
+      "changed_anchors": 12259,
+      "old_singletons": 108973,
+      "new_singletons": 108973,
+      "singleton_to_matched": 0,
+      "matched_to_singleton": 0
+    },
+    "France": {
+      "anchors": 259452,
+      "old_matches": 874265,
+      "new_matches": 874528,
+      "retained_matches": 874265,
+      "added_matches": 263,
+      "removed_matches": 0,
+      "changed_anchors": 249,
+      "old_singletons": 13632,
+      "new_singletons": 13632,
+      "singleton_to_matched": 0,
+      "matched_to_singleton": 0
+    },
+    "India": {
+      "anchors": 809986,
+      "old_matches": 2660887,
+      "new_matches": 2674897,
+      "retained_matches": 2660887,
+      "added_matches": 14010,
+      "removed_matches": 0,
+      "changed_anchors": 11840,
+      "old_singletons": 53671,
+      "new_singletons": 53671,
+      "singleton_to_matched": 0,
+      "matched_to_singleton": 0
+    }
+  }
+}

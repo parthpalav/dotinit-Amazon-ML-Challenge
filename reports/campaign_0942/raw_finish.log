@@ -1,0 +1,27 @@
+START raw_production
+RAW_SCORING_DONE 0 18.088630199432373
+START raw_export
+{
+  "anchors": 1732544,
+  "pairs": 55431940,
+  "matches": 5685947,
+  "empty": 108690,
+  "unique_owner": true,
+  "threshold": 0.7250000000000003,
+  "model_sha256": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49",
+  "candidate_sha256": "02443eb8cf3cf652fb4eaf104b7dfe1ff8775ef86eb9719d2e98264952780c20",
+  "duplicate_target_ids": 0,
+  "excess_target_assignments": 0,
+  "matching_sha256": "b261646dd222fbc210aea72b13c90c28dc3880b1de15ecb2e4727f0413891936",
+  "streaming_validation": "PASS: full row order, IDs through trusted index, candidate equality, subset, uniqueness and finite scores"
+}
+START raw_official_validation
+ML Challenge 2026 — submission validator
+  test dir: dataset/test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (108690 empty, 1623854 non-empty).
+
+WARNING: output/candidate_pairs.tsv not found — skipping candidate_pairs.tsv checks. It is optional here, but your final submission zip must include output/candidate_pairs.tsv.
+PASS — no blocking issues found. Safe to submit.
+READY outputs\campaign_0942_raw_unique\matching_results.tsv

@@ -1,0 +1,29 @@
+{
+  "recipe": {
+    "model": "raw_minimal_d7",
+    "weight": 1.0,
+    "threshold": 0.7250000000000003,
+    "trees": 1353,
+    "seconds": 11.76484751701355,
+    "precision": 0.9806462962962963,
+    "recall": 0.9301095238095237,
+    "f0.5": 0.9649040117538111,
+    "f1": 0.9480451154509977,
+    "singleton_accuracy": 0.9761904761904762,
+    "true_positive": 9823,
+    "false_positive": 91,
+    "false_negative": 714,
+    "true_negative_all_possible": 30960646372,
+    "false_positive_rate": 2.939215113248716e-09,
+    "predicted_positive": 9914,
+    "predicted_negative_candidates": 86074,
+    "predicted_positive_rate": 0.1032837438013085
+  },
+  "model_hash": "bea73e23c5e8721cb2cb95139bd59a1b05fd02899e1e25fd0c7bdcf869a4da49",
+  "feature_hash": "6afca1dcea38cd8789032fa55ac46e260423843df80a76e4ddc707d2511e427c",
+  "gate": [
+    0.005,
+    0.9999
+  ],
+  "validation": "Same unused v5 as the full correction; frozen before v5 labels/scores inspected. Two fixed model hypotheses; use 97.5% paired interval."
+}

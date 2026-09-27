@@ -1,0 +1,5 @@
+START test_records_build
+TEST_RECORDS_PARITY {"rows": 4004, "all_fields_exact": true, "adapter_hash": "1c380b2aeba2b317b1b6a3cfc7e8d14c7b5fe740661708d6e2210c17abd33641", "manifest_hash": "b7aac54c5a9924e605781e846bb91253d5ac9116171d7e4053648a16cf051bef"}
+START neural_production
+NEURAL_DEVICE NVIDIA GeForce RTX 4060 Laptop GPU
+NEURAL_TEST {"last_completed_anchor": 3000, "anchors_this_run": 1000, "neural_pairs_this_run": 5985, "seconds": 16.3925039768219, "anchors_per_second": 61.00349290224026, "estimated_remaining_seconds": 28351.556898088456, "complete": false, "device": "NVIDIA GeForce RTX 4060 Laptop GPU"}

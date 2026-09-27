@@ -1,0 +1,20 @@
+{
+  "below_gate": {
+    "pairs": 131956,
+    "true": 27,
+    "raw_FP": 0,
+    "raw_FN": 27
+  },
+  "gated": {
+    "pairs": 26198,
+    "true": 14922,
+    "raw_FP": 143,
+    "raw_FN": 715
+  },
+  "above_gate": {
+    "pairs": 1804,
+    "true": 1804,
+    "raw_FP": 0,
+    "raw_FN": 0
+  }
+}

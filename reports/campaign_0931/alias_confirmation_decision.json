@@ -1,0 +1,49 @@
+{
+  "recipe": {
+    "seed_probability": 0.95,
+    "max_name_posting": 20,
+    "new_pair_threshold": 0.975,
+    "existing_pair_threshold": 0.6000000000000002,
+    "model_sha256": "b770fd7bea838e53f69a6f3dcdbdd3917520034d46dbfa6a3b045f0fbff20651",
+    "code_sha256": "9b2506533934e78c7fe71802efaaf6cce516ab4d46b7721389e289f4b58dd802",
+    "selection_note": "Default .60 on added pairs reduced selection F0.5. A separate added-pair threshold .975 selected on original validation gives +.000397, +63 TP and +6 FP. Requires positive paired confirmation before deployment."
+  },
+  "old": {
+    "precision": 0.9747057142857144,
+    "recall": 0.927799191919192,
+    "f0.5": 0.9595655990423193,
+    "f1": 0.9437498546877959,
+    "singleton_accuracy": 0.9468085106382979,
+    "true_positive": 16040,
+    "false_positive": 214,
+    "false_negative": 1208,
+    "true_negative_all_possible": 51601077538,
+    "false_positive_rate": 4.1472002005172385e-09,
+    "predicted_positive": 16254,
+    "predicted_negative_candidates": 143708,
+    "predicted_positive_rate": 0.10161163276278116
+  },
+  "new": {
+    "precision": 0.974712380952381,
+    "recall": 0.9294744300144299,
+    "f0.5": 0.9601440893416855,
+    "f1": 0.9448619758999172,
+    "singleton_accuracy": 0.9468085106382979,
+    "true_positive": 16077,
+    "false_positive": 214,
+    "false_negative": 1171,
+    "true_negative_all_possible": 51601077538,
+    "false_positive_rate": 4.1472002005172385e-09,
+    "predicted_positive": 16291,
+    "predicted_negative_candidates": 153065,
+    "predicted_positive_rate": 0.09619381657573396
+  },
+  "paired_delta": 0.0005784902993662585,
+  "paired_95ci": [
+    0.000327332305020924,
+    0.000896444247828519
+  ],
+  "new_accepted_true": 37,
+  "new_accepted_false": 0,
+  "promotion_supported": true
+}

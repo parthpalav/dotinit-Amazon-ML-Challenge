@@ -1,0 +1,7 @@
+{
+  "anchors": 10000,
+  "pairs": 319956,
+  "exact_selected_pair_parity": true,
+  "selected_pairs": 30811,
+  "stack": "global target arbitration, margin .2 after arbitration, exact threshold"
+}

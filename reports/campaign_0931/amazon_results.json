@@ -1,0 +1,11 @@
+{
+  "reported_date": "2026-09-27",
+  "source": "user-reported Amazon evaluation",
+  "reported_precision_digits": 3,
+  "previous_best": 0.931,
+  "main": 0.942,
+  "alias": 0.942,
+  "gain_over_previous": 0.011,
+  "interpretation": "Main and alias remain best at 0.942. The France-only rollback submission scored 0.941, so reverting France did not improve the result. These are overall submission scores, not country-specific scores.",
+  "france_rollback_submission": 0.941
+}

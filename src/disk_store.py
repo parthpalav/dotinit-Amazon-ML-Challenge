@@ -15,6 +15,7 @@ import numpy as np
 import pandas as pd
 from .data_loader import check_required_files, parse_ids
 from .normalization import normalize_business_name, normalize_address, normalize_text
+from .native_schema import supplement_source, validate_supplement_schema
 
 LOG = logging.getLogger(__name__)
 WIDTH = 24
@@ -35,8 +36,10 @@ def rss_mb():
 class NativeIndex:
     def __init__(self, directory: str | Path, index_path=None, supplemental=False):
         directory=Path(directory); directory.mkdir(parents=True,exist_ok=True)
-        source=Path(__file__).parent/'native'/('supplement.cpp' if supplemental else 'index.cpp')
-        digest=hashlib.sha256((source.read_text(encoding='utf-8')+(source.parent/'index.cpp').read_text(encoding='utf-8')).encode()).hexdigest()[:16]
+        source=supplement_source() if supplemental else Path(__file__).parent/'native/index.cpp'
+        full_digest=hashlib.sha256((source.read_text(encoding='utf-8')+(source.parent/'index.cpp').read_text(encoding='utf-8')).encode()).hexdigest()
+        if supplemental:validate_supplement_schema(directory,index_path,full_digest)
+        digest=full_digest[:16]
         self.width=64 if supplemental else WIDTH
         suffix='.dll' if sys.platform=='win32' else '.dylib' if sys.platform=='darwin' else '.so'
         library=directory/f'libber-{digest}{suffix}'

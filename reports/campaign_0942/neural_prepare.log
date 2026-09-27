@@ -1,0 +1,37 @@
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files:  17%|█▋        | 1/6 [00:00<00:01,  2.62it/s]Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+
+Fetching 6 files:  50%|█████     | 3/6 [00:00<00:00,  6.21it/s]
+Fetching 6 files:  83%|████████▎ | 5/6 [00:00<00:00,  7.03it/s]
+Fetching 6 files:  83%|████████▎ | 5/6 [00:20<00:04,  4.00s/it]
+Fetching 6 files: 100%|██████████| 6/6 [01:51<00:00, 18.52s/it]
+Fetching 6 files: 100%|██████████| 6/6 [01:51<00:00, 18.52s/it]
+NEURAL_TOKENIZED 0 105328
+NEURAL_TOKENIZED 4000 105328
+NEURAL_TOKENIZED 8000 105328
+NEURAL_TOKENIZED 12000 105328
+NEURAL_TOKENIZED 16000 105328
+NEURAL_TOKENIZED 20000 105328
+NEURAL_TOKENIZED 24000 105328
+NEURAL_TOKENIZED 28000 105328
+NEURAL_TOKENIZED 32000 105328
+NEURAL_TOKENIZED 36000 105328
+NEURAL_TOKENIZED 40000 105328
+NEURAL_TOKENIZED 44000 105328
+NEURAL_TOKENIZED 48000 105328
+NEURAL_TOKENIZED 52000 105328
+NEURAL_TOKENIZED 56000 105328
+NEURAL_TOKENIZED 60000 105328
+NEURAL_TOKENIZED 64000 105328
+NEURAL_TOKENIZED 68000 105328
+NEURAL_TOKENIZED 72000 105328
+NEURAL_TOKENIZED 76000 105328
+NEURAL_TOKENIZED 80000 105328
+NEURAL_TOKENIZED 84000 105328
+NEURAL_TOKENIZED 88000 105328
+NEURAL_TOKENIZED 92000 105328
+NEURAL_TOKENIZED 96000 105328
+NEURAL_TOKENIZED 100000 105328
+NEURAL_TOKENIZED 104000 105328

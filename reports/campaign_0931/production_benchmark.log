@@ -1,0 +1,13 @@
+CONTEXT_SCORED {"last_completed_anchor": 1000, "anchors_processed_this_run": 1000, "seconds": 19.789929151535034, "anchors_per_second": 50.530751896220586, "estimated_remaining_seconds": 34267.13308276558, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 2000, "anchors_processed_this_run": 2000, "seconds": 19.796591997146606, "anchors_per_second": 101.0274899986963, "estimated_remaining_seconds": 17129.43675055504, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 3000, "anchors_processed_this_run": 3000, "seconds": 19.857759475708008, "anchors_per_second": 151.0744454161558, "estimated_remaining_seconds": 11448.289584884642, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 4000, "anchors_processed_this_run": 4000, "seconds": 19.865758180618286, "anchors_per_second": 201.35148951438143, "estimated_remaining_seconds": 8584.709277139664, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 5000, "anchors_processed_this_run": 5000, "seconds": 19.872758150100708, "anchors_per_second": 251.6007069695387, "estimated_remaining_seconds": 6866.212821131516, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 6000, "anchors_processed_this_run": 6000, "seconds": 19.87675929069519, "anchors_per_second": 301.86007247211325, "estimated_remaining_seconds": 5719.683248799006, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 7000, "anchors_processed_this_run": 7000, "seconds": 31.404335737228394, "anchors_per_second": 222.89915821087794, "estimated_remaining_seconds": 7741.366157908576, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 8000, "anchors_processed_this_run": 8000, "seconds": 31.58551263809204, "anchors_per_second": 253.2806762285068, "estimated_remaining_seconds": 6808.825788368225, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 9000, "anchors_processed_this_run": 9000, "seconds": 31.58891797065735, "anchors_per_second": 284.91004371723074, "estimated_remaining_seconds": 6049.43222609096, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 10000, "anchors_processed_this_run": 10000, "seconds": 31.616984605789185, "anchors_per_second": 316.28569658628874, "estimated_remaining_seconds": 5446.164713079453, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 11000, "anchors_processed_this_run": 11000, "seconds": 31.620970010757446, "anchors_per_second": 347.87041625408085, "estimated_remaining_seconds": 4948.808290563583, "complete": false}
+CONTEXT_SCORED {"last_completed_anchor": 12000, "anchors_processed_this_run": 12000, "seconds": 31.64599061012268, "anchors_per_second": 379.19495546337964, "estimated_remaining_seconds": 4537.359939025243, "complete": false}
+CONTEXT_SCORING_FINISHED 12000 31.980623483657837

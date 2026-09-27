@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/parthspalav/Documents/College/Hackathons/Amazon ML Challenge/dotinit-Amazon-ML-Challenge-main/.venv/bin/python",
+    "vendor/student_resource/utils/validate_submission.py",
+    "--matching",
+    "outputs/phase9_submission/matching_results.tsv",
+    "--candidate",
+    "outputs/phase9_submission/candidate_pairs.tsv",
+    "--test-dir",
+    "../student_resource/dataset/test",
+    "--check-ids"
+  ],
+  "exit_code": 0
+}
